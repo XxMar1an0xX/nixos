@@ -107,7 +107,7 @@
     isNormalUser = true;
     description = "portable";
     extraGroups = ["networkmanager" "wheel"];
-    initialHashedPassword = "$y$j9T$2IzOwmXXu6NRasZ3JCYtT/$JTx4TCrxag71mfE/syukCQilHVANGFVF3gQ6CQchi4.";
+    hashedPassword = "$y$j9T$FBd2m8UD9gZQFSBLZlk.N0$URtutPSPulECzvPHX5.Q2quC4VFSL.nYN7/jCj5Kky6";
     packages = with pkgs; [
       #  thunderbird
     ];
