@@ -18,6 +18,17 @@
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   qt.enable = true;
+  gtk.enable = true;
+  gtk.gtk3.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
+  gtk.gtk4.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.

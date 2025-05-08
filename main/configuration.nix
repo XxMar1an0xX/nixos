@@ -30,7 +30,6 @@
     # backupFileExtension = "backup" ;
     #de-comentar si se rompe home-manager
   };
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

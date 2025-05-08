@@ -39,6 +39,8 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./Configuracion_portable/configuration.nix
+          inputs.home-manager.nixosModules.default
+          stylix.nixosModules.stylix
         ];
       };
     };
