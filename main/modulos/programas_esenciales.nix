@@ -82,4 +82,14 @@
 
   #nix ld
   programs.nix-ld.enable = true;
+
+#NOTE: flakes
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs.config.allowUnfree = true;
+
+#NOTE: teclado (hacerlo modulo custom)
+  services.xserver.xkb = {
+    layout = "latam";
+    variant = "";
+  };
 }
