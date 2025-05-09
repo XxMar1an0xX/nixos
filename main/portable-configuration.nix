@@ -9,10 +9,7 @@
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
     inputs.home-manager.nixosModules.default
     ./modulos/usuario-ruiz.nix
-    ./modulos/config_base.nix
     ./modulos/Estetica/stylix.nix
-    ./portable-configuration.nix
-    ./modulos/funcionalidad/firefox.nix
     ];
 
 
@@ -31,11 +28,11 @@
       enable = true;
       unmanaged = ["*-foo-bar"];
     };
+  };
 
 #NOTE: habilitar GNOME 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  };
 
 #NOTE: habilitar sonido
   services.pulseaudio.enable = false;
@@ -69,19 +66,10 @@
 #NOTE: xserve
   services.xserver.enable = true;
 
-#NOTE: setupear modo oscuro
-  gtk.enable = true;
-  gtk.gtk3.extraConfig = {
-    Settings = ''
-      gtk-application-prefer-dark-theme=1
-    '';
-  };
-  gtk.gtk4.extraConfig = {
-    Settings = ''
-      gtk-application-prefer-dark-theme=1
-    '';
-  };
+  nixpkgs.hostPlatform = "x86_64-linux";
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   system.stateVersion = "24.11";
   }

@@ -5,8 +5,9 @@
   ...
 }:{
   imports = [
-    ./nixvim/nixvim.nix
-    ./modulos/estetica/stylix-hm.nix
+  ./miNixvim/nixvim.nix
+  ./modulos/Estetica/stylix-hm.nix
+    ./modulos/funcionalidad/firefox.nix
   ];
   home = {
     username = "Ruiz";
@@ -87,4 +88,16 @@
   programs.home-manager.enable = true;
   wayland.windowManager.hyprland.enable = true;
 
+#NOTE: setupear modo oscuro
+  gtk.enable = true;
+  gtk.gtk3.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
+  gtk.gtk4.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
   }

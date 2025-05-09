@@ -35,10 +35,10 @@
           stylix.nixosModules.stylix
         ];
       };
-      portableUSB = nixpkgs.lib.nixosSystem {
+      portable = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./Configuracion_portable/configuration.nix
+        ./portable-configuration.nix
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
         ];
