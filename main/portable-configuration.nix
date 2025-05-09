@@ -10,6 +10,7 @@
     inputs.home-manager.nixosModules.default
     ./modulos/usuario-ruiz.nix
     ./modulos/Estetica/stylix.nix
+    ./modulos/programas_esenciales.nix
     ];
 
 
