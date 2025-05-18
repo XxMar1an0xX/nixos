@@ -23,6 +23,7 @@
     bc
     alejandra
     nomacs
+    whatsie
   ];
 
   # localsend
@@ -83,13 +84,19 @@
   #nix ld
   programs.nix-ld.enable = true;
 
-#NOTE: flakes
+  #NOTE: flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
 
-#NOTE: teclado (hacerlo modulo custom)
+  #NOTE: teclado (hacerlo modulo custom)
   services.xserver.xkb = {
     layout = "latam";
     variant = "";
+  };
+
+  #NOTE: nix-helper
+  programs.nh = {
+    enable = true;
+    flake = "/../../etc/nixos";
   };
 }

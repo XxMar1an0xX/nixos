@@ -40,7 +40,12 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    # environment = {
+    #   "FLAKE" = "/etc/nixos";
+    # };
+  };
   home.packages = with pkgs; [
     nerd-fonts._0xproto
     nerd-fonts._3270
