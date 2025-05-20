@@ -97,6 +97,6 @@
   #NOTE: nix-helper
   programs.nh = {
     enable = true;
-    flake = "/../../etc/nixos";
+    flake = "/home/portable/Documentos/GitHub/nixos/main/";
   };
 }
