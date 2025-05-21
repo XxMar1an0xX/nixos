@@ -8,14 +8,11 @@
   # manage.
   imports = [
     ./../../elnixvim/nixvim.nix
-    ./../../modulos/home
-    manager/stylix-hm.nix
-    ./../../modulos/home
-    manager/funcionalidad/firefox.nix
+    ./../../modulos/home-manager/stylix-hm.nix
+    ./../../modulos/home-manager/funcionalidad/firefox.nix
 
     # ./modulos/gnome_personalizacion.nix
-    ./../../modulos/home
-    manager/funcionalidad/hyperland.nix
+    ./../../modulos/home-manager/funcionalidad/hyperland.nix
   ];
   home.username = "portable";
   home.homeDirectory = "/home/portable";
