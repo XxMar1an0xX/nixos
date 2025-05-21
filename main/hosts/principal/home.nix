@@ -7,11 +7,15 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
-    ./miNixvim/nixvim.nix
+    ./../../elnixvim/nixvim.nix
+    ./../../modulos/home
+    manager/stylix-hm.nix
+    ./../../modulos/home
+    manager/funcionalidad/firefox.nix
+
     # ./modulos/gnome_personalizacion.nix
-    ./modulos/Estetica/stylix-hm.nix
-    ./modulos/funcionalidad/hyperland.nix
-    ./modulos/funcionalidad/firefox.nix
+    ./../../modulos/home
+    manager/funcionalidad/hyperland.nix
   ];
   home.username = "portable";
   home.homeDirectory = "/home/portable";

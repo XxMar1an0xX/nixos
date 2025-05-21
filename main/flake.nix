@@ -30,7 +30,7 @@
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./configuration.nix
+          ./hosts/principal/configuration.nix
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
         ];
@@ -38,7 +38,7 @@
       portable = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-        ./portable-configuration.nix
+          ./hosts/portable/portable-configuration.nix
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
         ];

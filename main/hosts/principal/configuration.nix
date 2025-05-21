@@ -9,10 +9,13 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./../../modulos/nixconfig/programas_esenciales.nix
+    ./../../hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    ./modulos/config_base.nix
-    ./modulos/Estetica/stylix.nix
+    ./../../modulos/nixconfig/Estetica/stylix.nix
+    ./../../modulos/nixconfig/invidious.nix
+    ./../../modulos/nixconfig/limpieza_y_actualizacion.nix
+    ./../../modulos/nixconfig/usuario-ruiz.nix
   ];
 
   home-manager = {
@@ -27,7 +30,7 @@
       }
     ];
 
-    # backupFileExtension = "backup" ;
+    backupFileExtension = "backup";
     #de-comentar si se rompe home-manager
   };
   # Bootloader.
@@ -36,6 +39,7 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   qt.enable = true;
+  hardware.opengl.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -122,9 +126,16 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
-    kitty
   ];
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
