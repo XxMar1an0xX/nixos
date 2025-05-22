@@ -19,6 +19,7 @@
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
@@ -27,6 +28,7 @@
     nixpkgs,
     stylix,
     nix-on-droid,
+    home-manager,
     ...
   } @ inputs: {
     # formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -79,7 +81,7 @@
       };
 
       # set path to home-manager flake
-      home-manager-path = inputs.home-manager.outPath;
+      home-manager-path = home-manager.outPath;
     };
   };
 }
