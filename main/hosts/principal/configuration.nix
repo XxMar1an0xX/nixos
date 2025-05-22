@@ -30,7 +30,7 @@
       }
     ];
 
-    backupFileExtension = "backup";
+    # backupFileExtension = "holaqtal";
     #de-comentar si se rompe home-manager
   };
   # Bootloader.
@@ -126,10 +126,20 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    jamesdsp
+    seatd
   ];
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    # xwayland.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+    ];
   };
 
   environment.sessionVariables = {

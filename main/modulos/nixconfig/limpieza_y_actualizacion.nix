@@ -13,5 +13,5 @@
     dates = "monthly";
     options = "--delete-older-than 20d";
   };
-  nix.autoOptimiseStore = true;
+  nix.settings.auto-optimise-store = true;
 }
