@@ -67,7 +67,7 @@
       # list of extra special args for Nix-on-Droid modules
       extraSpecialArgs = {
         # rootPath = ./.;
-        inherit inputs;
+        # inherit inputs;
       };
 
       # set nixpkgs instance, it is recommended to apply `nix-on-droid.overlays.default`
