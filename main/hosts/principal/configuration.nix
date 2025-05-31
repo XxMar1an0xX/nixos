@@ -71,8 +71,6 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -131,9 +129,18 @@
   ];
   programs.hyprland = {
     enable = true;
-    # xwayland.enable = true;
+    xwayland.enable = true;
+  };
+  programs.hyprlock.enable = true;
+
+  services.displayManager = {
+    sddm.enable = true;
+    sddm.wayland.enable = true;
+    # gdm.enable = true;
   };
 
+  # services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
