@@ -75,7 +75,8 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "latam";
-    variant = "";
+    # variant = "";
+    model = "microsoftinet";
   };
 
   # Configure console keymap
@@ -127,20 +128,33 @@
     jamesdsp
     seatd
   ];
+
+  #NOTE: Hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
   programs.hyprlock.enable = true;
 
+  #NOTE: hyprland login
   services.displayManager = {
     sddm.enable = true;
     sddm.wayland.enable = true;
     # gdm.enable = true;
   };
 
+  #NOTE: script al inicio de login
+  systemd.user.services.autoinicio = {
+    description = "autoinicio al loguearse";
+    serviceConfig.PassEnvironment = "DISPLAY";
+    script = ''
+      hyprland
+    '';
+    wantedBy = ["multi-user.target"]; # starts after login
+  };
+
   # services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
