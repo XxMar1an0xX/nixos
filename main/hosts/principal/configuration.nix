@@ -7,7 +7,8 @@
   pkgs,
   ...
 }: {
-  imports = [
+  imports = let
+  in [
     # Include the results of the hardware scan.
     ./../../modulos/nixconfig/programas_esenciales.nix
     ./../../hardware-configuration.nix
@@ -16,6 +17,9 @@
     ./../../modulos/nixconfig/invidious.nix
     ./../../modulos/nixconfig/limpieza_y_actualizacion.nix
     ./../../modulos/nixconfig/usuario-ruiz.nix
+    ./../../modulos/nixconfig/nixai.nix
+    ./../../modulos/nixconfig/ollama.nix
+    ./../../modulos/nixconfig/VMs.nix
   ];
 
   home-manager = {
@@ -23,23 +27,24 @@
     users = {
       "portable" = import ./home.nix;
     };
-    sharedModules = [
-      {
-        # stylix.targets.kitty.enable = false;
-        stylix.targets.neovim.enable = false;
-      }
-    ];
+    # sharedModules = [
+    #   {
+    #     # stylix.targets.kitty.enable = false;
+    #     stylix.targets.neovim.enable = false;
+    #   }
+    # ];
 
     # backupFileExtension = "holaqtal";
     #de-comentar si se rompe home-manager
   };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   qt.enable = true;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -126,7 +131,7 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     jamesdsp
-    seatd
+    hyprpolkitagent
   ];
 
   #NOTE: Hyprland
@@ -152,6 +157,9 @@
     '';
     wantedBy = ["multi-user.target"]; # starts after login
   };
+  # security.polkit = {
+  #   enable = true;
+  # };
 
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
@@ -185,8 +193,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [53317];
-  networking.firewall.allowedUDPPorts = [53317];
+  networking.firewall.allowedTCPPorts = [53317 8081];
+  networking.firewall.allowedUDPPorts = [53317 8081];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

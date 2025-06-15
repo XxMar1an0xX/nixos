@@ -21,10 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    nixai.url = "github:olafkfreund/nix-ai-help";
   };
 
   outputs = {
-    self,
+    nixai,
     nixpkgs,
     stylix,
     nix-on-droid,
@@ -41,6 +42,13 @@
           ./hosts/principal/configuration.nix
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
+          nixai.nixosModules.default
+          # {
+          #   services.nixai = {
+          #     enable = true;
+          #     mcp.enable = true;
+          #   };
+          # }
         ];
       };
       portable = nixpkgs.lib.nixosSystem {
