@@ -1,6 +1,10 @@
-{}: {
-  imports = [
-  ];
+{
+  inputs,
+  lib,
+  specialArgs,
+  options,
+  ...
+}: {
   services.nixai = {
     enable = true;
     mcp = {
