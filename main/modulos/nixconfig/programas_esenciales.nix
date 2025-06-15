@@ -41,7 +41,14 @@
     plugins = with pkgs.xfce; [
       thunar-archive-plugin
       thunar-media-tags-plugin
+      thunar-volman
     ];
+  };
+  #NOTE: automount
+  services = {
+    udisks2.enable = true;
+    gvfs.enable = true;
+    devmon.enable = true;
   };
 
   # eliminando todas las aplicaciones chotas de GNOME
