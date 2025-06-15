@@ -5,6 +5,7 @@
 }: {
   stylix = {
     enable = true;
+    autoEnable = true;
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/sparky.yaml";
     base16Scheme = {
       scheme = "nordfox";
@@ -35,6 +36,13 @@
     };
     image = ./Wallpapers/wallpaperflare.com_wallpaper.jpg;
     imageScalingMode = "fill";
-    targets.nixvim.enable = false;
+    polarity = "dark";
+    targets = {
+      nixvim.enable = false;
+      # hyprland = {
+      #   enable = true;
+      #   hyprpaper.enable = true;
+      # };
+    };
   };
 }
