@@ -20,6 +20,7 @@
     ./../../modulos/nixconfig/nixai.nix
     ./../../modulos/nixconfig/ollama.nix
     ./../../modulos/nixconfig/VMs.nix
+    ./../../modulos/nixconfig/juegos.nix
   ];
 
   home-manager = {
@@ -173,6 +174,7 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    TERMINAL = "kitty";
   };
 
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
