@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     wofi
     hyprsysteminfo
+    hyprpaper
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -27,6 +28,7 @@
         "$terminal"
         "$browser"
         "systemctl --user start hyprpolkitagent"
+        "hyprpaper"
       ];
 
       # Variables de entorno (Enviroment variables)
@@ -133,6 +135,8 @@
         # kb_options = "";
         # kb_rules = "";
 
+        numlock_by_default = "true";
+
         follow_mouse = "1";
 
         sensitivity = "0";
@@ -153,13 +157,9 @@
 
       "$mainMod" = "SUPER"; #tecla windows como modificador
       bind = [
-        "$mainMod, Q, exec, $terminal"
-        "$mainMod, B, exec, librewolf"
         "$mainMod, C, killactive"
         "$mainMod, Escape, exit"
-        "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating"
-        "$mainMod, M, exec, $menu"
         "$mainMod, P, pseudo"
         "$mainMod, T, togglesplit"
 
@@ -204,8 +204,17 @@
         "$mainMod, mouse:273, resizeactive"
 
         "ALT, F4, forcekillactive"
-        "$mainMod, X, exec, shutdown -h now"
+
+        #NOTE: sistema general
+        "$mainMod Control SHIFT, X, exec, shutdown -h now"
+
+        #NOTE: keybinds de programas
         "$mainMod, N, exec, $terminal -e nvim Documentos/GitHub/nixos/main/"
+        "$mainMod, M, exec, $menu"
+        "$mainMod, E, exec, $fileManager"
+        "$mainMod, Q, exec, $terminal"
+        "$mainMod, B, exec, librewolf"
+        " , code:148, exec, qalculate-qt"
       ];
       binds = {
         drag_threshold = "5";

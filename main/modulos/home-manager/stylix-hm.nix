@@ -3,10 +3,9 @@
     nixvim.enable = false;
     xfce.enable = true;
     hyprland.enable = true;
-    hyprland.hyprpaper.enable = false;
+    hyprland.hyprpaper.enable = true;
   };
   stylix.polarity = "dark";
-  #NOTE: configuracion para gnome default dark
   # gtk = {
   #   enable = true;
   #   gtk3.extraConfig = {
