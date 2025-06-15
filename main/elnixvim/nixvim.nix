@@ -122,6 +122,9 @@
     enable = true;
     defaultEditor = true;
 
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     # You can easily change to a different colorscheme.
     # Add your colorscheme here and enable it.
     # Don't forget to disable the colorschemes you arent using
@@ -178,7 +181,7 @@
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=globals#opts
     opts = {
       # Show line numbers
-      # number = true;
+      number = true;
       # You can also add relative line numbers, to help with jumping.
       #  Experiment for yourself to see if you like it!
       relativenumber = true;
