@@ -29,6 +29,7 @@
         "$browser"
         "systemctl --user start hyprpolkitagent"
         "hyprpaper"
+        "waybar"
       ];
 
       # Variables de entorno (Enviroment variables)
@@ -207,6 +208,7 @@
 
         #NOTE: sistema general
         "$mainMod Control SHIFT, X, exec, shutdown -h now"
+        "$mainMod Control SHIFT, R, exec, reboot"
 
         #NOTE: keybinds de programas
         "$mainMod, N, exec, $terminal -e nvim Documentos/GitHub/nixos/main/"

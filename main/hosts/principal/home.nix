@@ -13,6 +13,7 @@
 
     # ./modulos/gnome_personalizacion.nix
     ./../../modulos/home-manager/funcionalidad/hyperland.nix
+    ./../../modulos/home-manager/funcionalidad/waybar.nix
   ];
   home.username = "portable";
   home.homeDirectory = "/home/portable";
