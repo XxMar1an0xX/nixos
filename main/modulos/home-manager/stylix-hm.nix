@@ -4,6 +4,10 @@
     xfce.enable = true;
     hyprland.enable = true;
     hyprland.hyprpaper.enable = true;
+    waybar = {
+      enable = true;
+      # enableRightBackColors = true;
+    };
   };
   stylix.polarity = "dark";
   # gtk = {
