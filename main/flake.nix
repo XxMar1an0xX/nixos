@@ -59,6 +59,14 @@
           stylix.nixosModules.stylix
         ];
       };
+
+      pruebas = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/pruebas/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       modules = [
