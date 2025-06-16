@@ -6,7 +6,7 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.default
-    ../../hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
