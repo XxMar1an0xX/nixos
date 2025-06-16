@@ -52,5 +52,6 @@
     config = ./home.nix;
     backupFileExtension = "hm-bak";
     useGlobalPkgs = true;
+    extraSpecialArgs = {inherit inputs;};
   };
 }
