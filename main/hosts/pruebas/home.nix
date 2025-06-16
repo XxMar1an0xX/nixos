@@ -9,7 +9,7 @@
   imports = [
   ];
   home.username = "ruiz";
-  home.homeDirectory = "/home/ruiz/";
+  home.homeDirectory = "/home/ruiz";
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   home.stateVersion = "24.05"; # Please read the comment before changing.
   fonts.fontconfig.enable = true;
