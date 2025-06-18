@@ -97,10 +97,18 @@
             ];
             formatting.command = ["alejandra"];
             options = {
-              nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
-              home-manager.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.portable";
+              nixos.expr =
+                "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options"
+                # || "(builtins.getFlake \"../../flake.nix\").nixosConfigurations.nixos.options";
+                ;
+              home-manager.expr =
+                "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.portable"
+                # || "(builtins.getFlake \"../../flake.nix\").nixosConfigurations.nixos.options.home-manager.users.value.portable";
+                ;
+
               nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.portable.programs.nixvim";
               # flake.expr = "(builtins.getFlake \"/etc/nixos\").";
+              nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
             };
             # nixpkgs = {
             #   expr = import <nixpkgs> {} ;

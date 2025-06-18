@@ -3,3 +3,4 @@ main/flake.lock
 main/result
 main/flake.lock
 *.lock
+.~lock..gitignore\#
