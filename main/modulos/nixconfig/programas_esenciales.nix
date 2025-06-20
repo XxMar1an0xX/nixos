@@ -24,6 +24,7 @@
     alejandra
     nomacs
     whatsie
+    cava
   ];
 
   # localsend
