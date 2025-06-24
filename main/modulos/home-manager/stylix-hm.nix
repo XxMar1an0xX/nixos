@@ -1,11 +1,21 @@
-{stylix, ...}: {
+{
+  stylix,
+  lib,
+  ...
+}: {
   stylix.targets = {
     nixvim.enable = false;
     xfce.enable = true;
     hyprland.enable = true;
     hyprland.hyprpaper.enable = true;
-    waybar = {
+    cava = {
       enable = true;
+      # rainbow = true;
+    };
+
+    waybar = {
+      enable = false;
+
       # enableRightBackColors = true;
     };
   };

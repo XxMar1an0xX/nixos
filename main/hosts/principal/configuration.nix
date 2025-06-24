@@ -5,10 +5,10 @@
   inputs,
   config,
   pkgs,
+  lib,
   ...
 }: {
-  imports = let
-  in [
+  imports = [
     # Include the results of the hardware scan.
     ./../../modulos/nixconfig/programas_esenciales.nix
     ./../../hardware-configuration.nix
@@ -16,20 +16,26 @@
     ./../../modulos/nixconfig/Estetica/stylix.nix
     ./../../modulos/nixconfig/invidious.nix
     ./../../modulos/nixconfig/limpieza_y_actualizacion.nix
-    ./../../modulos/nixconfig/usuario-ruiz.nix
+    ./../../modulos/nixconfig/usuario-portable.nix
     ./../../modulos/nixconfig/nixai.nix
     ./../../modulos/nixconfig/ollama.nix
     ./../../modulos/nixconfig/VMs.nix
     ./../../modulos/nixconfig/juegos.nix
     ./../../modulos/nixconfig/grub.nix
+
+    ./../../modulos/nixconfig/OpcionDePortable.nix
+    # ./../../modulos/portabilizacion/nixconfig.nix
   ];
+  # custom.HacerPortable = true;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "portable" = import ./home.nix;
+      "ruiz" = import ./home.nix;
     };
+
     # sharedModules = [
+
     #   {
     #     # stylix.targets.kitty.enable = false;
     #     stylix.targets.neovim.enable = false;
@@ -75,7 +81,7 @@
 
   # Enable the GNOME Desktop Environment.
 
-  # Configure keymap in X11
+  #NOTE: teclado (hacerlo modulo custom)
   services.xserver.xkb = {
     layout = "latam";
     # variant = "";
@@ -108,11 +114,11 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.portable = {
+  users.users.ruiz = {
     isNormalUser = true;
-    description = "portable";
+    description = "ruiz";
     extraGroups = ["networkmanager" "wheel"];
-    hashedPassword = "$y$j9T$FBd2m8UD9gZQFSBLZlk.N0$URtutPSPulECzvPHX5.Q2quC4VFSL.nYN7/jCj5Kky6";
+    hashedPassword = "$y$j9T$130s2ATsRL5ixDudKitBG/$bqE8TWji9UmfWrZgX/791zqONEFPu7ivzPS/PmjN0j7";
     packages = with pkgs; [
       #  thunderbird
     ];

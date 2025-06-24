@@ -10,13 +10,14 @@
     ./../../elnixvim/nixvim.nix
     ./../../modulos/home-manager/stylix-hm.nix
     ./../../modulos/home-manager/funcionalidad/firefox.nix
+    # ./../../modulos/portabilizacion/home-manager.nix
 
     # ./modulos/gnome_personalizacion.nix
     ./../../modulos/home-manager/funcionalidad/hyperland.nix
     ./../../modulos/home-manager/funcionalidad/waybar.nix
   ];
-  home.username = "portable";
-  home.homeDirectory = "/home/portable";
+  home.username = "ruiz";
+  home.homeDirectory = "/home/ruiz";
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   qt.enable = true;
@@ -97,7 +98,7 @@
   #
   # or
   #
-  #  /etc/profiles/per-user/portable/etc/profile.d/hm-session-vars.sh
+  #  /etc/profiles/per-user/ruiz/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
     # EDITOR = "emacs";

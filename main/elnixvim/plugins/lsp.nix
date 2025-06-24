@@ -25,6 +25,7 @@
     extraPlugins = with pkgs.vimPlugins; [
       # NOTE: This is where you would add a vim plugin that is not implemented in Nixvim, also see extraConfigLuaPre below
       #
+      rust-vim
       # TODO: Add luvit-meta when Nixos package is added
     ];
 
@@ -109,6 +110,8 @@
               nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.portable.programs.nixvim";
               # flake.expr = "(builtins.getFlake \"/etc/nixos\").";
               nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
+
+              lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
             };
             # nixpkgs = {
             #   expr = import <nixpkgs> {} ;

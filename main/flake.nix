@@ -22,6 +22,9 @@
       inputs.home-manager.follows = "home-manager";
     };
     nixai.url = "github:olafkfreund/nix-ai-help";
+
+    minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
+    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
 
   outputs = {
@@ -31,18 +34,26 @@
     nix-on-droid,
     home-manager,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    usuario = "ruiz";
+  in {
     # formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit usuario;
+        };
         modules = [
           ./hosts/principal/configuration.nix
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
           nixai.nixosModules.default
+          inputs.minegrub-world-sel-theme.nixosModules.default
+          inputs.minegrub-theme.nixosModules.default
+
           # {
           #   services.nixai = {
           #     enable = true;

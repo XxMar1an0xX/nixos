@@ -25,6 +25,7 @@
     nomacs
     whatsie
     cava
+    gparted
   ];
 
   # localsend
@@ -96,15 +97,9 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
 
-  #NOTE: teclado (hacerlo modulo custom)
-  services.xserver.xkb = {
-    layout = "latam";
-    variant = "";
-  };
-
   #NOTE: nix-helper
   programs.nh = {
     enable = true;
-    flake = "/home/portable/Documentos/GitHub/nixos/main/";
+    flake = "/home/ruiz/Documentos/GitHub/nixos/main/";
   };
 }

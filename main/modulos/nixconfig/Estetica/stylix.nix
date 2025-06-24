@@ -39,6 +39,7 @@
     polarity = "dark";
     targets = {
       nixvim.enable = false;
+      grub.enable = false;
       # hyprland = {
       #   enable = true;
       #   hyprpaper.enable = true;

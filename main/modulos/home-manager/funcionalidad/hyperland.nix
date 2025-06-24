@@ -158,20 +158,24 @@
 
       "$mainMod" = "SUPER"; #tecla windows como modificador
       bind = [
-        "$mainMod, C, killactive"
+        "$mainMod, X, killactive"
         "$mainMod, Escape, exit"
         "$mainMod, V, togglefloating"
         "$mainMod, P, pseudo"
         "$mainMod, T, togglesplit"
 
-        "$mainMod, left, movefocus, l"
+        # "$mainMod, left, movefocus, l"
         "$mainMod, H, movefocus, l"
-        "$mainMod, right, movefocus, r"
+        "$mainMod SHIFT, H, movewindow, l"
+        # "$mainMod, right, movefocus, r"
         "$mainMod, L, movefocus, r"
-        "$mainMod, up, movefocus, u"
+        "$mainMod SHIFT, L, movewindow, r"
+        # "$mainMod, up, movefocus, u"
         "$mainMod, K, movefocus, u"
-        "$mainMod, down, movefocus, d"
+        "$mainMod SHIFT, K, movewindow, u"
+        # "$mainMod, down, movefocus, d"
         "$mainMod, J, movefocus, d"
+        "$mainMod SHIFT, J, movewindow, d"
 
         "$mainMod, S, togglespecialworkspace, magic"
         "$mainMod SHIFT, S, movetoworkspace, special:magic"
@@ -201,30 +205,43 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizeactive"
+
+        "$mainMod ALT, H, workspace, e-1"
+        "$mainMod ALT, L, workspace, e+1"
 
         "ALT, F4, forcekillactive"
 
-        #NOTE: sistema general
+        #NOTE: sistema general <==
         "$mainMod Control SHIFT, X, exec, shutdown -h now"
         "$mainMod Control SHIFT, R, exec, reboot"
 
-        #NOTE: keybinds de programas
+        #NOTE: keybinds de programas <==
+
         "$mainMod, N, exec, $terminal -e nvim Documentos/GitHub/nixos/main/"
         "$mainMod, M, exec, $menu"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, Q, exec, $terminal"
         "$mainMod, B, exec, librewolf"
         " , code:148, exec, qalculate-qt"
+        "$mainMod, K, exec, kicad"
       ];
-      binds = {
-        drag_threshold = "5";
-      };
+
+      binds = [
+        "$mainMod, L&S, exec, localsend_app"
+        "$mainMod, K&P, exec, keepassxc"
+      ];
+
+      # binds = {
+      #   drag_threshold = "5";
+      # };
       # bindel = [
       #   ""
       # ];
 
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizeactive"
+      ];
       # bindl = [
       #   ""
       # ];
