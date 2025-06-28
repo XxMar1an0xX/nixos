@@ -6,6 +6,7 @@
   config,
   pkgs,
   lib,
+  modulesPath,
   ...
 }: {
   imports = [
@@ -23,13 +24,19 @@
     ./../../modulos/nixconfig/juegos.nix
     ./../../modulos/nixconfig/grub.nix
 
-    ./../../modulos/nixconfig/OpcionDePortable.nix
-    # ./../../modulos/portabilizacion/nixconfig.nix
-  ];
-  # custom.HacerPortable = true;
+    ./../../modulos/portabilizacion/nixconfig.nix
+    #NOTE: ver forma de quitar esto haciendo que custom sea o la deficion normal, o falso si esta no existe
 
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    # ./../../modulos/nixconfig/Estetica/login-theme_SDDM.nix
+  ];
+
+  home-manager = let
+    custom = config.custom.HacerPortable;
+  in {
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit custom;
+    };
     users = {
       "ruiz" = import ./home.nix;
     };
@@ -136,6 +143,8 @@
     #  wget
     jamesdsp
     hyprpolkitagent
+    # sddm-sugar-dark
+    sddm-astronaut
   ];
 
   #NOTE: Hyprland
@@ -145,9 +154,12 @@
   };
   programs.hyprlock.enable = true;
 
-  #NOTE: hyprland login
-  services.displayManager = {
+  #NOTE: sddm login
+  services.displayManager = let
+    # sddm-sugar-dark = pkgs.libsForQt5.callPackage ./../../modulos/nixconfig/Estetica/login-theme_SDDM.nix {};
+  in {
     sddm.enable = true;
+    # sddm.theme = "astronaut";
     sddm.wayland.enable = true;
     # gdm.enable = true;
   };

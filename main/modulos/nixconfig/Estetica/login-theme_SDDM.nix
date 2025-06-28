@@ -1,38 +1,45 @@
 {
+  pkgs,
   lib,
-  qtbase,
-  qtsvg,
-  qtgraphicaleffects,
-  qtquickcontrols2,
-  wrapQtAppsHook,
   stdenvNoCC,
-  fetchFromGitHub,
-  ...
+  themeConfig ? null,
+  # ...
 }:
-stdenvNoCC.mkDerivation
-rec {
-  pname = "tokyo-night-sddm";
-  version = "1..0";
-  dontBuild = true;
-  src = fetchFromGitHub {
-    owner = "rototrash";
-    repo = "tokyo-night-sddm";
-    rev = "320c8e74ade1e94f640708eee0b9a75a395697c6";
-    sha256 = "sha256-JRVVzyefqR2L3UrEK2iWyhUKfPMUNUnfRZmwdz05wL0=";
+stdenvNoCC.mkDerivation rec {
+  pname = "custom-sddm";
+  version = "1.2";
+
+  src = pkgs.fetchFromGitHub {
+    owner = "MarianArlt";
+    repo = "sddm-sugar-dark";
+    rev = "v${version}";
+    hash = "sha256-C3qB9hFUeuT5+Dos2zFj5SyQegnghpoFV9wHvE9VoD8=";
   };
-  nativeBuildInputs = [
-    wrapQtAppsHook
-  ];
 
-  propagatedUserEnvPkgs = [
-    qtbase
-    qtsvg
-    qtgraphicaleffects
-    qtquickcontrols2
-  ];
+  dontWrapQtApps = true;
 
-  installPhase = ''
-    mkdir -p $out/share/sddm/themes
-    cp -aR $src $out/share/sddm/themes/tokyo-night-sddm
-  '';
+  buildInputs = with pkgs.libsForQt5.qt5; [qtgraphicaleffects];
+
+  installPhase = let
+    iniFormat = pkgs.formats.ini {};
+    configFile = iniFormat.generate "" {General = themeConfig;};
+
+    basePath = "$out/share/sddm/themes/sugar-dark";
+  in
+    ''
+      mkdir -p ${basePath}
+      cp -r $src/* ${basePath}
+    ''
+    + lib.optionalString (themeConfig != null) ''
+      ln -sf ${configFile} ${basePath}/theme.conf.user
+    '';
+
+  meta = {
+    description = "Dark SDDM theme from the sugar family";
+    homepage = "https://github.com/${src.owner}/${pname}";
+    license = lib.licenses.gpl3;
+
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [danid3v];
+  };
 }

@@ -6,6 +6,8 @@
   stylix = {
     enable = true;
     autoEnable = true;
+
+    # package
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/sparky.yaml";
     base16Scheme = {
       scheme = "nordfox";

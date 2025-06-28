@@ -10,11 +10,14 @@
     hyprland.hyprpaper.enable = true;
     cava = {
       enable = true;
+
       # rainbow = true;
     };
 
     waybar = {
-      enable = false;
+      # enable = true;
+      enable = true;
+      # background = lib.mkDefault "@base00";
 
       # enableRightBackColors = true;
     };

@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   stylix,
+  config,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -10,7 +11,8 @@
     ./../../elnixvim/nixvim.nix
     ./../../modulos/home-manager/stylix-hm.nix
     ./../../modulos/home-manager/funcionalidad/firefox.nix
-    # ./../../modulos/portabilizacion/home-manager.nix
+
+    ./../../modulos/portabilizacion/home-manager.nix
 
     # ./modulos/gnome_personalizacion.nix
     ./../../modulos/home-manager/funcionalidad/hyperland.nix
@@ -42,13 +44,19 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
+  
   # environment.
   programs.kitty = {
     enable = true;
+    extraConfig = ''
+      shell neofetch
+    '';
+  };
+
+
     # environment = {
     #   "FLAKE" = "/etc/nixos";
     # };
-  };
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

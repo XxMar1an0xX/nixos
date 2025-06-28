@@ -68,6 +68,7 @@
           ./hosts/portable/portable-configuration.nix
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
+          inputs.minegrub-world-sel-theme.nixosModules.default
         ];
       };
 

@@ -9,9 +9,11 @@
   imports = [
     # inputs.nixvim.nixosModules.nixvim
   ];
+
   environment.packages = with pkgs; [
     # User-facing stuff that you really really want to have
     vim
+    nerd-fonts.symbols-only
 
     # Some common stuff that people expect to have
     #procps
@@ -44,6 +46,7 @@
     experimental-features = nix-command flakes
   '';
 
+  # user.shell = "${pkgs.kitty}/bin/kitty";
   # Set your time zone
   #time.timeZone = "Europe/Berlin";
 

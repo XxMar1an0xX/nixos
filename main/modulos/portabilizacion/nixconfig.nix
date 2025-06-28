@@ -2,29 +2,40 @@
   lib,
   pgks,
   modulesPath,
+  config,
   ...
 }:
-lib.mkIf custom.HacerPortable {
-  modules = [
-    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
-  ];
-  # mkIf = custom.HacerPortable
-  #teclado generico
-  services.xserver.xkb = lib.mkForce {
-    layout = "latam";
-    variant = "";
-    model = "";
+with lib; {
+  #NOTE: opcion hacerportable custom
+  options = {
+    custom.HacerPortable = mkOption {
+      type = types.bool;
+      default = false;
+      example = true;
+    };
   };
 
-  #NOTE: quitar anti modo suspender
-  systemd.targets.sleep.enable = lib.mkForce true;
-  systemd.targets.suspend.enable = lib.mkForce true;
-  systemd.targets.hibernate.enable = lib.mkForce true;
-  systemd.targets.hybrid-sleep.enable = lib.mkForce true;
+  config = mkIf config.custom.HacerPortable {
+    # mkIf = custom.HacerPortable
+    #teclado generico
+    services.xserver.xkb = mkForce {
+      layout = "latam";
+      variant = "";
+      model = "";
+    };
 
-  #NOTE: grub
-  boot.loader.grub = lib.mkForce {
-    gfxmodeEfi = "";
-    gfxmodeBios = "";
+    #NOTE: quitar anti modo suspender
+    systemd.targets = mkForce {
+      sleep.enable = true;
+      suspend.enable = true;
+      hibernate.enable = true;
+      hybrid-sleep.enable = true;
+    };
+
+    #NOTE: grub
+    boot.loader.grub = mkForce {
+      gfxmodeEfi = "";
+      gfxmodeBios = "";
+    };
   };
 }

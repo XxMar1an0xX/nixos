@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   boot.loader = {
     # systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
     grub = {
-      enable = true;
+      enable = lib.mkDefault true;
       efiSupport = true;
       device = "nodev";
       timeoutStyle = "menu";
@@ -37,7 +41,7 @@
       #   }/mainmenu.cfg";
       # };
     };
-    timeout = 15;
+    timeout = lib.mkDefault 15;
   };
   time.hardwareClockInLocalTime = true;
 }

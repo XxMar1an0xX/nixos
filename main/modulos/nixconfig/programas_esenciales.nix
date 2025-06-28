@@ -26,6 +26,8 @@
     whatsie
     cava
     gparted
+    arduino-ide
+    neofetch
   ];
 
   # localsend
@@ -100,6 +102,6 @@
   #NOTE: nix-helper
   programs.nh = {
     enable = true;
-    flake = "/home/ruiz/Documentos/GitHub/nixos/main/";
+    flake = "/home/portable/Documentos/GitHub/nixos/main/";
   };
 }

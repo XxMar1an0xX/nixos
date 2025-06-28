@@ -158,10 +158,10 @@
 
       "$mainMod" = "SUPER"; #tecla windows como modificador
       bind = [
-        "$mainMod, X, killactive"
+        "$mainMod, C, killactive"
         "$mainMod, Escape, exit"
         "$mainMod, V, togglefloating"
-        "$mainMod, P, pseudo"
+        # "$mainMod, P, pseudo"
         "$mainMod, T, togglesplit"
 
         # "$mainMod, left, movefocus, l"
@@ -223,12 +223,12 @@
         "$mainMod, Q, exec, $terminal"
         "$mainMod, B, exec, librewolf"
         " , code:148, exec, qalculate-qt"
-        "$mainMod, K, exec, kicad"
+        "$mainMod, A, exec, localsend_app"
+        "$mainMod, P, exec, keepassxc"
+        "$mainMod, D, exec, kicad"
       ];
 
       binds = [
-        "$mainMod, L&S, exec, localsend_app"
-        "$mainMod, K&P, exec, keepassxc"
       ];
 
       # binds = {
