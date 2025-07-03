@@ -13,7 +13,6 @@
     # Include the results of the hardware scan.
     ./../../modulos/nixconfig/programas_esenciales.nix
     ./../../hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
     ./../../modulos/nixconfig/Estetica/stylix.nix
     ./../../modulos/nixconfig/invidious.nix
     ./../../modulos/nixconfig/limpieza_y_actualizacion.nix
@@ -26,7 +25,7 @@
 
     ./../../modulos/portabilizacion/nixconfig.nix
     ./../../modulos/nixconfig/Estetica/SDDM-login.nix
-    ./../../modulos/nixconfig/NVF.nix
+    # ./../../modulos/nixconfig/NVF.nix
     #NOTE: ver forma de quitar esto haciendo que custom sea o la deficion normal, o falso si esta no existe
 
     # ./../../modulos/nixconfig/Estetica/login-theme_SDDM.nix

@@ -40,8 +40,19 @@
     ...
   } @ inputs: let
     usuario = "ruiz";
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+
+
+                        configModule = import ./modulos/nixconfig/NVF.nix;
+      CustomNVF = nvf.lib.neovimConfiguration {
+        modules = [ configModule ];
+        inherit pkgs;
+
+      };
   in {
-    # formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+        packages.${system}.default = CustomNVF.neovim;
+    # formattepackages.${system}.default = CustomNVF.neovim;r.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
     nixosConfigurations = {
@@ -49,6 +60,7 @@
         specialArgs = {
           inherit inputs;
           inherit usuario;
+          inherit self;
         };
         modules = [
           ./hosts/principal/configuration.nix
@@ -58,7 +70,10 @@
           inputs.minegrub-world-sel-theme.nixosModules.default
           inputs.minegrub-theme.nixosModules.default
 
-          nvf.nixosModules.default
+          # nvf.nixosModules.default
+          ({pkgs, ...}: {
+            environment.systemPackages = [CustomNVF.neovim];
+          })
           # {
           #   services.nixai = {
           #     enable = true;

@@ -4,36 +4,33 @@
   lib,
   ...
 }: {
-  programs.nvf = {
-    enable = true;
-                
-    settings.vim = {
+        config.vim = {
         extraPackages = with pkgs; [cargo alejandra];
       viAlias = true;
       vimAlias = true;
 
       theme = lib.mkForce {
         enable = true;
-        # name = "nord"; #NOTE: hacer como el tema anterior de nixvim "nightfox/nordfox"
-        # style = "dark";
-        base16-colors = {
-          base00 = "2e3440";
-          base01 = "39404f";
-          base02 = "444c5e";
-          base03 = "465780";
-          base04 = "7e8188";
-          base05 = "cdcecf";
-          base06 = "abb1bb";
-          base07 = "e7ecf4";
-          base08 = "bf616a";
-          base09 = "c9826b";
-          base0A = "ebcb8b";
-          base0B = "a3be8c";
-          base0C = "88c0d0";
-          base0D = "81a1c1";
-          base0E = "b48ead";
-          base0F = "bf88bc";
-        };
+        name = "nord"; #NOTE: hacer como el tema anterior de nixvim "nightfox/nordfox"
+        style = "dark";
+        # base16-colors = {
+        #   base00 = "2e3440";
+        #   base01 = "39404f";
+        #   base02 = "444c5e";
+        #   base03 = "465780";
+        #   base04 = "7e8188";
+        #   base05 = "cdcecf";
+        #   base06 = "abb1bb";
+        #   base07 = "e7ecf4";
+        #   base08 = "bf616a";
+        #   base09 = "c9826b";
+        #   base0A = "ebcb8b";
+        #   base0B = "a3be8c";
+        #   base0C = "88c0d0";
+        #   base0D = "81a1c1";
+        #   base0E = "b48ead";
+        #   base0F = "bf88bc";
+        # };
       };
 
       spellcheck = {
@@ -182,6 +179,6 @@
         fastaction.enable = true;
       };
     };
-  };
+  # };
         # environment.systemPackages = [pkgs.cargo];
 }
