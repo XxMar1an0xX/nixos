@@ -24,7 +24,7 @@
             "class<io.github.Qalculate.qalculate-qt>" = "󰪚";
             "class<virt-manager>" = "󰍺";
             "class<GitHub Desktop>" = "";
-            "class<org.cryptomator.launcher.Cryptomator$MainApp>" = "󰉐";
+            "title<Cryptomator>" = "󰉐";
             "class<thunar>" = "";
             "class<localsend_app>" = "󰡰";
             # "class<>" = "";
@@ -32,6 +32,9 @@
             "class<libreoffice-math>" = "";
             "class<libreoffice-draw>" = "";
             # "class<>" = "";
+            "class<.virt-manager-wrapped>" = "󰍺";
+            "class<Arduino IDE>" = "";
+            "class<org.nomacs.ImageLounge>" = "";
             "class<libreoffice-calc>" = "";
             "class<libreoffice-writer>" = "";
             "class<vlc>" = "󰕼";

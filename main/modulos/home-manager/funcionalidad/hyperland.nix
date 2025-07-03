@@ -7,7 +7,6 @@
 }: {
   #NOTE: apps que ayudan mucho
   home.packages = with pkgs; [
-    wofi
     hyprsysteminfo
     hyprpaper
   ];
@@ -20,13 +19,14 @@
       # Keywords hyprland
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
-      "$menu" = "wofi --show drun";
+      "$menu" = "rofi -show drun";
       "$browser" = "librewolf";
 
       # para cosas que arrancan al inicio
       exec-once = [
-        "$terminal"
-        "$browser"
+        "[workspace 2 silent] $terminal -e nvim Documentos/GitHub/nixos/main/"
+        "[workspace 1 silent] $browser"
+        # "[workspace s silent] $terminal"
         "systemctl --user start hyprpolkitagent"
         "hyprpaper"
         "waybar"
@@ -226,6 +226,7 @@
         "$mainMod, A, exec, localsend_app"
         "$mainMod, P, exec, keepassxc"
         "$mainMod, D, exec, kicad"
+        "$mainMod, W, exec, whatsie"
       ];
 
       binds = [

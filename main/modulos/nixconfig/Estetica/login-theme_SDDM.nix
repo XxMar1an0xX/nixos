@@ -2,7 +2,7 @@
   pkgs,
   lib,
   stdenvNoCC,
-  themeConfig ? null,
+  # themeConfig ? null,
   # ...
 }:
 stdenvNoCC.mkDerivation rec {
@@ -21,25 +21,23 @@ stdenvNoCC.mkDerivation rec {
   buildInputs = with pkgs.libsForQt5.qt5; [qtgraphicaleffects];
 
   installPhase = let
-    iniFormat = pkgs.formats.ini {};
-    configFile = iniFormat.generate "" {General = themeConfig;};
-
+    # iniFormat = pkgs.formats.ini {};
+    # configFile = iniFormat.generate "" {General = themeConfig;};
     basePath = "$out/share/sddm/themes/sugar-dark";
-  in
-    ''
-      mkdir -p ${basePath}
-      cp -r $src/* ${basePath}
-    ''
-    + lib.optionalString (themeConfig != null) ''
-      ln -sf ${configFile} ${basePath}/theme.conf.user
-    '';
+  in ''
+    mkdir -p ${basePath}
+    cp -r $src/* ${basePath}
+  '';
+  # + lib.optionalString (themeConfig != null) ''
+  #   ln -sf ${configFile} ${basePath}/theme.conf.user
+  # '';
 
-  meta = {
-    description = "Dark SDDM theme from the sugar family";
-    homepage = "https://github.com/${src.owner}/${pname}";
-    license = lib.licenses.gpl3;
-
-    platforms = lib.platforms.linux;
-    maintainers = with lib.maintainers; [danid3v];
-  };
+  # meta = {
+  #   description = "Dark SDDM theme from the sugar family";
+  #   homepage = "https://github.com/${src.owner}/${pname}";
+  #   license = lib.licenses.gpl3;
+  #
+  #   platforms = lib.platforms.linux;
+  #   maintainers = with lib.maintainers; [danid3v];
+  # };
 }

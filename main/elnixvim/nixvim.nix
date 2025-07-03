@@ -30,7 +30,7 @@
     #  Here are some example plugins that I've included in the Kickstart repository.
     #  Uncomment any of the lines below to enable them (you will need to restart nvim).
     #
-    # ./plugins/kickstart/plugins/debug.nix
+    ./plugins/kickstart/plugins/debug.nix
     # ./plugins/kickstart/plugins/indent-blankline.nix
     # ./plugins/kickstart/plugins/lint.nix
     # ./plugins/kickstart/plugins/autopairs.nix
@@ -369,8 +369,6 @@
       # nvim-web-devicons # TODO: Figure out how to configure using this with telescope
     ];
     extraPackages = with pkgs; [
-      rust-analyzer
-      cargo
     ];
 
     # TODO: Figure out where to move this

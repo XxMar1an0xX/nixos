@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   stylix,
   config,
   ...
@@ -8,15 +9,19 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
-    ./../../elnixvim/nixvim.nix
+    # ./../../elnixvim/nixvim.nix
     ./../../modulos/home-manager/stylix-hm.nix
     ./../../modulos/home-manager/funcionalidad/firefox.nix
 
     ./../../modulos/portabilizacion/home-manager.nix
 
+    ./../../modulos/home-manager/rofi.nix
+
     # ./modulos/gnome_personalizacion.nix
     ./../../modulos/home-manager/funcionalidad/hyperland.nix
     ./../../modulos/home-manager/funcionalidad/waybar.nix
+
+                ./../../modulos/home-manager/github.nix
   ];
   home.username = "ruiz";
   home.homeDirectory = "/home/ruiz";
@@ -44,24 +49,33 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
-  
+  # programs.bash = {
+  #     enable = true;
+  #   };
+
   # environment.
   programs.kitty = {
     enable = true;
-    extraConfig = ''
-      shell neofetch
-    '';
+    # extraConfig = ''
+    #   startup_session ./inicio.conf
+    # '';
+
+    settings = {
+      enable_audio_bell = false;
+    };
   };
 
+  # services.pass-secret-service.enable = true;
 
-    # environment = {
-    #   "FLAKE" = "/etc/nixos";
-    # };
+  # environment = {
+  #   "FLAKE" = "/etc/nixos";
+  # };
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
 
+    nerd-fonts.symbols-only
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -80,16 +94,21 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
+    # ".config/kitty/inicio.conf".text = ''
+    #   layout tall
+    #   launch sh -c "neofetch"
     # '';
+
+    # ".local/share/rofi/themes/custom1.rasi".source = "${
+    #   (pkgs.fetchFromGitHub {
+    #     owner = "w8ste";
+    #     repo = "Tokyonight-rofi-theme";
+    #     rev = "7e22c3e516e2f32259f4bf30b658f4b2bb989313";
+    #     hash = "sha256-f7XugMkf7Ylp2fY2MY7q1+p+awFOaIrNkCIR0SbOA30=";
+    #   })
+    # }/tokyonight_big1.rasi";
+
+    ".config/mimeapps.list".text = ''[ Default Applications ] inode/directory= thunar/desktop '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -110,6 +129,9 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    EDITOR = "nvim";
+    BROWSER = "librewolf";
+    TERMINAL = "kitty";
   };
 
   # Let Home Manager install and manage itself.

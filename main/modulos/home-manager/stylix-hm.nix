@@ -8,6 +8,11 @@
     xfce.enable = true;
     hyprland.enable = true;
     hyprland.hyprpaper.enable = true;
+    rofi.enable = false;
+    kitty = {
+      enable = true;
+      # variant256Colors = true;
+    };
     cava = {
       enable = true;
 

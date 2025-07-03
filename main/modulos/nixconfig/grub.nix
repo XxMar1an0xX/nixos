@@ -3,7 +3,13 @@
   lib,
   ...
 }: {
+
+boot.kernelParams = [
+    "modules_blacklist=ntfs3"
+  ];
+
   boot.loader = {
+    #NOTE: si no aparece en el booteo descomentar
     # systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
     grub = {

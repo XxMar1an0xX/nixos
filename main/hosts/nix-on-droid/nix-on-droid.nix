@@ -10,6 +10,7 @@
     # inputs.nixvim.nixosModules.nixvim
   ];
 
+
   environment.packages = with pkgs; [
     # User-facing stuff that you really really want to have
     vim

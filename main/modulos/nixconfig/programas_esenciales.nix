@@ -12,6 +12,10 @@
   # paquetes que no estan como opciones de NixOS
   environment.systemPackages = with pkgs; [
     vlc
+    jamesdsp
+    arduino
+    htop
+
     keepassxc
     cryptomator
     libreoffice
@@ -28,6 +32,12 @@
     gparted
     arduino-ide
     neofetch
+
+    #NOTE: para rustaceanvim
+    # cargo
+    # rustc
+    # rustup
+    # rust-analyzer
   ];
 
   # localsend
@@ -92,8 +102,11 @@
     xterm
   ];
 
+  #eliminar xterm
+  services.xserver.excludePackages = [pkgs.xterm];
+
   #nix ld
-  programs.nix-ld.enable = true;
+  # programs.nix-ld.enable = true;
 
   #NOTE: flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -102,6 +115,6 @@
   #NOTE: nix-helper
   programs.nh = {
     enable = true;
-    flake = "/home/portable/Documentos/GitHub/nixos/main/";
+    flake = "/home/ruiz/Documentos/GitHub/nixos/main/";
   };
 }

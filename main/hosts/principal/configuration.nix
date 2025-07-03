@@ -25,11 +25,12 @@
     ./../../modulos/nixconfig/grub.nix
 
     ./../../modulos/portabilizacion/nixconfig.nix
+    ./../../modulos/nixconfig/Estetica/SDDM-login.nix
+    ./../../modulos/nixconfig/NVF.nix
     #NOTE: ver forma de quitar esto haciendo que custom sea o la deficion normal, o falso si esta no existe
 
     # ./../../modulos/nixconfig/Estetica/login-theme_SDDM.nix
   ];
-
   home-manager = let
     custom = config.custom.HacerPortable;
   in {
@@ -49,14 +50,13 @@
     #   }
     # ];
 
-    # backupFileExtension = "holaqtal";
+    # backupFileExtension = "kjasdksaj";
     #de-comentar si se rompe home-manager
   };
 
   networking.hostName = "nixos"; # Define your hostname.
   qt.enable = true;
   hardware.graphics.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -117,6 +117,16 @@
     #media-session.enable = true;
   };
 
+  boot.initrd.systemd.dbus.enable = true;
+  services.dbus.enable = true;
+  services.passSecretService = {
+    enable = true;
+    package = pkgs.pass-secret-service;
+  };
+  services.dbus.packages = with pkgs; [
+    pass-secret-service
+  ];
+  #
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -141,10 +151,13 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
-    jamesdsp
+
+    # pass-secret-service
+    # rust-analyzer
+    # rustc
+    # rustup
+    # cargo
     hyprpolkitagent
-    # sddm-sugar-dark
-    sddm-astronaut
   ];
 
   #NOTE: Hyprland
@@ -153,16 +166,6 @@
     xwayland.enable = true;
   };
   programs.hyprlock.enable = true;
-
-  #NOTE: sddm login
-  services.displayManager = let
-    # sddm-sugar-dark = pkgs.libsForQt5.callPackage ./../../modulos/nixconfig/Estetica/login-theme_SDDM.nix {};
-  in {
-    sddm.enable = true;
-    # sddm.theme = "astronaut";
-    sddm.wayland.enable = true;
-    # gdm.enable = true;
-  };
 
   #NOTE: script al inicio de login
   systemd.user.services.autoinicio = {

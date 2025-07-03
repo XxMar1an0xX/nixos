@@ -25,6 +25,8 @@
 
     minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = {
@@ -33,6 +35,8 @@
     stylix,
     nix-on-droid,
     home-manager,
+    nvf,
+    self,
     ...
   } @ inputs: let
     usuario = "ruiz";
@@ -54,6 +58,7 @@
           inputs.minegrub-world-sel-theme.nixosModules.default
           inputs.minegrub-theme.nixosModules.default
 
+          nvf.nixosModules.default
           # {
           #   services.nixai = {
           #     enable = true;
@@ -69,6 +74,7 @@
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
           inputs.minegrub-world-sel-theme.nixosModules.default
+          nvf.nixosModules.default
         ];
       };
 

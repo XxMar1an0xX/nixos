@@ -25,7 +25,7 @@
     extraPlugins = with pkgs.vimPlugins; [
       # NOTE: This is where you would add a vim plugin that is not implemented in Nixvim, also see extraConfigLuaPre below
       #
-      rust-vim
+      # rust-vim
       # TODO: Add luvit-meta when Nixos package is added
     ];
 
@@ -98,18 +98,11 @@
             ];
             formatting.command = ["alejandra"];
             options = {
-              nixos.expr =
-                "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options"
-                # || "(builtins.getFlake \"../../flake.nix\").nixosConfigurations.nixos.options";
-                ;
-              home-manager.expr =
-                "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.portable"
-                # || "(builtins.getFlake \"../../flake.nix\").nixosConfigurations.nixos.options.home-manager.users.value.portable";
-                ;
+              nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
+              home-manager.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz";
 
-              nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.portable.programs.nixvim";
-              # flake.expr = "(builtins.getFlake \"/etc/nixos\").";
-              nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
+              nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
+              # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
 
               lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
             };
