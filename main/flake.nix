@@ -43,15 +43,13 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
-
-                        configModule = import ./modulos/nixconfig/NVF.nix;
-      CustomNVF = nvf.lib.neovimConfiguration {
-        modules = [ configModule ];
-        inherit pkgs;
-
-      };
+    configModule = import ./modulos/nixconfig/funcionalidad/NVF.nix;
+    CustomNVF = nvf.lib.neovimConfiguration {
+      modules = [configModule];
+      inherit pkgs;
+    };
   in {
-        packages.${system}.default = CustomNVF.neovim;
+    packages.${system}.default = CustomNVF.neovim;
     # formattepackages.${system}.default = CustomNVF.neovim;r.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
