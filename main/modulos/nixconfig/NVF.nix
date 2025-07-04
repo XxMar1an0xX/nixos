@@ -51,6 +51,9 @@
       toggleterm = {
         enable = true;
         lazygit.enable = true;
+        mappings = {
+          open = "<leader>t";
+        };
       };
     };
 
@@ -82,6 +85,12 @@
         silent = true;
         action = ":Neotree toggle<CR>";
       }
+      # {
+      #   key = "<leader>t";
+      #   mode = "n";
+      #   silent = true;
+      #   action = "";
+      # }
     ];
 
     debugger = {
