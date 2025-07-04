@@ -5,7 +5,7 @@
   ...
 }: {
   config.vim = {
-    extraPackages = with pkgs; [cargo alejandra];
+    extraPackages = with pkgs; [cargo rustc alejandra];
     viAlias = true;
     vimAlias = true;
     # useSystemClipboard = true;
