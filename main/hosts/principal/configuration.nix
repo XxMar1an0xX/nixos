@@ -10,25 +10,27 @@
   ...
 }: {
   imports = [
+    #NOTE: funcionalidad
+    ./../../modulos/nixconfig/funcionalidad/invidious.nix
+    ./../../modulos/nixconfig/funcionalidad/VMs.nix
+    ./../../modulos/nixconfig/funcionalidad/juegos.nix
     # Include the results of the hardware scan.
-    ./../../modulos/nixconfig/programas_esenciales.nix
-    ./../../hardware-configuration.nix
+    #NOTE: default
+    ./../../modulos/nixconfig/defaults/programas_esenciales.nix
+    ./../../modulos/nixconfig/defaults/limpieza_y_actualizacion.nix
+    ./../../modulos/nixconfig/defaults/usuario-portable.nix
+    #NOTE: Estetica
     ./../../modulos/nixconfig/Estetica/stylix.nix
-    ./../../modulos/nixconfig/invidious.nix
-    ./../../modulos/nixconfig/limpieza_y_actualizacion.nix
-    ./../../modulos/nixconfig/usuario-portable.nix
-    ./../../modulos/nixconfig/nixai.nix
-    ./../../modulos/nixconfig/ollama.nix
-    ./../../modulos/nixconfig/VMs.nix
-    ./../../modulos/nixconfig/juegos.nix
-    ./../../modulos/nixconfig/grub.nix
-
-    ./../../modulos/portabilizacion/nixconfig.nix
     ./../../modulos/nixconfig/Estetica/SDDM-login.nix
-    # ./../../modulos/nixconfig/NVF.nix
-    #NOTE: ver forma de quitar esto haciendo que custom sea o la deficion normal, o falso si esta no existe
+    ./../../modulos/nixconfig/Estetica/grub.nix
+    #NOTE: misceallaneo
+    ./../../modulos/nixconfig/misc/nixai.nix
+    ./../../modulos/nixconfig/misc/ollama.nix
 
-    # ./../../modulos/nixconfig/Estetica/login-theme_SDDM.nix
+    ./../../hardware-configuration.nix #esto es necesario para q ande
+
+    #NOTE: ver forma de quitar esto haciendo que custom sea o la deficion normal, o falso si esta no existe
+    ./../../modulos/portabilizacion/nixconfig.nix
   ];
   home-manager = let
     custom = config.custom.HacerPortable;
