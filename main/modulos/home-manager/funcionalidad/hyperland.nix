@@ -1,7 +1,5 @@
 {
-  inputs,
   pkgs,
-  config,
   lib,
   ...
 }: {
@@ -9,6 +7,7 @@
   home.packages = with pkgs; [
     hyprsysteminfo
     hyprpaper
+    clipse
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -30,6 +29,7 @@
         "systemctl --user start hyprpolkitagent"
         "hyprpaper"
         "waybar"
+        "clipse -listen"
       ];
 
       # Variables de entorno (Enviroment variables)
@@ -227,6 +227,7 @@
         "$mainMod, P, exec, keepassxc"
         "$mainMod, D, exec, kicad"
         "$mainMod, W, exec, whatsie"
+        "$mainMod, I, exec, kitty --class clipse -e clipse"
       ];
 
       binds = [
@@ -250,6 +251,10 @@
       windowrule = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+
+        "float, class:(clipse)"
+        "size 622 652, class:(clipse)"
+        "stayfocused, class:(clipse)"
       ];
 
       monitor = [
