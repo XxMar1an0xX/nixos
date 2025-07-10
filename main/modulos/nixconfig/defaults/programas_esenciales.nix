@@ -115,6 +115,6 @@
   #NOTE: nix-helper
   programs.nh = {
     enable = true;
-    flake = "/home/ruiz/Documentos/GitHub/nixos/main/";
+    flake = "/home/ruiz/Documentos/nixos/main";
   };
 }

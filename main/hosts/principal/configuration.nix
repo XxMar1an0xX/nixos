@@ -49,7 +49,7 @@
     #   }
     # ];
 
-    backupFileExtension = "haceteculiar";
+    backupFileExtension = "inestabilidad_perro";
     #de-comentar si se rompe home-manager
   };
 
@@ -170,8 +170,17 @@
   systemd.user.services.autoinicio = {
     description = "autoinicio al loguearse";
     serviceConfig.PassEnvironment = "DISPLAY";
-    script = ''
-      hyprland
+    script = ''      #NOTE: generar repo de git y tmbn reemplazar hardware-configuration
+           if ! test -e /home/ruiz/Documentos/nixos; then
+                   cd /home/ruiz/Documentos || return
+                   git clone https://github.com/XxMar1an0xX/nixos.git
+                   if [[ ! $TERMINAL = kitty ]]; then
+                           echo "reemplazando hardware config con el necesario"
+                           rm -f /home/ruiz/Documentos/nixos/main/hardware-configuration.nix
+                           nixos-generate-config --show-hardware-config >>/home/ruiz/Documentos/nixos/main/hardware-configuration.nix
+                   fi
+           fi
+                 hyprland
     '';
     wantedBy = ["multi-user.target"]; # starts after login
   };
