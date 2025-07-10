@@ -21,7 +21,7 @@
     ./../../modulos/home-manager/funcionalidad/hyperland.nix
     ./../../modulos/home-manager/funcionalidad/waybar.nix
 
-                ./../../modulos/home-manager/github.nix
+    ./../../modulos/home-manager/github.nix
   ];
   home.username = "ruiz";
   home.homeDirectory = "/home/ruiz";

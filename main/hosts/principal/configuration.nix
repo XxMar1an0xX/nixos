@@ -5,8 +5,6 @@
   inputs,
   config,
   pkgs,
-  lib,
-  modulesPath,
   ...
 }: {
   imports = [
@@ -51,7 +49,7 @@
     #   }
     # ];
 
-    # backupFileExtension = "kjasdksaj";
+    backupFileExtension = "haceteculiar";
     #de-comentar si se rompe home-manager
   };
 
