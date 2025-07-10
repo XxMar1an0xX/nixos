@@ -56,13 +56,21 @@
       };
     };
 
+    telescope = {
+      enable = true;
+    };
+
     notify = {
       nvim-notify.enable = true;
     };
 
     dashboard = {
-      dashboard-nvim.enable = true;
+      dashboard-nvim.enable = false;
       alpha.enable = true;
+    };
+
+    projects = {
+      project-nvim.enable = true;
     };
 
     git = {
@@ -166,7 +174,7 @@
           enable = true;
           codeActions = true;
         };
-        # dap.enable = true;
+        dap.enable = true;
         format.enable = true;
         lsp = {
           enable = true;
@@ -182,6 +190,11 @@
         };
         treesitter.enable = true;
       };
+
+      #NOTE: lenguajes extras
+      markdown.enable = true;
+      python.enable = true;
+      bash.enable = true;
     };
 
     filetree.neo-tree = {
@@ -196,9 +209,18 @@
 
     visuals = {
       nvim-web-devicons.enable = true;
-      nvim-cursorline.enable = true;
-      cinnamon-nvim.enable = true;
+      nvim-cursorline = {
+        enable = true;
+        setupOpts = {
+          cursorline = {
+            enable = true;
+            timeout = 0;
+          };
+        };
+      };
+      # cinnamon-nvim.enable = true;
       fidget-nvim.enable = true;
+      scrollBar.enable = true;
 
       highlight-undo = {
         enable = true;
@@ -227,18 +249,36 @@
     };
 
     utility = {
-      ccc.enable = true;
+      ccc.enable = false;
       surround.enable = true;
       smart-splits.enable = true;
+      # vim-wakatime.enable = true;
+      icon-picker.enable = true;
+      diffview-nvim.enable = true;
       motion = {
         hop.enable = true;
         leap.enable = true;
+      };
+      images = {
+        image-nvim.enable = false;
       };
     };
 
     notes = {
       todo-comments.enable = true;
+      mind-nvim.enable = true;
     };
+    session = {
+      nvim-session-manager.enable = false;
+    };
+
+    statusline = {
+      lualine = {
+        enable = true;
+        theme = "nord";
+      };
+    };
+
     comments = {
       comment-nvim.enable = true;
     };
@@ -253,6 +293,21 @@
       colorizer.enable = true;
       illuminate.enable = true;
       fastaction.enable = true;
+      breadcrumbs = {
+        enable = true;
+        navbuddy.enable = true;
+      };
+      # smartcolumn = {
+      #   enable = true;
+      #   setupOpts.custom_colorcolumn = {
+      #     # this is a freeform module, it's `buftype = int;` for configuring column position
+      #     rust = "100";
+      #     nix = "110";
+      #     ruby = "120";
+      #     java = "130";
+      #     go = ["90" "130"];
+      #   };
+      # };
     };
   };
   # };
