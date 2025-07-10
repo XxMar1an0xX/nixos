@@ -5,7 +5,7 @@
   ...
 }: {
   config.vim = {
-    extraPackages = with pkgs; [cargo rustc alejandra];
+    extraPackages = with pkgs; [gcc cargo rustc alejandra clipse lldb];
     viAlias = true;
     vimAlias = true;
     # useSystemClipboard = true;
@@ -33,7 +33,6 @@
       #   base0F = "bf88bc";
       # };
     };
-
     diagnostics = {
       enable = true;
       config = {
@@ -44,7 +43,7 @@
 
     clipboard = {
       enable = true;
-      # providers = true;
+      providers = {};
     };
 
     terminal = {
@@ -145,8 +144,11 @@
             #   "nix"
             # ];
             # formatting.command = ["alejandra"];
+            nixpkgs = {
+              expr = "import <nixpkgs> { }";
+            };
             options = {
-              # "home_manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
+              # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
               #
               nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
               # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
@@ -164,19 +166,19 @@
           enable = true;
           codeActions = true;
         };
-        dap.enable = true;
+        # dap.enable = true;
         format.enable = true;
         lsp = {
           enable = true;
-          opts = ''
-             ['rust-analyzer'] = {
-              cargo = {allFeature = true},
-              checkOnSave = true,
-              procMacro = {
-                enable = true,
-              },
-            },
-          '';
+          # opts = ''
+          #    ['rust-analyzer'] = {
+          #     cargo = {allFeature = true},
+          #     checkOnSave = true,
+          #     procMacro = {
+          #       enable = true,
+          #     },
+          #   },
+          # '';
         };
         treesitter.enable = true;
       };
@@ -210,7 +212,7 @@
     autopairs.nvim-autopairs.enable = true;
 
     autocomplete = {
-      # nvim-cmp.enable = true;
+      nvim-cmp.enable = false;
       blink-cmp.enable = true;
     };
 
