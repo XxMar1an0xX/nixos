@@ -14,7 +14,7 @@
     vlc
     jamesdsp
     arduino
-    htop
+    btop
 
     keepassxc
     cryptomator
