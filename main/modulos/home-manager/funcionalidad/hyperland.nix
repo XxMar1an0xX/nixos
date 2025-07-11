@@ -217,7 +217,7 @@
 
         #NOTE: keybinds de programas <==
 
-        "$mainMod, N, exec, $terminal -e nvim Documentos/GitHub/nixos/main/"
+        "$mainMod, N, exec, $terminal -e nvim $NH_FLAKE"
         "$mainMod, M, exec, $menu"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, Q, exec, $terminal"
