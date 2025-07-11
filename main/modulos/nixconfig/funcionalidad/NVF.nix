@@ -7,12 +7,23 @@
     extraPackages = with pkgs; [gcc cargo rustc alejandra clipse lldb];
     viAlias = true;
     vimAlias = true;
+    extraPlugins = with pkgs.vimPlugins; {
+      nighfox = {
+        package = nightfox-nvim;
+        setup = ''
+          require('nightfox').setup {}
+          vim.cmd("colorscheme nordfox")
+        '';
+      };
+    };
     # useSystemClipboard = true;
 
     theme = lib.mkForce {
-      enable = true;
-      name = "nord"; #NOTE: hacer como el tema anterior de nixvim "nightfox/nordfox"
-      style = "dark";
+      enable = false;
+      extraConfig = ''
+      '';
+      # name = "nord";
+      # style = "dark";
       # base16-colors = {
       #   base00 = "2e3440";
       #   base01 = "39404f";
@@ -105,6 +116,12 @@
         silent = true;
         action = "exit \n";
       }
+      # {
+      #   key = "<Esc>";
+      #   mode = "t";
+      #   silent = true;
+      #   # action = "";
+      # }
       # {
       #   key = "<leader>t";
       #   mode = "n";
