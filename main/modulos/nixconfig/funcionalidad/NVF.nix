@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -53,6 +52,11 @@
         mappings = {
           open = "<leader>t";
         };
+        setupOpts = {
+          insert_mappings = true;
+          terminal_mappings = true;
+          # start_in_insert = false;
+        };
       };
     };
 
@@ -66,7 +70,10 @@
 
     dashboard = {
       dashboard-nvim.enable = false;
-      alpha.enable = true;
+      alpha = {
+        enable = true;
+        theme = "startify";
+      };
     };
 
     projects = {
@@ -91,6 +98,12 @@
         mode = "n";
         silent = true;
         action = ":Neotree toggle<CR>";
+      }
+      {
+        key = "<leader>t";
+        mode = "t";
+        silent = true;
+        action = "exit \n";
       }
       # {
       #   key = "<leader>t";
@@ -158,7 +171,8 @@
             options = {
               # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
               #
-              nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
+              # nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
+              nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
               # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
               # # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
               #
