@@ -22,6 +22,7 @@
     ./../../modulos/home-manager/funcionalidad/waybar.nix
 
     ./../../modulos/home-manager/github.nix
+    ./../../modulos/home-manager/terminal.nix
   ];
   home.username = "ruiz";
   home.homeDirectory = "/home/ruiz";
@@ -54,16 +55,6 @@
   #   };
 
   # environment.
-  programs.kitty = {
-    enable = true;
-    # extraConfig = ''
-    #   startup_session ./inicio.conf
-    # '';
-
-    settings = {
-      enable_audio_bell = false;
-    };
-  };
 
   # services.pass-secret-service.enable = true;
 

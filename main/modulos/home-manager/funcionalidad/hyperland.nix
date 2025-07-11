@@ -23,7 +23,7 @@
 
       # para cosas que arrancan al inicio
       exec-once = [
-        "[workspace 2 silent] $terminal -e nvim Documentos/GitHub/nixos/main/"
+        "[workspace 2 silent] $terminal -e nvim $NH_FLAKE"
         "[workspace 1 silent] $browser"
         # "[workspace s silent] $terminal"
         "systemctl --user start hyprpolkitagent"
@@ -91,6 +91,10 @@
           "linear,0,0,1,1"
           "almostLinear,0.5,0.5,0.75,1.0"
           "quick,0.15,0,0.1,1"
+          "wind, 0.05, 0.9, 0.1, 1.05"
+          "winIn, 0.1, 1.1, 0.1, 1.1"
+          "winOut, 0.3, -0.3, 0, 1"
+          "liner, 1, 1, 1, 1"
         ];
         animation = [
           "global, 1, 10, default"
@@ -106,9 +110,9 @@
           "layersOut, 1, 1.5, linear, fade"
           "fadeLayersIn, 1, 1.79, almostLinear"
           "fadeLayersOut, 1, 1.39, almostLinear"
-          "workspaces, 1, 1.94, almostLinear, fade"
-          "workspacesIn, 1, 1.21, almostLinear, fade"
-          "workspacesOut, 1, 1.94, almostLinear, fade"
+          "workspaces, 1, 5, wind"
+          # "workspacesIn, 1, 1.21, almostLinear, fade"
+          # "workspacesOut, 1, 1.94, almostLinear, fade"
         ];
       };
       dwindle = {
@@ -220,14 +224,14 @@
         "$mainMod, N, exec, $terminal -e nvim $NH_FLAKE"
         "$mainMod, M, exec, $menu"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, Q, exec, $terminal"
+        "$mainMod, Q, exec, $terminal -e bash -c 'neofetch; exec bash'"
         "$mainMod, B, exec, librewolf"
         " , code:148, exec, qalculate-qt"
         "$mainMod, A, exec, localsend_app"
         "$mainMod, P, exec, keepassxc"
         "$mainMod, D, exec, kicad"
         "$mainMod, W, exec, whatsie"
-        "$mainMod, I, exec, kitty --class clipse -e clipse"
+        "$mainMod, I, exec, $terminal --class clipse -e clipse"
       ];
 
       binds = [
