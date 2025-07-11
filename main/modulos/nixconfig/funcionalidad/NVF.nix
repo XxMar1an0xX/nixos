@@ -17,6 +17,9 @@
       };
     };
     # useSystemClipboard = true;
+    # additionalRuntimePaths = [
+    #   "$HOME/Documentos/nixos/main/"
+    # ];
 
     theme = lib.mkForce {
       enable = false;
@@ -76,7 +79,7 @@
     };
 
     notify = {
-      nvim-notify.enable = true;
+      nvim-notify.enable = false;
     };
 
     dashboard = {
@@ -140,6 +143,7 @@
     lsp = {
       enable = true; #NOTE: lacra de mrd como 2 horas boludeando para q sea esto
       formatOnSave = true;
+      lspconfig.enable = true;
       lspkind.enable = false;
       lightbulb.enable = true;
       lspsaga.enable = false;
@@ -182,14 +186,12 @@
             #   "nix"
             # ];
             # formatting.command = ["alejandra"];
-            nixpkgs = {
-              expr = "import <nixpkgs> { }";
-            };
+            nixpkgs.expr = "import <nixpkgs> { }";
             options = {
               # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
               #
-              # nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
-              nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
+              nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
+              # nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
               # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
               # # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
               #
