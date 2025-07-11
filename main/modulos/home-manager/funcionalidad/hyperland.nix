@@ -8,6 +8,7 @@
     hyprsysteminfo
     hyprpaper
     clipse
+    grimblast
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -66,7 +67,7 @@
         rounding_power = "2";
 
         active_opacity = "1.0";
-        inactive_opacity = "0.75";
+        inactive_opacity = "0.8";
 
         shadow = {
           enabled = "true";
@@ -234,6 +235,8 @@
         "$mainMod, D, exec, kicad"
         "$mainMod, W, exec, whatsie"
         "$mainMod, I, exec, $terminal --class clipse -e clipse"
+        ", Print, exec, grimblast copysave area && mv *.png $HOME/Imagenes/Screenshots/"
+        "SHIFT, Print, exec, grimblast copysave screen && mv *.png $HOME/Imagenes/Screenshots/"
       ];
 
       binds = [
