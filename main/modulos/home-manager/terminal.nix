@@ -1,9 +1,9 @@
 {...}: {
   programs.kitty = {
     enable = true;
-    # extraConfig = ''
-    #   startup_session ./inicio.conf
-    # '';
+    extraConfig = ''
+      cursor_trail 1
+    '';
 
     settings = {
       enable_audio_bell = false;
