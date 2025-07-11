@@ -66,7 +66,7 @@
         rounding_power = "2";
 
         active_opacity = "1.0";
-        inactive_opacity = "0.9";
+        inactive_opacity = "0.75";
 
         shadow = {
           enabled = "true";
@@ -92,27 +92,29 @@
           "almostLinear,0.5,0.5,0.75,1.0"
           "quick,0.15,0,0.1,1"
           "wind, 0.05, 0.9, 0.1, 1.05"
-          "winIn, 0.1, 1.1, 0.1, 1.1"
-          "winOut, 0.3, -0.3, 0, 1"
-          "liner, 1, 1, 1, 1"
+          "emphasizedDecel, 0.05, 0.7, 0.1, 1"
+          "emphasizedAccel, 0.3, 0, 0.8, 0.15"
+          "menu_decel, 0.1, 1, 0, 1"
+          "menu_accel, 0.52, 0.03, 0.72, 0.08"
         ];
         animation = [
-          "global, 1, 10, default"
-          "border, 1, 5.39, easeOutQuint"
-          "windows, 1, 4.79, easeOutQuint"
-          "windowsIn, 1, 4.1, easeOutQuint, popin 87%"
-          "windowsOut, 1, 1.49, linear, popin 87%"
-          "fadeIn, 1, 1.73, almostLinear"
-          "fadeOut, 1, 1.46, almostLinear"
-          "fade, 1, 3.03, quick"
-          "layers, 1, 3.81, easeOutQuint"
-          "layersIn, 1, 4, easeOutQuint, fade"
-          "layersOut, 1, 1.5, linear, fade"
-          "fadeLayersIn, 1, 1.79, almostLinear"
-          "fadeLayersOut, 1, 1.39, almostLinear"
+          "border, 1, 10, emphasizedDecel"
+          "windowsIn, 1, 3, emphasizedDecel, slide, popin 80%"
+          "windowsOut, 1, 2, emphasizedDecel, slide, popin 90%"
+          "windowsMove, 1, 3, emphasizedDecel, slide"
+
+          # "fadeIn, 1, 1.73, almostLinear"
+          # "fadeOut, 1, 1.46, almostLinear"
+          "layersIn, 1, 2.7, emphasizedDecel, popin 93%"
+          "layersOut, 1, 2.4, menu_accel, popin 94%"
+
+          "fadeLayersIn, 1, 0.5, menu_decel"
+          "fadeLayersOut, 1, 2.7, menu_accel"
+
+          #NOTE: animacion de los workspaces
           "workspaces, 1, 5, wind"
-          # "workspacesIn, 1, 1.21, almostLinear, fade"
-          # "workspacesOut, 1, 1.94, almostLinear, fade"
+          "specialWorkspaceOut, 1, 1.2, emphasizedAccel, slidevert"
+          "specialWorkspaceIn, 1, 2.8, emphasizedDecel, slidevert"
         ];
       };
       dwindle = {
