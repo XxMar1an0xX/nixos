@@ -49,7 +49,7 @@
     #   }
     # ];
 
-    backupFileExtension = "inestabilidad_perro";
+    backupFileExtension = "ajdska";
     #de-comentar si se rompe home-manager
   };
 
@@ -98,8 +98,34 @@
   console.keyMap = "la-latin1";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  #NOTE: impresoras
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [epson-escpr];
+    openFirewall = true;
+    # extraConf = ''
+    # '';
+  };
+  hardware.printers = {
+    ensurePrinters = [
+      {
+        name = "Epson_L4150";
+        model = "epson-inkjet-printer-escpr/Epson-L4150_Series-epson-escpr-en.ppd";
+        location = "Casa";
+        deviceUri = "dnssd://EPSON%20L4150%20Series._pdl-datastream._tcp.local/";
+        description = "impresora epson l4150 piooooola";
+        ppdOptions = {
+          PageSize = "A4";
+        };
+      }
+    ];
+  };
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
   # Enable sound with pipewire
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
