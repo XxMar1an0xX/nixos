@@ -30,7 +30,8 @@
         "systemctl --user start hyprpolkitagent"
         "hyprpaper"
         "waybar"
-        "clipse -listen"
+        "jamesdsp"
+        # "clipse -listen"
       ];
 
       # Variables de entorno (Enviroment variables)
@@ -97,6 +98,7 @@
           "emphasizedAccel, 0.3, 0, 0.8, 0.15"
           "menu_decel, 0.1, 1, 0, 1"
           "menu_accel, 0.52, 0.03, 0.72, 0.08"
+          "smoothIn, 0.5, -0.5, 0.68, 1.5"
         ];
         animation = [
           "border, 1, 10, emphasizedDecel"
@@ -105,6 +107,7 @@
           "windowsMove, 1, 3, emphasizedDecel, slide"
 
           # "fadeIn, 1, 1.73, almostLinear"
+          # "fade, 1, 5, smoothIn"
           # "fadeOut, 1, 1.46, almostLinear"
           "layersIn, 1, 2.7, emphasizedDecel, popin 93%"
           "layersOut, 1, 2.4, menu_accel, popin 94%"
