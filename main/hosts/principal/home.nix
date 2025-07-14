@@ -98,6 +98,55 @@
     #     hash = "sha256-f7XugMkf7Ylp2fY2MY7q1+p+awFOaIrNkCIR0SbOA30=";
     #   })
     # }/tokyonight_big1.rasi";
+    ".config/jamesdsp/audio.conf".text = ''
+      bass_enable=false
+      bass_maxgain=5
+      compander_enable=false
+      compander_granularity=2
+      compander_response=95.0;200.0;400.0;800.0;1600.0;3400.0;7500.0;0;0;0;0;0;0;0
+      compander_time_freq_transforms=0
+      compander_timeconstant=0.22000
+      convolver_enable=false
+      convolver_file=
+      convolver_optimization_mode=0
+      convolver_waveform_edit=-80;-100;0;0;0;0
+      crossfeed_bs2b_fcut=700
+      crossfeed_bs2b_feed=60
+      crossfeed_enable=false
+      crossfeed_mode=0
+      ddc_enable=false
+      ddc_file=
+      graphiceq_enable=true
+      graphiceq_param=GraphicEQ: 20 -3.1; 21 -3.4; 22 -3.6; 23 -3.9; 24 -4.2; 26 -4.8; 27 -5.1; 29 -5.4; 30 -5.7; 32 -6.1; 34 -6.4; 36 -6.6; 38 -6.9; 40 -7.2; 43 -7.6; 45 -7.8; 48 -8.1; 50 -8.3; 53 -8.5; 56 -8.6; 59 -8.6; 63 -8.6; 66 -8.5; 70 -8.2; 74 -7.7; 78 -7.2; 83 -6.9; 87 -6.7; 92 -7; 97 -7.4; 103 -6.5; 109 -5.9; 115 -6.3; 121 -6.7; 128 -6.9; 136 -6.8; 143 -6.4; 151 -5.7; 160 -4.5; 169 -3.2; 178 -2.1; 188 -1.1; 199 -0.5; 210 -0.5; 222 -1; 235 -1.7; 248 -2.4; 262 -3; 277 -3.6; 292 -4.1; 309 -4.4; 326 -4.6; 345 -4.8; 364 -4.9; 385 -5; 406 -5.1; 429 -5.1; 453 -5.1; 479 -5; 506 -4.9; 534 -4.8; 565 -4.7; 596 -4.6; 630 -4.6; 665 -4.6; 703 -4.7; 743 -4.9; 784 -5.2; 829 -5.5; 875 -5.7; 924 -6; 977 -5.9; 1032 -5.6; 1090 -5.2; 1151 -5; 1216 -5; 1284 -5.1; 1357 -5; 1433 -4.8; 1514 -4.6; 1599 -4.6; 1689 -4.7; 1784 -4.8; 1885 -5; 1991 -5.3; 2103 -5.7; 2221 -5.9; 2347 -5.9; 2479 -5.6; 2618 -5.2; 2766 -4.7; 2921 -4; 3086 -3; 3260 -1.6; 3443 -0.2; 3637 -0.5; 3842 -2; 4058 -3.4; 4287 -4.8; 4528 -6.3; 4783 -7.5; 5052 -8.1; 5337 -8.5; 5637 -8.1; 5955 -7.5; 6290 -8.7; 6644 -9.4; 7018 -9.1; 7414 -8.7; 7831 -8.1; 8272 -7.2; 8738 -6.3; 9230 -5.7; 9749 -5.3; 10298 -5.1; 10878 -5.4; 11490 -5.7; 12137 -6.2; 12821 -6.8; 13543 -7.4; 14305 -8.2; 15110 -9.1; 15961 -10.1; 16860 -11.2; 17809 -12.4; 18812 -13.8; 19871 -15.2
+      liveprog_enable=false
+      liveprog_file=
+      master_enable=true
+      master_limrelease=60
+      master_limthreshold=0
+      master_postgain=0
+      reverb_bassboost=0.25000
+      reverb_decay=2.09000
+      reverb_delay=0.00000
+      reverb_enable=false
+      reverb_finaldry=-7.00000
+      reverb_finalwet=-9.00000
+      reverb_lfo_spin=0.70000
+      reverb_lfo_wander=0.30000
+      reverb_lpf_bass=600
+      reverb_lpf_damp=9000
+      reverb_lpf_input=18000
+      reverb_lpf_output=17000
+      reverb_osf=1
+      reverb_reflection_amount=0.30000
+      reverb_reflection_factor=1.00000
+      reverb_reflection_width=0.70000
+      reverb_wet=-8.00000
+      reverb_width=1.00000
+      stereowide_enable=false
+      stereowide_level=60
+      tone_enable=false
+      tone_eq=25.0;40.0;63.0;100.0;160.0;250.0;400.0;630.0;1000.0;1600.0;2500.0;4000.0;6300.0;10000.0;16000.0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+    '';
 
     ".config/mimeapps.list".text = ''[ Default Applications ] inode/directory= thunar/desktop '';
   };
