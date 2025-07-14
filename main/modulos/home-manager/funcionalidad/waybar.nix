@@ -8,6 +8,7 @@
         modules-left = [
           "custom/os_button"
           "hyprland/workspaces"
+          "hyprland/window"
           "cava"
         ];
 
@@ -80,6 +81,7 @@
           "disk"
           "memory"
           "cpu"
+          "custom/wifi"
         ];
 
         "tray" = {
@@ -110,20 +112,35 @@
           "tooltip-format" = "Available {free} of {total}";
         };
 
+        "hyprland/window" = {
+          "format" = "{class}";
+          "max-length" = 20;
+        };
+
         "pulseaudio" = {
-          "max-volume" = 150;
           "scroll-step" = 1;
-          "format" = "{icon}{volume}%";
-          "tooltip-format" = "{volume}%";
-          "format-muted" = " ";
+          "format" = "{volume}% {icon} {format_source}";
+          "format-bluetooth" = "{volume}% {icon} {format_source}";
+          "format-bluetooth-muted" = " {icon} {format_source}";
+          "format-muted" = " {format_source}";
+          "format-source" = "{volume}% ";
+          "format-source-muted" = "";
           "format-icons" = {
-            "default" = [
-              " "
-              " "
-              " "
-            ];
+            "headphone" = "";
+            "hands-free" = "";
+            "headset" = "";
+            "phone" = "";
+            "portable" = "";
+            "car" = "";
+            "default" = ["" "" ""];
           };
-          "on-click" = "pwvucontrol";
+          # "on-click" = "pavucontrol"; #TODO: hacer herramienta parecida
+        };
+
+        "custom/wifi" = {
+          "format" = "";
+          "tooltip" = false;
+          "on-click" = "kitty -e bash -c 'nmcli general status; exec bash'";
         };
 
         "temperature" = {
@@ -139,7 +156,7 @@
           "clock"
         ];
         "clock" = {
-          "format" = "{:>%I:%M:%S %p - %d/%m/%y %a}";
+          "format" = "{:>%I:%M %p - %d/%m/%y %a}";
           "timezone" = "America/Argentina/Tucuman";
           "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
