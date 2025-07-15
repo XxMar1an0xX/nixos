@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   inputs,
   ...
@@ -9,13 +7,18 @@
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     nerd-fonts.symbols-only
+    mp3gain
+    neofetch
+    unzip
   ];
 
   imports = [
-    ./../../elnixvim/nixvim.nix
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  programs.gh = {
+    enable = true;
+  };
   # programs.nh = {
   #   enable = true;
   # };
