@@ -1,15 +1,12 @@
-{config, ...}: let
-  CondicionalPortable = Si: No: (
-    if config.custom.HacerPortable
-    then Si
-    else No
-  );
-in {
-  programs.virt-manager.enable = !config.custom.HacerPortable;
-
+{
+  config,
+  EsPortable,
+  ...
+}: {
+  programs.virt-manager.enable = !EsPortable;
   virtualisation.libvirtd = {
-    enable = !config.custom.HacerPortable;
+    enable = !EsPortable;
   };
-  virtualisation.spiceUSBRedirection.enable = !config.custom.HacerPortable;
+  virtualisation.spiceUSBRedirection.enable = !EsPortable;
   users.users.portable.extraGroups = ["libvirtd"];
 }

@@ -8,18 +8,26 @@
   config,
   pkgs,
   ...
-}: let
-  # CondicionalPortable = Si: No: (
-  #   if config.custom.HacerPortable
-  #   then Si
-  #   else No
-  # );
-  #TODO: hacer que no tenga q cambiar la opcion aca
-in {
-  custom.HacerPortable = false; #NOTE: FUNCIONAAAAA
-  imports = [
-    self.nixosModules.default #NOTE: modulo para opcion custom
-
+}: {
+  # custom.HacerPortable = true; #NOTE: FUNCIONAAAAA
+  imports = let
+    EsPortable =
+      if (config ? custom.HacerPortable)
+      then config.custom.HacerPortable
+      else false;
+    CondicionalPortable = Si: No: (
+      if EsPortable
+      then Si
+      else No
+    );
+  in [
+    {
+      _module.args = {
+        inherit CondicionalPortable;
+        inherit EsPortable;
+      };
+    }
+    # self.nixosModules.default
     #NOTE: funcionalidad
     ./../../modulos/nixconfig/funcionalidad/invidious.nix
     ./../../modulos/nixconfig/funcionalidad/VMs.nix
@@ -37,7 +45,6 @@ in {
     ./../../modulos/nixconfig/misc/ollama.nix
 
     ./../../hardware-configuration.nix #esto es necesario para q ande
-    # "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   ];
   # ++ CondicionalPortable [
   #   "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
@@ -45,7 +52,10 @@ in {
 
   home-manager = {
     extraSpecialArgs = let
-      EsPortable = config.custom.HacerPortable;
+      EsPortable =
+        if (config ? custom.HacerPortable)
+        then config.custom.HacerPortable
+        else false;
     in {
       inherit inputs;
       inherit EsPortable;
@@ -76,7 +86,10 @@ in {
   # Enable networking
   networking = let
     CondicionalPortable = Si: No: (
-      if config.custom.HacerPortable
+      if
+        if (config ? custom.HacerPortable)
+        then config.custom.HacerPortable
+        else false
       then Si
       else No
     );
@@ -93,7 +106,8 @@ in {
         enable = true;
       };
     wireless = CondicionalPortable {
-      enable = true;
+      # enable = true;
+      enable = false;
       userControlled.enable = true;
       dbusControlled = true;
     } {};
@@ -125,7 +139,10 @@ in {
   #NOTE: teclado (hacerlo modulo custom)
   services.xserver.xkb = let
     CondicionalPortable = Si: No: (
-      if config.custom.HacerPortable
+      if
+        if (config ? custom.HacerPortable)
+        then config.custom.HacerPortable
+        else false
       then Si
       else No
     );
@@ -149,7 +166,10 @@ in {
   };
   hardware.printers = let
     CondicionalPortable = Si: No: (
-      if config.custom.HacerPortable
+      if
+        if (config ? custom.HacerPortable)
+        then config.custom.HacerPortable
+        else false
       then Si
       else No
     );

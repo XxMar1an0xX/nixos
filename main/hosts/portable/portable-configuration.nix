@@ -1,8 +1,11 @@
 {
   modulesPath,
   self,
+  config,
+  lib,
   ...
 }: {
+  custom.HacerPortable = true;
   #NOTE: aqui van los modulos .nix
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
@@ -11,10 +14,17 @@
     # nix run nixpkgs#nixos-generators -- --format iso --flake /home/ruiz/Documentos/GitHub/nixos/main#portable -o result
     ./../principal/configuration.nix
 
+    (
+      {...}: {
+        # custom.HacerPortable = true;
+      }
+    )
+    {
+      _module.args = {inherit config;};
+    }
+    self.nixosModules.default
     # ./../../modulos/portabilizacion/nixconfig.nix
   ];
-
-  custom.HacerPortable = true;
 
   # #NOTE: config inicial del home-manager
   #   home-manager = {

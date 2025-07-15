@@ -1,14 +1,10 @@
 {
   config,
   lib,
+  CondicionalPortable,
+  EsPortable,
   ...
-}: let
-  CondicionalPortable = Si: No: (
-    if config.custom.HacerPortable
-    then Si
-    else No
-  );
-in {
+}: {
   boot.kernelParams = [
     "modules_blacklist=ntfs3"
   ];

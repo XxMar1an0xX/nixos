@@ -1,15 +1,8 @@
 {
-  lib,
-  config,
   pkgs,
+  CondicionalPortable,
   ...
-}: let
-  CondicionalPortable = Si: No: (
-    if config.custom.HacerPortable
-    then Si
-    else No
-  );
-in {
+}: {
   #NOTE: anti modo suspender
   systemd.targets =
     CondicionalPortable {

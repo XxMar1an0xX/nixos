@@ -31,6 +31,7 @@
 
   outputs = {
     nixai,
+    # config,
     nixpkgs,
     stylix,
     nix-on-droid,
@@ -67,6 +68,7 @@
         specialArgs = {
           inherit inputs;
           inherit self;
+          # inherit CondicionalPortable;
         };
         modules = [
           ./hosts/principal/configuration.nix
@@ -75,22 +77,26 @@
           nixai.nixosModules.default
           inputs.minegrub-world-sel-theme.nixosModules.default
           inputs.minegrub-theme.nixosModules.default
+          # self.nixosModules.default
 
-          # nvf.nixosModules.default
-          ({lib, ...}: {
+          ({...}: {
             environment.systemPackages = [CustomNVF.neovim];
           })
         ];
       };
       portable = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit self;
+        };
         modules = [
           ./hosts/portable/portable-configuration.nix
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
           inputs.minegrub-world-sel-theme.nixosModules.default
-          nvf.nixosModules.default
-          self.nixosModules.default
+          ({...}: {
+            environment.systemPackages = [CustomNVF.neovim];
+          })
         ];
       };
 
@@ -107,7 +113,7 @@
         ./hosts/nix-on-droid/nix-on-droid.nix
 
         (
-          {pkgs, ...}: {
+          {...}: {
             home-manager.config.home.packages = [CustomNVF.neovim];
           }
         )

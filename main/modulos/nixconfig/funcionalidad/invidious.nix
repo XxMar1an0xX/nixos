@@ -1,10 +1,8 @@
-{config, ...}: let
-  CondicionalPortable = Si: No: (
-    if config.custom.HacerPortable
-    then Si
-    else No
-  );
-in {
+{
+  config,
+  CondicionalPortable,
+  ...
+}: {
   services.invidious = CondicionalPortable {} {
     enable = true;
     nginx.enable = false;

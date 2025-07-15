@@ -2,15 +2,9 @@
   pkgs,
   lib,
   config,
-  EsPortable,
+  CondicionalPortable,
   ...
-}: let
-  CondicionalPortable = Si: No: (
-    if EsPortable
-    then Si
-    else No
-  );
-in {
+}: {
   #NOTE: apps que ayudan mucho
   home.packages = with pkgs; [
     hyprsysteminfo

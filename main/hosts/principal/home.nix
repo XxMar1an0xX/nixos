@@ -4,11 +4,22 @@
   lib,
   stylix,
   config,
+  EsPortable,
   ...
-}: {
+}: let
+  CondicionalPortable = Si: No: (
+    if EsPortable
+    then Si
+    else No
+  );
+  #TODO: hacer que no tenga q cambiar la opcion aca
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
+    {
+      _module.args = {inherit CondicionalPortable;};
+    }
     # ./../../elnixvim/nixvim.nix
     ./../../modulos/home-manager/stylix-hm.nix
     ./../../modulos/home-manager/funcionalidad/firefox.nix
