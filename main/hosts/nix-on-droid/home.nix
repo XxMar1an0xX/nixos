@@ -19,6 +19,9 @@
   programs.gh = {
     enable = true;
   };
+  programs.git = {
+    enable = true;
+  };
   # programs.nh = {
   #   enable = true;
   # };
