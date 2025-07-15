@@ -1,10 +1,15 @@
 {
-  pkgs,
+  config,
   lib,
   ...
-}: {
-
-boot.kernelParams = [
+}: let
+  CondicionalPortable = Si: No: (
+    if config.custom.HacerPortable
+    then Si
+    else No
+  );
+in {
+  boot.kernelParams = [
     "modules_blacklist=ntfs3"
   ];
 
@@ -13,7 +18,7 @@ boot.kernelParams = [
     # systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
     grub = {
-      enable = lib.mkDefault true;
+      enable = CondicionalPortable (lib.mkForce true) true; #NOTE: si falla algo en boot bien que es aqui
       efiSupport = true;
       device = "nodev";
       timeoutStyle = "menu";
@@ -22,8 +27,8 @@ boot.kernelParams = [
       # extraEntries = ''
       # '';
       useOSProber = true;
-      gfxmodeEfi = "1984x1020";
-      gfxmodeBios = "1984x1020";
+      gfxmodeEfi = CondicionalPortable "" "1984x1020";
+      gfxmodeBios = CondicionalPortable "" "1984x1020";
       minegrub-world-sel = {
         enable = true;
         customIcons = [{}];
@@ -47,7 +52,7 @@ boot.kernelParams = [
       #   }/mainmenu.cfg";
       # };
     };
-    timeout = lib.mkDefault 15;
+    timeout = lib.mkForce 15;
   };
   time.hardwareClockInLocalTime = true;
 }

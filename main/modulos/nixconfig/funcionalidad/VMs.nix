@@ -1,8 +1,15 @@
-{...}: {
-  programs.virt-manager.enable = true;
+{config, ...}: let
+  CondicionalPortable = Si: No: (
+    if config.custom.HacerPortable
+    then Si
+    else No
+  );
+in {
+  programs.virt-manager.enable = !config.custom.HacerPortable;
+
   virtualisation.libvirtd = {
-    enable = true;
+    enable = !config.custom.HacerPortable;
   };
-  virtualisation.spiceUSBRedirection.enable = true;
+  virtualisation.spiceUSBRedirection.enable = !config.custom.HacerPortable;
   users.users.portable.extraGroups = ["libvirtd"];
 }

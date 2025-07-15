@@ -1,44 +1,59 @@
 {
   lib,
+  config,
   pkgs,
   ...
-}: {
+}: let
+  CondicionalPortable = Si: No: (
+    if config.custom.HacerPortable
+    then Si
+    else No
+  );
+in {
   #NOTE: anti modo suspender
-  systemd.targets.sleep.enable = false;
-  systemd.targets.suspend.enable = false;
-  systemd.targets.hibernate.enable = false;
-  systemd.targets.hybrid-sleep.enable = false;
+  systemd.targets =
+    CondicionalPortable {
+      sleep.enable = true;
+      suspend.enable = true;
+      hibernate.enable = true;
+      hybrid-sleep.enable = true;
+    } {
+      sleep.enable = false;
+      suspend.enable = false;
+      hibernate.enable = false;
+      hybrid-sleep.enable = false;
+    };
 
   # paquetes que no estan como opciones de NixOS
-  environment.systemPackages = with pkgs; [
-    vlc
-    jamesdsp
-    arduino
-    btop
+  environment.systemPackages = with pkgs;
+    [
+      vlc
+      arduino
+      arduino-cli
+      btop
 
-    keepassxc
-    cryptomator
-    libreoffice
-    github-desktop
-    kdiskmark
-    qalculate-qt
-    kicad
-    unzip
-    bc
-    alejandra
-    nomacs
-    whatsie
-    cava
-    gparted
-    arduino-ide
-    neofetch
+      keepassxc
+      cryptomator
+      libreoffice
+      kdiskmark
+      qalculate-qt
+      kicad
+      unzip
+      bc
+      nomacs
+      whatsie
+      cava
+      gparted
+      arduino-ide
+      neofetch
 
-    #NOTE: para rustaceanvim
-    # cargo
-    # rustc
-    # rustup
-    # rust-analyzer
-  ];
+      #NOTE: para rustaceanvim
+      # cargo
+      # rustc
+      # rustup
+      # rust-analyzer
+    ]
+    ++ CondicionalPortable [] [jamesdsp];
 
   # localsend
   programs.localsend = {
@@ -58,7 +73,7 @@
       thunar-volman
     ];
   };
-  #NOTE: automount
+  #NOTE: esto ayuda al automount de thunar
   services = {
     udisks2.enable = true;
     gvfs.enable = true;
@@ -99,11 +114,10 @@
     baobab
     seahorse
     sushi
-    xterm
   ];
 
   #eliminar xterm
-  services.xserver.excludePackages = [pkgs.xterm];
+  # services.xserver.excludePackages = [pkgs.xterm];
 
   #nix ld
   # programs.nix-ld.enable = true;

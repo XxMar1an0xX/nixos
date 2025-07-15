@@ -2,17 +2,28 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
+  modulesPath,
   inputs,
+  self,
   config,
   pkgs,
   ...
-}: {
+}: let
+  # CondicionalPortable = Si: No: (
+  #   if config.custom.HacerPortable
+  #   then Si
+  #   else No
+  # );
+  #TODO: hacer que no tenga q cambiar la opcion aca
+in {
+  custom.HacerPortable = false; #NOTE: FUNCIONAAAAA
   imports = [
+    self.nixosModules.default #NOTE: modulo para opcion custom
+
     #NOTE: funcionalidad
     ./../../modulos/nixconfig/funcionalidad/invidious.nix
     ./../../modulos/nixconfig/funcionalidad/VMs.nix
     ./../../modulos/nixconfig/funcionalidad/juegos.nix
-    # Include the results of the hardware scan.
     #NOTE: default
     ./../../modulos/nixconfig/defaults/programas_esenciales.nix
     ./../../modulos/nixconfig/defaults/limpieza_y_actualizacion.nix
@@ -26,16 +37,18 @@
     ./../../modulos/nixconfig/misc/ollama.nix
 
     ./../../hardware-configuration.nix #esto es necesario para q ande
-
-    #NOTE: ver forma de quitar esto haciendo que custom sea o la deficion normal, o falso si esta no existe
-    ./../../modulos/portabilizacion/nixconfig.nix
+    # "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   ];
-  home-manager = let
-    custom = config.custom.HacerPortable;
-  in {
-    extraSpecialArgs = {
+  # ++ CondicionalPortable [
+  #   "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+  # ] [];
+
+  home-manager = {
+    extraSpecialArgs = let
+      EsPortable = config.custom.HacerPortable;
+    in {
       inherit inputs;
-      inherit custom;
+      inherit EsPortable;
     };
     users = {
       "ruiz" = import ./home.nix;
@@ -53,7 +66,6 @@
     #de-comentar si se rompe home-manager
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
   qt.enable = true;
   hardware.graphics.enable = true;
 
@@ -62,7 +74,30 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = let
+    CondicionalPortable = Si: No: (
+      if config.custom.HacerPortable
+      then Si
+      else No
+    );
+  in {
+    firewall.allowedTCPPorts = [53317 8081];
+    firewall.allowedUDPPorts = [53317 8081];
+    hostName = "nixos";
+    networkmanager =
+      CondicionalPortable {
+        enable = true;
+        wifi.powersave = true;
+        unmanaged = ["*-foo-bar"];
+      } {
+        enable = true;
+      };
+    wireless = CondicionalPortable {
+      enable = true;
+      userControlled.enable = true;
+      dbusControlled = true;
+    } {};
+  };
 
   # Set your time zone.
   time.timeZone = "America/Argentina/Tucuman";
@@ -88,10 +123,16 @@
   # Enable the GNOME Desktop Environment.
 
   #NOTE: teclado (hacerlo modulo custom)
-  services.xserver.xkb = {
+  services.xserver.xkb = let
+    CondicionalPortable = Si: No: (
+      if config.custom.HacerPortable
+      then Si
+      else No
+    );
+  in {
     layout = "latam";
     # variant = "";
-    model = "microsoftinet";
+    model = CondicionalPortable "" "microsoftinet";
   };
 
   # Configure console keymap
@@ -106,19 +147,28 @@
     # extraConf = ''
     # '';
   };
-  hardware.printers = {
-    ensurePrinters = [
-      {
-        name = "Epson_L4150";
-        model = "epson-inkjet-printer-escpr/Epson-L4150_Series-epson-escpr-en.ppd";
-        location = "Casa";
-        deviceUri = "dnssd://EPSON%20L4150%20Series._pdl-datastream._tcp.local/";
-        description = "impresora epson l4150 piooooola";
-        ppdOptions = {
-          PageSize = "A4";
-        };
-      }
-    ];
+  hardware.printers = let
+    CondicionalPortable = Si: No: (
+      if config.custom.HacerPortable
+      then Si
+      else No
+    );
+  in {
+    ensurePrinters =
+      [
+      ]
+      ++ CondicionalPortable [] [
+        {
+          name = "Epson_L4150";
+          model = "epson-inkjet-printer-escpr/Epson-L4150_Series-epson-escpr-en.ppd";
+          location = "Casa";
+          deviceUri = "dnssd://EPSON%20L4150%20Series._pdl-datastream._tcp.local/";
+          description = "impresora epson l4150 piooooola";
+          ppdOptions = {
+            PageSize = "A4";
+          };
+        }
+      ];
   };
 
   services.avahi = {
@@ -319,8 +369,6 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [53317 8081];
-  networking.firewall.allowedUDPPorts = [53317 8081];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

@@ -13,7 +13,7 @@
     ./../../modulos/home-manager/stylix-hm.nix
     ./../../modulos/home-manager/funcionalidad/firefox.nix
 
-    ./../../modulos/portabilizacion/home-manager.nix
+    # ./../../modulos/portabilizacion/home-manager.nix
 
     ./../../modulos/home-manager/rofi.nix
 

@@ -1,8 +1,16 @@
 {
   pkgs,
   lib,
+  config,
+  EsPortable,
   ...
-}: {
+}: let
+  CondicionalPortable = Si: No: (
+    if EsPortable
+    then Si
+    else No
+  );
+in {
   #NOTE: apps que ayudan mucho
   home.packages = with pkgs; [
     hyprsysteminfo
@@ -142,7 +150,7 @@
       input = {
         kb_layout = "latam";
         # kb_variant = "deadtilde";
-        kb_model = "microsoftinet";
+        kb_model = CondicionalPortable "" "microsoftinet";
         # kb_options = "";
         # kb_rules = "";
 
@@ -269,11 +277,15 @@
         "stayfocused, class:(clipse)"
       ];
 
-      monitor = [
+      monitor =
         # "HDMI-A-1, modeline 168.28 1984 2104 2320 2656 1020 1021 1024 1056 -HSync +Vsync, 0x0, 1"
-        "HDMI-A-1, 1984x1020@60, 0x0, 1, cm, srgb"
         # "HDMI-A-1, 1920x1080@60, 0x0, 1"
-      ];
+        CondicionalPortable [
+          "HDMI-A-1, 1920x1080@60, 0x0, 1"
+        ] [
+          #NOTE: este es el caso de escritorio (normal)
+          "HDMI-A-1, 1984x1020@60, 0x0, 1, cm, srgb"
+        ];
       render = {
         cm_enabled = "true";
       };

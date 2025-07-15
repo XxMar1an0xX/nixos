@@ -1,9 +1,11 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  services.invidious = {
+{config, ...}: let
+  CondicionalPortable = Si: No: (
+    if config.custom.HacerPortable
+    then Si
+    else No
+  );
+in {
+  services.invidious = CondicionalPortable {} {
     enable = true;
     nginx.enable = false;
     address = "127.0.0.2";

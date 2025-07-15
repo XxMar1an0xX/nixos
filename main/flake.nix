@@ -39,7 +39,6 @@
     self,
     ...
   } @ inputs: let
-    usuario = "ruiz";
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
@@ -53,11 +52,20 @@
     # formattepackages.${system}.default = CustomNVF.neovim;r.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
+
+    nixosModules.default = {lib, ...}: {
+      options = {
+        custom.HacerPortable = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+        };
+      };
+    };
+
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
-          inherit usuario;
           inherit self;
         };
         modules = [
@@ -69,15 +77,9 @@
           inputs.minegrub-theme.nixosModules.default
 
           # nvf.nixosModules.default
-          ({pkgs, ...}: {
+          ({lib, ...}: {
             environment.systemPackages = [CustomNVF.neovim];
           })
-          # {
-          #   services.nixai = {
-          #     enable = true;
-          #     mcp.enable = true;
-          #   };
-          # }
         ];
       };
       portable = nixpkgs.lib.nixosSystem {
@@ -88,6 +90,7 @@
           stylix.nixosModules.stylix
           inputs.minegrub-world-sel-theme.nixosModules.default
           nvf.nixosModules.default
+          self.nixosModules.default
         ];
       };
 
@@ -103,6 +106,11 @@
       modules = [
         ./hosts/nix-on-droid/nix-on-droid.nix
 
+        (
+          {pkgs, ...}: {
+            home-manager.config.home.packages = [CustomNVF.neovim];
+          }
+        )
         # list of extra modules for Nix-on-Droid system
         # { nix.registry.nixpkgs.flake = nixpkgs; }
         # ./path/to/module.nix
