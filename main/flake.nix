@@ -113,6 +113,9 @@
 
         (
           {...}: {
+            home-manager.config.imports = [
+              nvf.homeManagerModules.default
+            ];
           }
         )
         # list of extra modules for Nix-on-Droid system
