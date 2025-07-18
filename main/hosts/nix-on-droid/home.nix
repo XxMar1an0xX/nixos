@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  nvf,
   ...
 }: {
   # Read the changelog before changing this value
@@ -13,6 +14,8 @@
   ];
 
   imports = [
+    nvf.homeManagerModules.default
+    ./test.nix
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

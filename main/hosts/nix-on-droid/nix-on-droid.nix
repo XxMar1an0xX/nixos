@@ -3,13 +3,13 @@
   lib,
   pkgs,
   inputs,
+  nvf,
   ...
 }: {
   # Simply install just the packages
   imports = [
     # inputs.nixvim.nixosModules.nixvim
   ];
-
 
   environment.packages = with pkgs; [
     # User-facing stuff that you really really want to have
@@ -56,6 +56,11 @@
     config = ./home.nix;
     backupFileExtension = "hm-bak";
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {
+      inherit pkgs;
+      inherit lib;
+      inherit inputs;
+      inherit nvf;
+    };
   };
 }
