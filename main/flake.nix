@@ -41,12 +41,20 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    droidsystem = "aarch64-linux";
+    droidpkgs = nixpkgs.legacyPackages.${droidsystem};
     pkgs = nixpkgs.legacyPackages.${system};
 
     configModule = import ./modulos/nixconfig/funcionalidad/NVF.nix;
     CustomNVF = nvf.lib.neovimConfiguration {
       modules = [configModule];
       inherit pkgs;
+    };
+
+    droidconfigModule = import ./modulos/nixconfig/funcionalidad/NVF.nix;
+    droidNVF = nvf.lib.neovimConfiguration {
+      modules = [droidconfigModule];
+      inherit droidpkgs;
     };
   in {
     packages.${system}.default = CustomNVF.neovim;
@@ -114,7 +122,7 @@
 
         (
           {...}: {
-            home-manager.config.home.packages = [CustomNVF.neovim];
+            home-manager.config.home.packages = [droidNVF.neovim];
           }
         )
         # list of extra modules for Nix-on-Droid system
