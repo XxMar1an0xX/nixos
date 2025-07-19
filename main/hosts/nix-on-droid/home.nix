@@ -14,8 +14,7 @@
   ];
 
   imports = [
-    nvf.homeManagerModules.default
-    ./test.nix
+    # ./test.nix
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
