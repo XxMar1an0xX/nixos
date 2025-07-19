@@ -47,8 +47,16 @@
       modules = [configModule];
       inherit pkgs;
     };
+    droidsystem = "aarch64-linux";
+    droidpkgs = nixpkgs.legacyPackages.${droidsystem};
+
+    droidNVF = nvf.lib.neovimConfiguration {
+      modules = [configModule];
+      inherit droidpkgs;
+    };
   in {
     packages.${system}.default = CustomNVF.neovim;
+    packages.${droidsystem}.default = droidNVF.neovim;
     # formattepackages.${system}.default = CustomNVF.neovim;r.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
