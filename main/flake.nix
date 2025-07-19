@@ -51,7 +51,7 @@
     droidpkgs = nixpkgs.legacyPackages.${droidsystem};
 
     droidNVF = nvf.lib.neovimConfiguration {
-      modules = [configModule];
+      modules = [import ./modulos/nixconfig/funcionalidad/droidNVF.nix];
       inherit droidpkgs;
     };
   in {
