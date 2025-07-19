@@ -124,7 +124,7 @@
             # home-manager.config.imports = [
             #   # nvf.homeManagerModules.default
             # ];
-            environment.packages = with pkgs; [CustomNVF.neovim];
+            # environment.packages = with pkgs; [CustomNVF.neovim];
           }
         )
         # list of extra modules for Nix-on-Droid system

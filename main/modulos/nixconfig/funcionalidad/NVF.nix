@@ -1,9 +1,10 @@
 {
   pkgs,
   lib,
+  # EsModulo ? false,
   ...
-}: {
-  config.vim = {
+}: let
+  configuracion = {
     extraPackages = with pkgs; [gcc cargo rustc alejandra clipse lldb];
     viAlias = true;
     vimAlias = true;
@@ -187,16 +188,18 @@
             # ];
             # formatting.command = ["alejandra"];
             nixpkgs.expr = "import <nixpkgs> { }";
-            options = {
-              # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-              #
-              nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
-              # nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
-              # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
-              # # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
-              #
-              # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
-            };
+            nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
+            home-manager.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
+            nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
+            lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
+
+            #   # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
+            #   #
+            #   # nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
+            #   # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
+            #   # # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
+            #   #
+            #   # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
           };
         };
         treesitter.enable = true;
@@ -227,7 +230,10 @@
       #NOTE: lenguajes extras
       markdown.enable = true;
       python.enable = true;
-      bash.enable = true;
+      bash = {
+        enable = true;
+        format.enable = true;
+      };
     };
 
     filetree.neo-tree = {
@@ -267,8 +273,25 @@
     autopairs.nvim-autopairs.enable = true;
 
     autocomplete = {
-      nvim-cmp.enable = false;
-      blink-cmp.enable = true;
+      enableSharedCmpSources = true;
+      # nvim-cmp.enable = true;
+      blink-cmp = {
+        friendly-snippets.enable = true;
+        enable = true;
+        sourcePlugins = {
+          # treesitter = {
+          #   package = "cmp-treesitter";
+          #   enable = true;
+          # };
+          ripgrep.enable = true;
+          spell.enable = true;
+        };
+        setupOpts = {
+          keymap.preset = "super-tab";
+          completion.documentation.auto_show = true;
+          fuzzy.implementation = "prefer_rust_with_warning";
+        };
+      };
     };
 
     # snippets.luasnip.enable = true;
@@ -343,6 +366,14 @@
       # };
     };
   };
-  # };
-  # environment.systemPackages = [pkgs.cargo];
-}
+in
+  if false
+  then {
+    programs.nvf = {
+      enable = true;
+      settings = configuracion;
+    };
+  }
+  else {
+    config.vim = configuracion;
+  }
