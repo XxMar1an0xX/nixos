@@ -14,8 +14,8 @@ pkgs.stdenvNoCC.mkDerivation rec {
   #   #nix hash to-sri --type sha256 $(nix-prefetch-url https://dl.dafont.com/dl/?f=hashtag)
 
   src = pkgs.fetchurl {
-    sha256 = "sha256-7TjaqvYpn4N4zF7lVwc7dKCUZHLeAU7pGqGu1d47xHM=";
     url = "https://dl.dafont.com/dl/?f=hashtag";
+    sha256 = "sha256-7TjaqvYpn4N4zF7lVwc7dKCUZHLeAU7pGqGu1d47xHM=";
     #Hastag/sayori
 
     # url = "https://dl.dafont.com/dl/?f=journal";

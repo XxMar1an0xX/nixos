@@ -46,9 +46,15 @@
 
     ./../../hardware-configuration.nix #esto es necesario para q ande
   ];
+
   # ++ CondicionalPortable [
   #   "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   # ] [];
+  #NOTE: esto para poder formatear tranquilo
+  boot.supportedFilesystems = [
+    "nfts"
+    "exfat"
+  ];
 
   home-manager = {
     extraSpecialArgs = let
@@ -244,6 +250,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    (callPackage ./../../modulos/nixconfig/misc/gitrepo-pkg.nix {
+      inherit lib;
+      inherit pkgs;
+    })
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
 
@@ -266,18 +276,28 @@
   systemd.user.services.autoinicio = {
     description = "autoinicio al loguearse";
     serviceConfig.PassEnvironment = "DISPLAY";
-    script = ''      #NOTE: generar repo de git y tmbn reemplazar hardware-configuration
-           if ! test -e /home/ruiz/Documentos/nixos; then
-                   cd /home/ruiz/Documentos || return
-                   git clone https://github.com/XxMar1an0xX/nixos.git
-                   if [[ ! $TERMINAL = kitty ]]; then
-                           echo "reemplazando hardware config con el necesario"
-                           rm -f /home/ruiz/Documentos/nixos/main/hardware-configuration.nix
-                           nixos-generate-config --show-hardware-config >>/home/ruiz/Documentos/nixos/main/hardware-configuration.nix
-                   fi
-           fi
-                 hyprland
-    '';
+    script =
+      /*
+      bash
+      */
+      ''          #NOTE: generar repo de git y tmbn reemplazar hardware-configuration
+
+                     hyprland
+        if ! test -e /home/ruiz/Documentos; then
+        mkdir ./Descargas
+        mkdir ./Documentos
+        fi
+
+               if ! test -e /home/ruiz/Documentos/nixos; then
+                       cd /home/ruiz/Documentos || return
+                       git clone https://github.com/XxMar1an0xX/nixos.git
+                       if [[ ! $TERMINAL = kitty ]]; then
+                               echo "reemplazando hardware config con el necesario"
+                               rm -f /home/ruiz/Documentos/nixos/main/hardware-configuration.nix
+                               nixos-generate-config --show-hardware-config >>/home/ruiz/Documentos/nixos/main/hardware-configuration.nix
+                       fi
+               fi
+      '';
     wantedBy = ["multi-user.target"]; # starts after login
   };
   # security.polkit = {
@@ -285,6 +305,10 @@
   # };
 
   fonts.packages = with pkgs; [
+    (callPackage ./../../modulos/nixconfig/misc/fuentes-pkg.nix {
+      inherit lib;
+      inherit pkgs;
+    })
     dejavu_fonts
     # nerd-fonts._0xproto
     # nerd-fonts._3270

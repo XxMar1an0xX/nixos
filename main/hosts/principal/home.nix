@@ -96,6 +96,11 @@ in {
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    # "Descargas/hola.zip".source = "${(pkgs.fetchzip {
+    #   url = "https://dl.dafont.com/dl/?f=hashtag";
+    #   sha256 = "sha256-8K5ooOEhGYYJK2cqc/NMOHbKPJseEhStyiOFcH8uZbA=";
+    #   stripRoot = false;
+    # })}";
     # ".config/kitty/inicio.conf".text = ''
     #   layout tall
     #   launch sh -c "neofetch"

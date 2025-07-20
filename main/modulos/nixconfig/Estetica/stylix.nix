@@ -46,6 +46,17 @@
       #   enable = true;
       #   hyprpaper.enable = true;
       # };
+      font-packages.enable = true;
+    };
+
+    fonts = {
+      serif = {
+        package = pkgs.callPackage ./../misc/fuentes-pkg.nix {
+          inherit pkgs;
+          inherit lib;
+        };
+        name = "hashtag";
+      };
     };
   };
 }
