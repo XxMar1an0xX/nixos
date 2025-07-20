@@ -39,6 +39,7 @@
       gparted
       arduino-ide
       neofetch
+      freecad-wayland
 
       #NOTE: para rustaceanvim
       # cargo
