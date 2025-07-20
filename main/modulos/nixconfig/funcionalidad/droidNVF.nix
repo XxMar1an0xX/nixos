@@ -186,7 +186,7 @@
             #   "nix"
             # ];
             # formatting.command = ["alejandra"];
-            nixdroidpkgs.expr = "import <nixpkgs> { }";
+            nixpkgs.expr = "import <nixpkgs> { }";
             options = {
               # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
               #
