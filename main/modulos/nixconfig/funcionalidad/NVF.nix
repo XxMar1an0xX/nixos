@@ -1,21 +1,31 @@
 {
   pkgs,
   lib,
-  # EsModulo ? false,
   ...
 }: let
   configuracion = {
-    extraPackages = with pkgs; [gcc cargo rustc alejandra clipse lldb];
+    extraPackages = with pkgs; [ripgrep gcc cargo rustc alejandra clipse lldb fzf];
     viAlias = true;
     vimAlias = true;
-    extraPlugins = with pkgs.vimPlugins; {
+    extraPlugins = {
       nighfox = {
-        package = nightfox-nvim;
-        setup = ''
-          require('nightfox').setup {}
-          vim.cmd("colorscheme nordfox")
-        '';
+        package = pkgs.vimPlugins.nightfox-nvim;
+        setup =
+          /*
+          lua
+          */
+          ''
+                      require('nightfox').setup {}
+                      vim.cmd("colorscheme nordfox")
+                      -- vim.api.nvim_create_autocmd("VimEnter", {
+            	-- callback = function()
+            	-- 	vim.cmd("Alpha")
+            	-- end,
+            -- })
+          '';
       };
+      # arduino = {
+      # };
     };
     # useSystemClipboard = true;
     # additionalRuntimePaths = [
@@ -80,7 +90,7 @@
     };
 
     notify = {
-      nvim-notify.enable = false;
+      nvim-notify.enable = true;
     };
 
     dashboard = {
@@ -190,7 +200,7 @@
             nixpkgs.expr = "import <nixpkgs> { }";
             nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
             home-manager.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-            nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
+            # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
             lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
 
             #   # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
@@ -228,6 +238,8 @@
       };
 
       #NOTE: lenguajes extras
+      clang.enable = true;
+      lua.enable = true;
       markdown.enable = true;
       python.enable = true;
       bash = {
@@ -259,7 +271,7 @@
       };
       # cinnamon-nvim.enable = true;
       fidget-nvim.enable = true;
-      scrollBar.enable = true;
+      nvim-scrollbar.enable = true;
 
       highlight-undo = {
         enable = true;
@@ -294,7 +306,7 @@
       };
     };
 
-    # snippets.luasnip.enable = true;
+    snippets.luasnip.enable = true;
 
     treesitter.context.enable = true;
 
@@ -317,6 +329,13 @@
       };
       images = {
         image-nvim.enable = false;
+      };
+      leetcode-nvim = {
+        enable = true;
+        setupOpts = {
+          image_support = true;
+          lang = "rust";
+        };
       };
     };
 
