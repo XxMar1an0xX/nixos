@@ -52,7 +52,7 @@
 
     droidNVF = nvf.lib.neovimConfiguration {
       modules = [import ./modulos/nixconfig/funcionalidad/droidNVF.nix];
-      inherit droidpkgs;
+      inherit (nixpkgs.legacyPackages."aarch64-linux");
     };
   in {
     packages.${system}.default = CustomNVF.neovim;
@@ -124,7 +124,7 @@
             home-manager.config.imports = [
               # nvf.homeManagerModules.default
             ];
-            environment.packages = with pkgs; [droidNVF.neovim];
+            environment.packages = with pkgs; [CustomNVF.neovim];
           }
         )
         # list of extra modules for Nix-on-Droid system
