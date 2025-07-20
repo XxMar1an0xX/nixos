@@ -25,16 +25,19 @@
       "$browser" = "librewolf";
 
       # para cosas que arrancan al inicio
-      exec-once = [
-        "[workspace 2 silent] $terminal -e nvim $NH_FLAKE"
-        "[workspace 1 silent] $browser"
-        # "[workspace s silent] $terminal"
-        "systemctl --user start hyprpolkitagent"
-        "hyprpaper"
-        "waybar"
-        "jamesdsp"
-        # "clipse -listen"
-      ];
+      exec-once =
+        [
+          "[workspace 2 silent] $terminal -e nvim $NH_FLAKE"
+          "[workspace 1 silent] $browser"
+          "systemctl --user start hyprpolkitagent"
+          "hyprpaper"
+          "waybar"
+
+          # "clipse -listen"
+        ]
+        ++ CondicionalPortable [] [
+          "jamesdsp -t &"
+        ];
 
       # Variables de entorno (Enviroment variables)
       env = [

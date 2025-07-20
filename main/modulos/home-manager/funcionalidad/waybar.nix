@@ -29,6 +29,7 @@
             "class<thunar>" = "";
             "class<localsend_app>" = "󰡰";
             # "class<>" = "";
+            "class<GParted>" = "󱁋";
             "class<libreoffice>" = "";
             "class<libreoffice-math>" = "";
             "class<libreoffice-draw>" = "";
@@ -51,7 +52,7 @@
         "custom/os_button" = {
           "format" = "";
           "size" = 30;
-          "on-click" = "wofi --show drun";
+          "on-click" = "rofi --show drun";
           "tooltip" = "false";
         };
 
@@ -140,7 +141,7 @@
         "custom/wifi" = {
           "format" = "";
           "tooltip" = false;
-          "on-click" = "kitty -e bash -c 'nmcli general status; exec bash'";
+          "on-click" = "kitty -e bash -c 'nmtui'";
         };
 
         "temperature" = {
@@ -162,6 +163,10 @@
         };
       };
       # style = ''
+      #
+      #   * {
+      #   font-family: hashtag;
+      #   }
       # '';
     };
   };
