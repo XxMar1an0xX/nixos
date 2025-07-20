@@ -4,18 +4,18 @@
   pkgs,
 }:
 stdenvNoCC.mkDerivation {
-  pname = "Doki-Fonts";
+  pname = "Nixos repo";
   version = "1.0";
   dontConfigure = true;
+  nativeBuildInputs = [pkgs.unzip];
+  buildInputs = [pkgs.unzip];
 
   src = pkgs.fetchFromGitHub {
     owner = "XxMar1an0xX";
     repo = "nixos";
     rev = "59fce391c5ffcdcba67adc1f21358c687612d71d";
-    hash = "";
+    hash = "sha256-NxISwBlD21fqETaL12wNd2TMh96Baldtebtqvnuqe5U=";
   };
-
-  propagatedUserEnvPkgs = [pkgs.unzip];
 
   installPhase =
     /*
@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation {
     */
     ''
       mkdir -p $out/desarrollo/nix
-      cp -r  $out/desarrollo/nix/
+      cp -r $src $out/desarrollo/nix/
     '';
 
   meta = with lib; {
