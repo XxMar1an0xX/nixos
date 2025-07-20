@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  nvf,
+  # nvf,
   ...
 }: {
   # Read the changelog before changing this value

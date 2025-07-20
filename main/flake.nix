@@ -120,11 +120,11 @@
         ./hosts/nix-on-droid/nix-on-droid.nix
 
         (
-          {...}: {
-            # home-manager.config.imports = [
-            #   # nvf.homeManagerModules.default
-            # ];
-            # environment.packages = with pkgs; [CustomNVF.neovim];
+          {pkgs, ...}: {
+            home-manager.config.imports = [
+              # nvf.homeManagerModules.default
+            ];
+            environment.packages = with pkgs; [droidNVF.neovim];
           }
         )
         # list of extra modules for Nix-on-Droid system
@@ -138,7 +138,7 @@
       # list of extra special args for Nix-on-Droid modules
       extraSpecialArgs = {
         # rootPath = ./.;
-        inherit nvf;
+        # inherit nvf;
         inherit inputs;
       };
 

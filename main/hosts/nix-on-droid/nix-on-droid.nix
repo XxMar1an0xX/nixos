@@ -3,7 +3,7 @@
   lib,
   pkgs,
   inputs,
-  nvf,
+  # nvf,
   ...
 }: {
   # Simply install just the packages
@@ -57,10 +57,10 @@
     backupFileExtension = "hm-bak";
     useGlobalPkgs = true;
     extraSpecialArgs = {
-      inherit pkgs;
-      inherit lib;
+      # inherit pkgs;
+      # inherit lib;
       inherit inputs;
-      inherit nvf;
+      # inherit nvf;
     };
   };
 }
