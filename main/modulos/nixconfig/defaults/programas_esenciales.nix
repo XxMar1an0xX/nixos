@@ -41,6 +41,7 @@
       neofetch
       freecad-wayland
 
+      rustlings
       #NOTE: para rustaceanvim
       # cargo
       # rustc
