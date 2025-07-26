@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   programs.steam = {
-    # enable = true;
+    enable = true;
     gamescopeSession.enable = true;
   };
 
