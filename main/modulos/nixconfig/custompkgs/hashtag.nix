@@ -3,7 +3,7 @@
   pkgs,
 }:
 pkgs.stdenvNoCC.mkDerivation rec {
-  pname = "Doki-Fonts";
+  pname = "Hashtag-Font";
   version = "1.0";
   dontConfigure = true;
   nativeBuildInputs = [pkgs.unzip];

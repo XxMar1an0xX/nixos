@@ -250,7 +250,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    (callPackage ./../../modulos/nixconfig/misc/gitrepo-pkg.nix {
+    (callPackage ./../../modulos/nixconfig/custompkgs/MiNixOsConfig.nix {
       inherit lib;
       inherit pkgs;
     })
@@ -305,7 +305,19 @@
   # };
 
   fonts.packages = with pkgs; [
-    (callPackage ./../../modulos/nixconfig/misc/fuentes-pkg.nix {
+    (callPackage ./../../modulos/nixconfig/custompkgs/hashtag.nix {
+      inherit lib;
+      inherit pkgs;
+    })
+    (callPackage ./../../modulos/nixconfig/custompkgs/ammys.nin {
+      inherit lib;
+      inherit pkgs;
+    })
+    (callPackage ./../../modulos/nixconfig/custompkgs/journal.nix {
+      inherit lib;
+      inherit pkgs;
+    })
+    (callPackage ./../../modulos/nixconfig/custompkgs/jp-hand.nix {
       inherit lib;
       inherit pkgs;
     })
