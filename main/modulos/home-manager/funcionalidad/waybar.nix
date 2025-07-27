@@ -28,6 +28,7 @@
             "title<Cryptomator>" = "󰉐";
             "class<thunar>" = "";
             "class<localsend_app>" = "󰡰";
+            "class<org.freecad.FreeCAD>" = "󰆧";
             # "class<>" = "";
             "class<GParted>" = "󱁋";
             "class<libreoffice>" = "";
