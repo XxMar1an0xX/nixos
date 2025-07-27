@@ -51,7 +51,7 @@
 
     fonts = {
       serif = {
-        package = pkgs.callPackage ./../misc/fuentes-pkg.nix {
+        package = pkgs.callPackage ./../custompkgs/hashtag.nix {
           inherit pkgs;
           inherit lib;
         };

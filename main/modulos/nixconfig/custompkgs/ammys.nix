@@ -22,12 +22,12 @@ pkgs.stdenvNoCC.mkDerivation rec {
     # sha256 = "sha256-XWmL3Q+6oqnycEqx4WAU35kK5iCBmrDE7HAzj8K/f18=";
     #Journal/monika
 
-    url = "https://dl.dafont.com/dl/?f=jp_hand_slanted";
-    sha256 = "sha256-zVoHrgD3WaHzjTKEG5kImDn1RZC1L+78cYR0orUSfZI=";
+    # url = "https://dl.dafont.com/dl/?f=jp_hand_slanted";
+    # sha256 = "sha256-zVoHrgD3WaHzjTKEG5kImDn1RZC1L+78cYR0orUSfZI=";
     #jphand/yuri
 
-    # url = "https://dl.dafont.com/dl/?f=ammys_handwriting";
-    # sha256 = "sha256-a/fR9SqY/20vTDg2ehZrWM3BseotFGNYa6AjJxELy4g=";
+    url = "https://dl.dafont.com/dl/?f=ammys_handwriting";
+    sha256 = "sha256-a/fR9SqY/20vTDg2ehZrWM3BseotFGNYa6AjJxELy4g=";
     #ammys_handwriting/natsuki
   };
 

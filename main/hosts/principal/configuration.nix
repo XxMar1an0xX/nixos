@@ -309,7 +309,7 @@
       inherit lib;
       inherit pkgs;
     })
-    (callPackage ./../../modulos/nixconfig/custompkgs/ammys.nin {
+    (callPackage ./../../modulos/nixconfig/custompkgs/ammys.nix {
       inherit lib;
       inherit pkgs;
     })
