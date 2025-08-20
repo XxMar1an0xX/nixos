@@ -4,7 +4,7 @@
   ...
 }: let
   configuracion = {
-    extraPackages = with pkgs; [ripgrep gcc cargo rustc alejandra clipse lldb fzf];
+    extraPackages = with pkgs; [ripgrep gcc cargo rustc alejandra clipse lldb fzf nerd-fonts.symbols-only];
     viAlias = true;
     vimAlias = true;
     extraPlugins = {
