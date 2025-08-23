@@ -26,6 +26,13 @@
 
       # enableRightBackColors = true;
     };
+    firefox.enable = false;
+    firefox.profileNames = [
+      # /*
+      # "ruiz"
+      # */
+      # "default"
+    ];
   };
   stylix.polarity = "dark";
   # gtk = {

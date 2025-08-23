@@ -27,6 +27,12 @@
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
 
     nvf.url = "github:notashelf/nvf";
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = {
@@ -37,6 +43,7 @@
     home-manager,
     nvf,
     self,
+    nixos-hardware,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -97,6 +104,7 @@
           ({...}: {
             environment.systemPackages = [CustomNVF.neovim];
           })
+          nixos-hardware.nixosModules.lenovo-thinkpad-t470s
         ];
       };
 
