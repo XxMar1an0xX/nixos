@@ -78,7 +78,7 @@
     #   }
     # ];
 
-    backupFileExtension = "ajdska";
+    backupFileExtension = "asdshkaj";
     #de-comentar si se rompe home-manager
   };
 
