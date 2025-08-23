@@ -24,6 +24,7 @@
       arduino
       arduino-cli
       btop
+      yazi
 
       keepassxc
       cryptomator
