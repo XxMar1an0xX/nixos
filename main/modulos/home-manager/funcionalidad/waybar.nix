@@ -26,9 +26,10 @@
             "class<virt-manager>" = "󰍺";
             "class<GitHub Desktop>" = "";
             "title<Cryptomator>" = "󰉐";
+            "title<Hyprland Polkit Agent>" = "󰳌";
             "class<thunar>" = "";
             "class<localsend_app>" = "󰡰";
-            "class<org.freecad.FreeCAD>" = "󰆧";
+            "class<org.freecad.FreeCAD>" = "";
             # "class<>" = "";
             "class<GParted>" = "󱁋";
             "class<libreoffice>" = "";
