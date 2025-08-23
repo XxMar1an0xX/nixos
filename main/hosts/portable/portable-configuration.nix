@@ -68,10 +68,24 @@
   #   LC_TIME = "es_AR.UTF-8";
   # };
   # console.keyMap = "la-latin1";
+  #NOTE: sudo en portable
+  security = {
+    sudo = {
+      wheelNeedsPassword = false;
+      # enable = lib.mkForce false;
+      enable = true;
+    };
+    sudo-rs = {
+      # wheelNeedsPassword = false;
+      # enable = true;
+    };
+  };
 
-  #NOTE: xserve
-  # services.xserver.enable = true;
-
+  #NOTE: uso de energia de laptop
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
+  };
   nixpkgs.hostPlatform = "x86_64-linux";
 
   # boot.loader.systemd-boot.enable = true;
