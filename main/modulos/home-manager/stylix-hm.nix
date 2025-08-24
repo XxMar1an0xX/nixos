@@ -1,6 +1,7 @@
 {
   stylix,
   lib,
+  CondicionalPortable,
   ...
 }: {
   stylix.targets = {
@@ -33,6 +34,7 @@
       # */
       # "default"
     ];
+    librewolf.profileNames = CondicionalPortable ["ruiz"] [];
   };
   stylix.polarity = "dark";
   # gtk = {

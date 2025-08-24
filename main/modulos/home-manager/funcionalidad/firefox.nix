@@ -1,16 +1,11 @@
 {
   pkgs,
   inputs,
+  CondicionalPortable,
   ...
-}: {
-  programs.firefox = {
-    enable = true;
-    policies = {
-      ExtensionSettings = {
-        "*".installation_mode = "allowed";
-      };
-    };
-    profiles.ruiz = {
+}: let
+  foxconfig = {
+    ruiz = {
       search = {
         force = true;
         default = "Startpage";
@@ -38,7 +33,6 @@
       extensions = {
         force = true;
         packages = with inputs.firefox-addons.packages."x86_64-linux"; [
-          ublock-origin
           sponsorblock
           darkreader
           vimium
@@ -57,50 +51,20 @@
       #   user_pref("extensions.enabledScopes", 15);
       # '';
     };
-    # #   # package = pkgs.librewolf;
-    # #   policies = {
-    # #     DisableAccounts = true;
-    # #     DefaultDownloadDirectory = "/home/portable/Descargas/";
-    # #   };
-    # #   languagePacks = ["es-AR"];
-    # #   profiles.Ruiz = {
-    # #     isDefault = true;
-    # #     id = 1;
-    # #     search.engines = {
-    # #       "Nix Packages" = {
-    # #         urls = [
-    # #           {
-    # #             template = "https://search.nixos.org/packages";
-    # #             params = [
-    # #               {
-    # #                 name = "query";
-    # #                 value = "{seachTerms}";
-    # #               }
-    # #             ];
-    # #           }
-    # #         ];
-    # #         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-    # #         "Startpage" = {
-    # #           urls = [
-    # #             {
-    # #               template = "https://www.startpage.com/es/";
-    # #               params = [
-    # #                 {
-    # #                   name = "query";
-    # #                   value = "searchTerms";
-    # #                 }
-    # #               ];
-    # #             }
-    # #           ];
-    # #         };
-    # #       };
-    # #     };
-    # #     extensions = [
-    # #     ];
-    # #   };
+  };
+in {
+  programs.firefox = {
+    enable = true;
+    policies = {
+      ExtensionSettings = {
+        "*".installation_mode = "allowed";
+      };
+    };
+    profiles = foxconfig;
   };
   programs.librewolf = {
     enable = true;
     languagePacks = ["es-AR"];
+    profiles = CondicionalPortable foxconfig {};
   };
 }
