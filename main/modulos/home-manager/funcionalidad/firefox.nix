@@ -47,6 +47,9 @@
           sponsorblock
           darkreader
           vimium
+          ublock-origin
+          # untrap-for-youtube
+          dearrow
           #TODO: configurar estos
           # leechblock-ng
           # keepassxc-browser
@@ -59,6 +62,24 @@
         "browser.aboutConfig.showWarning" = false;
         "browser.bookmarks.addedImportButton" = false;
         "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper" = "lunar-eclipse";
+        "media.ffmpeg.vaapi.enabled" = true;
+        "widget.dmabuf.force-enabled" = true; # Required in recent Firefoxes
+        "privacy.webrtc.legacyGlobalIndicator" = false;
+        "browser.bookmarks.restore_default_bookmarks" = false;
+        "browser.contentblocking.category" = "strict";
+        "extensions.getAddons.showPane" = false;
+        "extensions.htmlaboutaddons.recommendations.enabled" = false;
+        "extensions.pocket.enabled" = false;
+        "DisableSystemAddonUpdate" = false;
+        "app.shield.optoutstudies.enabled" = false;
+        "extensions.update.enabled" = false;
+        "extensions.webcompat.enable_picture_in_picture_overrides" = true;
+        "extensions.webcompat.enable_shims" = true;
+        "extensions.webcompat.perform_injections" = true;
+        "extensions.webcompat.perform_ua_overrides" = true;
+        "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+        "extensions.autoDisableScopes" = 0;
+        "extensions.update.autoUpdateDefault" = false;
 
         #NOTE: para el tema de firefox
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
@@ -67,6 +88,8 @@
         "gfx.webrender.enabled" = true;
         "layout.css.backdrop-filter.enabled" = true;
         "svg.context-properties.content.enabled" = true;
+
+        #NOTE: opciones de librewolf
       };
       # extraConfig = ''
       #   user_pref("extensions.autoDisableScopes", 0);
@@ -79,6 +102,11 @@
             name = "Self-Managed-Life";
             # toolbar = true;
             url = "https://wiki.futo.org/index.php/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28_minute_presentation_by_FUTO_software";
+          }
+          {
+            name = "Nix Config Repo";
+            url = "https://github.com/XxMar1an0xX/nixos";
+            keyword = "repo";
           }
           {
             name = "Nix Leaning";

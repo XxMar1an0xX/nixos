@@ -28,12 +28,6 @@
       # enableRightBackColors = true;
     };
     firefox.enable = false;
-    firefox.profileNames = [
-      # /*
-      # "ruiz"
-      # */
-      # "default"
-    ];
     librewolf.profileNames = CondicionalPortable ["ruiz"] [];
   };
   stylix.polarity = "dark";
