@@ -54,7 +54,7 @@
         "custom/os_button" = {
           "format" = "";
           "size" = 30;
-          "on-click" = "rofi --show drun";
+          "on-click" = "rofi -show drun";
           "tooltip" = "false";
         };
 
