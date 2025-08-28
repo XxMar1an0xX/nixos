@@ -42,6 +42,43 @@
         };
       };
       extensions = {
+        settings = {
+          "uBlock0@raymondhill.net".settings = {
+            selectedFilterLists = [
+              "ublock-filters"
+              "ublock-badware"
+              "ublock-privacy"
+              "ublock-unbreak"
+              "ublock-quick-fixes"
+              "user-filters"
+              "easylist"
+              "adguard-generic"
+              "easyprivacy"
+              "LegitimateURLShortener"
+              "adguard-spyware-url"
+              "block-lan"
+              "urlhaus-1"
+              "curben-phishing"
+              "plowe-0"
+              "fanboy-cookiemonster"
+              "ublock-cookies-easylist"
+              "adguard-cookies"
+              "ublock-cookies-adguard"
+              "easylist-chat"
+              "easylist-newsletters"
+              "easylist-notifications"
+              "easylist-annoyances"
+              "adguard-mobile-app-banners"
+              "adguard-other-annoyances"
+              "adguard-popup-overlays"
+              "adguard-widgets"
+              "ublock-annoyances"
+              "spa-1"
+              "spa-0"
+              # "https://filters.adtidy.org/extension/ublock/filters/3.txt"
+            ];
+          };
+        };
         force = true;
         packages = with inputs.firefox-addons.packages."x86_64-linux"; [
           sponsorblock
@@ -52,7 +89,7 @@
           dearrow
           #TODO: configurar estos
           # leechblock-ng
-          # keepassxc-browser
+          keepassxc-browser
         ];
         settings = {
         };
@@ -301,7 +338,7 @@ in {
     enable = true;
     policies = {
       ExtensionSettings = {
-        "*".installation_mode = "allowed";
+        "*".installation_mode = "blocked";
       };
     };
     profiles = foxconfig;
@@ -309,6 +346,12 @@ in {
   programs.librewolf = {
     enable = true;
     languagePacks = ["es-AR"];
+
+    policies = {
+      ExtensionSettings = {
+        "*".installation_mode = "blocked";
+      };
+    };
     profiles = CondicionalPortable foxconfig {};
   };
 }
