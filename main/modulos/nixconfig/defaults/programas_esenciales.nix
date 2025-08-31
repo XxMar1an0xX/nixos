@@ -24,7 +24,8 @@
       arduino
       arduino-cli
       btop
-      yazi
+      # yazi
+      discord-screenaudio
 
       keepassxc
       cryptomator
