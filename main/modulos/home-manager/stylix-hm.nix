@@ -5,6 +5,7 @@
   ...
 }: {
   stylix.targets = {
+    btop.enable = false;
     nixvim.enable = false;
     nvf.enable = false;
     xfce.enable = true;

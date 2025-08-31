@@ -23,11 +23,11 @@
       vlc
       arduino
       arduino-cli
-      btop
+      # btop
       # yazi
       discord-screenaudio
 
-      keepassxc
+      # keepassxc
       cryptomator
       libreoffice
       kdiskmark
@@ -37,7 +37,7 @@
       bc
       nomacs
       whatsie
-      cava
+      # cava
       gparted
       arduino-ide
       neofetch
