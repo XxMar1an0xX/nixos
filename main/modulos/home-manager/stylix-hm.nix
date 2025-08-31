@@ -6,6 +6,7 @@
 }: {
   stylix.targets = {
     nixvim.enable = false;
+    nvf.enable = false;
     xfce.enable = true;
     hyprland.enable = true;
     hyprland.hyprpaper.enable = true;
@@ -28,7 +29,8 @@
       # enableRightBackColors = true;
     };
     firefox.enable = false;
-    librewolf.profileNames = CondicionalPortable ["ruiz"] [];
+    librewolf.enable = false;
+    librewolf.profileNames = ["ruiz"];
   };
   stylix.polarity = "dark";
   # gtk = {

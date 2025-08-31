@@ -34,10 +34,12 @@ in {
 
     ./../../modulos/home-manager/github.nix
     ./../../modulos/home-manager/terminal.nix
+    ./../../modulos/home-manager/config-cortas.nix
   ];
   home.username = "ruiz";
   home.homeDirectory = "/home/ruiz";
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  # nixpkgs.config = {allowUnfree = true;};
 
   qt.enable = true;
   # gtk.enable = true;
@@ -96,6 +98,24 @@ in {
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    "Fetcheo directorio" = {
+      target = ".mozilla/firefox/ruiz/chrome/homa";
+      source = "${pkgs.fetchFromGitHub {
+        owner = "akshat46";
+        repo = "FlyingFox";
+        rev = "4a6ba46cafc189ad628ee13bb8d3eef3e69fbced";
+        hash = "sha256-ZUTQ2VvIAEPbLnEX2AYScAGTM3hWp7vUuGCz2wd8qG0=";
+      }}/chrome";
+      # fetchTree #NOTE: puede ser util
+      # {
+      #   type = "github";
+      #   owner = "akshat46";
+      #   repo = "FlyingFox";
+      #   # dir = "chrome";
+      #   rev = "4a6ba46cafc189ad628ee13bb8d3eef3e69fbced";
+      # };
+      recursive = true;
+    };
     # "Descargas/hola.zip".source = "${(pkgs.fetchzip {
     #   url = "https://dl.dafont.com/dl/?f=hashtag";
     #   sha256 = "sha256-8K5ooOEhGYYJK2cqc/NMOHbKPJseEhStyiOFcH8uZbA=";
@@ -190,6 +210,9 @@ in {
     TERMINAL = "kitty";
   };
 
+  environment = {
+    EDITOR = "nvim";
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
