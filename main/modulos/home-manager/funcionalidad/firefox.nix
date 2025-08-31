@@ -2,17 +2,24 @@
   pkgs,
   inputs,
   CondicionalPortable,
-  lib,
   ...
 }: let
   foxconfig = {
     ruiz = {
       search = {
         force = true;
-        default = "Startpage";
         order = ["Startpage" "Nix Packages" "Home-Manager"];
         privateDefault = "Startpage";
         engines = {
+          "Nix Options" = {
+            urls = [
+              {
+                template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}";
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@no"];
+          };
           "Nix Packages" = {
             urls = [
               {
@@ -40,10 +47,23 @@
             definedAliases = ["@hm"];
           };
         };
+        default = "Startpage";
       };
       extensions = {
+        packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+          sponsorblock
+          darkreader
+          vimium
+          ublock-origin
+          # untrap-for-youtube
+          dearrow
+          #TODO: configurar estos
+          # leechblock-ng
+          keepassxc-browser
+        ];
         settings = {
           "uBlock0@raymondhill.net".settings = {
+            enabled = true;
             selectedFilterLists = [
               "ublock-filters"
               "ublock-badware"
@@ -80,21 +100,10 @@
           };
         };
         force = true;
-        packages = with inputs.firefox-addons.packages."x86_64-linux"; [
-          sponsorblock
-          darkreader
-          vimium
-          ublock-origin
-          # untrap-for-youtube
-          dearrow
-          #TODO: configurar estos
-          # leechblock-ng
-          keepassxc-browser
-        ];
-        settings = {
-        };
       };
       settings = {
+        "extensions.autoDisableScopes" = 0;
+        "extensions.update.autoUpdateDefault" = false;
         "app.normandy.first_run" = false;
         "browser.aboutConfig.showWarning" = false;
         "browser.bookmarks.addedImportButton" = false;
@@ -115,8 +124,20 @@
         "extensions.webcompat.perform_injections" = true;
         "extensions.webcompat.perform_ua_overrides" = true;
         "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-        "extensions.autoDisableScopes" = 0;
-        "extensions.update.autoUpdateDefault" = false;
+
+        # Disable irritating first-run stuff
+        "browser.disableResetPrompt" = true;
+        "browser.download.panel.shown" = true;
+        "browser.feeds.showFirstRunUI" = false;
+        "browser.messaging-system.whatsNewPanel.enabled" = false;
+        "browser.rights.3.shown" = true;
+        "browser.shell.checkDefaultBrowser" = false;
+        "browser.shell.defaultBrowserCheckCount" = 1;
+        "browser.startup.homepage_override.mstone" = "ignore";
+        "browser.uitour.enabled" = false;
+        "startup.homepage_override_url" = "";
+        "trailhead.firstrun.didSeeAboutWelcome" = true;
+        "identity.fxaccounts.enabled" = false;
 
         #NOTE: para el tema de firefox
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
@@ -339,10 +360,30 @@ in {
     policies = {
       ExtensionSettings = {
         "*".installation_mode = "blocked";
+        "uBlock0@raymondhill.net" = {
+          # install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+          installation_mode = "force_installed";
+        };
+        "deArrow@ajay.app" = {
+          installation_mode = "force_installed";
+        };
+        "sponsorBlocker@ajay.app" = {
+          installation_mode = "force_installed";
+        };
+        "addon@darkreader.org" = {
+          installation_mode = "force_installed";
+        };
+        "keepassxc-browser@keepassxc.org" = {
+          installation_mode = "force_installed";
+        };
       };
     };
     profiles = foxconfig;
   };
+
   programs.librewolf = {
     enable = true;
     languagePacks = ["es-AR"];
@@ -350,8 +391,30 @@ in {
     policies = {
       ExtensionSettings = {
         "*".installation_mode = "blocked";
+        "{2662ff67-b302-4363-95f3-b050218bd72c}" = {
+          installation_mode = "force_installed";
+        };
+        "uBlock0@raymondhill.net" = {
+          # install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+          installation_mode = "force_installed";
+        };
+        "deArrow@ajay.app" = {
+          installation_mode = "force_installed";
+        };
+        "sponsorBlocker@ajay.app" = {
+          installation_mode = "force_installed";
+        };
+        "addon@darkreader.org" = {
+          installation_mode = "force_installed";
+        };
+        "keepassxc-browser@keepassxc.org" = {
+          installation_mode = "force_installed";
+        };
       };
     };
-    profiles = CondicionalPortable foxconfig {};
+    profiles = foxconfig;
   };
 }
