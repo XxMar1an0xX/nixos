@@ -390,6 +390,7 @@ in
   then {
     programs.nvf = {
       enable = true;
+      defaultEditor = true;
       settings = configuracion;
     };
   }
