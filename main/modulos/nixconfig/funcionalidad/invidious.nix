@@ -4,6 +4,7 @@
   ...
 }: {
   services.invidious = CondicionalPortable {} {
+    # enable = false;
     enable = true;
     nginx.enable = false;
     address = "127.0.0.2";
@@ -12,6 +13,7 @@
 
     # if you want to disable recommended videos
     settings = {
+      # db.user = "invidious";
       default_user_preferences = {
         "locale" = "es";
         "feed_menu" = ["Subscriptions" "Playlists" "Trending"];
@@ -28,4 +30,5 @@
       };
     };
   };
+  networking.firewall.allowedTCPPorts = [config.services.invidious.port];
 }

@@ -77,8 +77,9 @@
     #   }
     # ];
 
-    backupFileExtension = "asdsahk";
+    backupFileExtension = "asjdh";
     #de-comentar si se rompe home-manager
+    useGlobalPkgs = true;
   };
 
   qt.enable = true;
