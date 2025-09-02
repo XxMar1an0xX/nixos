@@ -98,23 +98,32 @@ in {
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    "Fetcheo directorio" = {
-      target = ".mozilla/firefox/ruiz/chrome/homa";
+    # "Fetcheo directorio" = {
+    #   target = ".mozilla/firefox/ruiz/chrome/homa";
+    #   source = "${pkgs.fetchFromGitHub {
+    #     owner = "akshat46";
+    #     repo = "FlyingFox";
+    #     rev = "4a6ba46cafc189ad628ee13bb8d3eef3e69fbced";
+    #     hash = "sha256-ZUTQ2VvIAEPbLnEX2AYScAGTM3hWp7vUuGCz2wd8qG0=";
+    #   }}/chrome";
+    #   # fetchTree #NOTE: puede ser util
+    #   # {
+    #   #   type = "github";
+    #   #   owner = "akshat46";
+    #   #   repo = "FlyingFox";
+    #   #   # dir = "chrome";
+    #   #   rev = "4a6ba46cafc189ad628ee13bb8d3eef3e69fbced";
+    #   # };
+    #   recursive = true;
+    # };
+    "Nixos Repo" = {
+      target = "NixosConfig";
       source = "${pkgs.fetchFromGitHub {
-        owner = "akshat46";
-        repo = "FlyingFox";
-        rev = "4a6ba46cafc189ad628ee13bb8d3eef3e69fbced";
-        hash = "sha256-ZUTQ2VvIAEPbLnEX2AYScAGTM3hWp7vUuGCz2wd8qG0=";
-      }}/chrome";
-      # fetchTree #NOTE: puede ser util
-      # {
-      #   type = "github";
-      #   owner = "akshat46";
-      #   repo = "FlyingFox";
-      #   # dir = "chrome";
-      #   rev = "4a6ba46cafc189ad628ee13bb8d3eef3e69fbced";
-      # };
-      recursive = true;
+        owner = "XxMar1an0xX";
+        repo = "nixos";
+        rev = "75a63be6eeedeb844e54d31d1fc5075e4e6b2c9c";
+        hash = "sha256-Hjr17i5c+DM2YO6W6heBZy/VCVjWYdeSVNLUKoMUWKE=";
+      }}";
     };
     # "Descargas/hola.zip".source = "${(pkgs.fetchzip {
     #   url = "https://dl.dafont.com/dl/?f=hashtag";
