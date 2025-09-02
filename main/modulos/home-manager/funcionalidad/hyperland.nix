@@ -29,6 +29,7 @@
         [
           "[workspace 2 silent] $terminal -e nvim $NH_FLAKE"
           "[workspace 1 silent] $browser"
+          "[workspace 3 silent] $terminal -e btop"
           "systemctl --user start hyprpolkitagent"
           "hyprpaper"
           "waybar"

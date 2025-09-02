@@ -410,6 +410,10 @@
     EDITOR = "nvim";
     TERMINAL = "kitty";
   };
+  environment.shellAliases = {
+    haziso = "nix run nixpkgs#nixos-generators -- --format iso --flake $NH_FLAKE#portable -o laptop";
+    rephm = "sudo nixos-rebuild switch --flake $NH_FLAKE";
+  };
 
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
