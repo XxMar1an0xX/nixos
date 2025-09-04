@@ -392,6 +392,7 @@ in {
       ExtensionSettings = {
         "*".installation_mode = "blocked";
         "{2662ff67-b302-4363-95f3-b050218bd72c}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4403100/untrap_for_youtube-8.3.1.xpi";
           installation_mode = "force_installed";
         };
         "uBlock0@raymondhill.net" = {
