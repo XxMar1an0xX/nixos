@@ -36,7 +36,7 @@
       package = pkgs.quintom-cursor-theme;
       name = "Quintom_Snow";
     };
-    image = ./Wallpapers/wallpaperflare.com_wallpaper.jpg;
+    image = ./../../../recursos/wallpaperflare.com_wallpaper.jpg;
     imageScalingMode = "fill";
     polarity = "dark";
     targets = {
