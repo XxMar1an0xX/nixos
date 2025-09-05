@@ -25,8 +25,9 @@
           '';
       };
       arduino = {
-        package = pkgs.callPackage ./../custompkgs/arduino-nvim.nix {
-          inherit pkgs;
+        package = pkgs.vimUtils.buildVimPlugin {
+          name = "arduino-nvim";
+          src = ./../../../recursos/Arduino-Nvim;
         };
         setup =
           /*
@@ -34,7 +35,7 @@
           */
           ''
             -- Load LSP configuration first
-            require('arduino-nvim').setup {}
+            require('arduino').setup {}
 
             -- Set up Arduino file type detection
             vim.api.nvim_create_autocmd("FileType", {
