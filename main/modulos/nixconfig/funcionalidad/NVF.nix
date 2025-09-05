@@ -15,9 +15,9 @@
           lua
           */
           ''
-                      require('nightfox').setup {}
-                      vim.cmd("colorscheme nordfox")
-                      -- vim.api.nvim_create_autocmd("VimEnter", {
+            require('nightfox').setup {}
+            vim.cmd("colorscheme nordfox")
+                -- vim.api.nvim_create_autocmd("VimEnter", {
             	-- callback = function()
             	-- 	vim.cmd("Alpha")
             	-- end,
@@ -34,7 +34,7 @@
           */
           ''
             -- Load LSP configuration first
-            require("Arduino-nvim").setup()
+            require('arduino-nvim').setup {}
 
             -- Set up Arduino file type detection
             vim.api.nvim_create_autocmd("FileType", {
