@@ -24,8 +24,11 @@
             -- })
           '';
       };
-      # arduino = {
-      # };
+      arduino = {
+        package = pkgs.callPackage ./../custompkgs/arduino-nvim.nix {};
+        # setup = ''
+        # '';
+      };
     };
     # useSystemClipboard = true;
     # additionalRuntimePaths = [
