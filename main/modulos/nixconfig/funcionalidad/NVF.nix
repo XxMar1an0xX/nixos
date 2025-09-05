@@ -25,9 +25,25 @@
           '';
       };
       arduino = {
-        package = pkgs.callPackage ./../custompkgs/arduino-nvim.nix {};
-        # setup = ''
-        # '';
+        package = pkgs.callPackage ./../custompkgs/arduino-nvim.nix {
+          inherit pkgs;
+        };
+        setup =
+          /*
+          lua
+          */
+          ''
+            -- Load LSP configuration first
+            require("Arduino-Nvim.lsp").setup()
+
+            -- Set up Arduino file type detection
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "arduino",
+                callback = function()
+                    require("Arduino-Nvim")
+                end
+            })
+          '';
       };
     };
     # useSystemClipboard = true;
