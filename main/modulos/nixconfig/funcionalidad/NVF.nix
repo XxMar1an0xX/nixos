@@ -34,7 +34,7 @@
           */
           ''
             -- Load LSP configuration first
-            require("Arduino-Nvim.lsp").setup()
+            require("Arduino-nvim").setup()
 
             -- Set up Arduino file type detection
             vim.api.nvim_create_autocmd("FileType", {

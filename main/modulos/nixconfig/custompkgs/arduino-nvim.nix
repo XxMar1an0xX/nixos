@@ -3,7 +3,7 @@
   pkgs,
 }:
 pkgs.vimUtils.buildVimPlugin {
-  name = "arduino-nvim";
+  name = "Arduino-nvim";
   buildInputs = with pkgs; [
     arduino-cli
     clang
