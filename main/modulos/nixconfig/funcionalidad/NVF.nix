@@ -3,8 +3,39 @@
   lib,
   ...
 }: let
+  # arduino-nvim = pkgs.vimUtils.buildVimPlugin {
+  #   name = "Arduino-Nvim";
+  #   version = "2025-09-05";
+  #   src = ./../../../recursos/Arduino-Nvim;
+  # };
+  #NOTE: funciona empaquetar nightfox
+  # nightfox-nvim = pkgs.vimUtils.buildVimPlugin {
+  #   pname = "nightfox.nvim";
+  #   version = "2025-02-09";
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "EdenEast";
+  #     repo = "nightfox.nvim";
+  #     rev = "ba47d4b4c5ec308718641ba7402c143836f35aa9";
+  #     sha256 = "1vxazdk61c99prdz7mvfsgxfy02ifisgk08wbflpqlibfz1491hy";
+  #   };
+  # };
   configuracion = {
-    extraPackages = with pkgs; [ripgrep gcc cargo rustc alejandra clipse lldb fzf nerd-fonts.symbols-only git gh];
+    extraPackages = with pkgs; [
+      ripgrep
+      gcc
+      cargo
+      rustc
+      alejandra
+      clipse
+      lldb
+      fzf
+      nerd-fonts.symbols-only
+      git
+      gh
+      arduino-cli
+      arduino-language-server
+      clang
+    ];
     viAlias = true;
     vimAlias = true;
     extraPlugins = {
@@ -17,35 +48,27 @@
           ''
             require('nightfox').setup {}
             vim.cmd("colorscheme nordfox")
-                -- vim.api.nvim_create_autocmd("VimEnter", {
-            	-- callback = function()
-            	-- 	vim.cmd("Alpha")
-            	-- end,
-            -- })
           '';
       };
-      arduino = {
-        package = pkgs.vimUtils.buildVimPlugin {
-          name = "arduino-nvim";
-          src = ./../../../recursos/Arduino-Nvim;
-        };
-        setup =
-          /*
-          lua
-          */
-          ''
-            -- Load LSP configuration first
-            require('arduino').setup {}
-
-            -- Set up Arduino file type detection
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = "arduino",
-                callback = function()
-                    require("Arduino-Nvim")
-                end
-            })
-          '';
-      };
+      #TODO: hacer que funcione programar arduino desde neovim
+      # arduino = {
+      #   package = arduino-nvim;
+      #   setup =
+      #     /*
+      #     lua
+      #     */
+      #     ''
+      #       -- Load LSP configuration first
+      #       -- require('arduino').setup {}
+      #       -- Set up Arduino file type detection
+      #       vim.api.nvim_create_autocmd("FileType", {
+      #           pattern = "arduino",
+      #           callback = function()
+      #               require("arduino")
+      #           end
+      #       })
+      #     '';
+      # };
     };
     # useSystemClipboard = true;
     # additionalRuntimePaths = [
@@ -88,6 +111,7 @@
     clipboard = {
       enable = true;
       providers = {};
+      registers = "unnamedplus";
     };
 
     terminal = {

@@ -117,7 +117,7 @@ in {
     #   recursive = true;
     # };
     "Nixos Repo" = {
-      target = "NixosConfig";
+      target = "ReadOnly/NixosConfig";
       source = "${pkgs.fetchFromGitHub {
         owner = "XxMar1an0xX";
         repo = "nixos";
@@ -125,16 +125,23 @@ in {
         hash = "sha256-Hjr17i5c+DM2YO6W6heBZy/VCVjWYdeSVNLUKoMUWKE=";
       }}";
     };
-    # "Descargas/hola.zip".source = "${(pkgs.fetchzip {
-    #   url = "https://dl.dafont.com/dl/?f=hashtag";
-    #   sha256 = "sha256-8K5ooOEhGYYJK2cqc/NMOHbKPJseEhStyiOFcH8uZbA=";
-    #   stripRoot = false;
-    # })}";
-    # ".config/kitty/inicio.conf".text = ''
-    #   layout tall
-    #   launch sh -c "neofetch"
-    # '';
+    "Rust Repo" = {
+      target = "ReadOnly/Rust";
+      source = "${pkgs.fetchFromGitHub {
+        owner = "XxMar1an0xX";
+        repo = "Rust";
+        rev = "27a7a045b1b0b20da34b6e75d818013713227e8b";
+        hash = "sha256-vp9DNUe45dqG82s0A2zrV8b/xvtVi4XQE9l+aaDDdCE=";
+      }}";
+    };
 
+    ".local/share/PrismLauncher/accounts.json".text =
+      /*
+      json
+      */
+      ''
+
+      '';
     # ".local/share/rofi/themes/custom1.rasi".source = "${
     #   (pkgs.fetchFromGitHub {
     #     owner = "w8ste";

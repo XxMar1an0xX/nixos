@@ -121,8 +121,8 @@
         ./hosts/nix-on-droid/nix-on-droid.nix
 
         (
-          {pkgs, ...}: {
-            environment.packages = with pkgs; [CustomNVF.neovim];
+          {...}: {
+            environment.packages = [CustomNVF.neovim];
           }
         )
         # list of extra modules for Nix-on-Droid system

@@ -23,6 +23,7 @@
       vlc
       arduino
       arduino-cli
+      arduino-ide
       # btop
       # yazi
       discord-screenaudio
@@ -36,17 +37,18 @@
       unzip
       bc
       nomacs
-      whatsie
+      # whatsie #NOTE: no anda ns porque
+
+      whatsapp-for-linux
       # cava
       gparted
-      arduino-ide
       neofetch
       freecad-wayland
 
       rustlings
       #NOTE: para rustaceanvim
-      # cargo
-      # rustc
+      cargo
+      rustc
       # rustup
       # rust-analyzer
     ]
