@@ -140,7 +140,64 @@ in {
       json
       */
       ''
-
+        {
+            "accounts": [
+                {
+                    "entitlement": {
+                        "canPlayMinecraft": true,
+                        "ownsMinecraft": true
+                    },
+                    "profile": {
+                        "capes": [
+                        ],
+                        "id": "47671e15d3694526bcffcae3f8b5bd6d",
+                        "name": "No me ELIMINES!!! / Don't ELIMINATE me!!!",
+                        "skin": {
+                            "id": "",
+                            "url": "",
+                            "variant": ""
+                        }
+                    },
+                    "type": "Offline",
+                    "ygg": {
+                        "extra": {
+                            "clientToken": "29430f0b9858497f8f44895419128ffe",
+                            "userName": "No me ELIMINES!!! / Don't ELIMINATE me!!!"
+                        },
+                        "iat": 1671854392,
+                        "token": "0"
+                    }
+                },
+                {
+                    "active": true,
+                    "entitlement": {
+                        "canPlayMinecraft": true,
+                        "ownsMinecraft": true
+                    },
+                    "profile": {
+                        "capes": [
+                        ],
+                        "id": "70a91ce79a8d3d4c9c98262b2e5ae720",
+                        "name": "Xx_Mar1an0_xX",
+                        "skin": {
+                            "id": "",
+                            "url": "",
+                            "variant": ""
+                        }
+                    },
+                    "type": "Offline",
+                    "ygg": {
+                        "extra": {
+                            "clientToken": "0cdcf2bc3b394a628544a4be0b66e200",
+                            "userName": "Xx_Mar1an0_xX"
+                        },
+                        "iat": 1734619216,
+                        "token": "0"
+                    }
+                }
+            ],
+            "formatVersion": 3
+        }
       '';
     # ".local/share/rofi/themes/custom1.rasi".source = "${
     #   (pkgs.fetchFromGitHub {
