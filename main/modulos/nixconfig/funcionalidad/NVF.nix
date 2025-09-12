@@ -26,7 +26,7 @@
       cargo
       rustc
       alejandra
-      clipse
+      # clipse #TODO: compartir el clipboard entre sistema y editor
       lldb
       fzf
       nerd-fonts.symbols-only
@@ -110,7 +110,9 @@
 
     clipboard = {
       enable = true;
-      providers = {};
+      providers = {
+        # clipse.enable = true;
+      };
       registers = "unnamedplus";
     };
 
