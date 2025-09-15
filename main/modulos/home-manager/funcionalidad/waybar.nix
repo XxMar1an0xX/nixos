@@ -35,6 +35,9 @@
             "class<libreoffice>" = "";
             "class<libreoffice-math>" = "";
             "class<libreoffice-draw>" = "";
+            "class<org.prismlauncher.PrismLauncher>" = "󰍳";
+            "class<Rofi>" = "󰌧";
+            "class<Minecraft*>" = "󰍳";
             # "class<>" = "";
             "class<.virt-manager-wrapped>" = "󰍺";
             "class<Arduino IDE>" = "";
