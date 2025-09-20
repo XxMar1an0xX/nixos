@@ -51,6 +51,9 @@
       rustc
       # rustup
       # rust-analyzer
+
+      #NOTE: para arguino
+      python314
     ]
     ++ CondicionalPortable [] [jamesdsp];
 
