@@ -23,6 +23,7 @@ in {
     # ./../../elnixvim/nixvim.nix
     ./../../modulos/home-manager/stylix-hm.nix
     ./../../modulos/home-manager/funcionalidad/firefox.nix
+    ./../../modulos/home-manager/funcionalidad/syncthing.nix
 
     # ./../../modulos/portabilizacion/home-manager.nix
 

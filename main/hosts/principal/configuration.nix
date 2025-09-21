@@ -31,7 +31,6 @@
     ./../../modulos/nixconfig/funcionalidad/invidious.nix
     ./../../modulos/nixconfig/funcionalidad/VMs.nix
     ./../../modulos/nixconfig/funcionalidad/juegos.nix
-    ./../../modulos/nixconfig/funcionalidad/syncthing.nix
     #NOTE: default
     ./../../modulos/nixconfig/defaults/programas_esenciales.nix
     ./../../modulos/nixconfig/defaults/limpieza_y_actualizacion.nix
