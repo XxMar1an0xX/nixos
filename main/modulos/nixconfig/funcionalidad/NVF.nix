@@ -22,6 +22,7 @@
   configuracion = {
     extraPackages = with pkgs; [
       ripgrep
+      # wl-clipboard
       gcc
       cargo
       rustc
@@ -111,6 +112,7 @@
     clipboard = {
       enable = true;
       providers = {
+        # wl-copy.enable = true;
         # clipse.enable = true;
       };
       registers = "unnamedplus";

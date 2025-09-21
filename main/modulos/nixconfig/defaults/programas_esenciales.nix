@@ -28,6 +28,7 @@
       # yazi
       discord-screenaudio
 
+      wl-clipboard
       # keepassxc
       cryptomator
       libreoffice
