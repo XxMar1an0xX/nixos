@@ -33,9 +33,9 @@
       nerd-fonts.symbols-only
       git
       gh
-      arduino-cli
-      arduino-language-server
-      clang
+      # arduino-cli
+      # arduino-language-server
+      # clang
     ];
     viAlias = true;
     vimAlias = true;
@@ -50,6 +50,9 @@
             require('nightfox').setup {}
             vim.cmd("colorscheme nordfox")
           '';
+      };
+      treesitter-arduino = {
+        package = pkgs.vimPlugins.nvim-treesitter-parsers.arduino;
       };
       #TODO: hacer que funcione programar arduino desde neovim
       # arduino = {
