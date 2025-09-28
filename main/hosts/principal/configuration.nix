@@ -100,9 +100,14 @@
       else No
     );
   in {
-    firewall.allowedTCPPorts = [53317 8081];
-    firewall.allowedUDPPorts = [53317 8081];
+    firewall.allowedTCPPorts = [53317 8081 22000];
+    firewall.allowedUDPPorts = [53317 8081 22000];
     hostName = "nixos";
+    stevenblack = {
+      enable = true;
+      block = ["porn"];
+    };
+
     networkmanager =
       CondicionalPortable {
         enable = true;
@@ -180,21 +185,18 @@
       else No
     );
   in {
-    ensurePrinters =
-      [
-      ]
-      ++ CondicionalPortable [] [
-        {
-          name = "Epson_L4150";
-          model = "epson-inkjet-printer-escpr/Epson-L4150_Series-epson-escpr-en.ppd";
-          location = "Casa";
-          deviceUri = "dnssd://EPSON%20L4150%20Series._pdl-datastream._tcp.local/";
-          description = "impresora epson l4150 piooooola";
-          ppdOptions = {
-            PageSize = "A4";
-          };
-        }
-      ];
+    ensurePrinters = CondicionalPortable [] [
+      {
+        name = "Epson_L4150";
+        model = "epson-inkjet-printer-escpr/Epson-L4150_Series-epson-escpr-en.ppd";
+        location = "Casa";
+        deviceUri = "dnssd://EPSON%20L4150%20Series._pdl-datastream._tcp.local/";
+        description = "impresora epson l4150 piooooola";
+        ppdOptions = {
+          PageSize = "A4";
+        };
+      }
+    ];
   };
 
   services.avahi = {
@@ -235,7 +237,7 @@
   users.users.ruiz = {
     isNormalUser = true;
     description = "ruiz";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "tty" "dialout"];
     hashedPassword = "$y$j9T$130s2ATsRL5ixDudKitBG/$bqE8TWji9UmfWrZgX/791zqONEFPu7ivzPS/PmjN0j7";
     packages = with pkgs; [
       #  thunderbird
