@@ -8,10 +8,10 @@
     # enable = false;
     enable = true;
     nginx.enable = false;
-    address = "127.0.0.2";
-    port = 2000;
+    address = "127.0.0.1";
+    port = 12345;
     sig-helper.enable = true;
-
+    http3-ytproxy.enable = true;
     # if you want to disable recommended videos
     settings = {
       # db.user = "invidious";
