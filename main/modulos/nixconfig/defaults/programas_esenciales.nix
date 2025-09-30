@@ -53,8 +53,12 @@
       # rustup
       # rust-analyzer
 
-      #NOTE: para arguino
+      #NOTE: para arduino
       python314
+
+      #NOTE: para el web scrape
+      chromedriver
+      geckodriver
     ]
     ++ CondicionalPortable [] [jamesdsp];
 
@@ -133,5 +137,9 @@
   programs.nh = {
     enable = true;
     flake = "/home/ruiz/Documentos/nixos/main";
+  };
+  #NOTE: ADB, android debug bridge
+  programs.adb = {
+    enable = true;
   };
 }

@@ -237,7 +237,7 @@
   users.users.ruiz = {
     isNormalUser = true;
     description = "ruiz";
-    extraGroups = ["networkmanager" "wheel" "tty" "dialout"];
+    extraGroups = ["networkmanager" "wheel" "tty" "dialout" "adbusers"];
     hashedPassword = "$y$j9T$130s2ATsRL5ixDudKitBG/$bqE8TWji9UmfWrZgX/791zqONEFPu7ivzPS/PmjN0j7";
     packages = with pkgs; [
       #  thunderbird
@@ -275,16 +275,26 @@
   programs.hyprlock.enable = true;
 
   #NOTE: script al inicio de login
-  systemd.user.services.autoinicio = {
+  systemd.user.services.autoinicio = let
+    CondicionalPortable = Si: No: (
+      if
+        if (config ? custom.HacerPortable)
+        then config.custom.HacerPortable
+        else false
+      then Si
+      else No
+    );
+  in {
     description = "autoinicio al loguearse";
     serviceConfig.PassEnvironment = "DISPLAY";
     script =
+      CondicionalPortable
       /*
       bash
       */
       ''          #NOTE: generar repo de git y tmbn reemplazar hardware-configuration
 
-                     hyprland
+        hyprland
         if ! test -e /home/ruiz/Documentos; then
         mkdir ./Descargas
         mkdir ./Documentos
@@ -299,6 +309,17 @@
                                nixos-generate-config --show-hardware-config >>/home/ruiz/Documentos/nixos/main/hardware-configuration.nix
                        fi
                fi
+      ''
+      /*
+      bash
+      */
+      ''
+        hyprland
+        # sudo umount /run/media/
+        mkdir /home/ruiz/Descargas
+        mkdir /home/ruiz/Documentos
+        git clone https://github.com/XxMar1an0xX/nixos.git ./Documentos
+        git clone https://github.com/XxMar1an0xX/Rust.git ./Documentos
       '';
     wantedBy = ["multi-user.target"]; # starts after login
   };
