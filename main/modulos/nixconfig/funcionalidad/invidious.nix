@@ -4,32 +4,44 @@
   ...
 }: {
   #TODO: NO FUNCIONA INVIDIOUSU
-  services.invidious = CondicionalPortable {} {
-    # enable = false;
+  # services.invidious = CondicionalPortable {} {
+  #   # enable = false;
+  #   enable = true;
+  #   nginx.enable = false;
+  #   address = "127.0.0.1";
+  #   port = 12345;
+  #   sig-helper.enable = true;
+  #   http3-ytproxy.enable = true;
+  #   # if you want to disable recommended videos
+  #   settings = {
+  #     # db.user = "invidious";
+  #     default_user_preferences = {
+  #       "locale" = "es";
+  #       "feed_menu" = ["Subscriptions" "Playlists" "Trending"];
+  #       "related_videos" = true;
+  #       "popular_enabled" = true;
+  #       "default_home" = "Subscriptions";
+  #       "dark_mode" = "dark";
+  #       "captions" = ["Spanish (Latin America)" "English" "English (auto-generated)"];
+  #       "region" = "AR";
+  #       "preload" = true;
+  #       "video_loop" = true;
+  #       "quality" = "dash";
+  #       "quality_dash" = "480p";
+  #     };
+  #   };
+  # };
+
+  services.invidious = {
     enable = true;
-    nginx.enable = false;
-    address = "127.0.0.1";
-    port = 12345;
-    sig-helper.enable = true;
-    http3-ytproxy.enable = true;
-    # if you want to disable recommended videos
-    settings = {
-      # db.user = "invidious";
-      default_user_preferences = {
-        "locale" = "es";
-        "feed_menu" = ["Subscriptions" "Playlists" "Trending"];
-        "related_videos" = true;
-        "popular_enabled" = true;
-        "default_home" = "Subscriptions";
-        "dark_mode" = "dark";
-        "captions" = ["Spanish (Latin America)" "English" "English (auto-generated)"];
-        "region" = "AR";
-        "preload" = true;
-        "video_loop" = true;
-        "quality" = "dash";
-        "quality_dash" = "480p";
-      };
-    };
+    port = 8001;
+    # sig-helper = {
+    #   enable = true;
+    #   listenAddress = "8001";
+    # };
+    # nginx.enable = true;
+    # http3-ytproxy.enable = true;
   };
-  networking.firewall.allowedTCPPorts = [config.services.invidious.port];
+  networking.firewall.allowedTCPPorts = [config.services.invidious.port 2999];
+  networking.firewall.allowedUDPPorts = [config.services.invidious.port];
 }
