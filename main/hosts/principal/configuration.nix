@@ -77,7 +77,7 @@
     #   }
     # ];
 
-    backupFileExtension = "ajasaksdj";
+    backupFileExtension = "ajks";
     #de-comentar si se rompe home-manager
     useGlobalPkgs = true;
   };
