@@ -236,7 +236,7 @@
         "$mainMod, N, exec, $terminal -e nvim $NH_FLAKE"
         "$mainMod, M, exec, $menu"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, Q, exec, $terminal -e bash -c 'neofetch; exec bash'"
+        "$mainMod, Q, exec, $terminal -e bash -c 'fastfetch; exec bash'"
         "$mainMod, B, exec, librewolf"
         " , code:148, exec, qalculate-qt"
         "$mainMod, A, exec, localsend_app"
@@ -246,6 +246,7 @@
         "$mainMod, I, exec, $terminal --class clipse -e clipse"
         ", Print, exec, grimblast copysave area && mv *.png $HOME/Imagenes/Screenshots/"
         "SHIFT, Print, exec, grimblast copysave screen && mv *.png $HOME/Imagenes/Screenshots/"
+        "$mainMod SHIFT, M, exec, vlc /home/ruiz/Musica/* -Z -L --audio --volume= 0.2"
       ];
 
       binds = [
