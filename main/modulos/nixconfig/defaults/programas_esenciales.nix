@@ -43,7 +43,7 @@
       whatsapp-for-linux
       # cava
       gparted
-      neofetch
+      # neofetch
       freecad-wayland
 
       rustlings
