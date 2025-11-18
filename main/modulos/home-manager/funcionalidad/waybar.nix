@@ -47,6 +47,9 @@
             "class<vlc>" = "󰕼";
             "class<com.ktechpit.whatsie>" = "";
             "class<kicad>" = "";
+            "class<firefox>" = "󰈹";
+
+            "class<processing-app-Base>" = "";
           };
           "icon-size" = 30;
           "spacing" = 16;
