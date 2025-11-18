@@ -77,7 +77,7 @@
     #   }
     # ];
 
-    backupFileExtension = "ajks";
+    backupFileExtension = "asdfwerkhjks";
     #de-comentar si se rompe home-manager
     useGlobalPkgs = true;
   };
@@ -113,15 +113,23 @@
         enable = true;
         wifi.powersave = true;
         unmanaged = ["*-foo-bar"];
+        wireless = {
+          enable = false;
+          userControlled.enable = true;
+          dbusControlled = true;
+        };
       } {
         enable = true;
       };
-    wireless = CondicionalPortable {
-      # enable = true;
-      enable = false;
-      userControlled.enable = true;
-      dbusControlled = true;
-    } {};
+    hosts = {
+      "0.0.0.0" = [
+        "youtube.com"
+        "www.youtube.com"
+        /*
+        "inv.nadeko.net"
+        */
+      ];
+    };
   };
 
   # Set your time zone.
@@ -314,12 +322,13 @@
       bash
       */
       ''
-        hyprland
-        # sudo umount /run/media/
-        mkdir /home/ruiz/Descargas
-        mkdir /home/ruiz/Documentos
-        git clone https://github.com/XxMar1an0xX/nixos.git ./Documentos
-        git clone https://github.com/XxMar1an0xX/Rust.git ./Documentos
+          hyprland
+          # sudo umount /run/media/
+          mkdir /home/ruiz/Descargas
+          mkdir /home/ruiz/Documentos
+          git clone https://github.com/XxMar1an0xX/nixos.git ./Documentos
+          git clone https://github.com/XxMar1an0xX/Rust.git ./Documentos
+        sudo umount /run/media/sddm/Respaldo
       '';
     wantedBy = ["multi-user.target"]; # starts after login
   };

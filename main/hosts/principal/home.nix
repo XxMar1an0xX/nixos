@@ -36,6 +36,7 @@ in {
     ./../../modulos/home-manager/github.nix
     ./../../modulos/home-manager/terminal.nix
     ./../../modulos/home-manager/config-cortas.nix
+    ./../../modulos/home-manager/fastfetch.nix
   ];
   home.username = "ruiz";
   home.homeDirectory = "/home/ruiz";
@@ -78,7 +79,8 @@ in {
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    # pkgs.hello
+    # pkgs.hellotarship
+    # starship
 
     nerd-fonts.symbols-only
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -259,6 +261,15 @@ in {
     '';
 
     ".config/mimeapps.list".text = ''[ Default Applications ] inode/directory= thunar/desktop '';
+
+    #NOTE: Asi se lee y fetch un archivo remoto
+    # ".config/starship.toml".text = builtins.readFile (pkgs.fetchFromGitLab {
+    #     owner = "pinage404";
+    #     repo = "dotfiles";
+    #     rev = "3b767b3ac29cf33221a8f25642c3c433bfc95b84";
+    #     hash = "sha256-1JVGpp83PcpXA0wEl7m/WxaDppf0EvwMB2nhzvLwBg8=";
+    #   }
+    # + "/dotfiles/config/starship.toml");
   };
 
   # Home Manager can also manage your environment variables through
