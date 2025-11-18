@@ -14,6 +14,10 @@
           path = "/home/ruiz/Documentos/Syncron";
           devices = ["Celular"];
         };
+        "Musica" = {
+          path = "/home/ruiz/Musica/";
+          devices = ["Celular"];
+        };
       };
       # options = {
       #   urAccepted = "-1";
