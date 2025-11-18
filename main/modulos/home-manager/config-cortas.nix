@@ -1,4 +1,8 @@
-{...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs = {
     yazi = {
       enable = true;
@@ -43,7 +47,17 @@
     starship = {
       enable = true;
       enableBashIntegration = true;
+      # settings = lib.mkForce (builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub {
+      #     owner = "fredericrous";
+      #     repo = "dotfiles";
+      #     rev = "cf793fb3f87f8de1eb2e7c90a23252226d8aaf70";
+      #     hash = "sha256-yr6HasmCorNsVRVeix3OM5Acqwk7K23HCvMMqyi0RT8=";
+      #   }
+      #   + "/private_dot_config/starship.toml")));
+      # # + "/dotfiles/config/starship.toml")));
+      settings = lib.mkForce (builtins.fromTOML (builtins.readFile ./../../recursos/starship.toml));
     };
+
     bash = {
       enable = true;
       shellAliases = {
