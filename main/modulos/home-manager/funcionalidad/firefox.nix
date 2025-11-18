@@ -318,6 +318,11 @@
             toolbar = true;
             bookmarks = [
               {
+                name = "Nix Builtins";
+                url = "https://nix.dev/manual/nix/2.25/language/builtins";
+                keyword = "built";
+              }
+              {
                 name = "Flake Anatomy";
                 url = "https://vtimofeenko.com/posts/practical-nix-flake-anatomy-a-guided-tour-of-flake.nix/";
                 keyword = "flake";
@@ -342,6 +347,7 @@
           {
             name = "Temporizador";
             url = "https://reloj-alarma.es/temporizador/#countdown=00:30:00&enabled=0&seconds=1800&title=Temporizador&sound=xylophone&loop=1";
+            keyword = "temp";
           }
           {
             name = "Youtube Channels";
