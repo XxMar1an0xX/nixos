@@ -33,6 +33,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    flake-utils.url = "github:numtide/flake-utils";
+    arduino-nix.url = "github:bouk/arduino-nix";
+    arduino-index = {
+      url = "github:bouk/arduino-indexes";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -44,6 +51,9 @@
     nvf,
     self,
     nixos-hardware,
+    # flake-utils,
+    # arduino-nix,
+    # arduino-index,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -53,7 +63,7 @@
     CustomNVF = nvf.lib.neovimConfiguration {
       modules = [configModule];
       inherit pkgs;
-    };
+    }; #NOTE: esto de arriba en de Neovim NVF
   in {
     packages.${system}.default = CustomNVF.neovim;
     # packages.${droidsystem}.default = droidNVF.neovim;
