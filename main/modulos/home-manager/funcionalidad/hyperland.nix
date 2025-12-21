@@ -37,7 +37,7 @@
           # "clipse -listen"
         ]
         ++ CondicionalPortable [] [
-          "jamesdsp -t &"
+          # "jamesdsp -t &"
         ];
 
       # Variables de entorno (Enviroment variables)
