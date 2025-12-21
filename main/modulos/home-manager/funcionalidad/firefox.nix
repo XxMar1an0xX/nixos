@@ -421,6 +421,11 @@
                 url = "https://www.youtube.com/@ElectroBOOM";
                 keyword = "boom";
               }
+              {
+                name = "syncthing";
+                url = "http://127.0.0.1:8384/";
+                keyword = "sync";
+              }
             ];
           }
           {
