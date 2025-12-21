@@ -136,7 +136,7 @@
 
         (
           {pkgs, ...}: {
-            environment.packages = [self.packages.${pkgs.stdenv.system}.neovim];
+            environment.packages = [self.packages.${pkgs.stdenv.system}.default];
           }
         )
         # list of extra modules for Nix-on-Droid system
