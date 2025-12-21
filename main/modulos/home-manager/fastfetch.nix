@@ -3,28 +3,28 @@
     enable = true;
 
     settings = {
-      logo = {
-        type = "kitty-direct";
-        # logo source: https://camo.githubusercontent.com/955fca7bc4a99f4142047a976fff46c50616dd7d2a20aa1bf36ea04104bb025c/68747470733a2f2f692e696d6775722e636f6d2f367146436c41312e706e67
-
-        # ".local/share/rofi/themes/custom1.rasi".source = "${
-        #   (pkgs.fetchFromGitHub {
-        #     owner = "w8ste";
-        #     repo = "Tokyonight-rofi-theme";
-        #     rev = "7e22c3e516e2f32259f4bf30b658f4b2bb989313";
-        #     hash = "sha256-f7XugMkf7Ylp2fY2MY7q1+p+awFOaIrNkCIR0SbOA30=";
-        #   })
-        # }/tokyonight_big1.rasi";
-        source = "";
-        height = 16;
-        width = 34;
-        padding = {
-          top = 8;
-          bottom = 8;
-          right = 5;
-          left = 5;
-        };
-      };
+      # logo = {
+      #   type = "kitty-direct";
+      #   # logo source: https://camo.githubusercontent.com/955fca7bc4a99f4142047a976fff46c50616dd7d2a20aa1bf36ea04104bb025c/68747470733a2f2f692e696d6775722e636f6d2f367146436c41312e706e67
+      #
+      #   # ".local/share/rofi/themes/custom1.rasi".source = "${
+      #   #   (pkgs.fetchFromGitHub {
+      #   #     owner = "w8ste";
+      #   #     repo = "Tokyonight-rofi-theme";
+      #   #     rev = "7e22c3e516e2f32259f4bf30b658f4b2bb989313";
+      #   #     hash = "sha256-f7XugMkf7Ylp2fY2MY7q1+p+awFOaIrNkCIR0SbOA30=";
+      #   #   })
+      #   # }/tokyonight_big1.rasi";
+      #   source = "";
+      #   height = 16;
+      #   width = 34;
+      #   padding = {
+      #     top = 8;
+      #     bottom = 8;
+      #     right = 5;
+      #     left = 5;
+      #   };
+      # };
 
       display = {separator = " -> ";};
 
@@ -135,10 +135,11 @@
         "break"
 
         {
-          type = "de";
-          key = " DE";
-          keyColor = "blue";
-          format = "{1}";
+          type = "custom";
+          # key = "DE";
+          # keyColor = "blue";
+          outputColor = "blue";
+          format = " DE -> default";
         }
 
         {
@@ -164,7 +165,7 @@
 
         {
           type = "terminalfont";
-          key = "│ ├ Font";
+          key = "└ └ Font";
           keyColor = "blue";
           format = "{name}";
         }
@@ -175,12 +176,12 @@
           keyColor = "blue";
         }
 
-        {
-          type = "custom";
-          key = "└ └ Theme";
-          keyColor = "blue";
-          format = "Catppuccin Mocha";
-        }
+        # {
+        #   type = "custom";
+        #   key = "└ └ Theme";
+        #   keyColor = "blue";
+        #   format = "NordFox";
+        # }
 
         {
           type = "custom";
