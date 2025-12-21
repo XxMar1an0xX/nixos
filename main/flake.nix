@@ -66,8 +66,12 @@
     }; #NOTE: esto de arriba en de Neovim NVF
   in {
     packages.${system}.default = CustomNVF.neovim;
-    # packages.${droidsystem}.default = droidNVF.neovim;
-    # formattepackages.${system}.default = CustomNVF.neovim;r.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+
+    packages.aarch64-linux.default =
+      (nvf.lib.neovimConfiguration {
+        modules = [configModule];
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+      }).neovim;
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
 
@@ -132,7 +136,7 @@
 
         (
           {...}: {
-            environment.packages = [CustomNVF.neovim];
+            environment.packages = [self.packages.${pkgs.stdenv.system}.neovim];
           }
         )
         # list of extra modules for Nix-on-Droid system
