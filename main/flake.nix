@@ -135,7 +135,7 @@
         ./hosts/nix-on-droid/nix-on-droid.nix
 
         (
-          {...}: {
+          {pkgs, ...}: {
             environment.packages = [self.packages.${pkgs.stdenv.system}.neovim];
           }
         )
