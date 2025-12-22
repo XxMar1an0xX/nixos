@@ -9,13 +9,20 @@
   home.packages = with pkgs; [
     nerd-fonts.symbols-only
     mp3gain
-    neofetch
     unzip
   ];
 
   imports = [
+    ./../../modulos/home-manager/fastfetch.nix
     # ./test.nix
+    ./../../modulos/home-manager/terminal.nix
+
+    ./../../modulos/home-manager/config-cortas.nix
   ];
+  fonts.fontconfig = {
+    enable = true;
+    # defaultFonts.emoji = ;
+  };
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   programs.gh = {

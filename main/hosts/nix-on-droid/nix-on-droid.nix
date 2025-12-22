@@ -13,7 +13,6 @@
 
   environment.packages = with pkgs; [
     # User-facing stuff that you really really want to have
-    vim
     nerd-fonts.symbols-only
 
     # Some common stuff that people expect to have
