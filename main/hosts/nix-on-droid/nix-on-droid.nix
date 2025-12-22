@@ -7,6 +7,7 @@
 }: {
   # Simply install just the packages
   imports = [
+    ./../../modulos/nixconfig/Estetica/stylix.nix
   ];
 
   environment.packages = with pkgs; [
@@ -45,7 +46,7 @@
     experimental-features = nix-command flakes
   '';
 
-  user.shell = "${pkgs.kitty}/bin/kitty";
+  user.shell = "${pkgs.zsh}/bin/kitty";
   # Set your time zone
   #time.timeZone = "Europe/Berlin";
 

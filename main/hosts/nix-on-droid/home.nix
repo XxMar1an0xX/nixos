@@ -15,9 +15,10 @@
   imports = [
     ./../../modulos/home-manager/fastfetch.nix
     # ./test.nix
-    ./../../modulos/home-manager/terminal.nix
+    # ./../../modulos/home-manager/terminal.nix
 
     ./../../modulos/home-manager/config-cortas.nix
+    ./../../modulos/home-manager/stylix-hm.nix
   ];
   fonts.fontconfig = {
     enable = true;
@@ -26,6 +27,9 @@
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   programs.gh = {
+    enable = true;
+  };
+  programs.zsh = {
     enable = true;
   };
   programs.git = {

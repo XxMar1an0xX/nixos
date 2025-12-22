@@ -133,7 +133,7 @@
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       modules = [
         ./hosts/nix-on-droid/nix-on-droid.nix
-
+        stylix.nixOnDroidModules.stylix
         (
           {pkgs, ...}: {
             environment.packages = [self.packages.${pkgs.stdenv.system}.default];
