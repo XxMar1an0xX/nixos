@@ -178,7 +178,7 @@
   #NOTE: impresoras
   services.printing = {
     enable = true;
-    drivers = with pkgs; [epson-escpr];
+    drivers = with pkgs; [epson-escpr epson-escpr2];
     openFirewall = true;
     # extraConf = ''
     # '';
@@ -195,11 +195,11 @@
   in {
     ensurePrinters = CondicionalPortable [] [
       {
-        name = "Epson_L4150";
-        model = "epson-inkjet-printer-escpr/Epson-L4150_Series-epson-escpr-en.ppd";
+        name = "Impresora_Nueva_L3250";
+        model = "epson-inkjet-printer-escpr/Epson-L3250_Series-epson-escpr-en.ppd";
         location = "Casa";
-        deviceUri = "dnssd://EPSON%20L4150%20Series._pdl-datastream._tcp.local/";
-        description = "impresora epson l4150 piooooola";
+        deviceUri = "dnssd://EPSON%20L3250%20Series._ipp._tcp.local/?uuid=cfe92100-67c4-11d4-a45f-64c6d2d3b3a0";
+        description = "Local Printer";
         ppdOptions = {
           PageSize = "A4";
         };
