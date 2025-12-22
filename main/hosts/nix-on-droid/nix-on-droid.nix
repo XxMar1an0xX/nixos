@@ -12,6 +12,7 @@
   environment.packages = with pkgs; [
     # User-facing stuff that you really really want to have
     nerd-fonts.symbols-only
+    ripgrep
 
     # Some common stuff that people expect to have
     #procps
@@ -22,7 +23,7 @@
     #tzdata
     #hostname
     man
-    #gnugrep
+    gnugrep
     #gnupg
     #gnused
     #gnutar
