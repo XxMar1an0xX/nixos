@@ -142,6 +142,7 @@
         # list of extra modules for Nix-on-Droid system
         # { nix.registry.nixpkgs.flake = nixpkgs; }
         # ./path/to/module.nix
+        #kdksks
 
         # or import source out-of-tree modules like:
         # flake.nixOnDroidModules.module
