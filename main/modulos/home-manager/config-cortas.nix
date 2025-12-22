@@ -70,7 +70,7 @@
   };
   services = {
     clipse = {
-      enable = true;
+      # enable = true;
       imageDisplay.type = "kitty";
     };
   };

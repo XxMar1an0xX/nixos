@@ -21,7 +21,7 @@
   ];
   fonts.fontconfig = {
     enable = true;
-    # defaultFonts.emoji = ;
+    defaultFonts.emoji = pkgs.nerd-fonts.symbols-only;
   };
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
@@ -31,9 +31,6 @@
   programs.git = {
     enable = true;
   };
-  # programs.nh = {
-  #   enable = true;
-  # };
   programs.home-manager.enable = true;
   # insert home-manager config
 }

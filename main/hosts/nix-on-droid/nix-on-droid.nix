@@ -3,12 +3,10 @@
   lib,
   pkgs,
   inputs,
-  # nvf,
   ...
 }: {
   # Simply install just the packages
   imports = [
-    # inputs.nixvim.nixosModules.nixvim
   ];
 
   environment.packages = with pkgs; [
@@ -23,7 +21,7 @@
     #utillinux
     #tzdata
     #hostname
-    #man
+    man
     #gnugrep
     #gnupg
     #gnused
@@ -31,7 +29,7 @@
     #bzip2
     #gzip
     #xz
-    #zip
+    zip
     #unzip
   ];
 
@@ -46,7 +44,7 @@
     experimental-features = nix-command flakes
   '';
 
-  # user.shell = "${pkgs.kitty}/bin/kitty";
+  user.shell = "${pkgs.kitty}/bin/kitty";
   # Set your time zone
   #time.timeZone = "Europe/Berlin";
 
