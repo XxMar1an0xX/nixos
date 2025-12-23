@@ -18,11 +18,11 @@
     # ./../../modulos/home-manager/terminal.nix
 
     ./../../modulos/home-manager/config-cortas.nix
-    ./../../modulos/home-manager/stylix-hm.nix
+    # ./../../modulos/home-manager/stylix-hm.nix
   ];
   fonts.fontconfig = {
     enable = true;
-    defaultFonts.emoji = pkgs.nerd-fonts.symbols-only;
+    # defaultFonts.emoji = pkgs.nerd-fonts.symbols-only;
   };
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

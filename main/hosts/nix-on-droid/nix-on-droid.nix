@@ -7,13 +7,14 @@
 }: {
   # Simply install just the packages
   imports = [
-    ./../../modulos/nixconfig/Estetica/stylix.nix
+    # ./../../modulos/nixconfig/Estetica/stylix.nix
   ];
 
   environment.packages = with pkgs; [
     # User-facing stuff that you really really want to have
     nerd-fonts.symbols-only
     ripgrep
+    zsh
 
     # Some common stuff that people expect to have
     #procps
