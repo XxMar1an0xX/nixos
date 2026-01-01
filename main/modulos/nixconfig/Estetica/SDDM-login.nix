@@ -21,11 +21,12 @@
       themeConfig = {
         General = {
           HeaderText = "NixOS";
-          # Background = "/home/ruiz/Downloads/Celeste Summit Ending Live Wallpaper.mp4";
-          Background = "${pkgs.fetchurl {
-            url = "https://www.pixelstalk.net/wp-content/uploads/images7/Celeste-Wallpaper-Computer.png";
-            hash = "sha256-fT/wJu5DwcZeY9wClkDcvgxvn1LhrHBBiWOfYMX+Ys0="; #NOTE: static
-          }}";
+          Background = ./../../../recursos/Summit_Anim.webp;
+
+          # Background = "${pkgs.fetchurl {
+          #   url = "https://www.pixelstalk.net/wp-content/uploads/images7/Celeste-Wallpaper-Computer.png";
+          #   hash = "sha256-fT/wJu5DwcZeY9wClkDcvgxvn1LhrHBBiWOfYMX+Ys0="; #NOTE: static
+          # }}";
           # Background = "${pkgs.fetchurl {
           #   url = "https://www.desktophut.com/files/Celeste%20Summit%20Ending%20Live%20Wallpaper.m4v";
           #   hash = "sha256-7ATpD1x3tdTjoX33rHHjMlLwbqp46fL5eTE9mnsF1pQ=";
