@@ -123,11 +123,9 @@
       };
     hosts = {
       "0.0.0.0" = [
-        "youtube.com"
-        "www.youtube.com"
-        /*
-        "inv.nadeko.net"
-        */
+        # "youtube.com"
+        # "www.youtube.com"
+        # "inv.nadeko.net"
       ];
     };
   };

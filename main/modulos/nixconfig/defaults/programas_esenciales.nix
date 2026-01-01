@@ -68,9 +68,6 @@
     openFirewall = true;
   };
 
-  #git que es esencial
-  programs.git.enable = true;
-
   #administrador de archivos
   programs.thunar = {
     enable = true;
