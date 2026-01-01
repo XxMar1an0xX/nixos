@@ -21,7 +21,8 @@
       themeConfig = {
         General = {
           HeaderText = "NixOS";
-          Background = ./../../../recursos/Summit_Anim.webp;
+          # Background = "/home/ruiz/Documentos/nixos/main/recursos/Summit.mp4";
+          background = "/home/ruiz/Documentos/nixos/main/recursos/Celeste_Summit.jpg";
 
           # Background = "${pkgs.fetchurl {
           #   url = "https://www.pixelstalk.net/wp-content/uploads/images7/Celeste-Wallpaper-Computer.png";
