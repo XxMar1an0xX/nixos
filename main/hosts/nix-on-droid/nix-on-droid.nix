@@ -15,6 +15,7 @@
     nerd-fonts.symbols-only
     ripgrep
     zsh
+    nerd-fonts.sauce-code-pro
 
     # Some common stuff that people expect to have
     #procps
@@ -35,6 +36,7 @@
     zip
     #unzip
   ];
+  terminal.font = "${pkgs.nerd-fonts.sauce-code-pro}/share/fonts/truetype/NerdFonts/SauceCodePro/SauceCodeProNerdFont-Regular.ttf";
 
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";

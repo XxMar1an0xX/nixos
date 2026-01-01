@@ -15,7 +15,7 @@
   imports = [
     ./../../modulos/home-manager/fastfetch.nix
     # ./test.nix
-    # ./../../modulos/home-manager/terminal.nix
+    ./../../modulos/home-manager/github.nix
 
     ./../../modulos/home-manager/config-cortas.nix
     # ./../../modulos/home-manager/stylix-hm.nix
@@ -31,4 +31,8 @@
   };
   programs.home-manager.enable = true;
   # insert home-manager config
+  home.shellAliases = {
+    ds = "nix-on-droid switch --flake $HOME/nixos/main/";
+    nc = "vi $HOME/nixos/main/";
+  };
 }
