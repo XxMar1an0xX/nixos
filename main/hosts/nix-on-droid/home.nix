@@ -26,13 +26,7 @@
   };
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-  programs.gh = {
-    enable = true;
-  };
   programs.zsh = {
-    enable = true;
-  };
-  programs.git = {
     enable = true;
   };
   programs.home-manager.enable = true;
