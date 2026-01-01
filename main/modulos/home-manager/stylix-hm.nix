@@ -8,7 +8,7 @@
     btop.enable = false;
     nixvim.enable = false;
     nvf.enable = false;
-    xfce.enable = true;
+    xfce.enable = false;
     hyprland.enable = true;
     hyprland.hyprpaper.enable = true;
     rofi.enable = false;
