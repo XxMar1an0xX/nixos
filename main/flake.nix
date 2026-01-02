@@ -40,6 +40,11 @@
       url = "github:bouk/arduino-indexes";
       flake = false;
     };
+
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -98,6 +103,7 @@
           nixai.nixosModules.default
           inputs.minegrub-world-sel-theme.nixosModules.default
           inputs.minegrub-theme.nixosModules.default
+          inputs.silentSDDM.nixosModules.default
           # self.nixosModules.default
 
           ({...}: {
