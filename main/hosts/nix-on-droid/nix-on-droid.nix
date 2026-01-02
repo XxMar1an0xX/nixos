@@ -54,7 +54,7 @@
     termux-open.enable = true;
   };
   user = {
-    userName = "Nix-Droid";
+    # userName = "Nix-Droid";
     # shell = "${pkgs.zsh}";
   };
   # user.  # Set your time zone
