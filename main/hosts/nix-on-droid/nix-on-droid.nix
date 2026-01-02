@@ -49,8 +49,15 @@
     experimental-features = nix-command flakes
   '';
 
-  user.shell = "${pkgs.zsh}/bin/kitty";
-  # Set your time zone
+  android-integration = {
+    termux-open-url.enable = true;
+    termux-open.enable = true;
+  };
+  user = {
+    userName = "Nix-Droid";
+    # shell = "${pkgs.zsh}";
+  };
+  # user.  # Set your time zone
   #time.timeZone = "Europe/Berlin";
 
   # Configure home-manager
