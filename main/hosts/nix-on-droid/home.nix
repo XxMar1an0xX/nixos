@@ -34,5 +34,7 @@
   home.shellAliases = {
     ds = "nix-on-droid switch --flake $HOME/nixos/main/";
     nc = "cd $HOME/nixos/main/ && git pull --no-edit && vi .";
+    ".." = "cd ..";
+    x = "exit";
   };
 }
