@@ -22,7 +22,7 @@
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
       "$menu" = "rofi -show drun";
-      "$browser" = "librewolf";
+      "$browser" = "firefox";
 
       # para cosas que arrancan al inicio
       exec-once =
@@ -233,7 +233,7 @@
 
         #NOTE: keybinds de programas <==
 
-        "$mainMod, N, exec, $terminal -e nvim $NH_FLAKE"
+        "$mainMod, N, exec, $terminal -e cd &NH_FLAKE && git pull --no-edit && nvim $NH_FLAKE"
         "$mainMod, M, exec, $menu"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, Q, exec, $terminal -e bash -c 'fastfetch; exec bash'"
