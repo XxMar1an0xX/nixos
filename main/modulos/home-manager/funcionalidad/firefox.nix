@@ -547,6 +547,7 @@ in {
       };
     };
     profiles = foxconfig;
+    nativeMessagingHosts = [pkgs.keepassxc];
   };
 
   programs.librewolf = {
@@ -582,5 +583,7 @@ in {
       };
     };
     profiles = foxconfig;
+
+    nativeMessagingHosts = [pkgs.keepassxc];
   };
 }
