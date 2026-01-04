@@ -33,6 +33,6 @@
   # insert home-manager config
   home.shellAliases = {
     ds = "nix-on-droid switch --flake $HOME/nixos/main/";
-    nc = "vi $HOME/nixos/main/";
+    nc = "cd $HOME/nixos/main/ && git pull --no-edit && vi .";
   };
 }

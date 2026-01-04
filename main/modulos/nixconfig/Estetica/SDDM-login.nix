@@ -114,7 +114,8 @@
     enable = true;
     theme = "rei";
     backgrounds = {
-      kokomi = "/home/ruiz/Documentos/nixos/main/recursos/Summit.mp4";
+      # boring = "/Imagenes/Screenshots/2025-07-11T10:58:56,120120920-03:00.png";
+      # kokomi = /home/ruiz/Documentos/nixos/main/recursos/Summit.mp4;
     };
   };
 }
