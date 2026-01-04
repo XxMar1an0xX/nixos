@@ -271,6 +271,45 @@
         "extensions.webcompat.perform_injections" = true;
         "extensions.webcompat.perform_ua_overrides" = true;
         "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+        "services.sync.engine.passwords" = false;
+
+        "extensions.screenshots.disabled" = true;
+        "browser.topsites.contile.enabled" = false;
+        "browser.formfill.enable" = false;
+        "browser.search.suggest.enabled" = false;
+        "browser.search.suggest.enabled.private" = false;
+        "browser.urlbar.suggest.searches" = false;
+        "browser.urlbar.showSearchSuggestionsFirst" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.feeds.snippets" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includeVisited" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.system.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+
+        "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+        "browser.newtabpage.activity-stream.telemetry" = false;
+        "browser.ping-centre.telemetry" = false;
+        "toolkit.telemetry.archive.enabled" = false;
+        "toolkit.telemetry.bhrPing.enabled" = false;
+        "toolkit.telemetry.enabled" = false;
+        "toolkit.telemetry.firstShutdownPing.enabled" = false;
+        "toolkit.telemetry.hybridContent.enabled" = false;
+        "toolkit.telemetry.newProfilePing.enabled" = false;
+        "toolkit.telemetry.reportingpolicy.firstRun" = false;
+        "toolkit.telemetry.shutdownPingSender.enabled" = false;
+        "toolkit.telemetry.unified" = false;
+        "toolkit.telemetry.updatePing.enabled" = false;
+        "privacy.donottrackheader.enabled" = true;
+        "privacy.trackingprotection.enabled" = true;
+        "privacy.trackingprotection.socialtracking.enabled" = true;
+        "privacy.partition.network_state.ocsp_cache" = true;
+        "experiments.activeExperiment" = false;
+        "experiments.enabled" = false;
+        "experiments.supported" = false;
+        "network.allow-experiments" = false;
 
         # Disable irritating first-run stuff
         "browser.disableResetPrompt" = true;
@@ -285,6 +324,10 @@
         "startup.homepage_override_url" = "";
         "trailhead.firstrun.didSeeAboutWelcome" = true;
         "identity.fxaccounts.enabled" = false;
+        "extensions.pocket.api" = "";
+        "extensions.pocket.oAuthConsumerKey" = "";
+        "extensions.pocket.showHome" = false;
+        "extensions.pocket.site" = "";
 
         #NOTE: para el tema de firefox
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
