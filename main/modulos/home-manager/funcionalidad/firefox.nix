@@ -312,6 +312,7 @@
         "network.allow-experiments" = false;
 
         # Disable irritating first-run stuff
+        "browser.translations.automaticallyPopup" = false;
         "browser.disableResetPrompt" = true;
         "browser.download.panel.shown" = true;
         "browser.feeds.showFirstRunUI" = false;
