@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
@@ -110,12 +111,25 @@
   #     # gdm.enable = true;
   #   };
 
+  # environment.systemPackages = [pkgs.gnome-backgrounds];
+
+  #NOTE: comando de prueba es:
+  # test-sddm-silent
   programs.silentSDDM = {
     enable = true;
-    theme = "rei";
+    theme = "ken";
     backgrounds = {
-      # boring = "/Imagenes/Screenshots/2025-07-11T10:58:56,120120920-03:00.png";
-      # kokomi = /home/ruiz/Documentos/nixos/main/recursos/Summit.mp4;
+      # boring = "${pkgs.gnome-backgrounds}/share/backgrounds/gnome/symbolic-d.png";
+      # borng = ''/nix/store/h49hvwvgqz5dq9ahsdf1632mlssmlwpy-gnome-backgrounds-48.2.1/share/backgrounds/gnome/symbolic-d'';
+      summit = "${./../../../recursos/Celeste_Summit.jpg}";
+    };
+    settings = {
+      "LoginScreen" = {
+        background = "Celeste_Summit.jpg";
+      };
+      "LockScreen" = {
+        background = "Celeste_Summit.jpg";
+      };
     };
   };
 }
