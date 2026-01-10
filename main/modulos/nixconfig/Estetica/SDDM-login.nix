@@ -117,7 +117,7 @@
   # test-sddm-silent
   programs.silentSDDM = {
     enable = true;
-    theme = "ken";
+    theme = "rei";
     backgrounds = {
       # boring = "${pkgs.gnome-backgrounds}/share/backgrounds/gnome/symbolic-d.png";
       # borng = ''/nix/store/h49hvwvgqz5dq9ahsdf1632mlssmlwpy-gnome-backgrounds-48.2.1/share/backgrounds/gnome/symbolic-d'';
