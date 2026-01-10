@@ -18,6 +18,10 @@
           path = "/home/ruiz/Musica/";
           devices = ["Celular"];
         };
+        "Phone Backup" = {
+          path = "/home/ruiz/DataBackup/";
+          devices = ["Celular"];
+        };
       };
       # options = {
       #   urAccepted = "-1";
