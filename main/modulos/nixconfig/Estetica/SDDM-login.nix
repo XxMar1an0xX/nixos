@@ -121,14 +121,14 @@
     backgrounds = {
       # boring = "${pkgs.gnome-backgrounds}/share/backgrounds/gnome/symbolic-d.png";
       # borng = ''/nix/store/h49hvwvgqz5dq9ahsdf1632mlssmlwpy-gnome-backgrounds-48.2.1/share/backgrounds/gnome/symbolic-d'';
-      summit = "${./../../../recursos/Celeste_Summit.jpg}";
+      summit = "${./../../../recursos/Summit_no_resize.mp4}";
     };
     settings = {
       "LoginScreen" = {
-        background = "Celeste_Summit.jpg";
+        background = "fhffpgfd338gk8qr8l2c0iaj1nn5rn8g-Summit_no_resize.mp4";
       };
       "LockScreen" = {
-        background = "Celeste_Summit.jpg";
+        background = "fhffpgfd338gk8qr8l2c0iaj1nn5rn8g-Summit_no_resize.mp4";
       };
     };
   };
