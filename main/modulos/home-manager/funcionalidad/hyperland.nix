@@ -233,7 +233,7 @@
 
         #NOTE: keybinds de programas <==
 
-        "$mainMod, N, exec, $terminal -e cd $NH_FLAKE && git pull --no-edit && nvim $NH_FLAKE"
+        "$mainMod, N, exec, $terminal -c cd $NH_FLAKE && git pull --no-edit && nvim ."
         "$mainMod, M, exec, $menu"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, Q, exec, $terminal -e bash -c 'fastfetch; exec bash'"
