@@ -16,6 +16,7 @@
     ripgrep
     zsh
     nerd-fonts.sauce-code-pro
+    perl
 
     # Some common stuff that people expect to have
     #procps
