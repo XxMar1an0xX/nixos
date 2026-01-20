@@ -24,8 +24,8 @@
       ripgrep
       # wl-clipboard
       gcc
-      cargo
-      rustc
+      # cargo
+      # rustc
       alejandra
       # clipse #TODO: compartir el clipboard entre sistema y editor
       lldb

@@ -45,6 +45,11 @@
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -56,6 +61,7 @@
     nvf,
     self,
     nixos-hardware,
+    rust-overlay,
     # flake-utils,
     # arduino-nix,
     # arduino-index,
@@ -107,7 +113,13 @@
           # self.nixosModules.default
 
           ({...}: {
-            environment.systemPackages = [CustomNVF.neovim];
+            nixpkgs.overlays = [
+              rust-overlay.overlays.default
+            ];
+            environment.systemPackages = [
+              CustomNVF.neovim
+              pkgs.rust-bin.stable.latest.deafult
+            ];
           })
         ];
       };

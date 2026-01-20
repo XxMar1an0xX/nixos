@@ -48,8 +48,8 @@
 
       rustlings
       #NOTE: para rustaceanvim
-      cargo
-      rustc
+      # cargo
+      # rustc
       # rustup
       # rust-analyzer
 
