@@ -157,7 +157,10 @@
             nixpkgs.overlays = [
               rust-overlay.overlays.default
             ];
-            environment.packages = [self.packages.${pkgs.stdenv.system}.default];
+            environment.packages = [
+              self.packages.${pkgs.stdenv.system}.default
+              pkgs.rust-bin.stable.latest.default
+            ];
           }
         )
         # list of extra modules for Nix-on-Droid system
