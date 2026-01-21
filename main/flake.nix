@@ -112,13 +112,13 @@
           inputs.silentSDDM.nixosModules.default
           # self.nixosModules.default
 
-          ({...}: {
+          ({pkgs, ...}: {
             nixpkgs.overlays = [
               rust-overlay.overlays.default
             ];
             environment.systemPackages = [
               CustomNVF.neovim
-              pkgs.rust-bin.stable.latest.deafult
+              pkgs.rust-bin.stable.latest.default
             ];
           })
         ];
@@ -154,6 +154,9 @@
         # stylix.nixOnDroidModules.stylix
         (
           {pkgs, ...}: {
+            nixpkgs.overlays = [
+              rust-overlay.overlays.default
+            ];
             environment.packages = [self.packages.${pkgs.stdenv.system}.default];
           }
         )
