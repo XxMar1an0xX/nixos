@@ -10,8 +10,8 @@
     # mangohud
     protonup
 
-    #NOTE: formas alternativas a steam
-    # heroic
+    #NOTE: rocket league
+    heroic
 
     #NOTE: minecraft
     prismlauncher
