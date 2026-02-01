@@ -77,7 +77,7 @@
     #   }
     # ];
 
-    backupFileExtension = "ajsdhsajkhf";
+    backupFileExtension = "ahfwenciu";
     #de-comentar si se rompe home-manager
     useGlobalPkgs = true;
   };
