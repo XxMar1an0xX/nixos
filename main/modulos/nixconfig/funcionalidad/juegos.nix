@@ -6,12 +6,17 @@
 
   services.xserver.videoDrivers = ["amdgpu"];
 
+  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.enable = true;
+  hardware.pulseaudio.support32Bit = true;
   environment.systemPackages = with pkgs; [
     # mangohud
     protonup
 
     #NOTE: rocket league
-    heroic
+    vulkan-tools
+    # heroic
+    lutris
 
     #NOTE: minecraft
     prismlauncher
