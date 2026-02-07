@@ -44,9 +44,13 @@
     x = "exit";
   };
   systemd.user.services.fastfetch = {
-    description = "fastfetch al inicio";
-    serviceConfig.PassEnvironment = "DISPLAY";
-    script = ''fastfetch'';
-    wantedBy = ["multi-user.target"]; # starts after login
+    Unit = {
+      description = "fastfetch al inicio";
+    };
+    Service = {
+      serviceConfig.PassEnvironment = "DISPLAY";
+      script = ''fastfetch'';
+      wantedBy = ["multi-user.target"]; # starts after login
+    };
   };
 }
