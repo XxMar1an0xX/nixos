@@ -29,6 +29,7 @@
   programs.zsh = {
     enable = true;
   };
+
   programs.home-manager.enable = true;
   # insert home-manager config
   home.shellAliases = {
@@ -36,5 +37,11 @@
     nc = "cd $HOME/nixos/main/ && git pull --no-edit && vi .";
     ".." = "cd ..";
     x = "exit";
+  };
+  systemd.user.services.fastfetch = {
+    description = "fastfetch al inicio";
+    serviceConfig.PassEnvironment = "DISPLAY";
+    script = "fastfetch; exec bash";
+    wantedBy = ["multi-user.target"]; # starts after login
   };
 }
