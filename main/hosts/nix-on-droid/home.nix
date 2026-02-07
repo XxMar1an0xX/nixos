@@ -46,7 +46,7 @@
   systemd.user.services.fastfetch = {
     description = "fastfetch al inicio";
     serviceConfig.PassEnvironment = "DISPLAY";
-    script = "fastfetch; exec bash";
+    script = ''fastfetch'';
     wantedBy = ["multi-user.target"]; # starts after login
   };
 }
