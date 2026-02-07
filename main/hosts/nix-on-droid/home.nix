@@ -51,6 +51,6 @@
       User = "nix-on-droid";
       # Group = "root";
     };
-    script = ''echo "power" | tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference'';
+    script = ''fastfetch'';
   };
 }
