@@ -114,7 +114,7 @@
 
           ({pkgs, ...}: {
             nixpkgs.overlays = [
-              rust-overlay.overlays.default
+              # rust-overlay.overlays.default
             ];
             environment.systemPackages = [
               CustomNVF.neovim
@@ -154,12 +154,12 @@
         # stylix.nixOnDroidModules.stylix
         (
           {pkgs, ...}: {
-            nixpkgs.overlays = [
-              rust-overlay.overlays.default
-            ];
+            # nixpkgs.overlays = [
+            #   rust-overlay.overlays.default
+            # ];
             environment.packages = [
               self.packages.${pkgs.stdenv.system}.default
-              pkgs.rust-bin.stable.latest.default
+              # pkgs.rust-bin.stable.latest.default
             ];
           }
         )
@@ -174,8 +174,10 @@
 
       # list of extra special args for Nix-on-Droid modules
       extraSpecialArgs = {
+        inherit rust-overlay;
         # rootPath = ./.;
         # inherit nvf;
+        # inherit outputs;
         inherit inputs;
       };
 
@@ -185,6 +187,8 @@
 
         overlays = [
           nix-on-droid.overlays.default
+
+          # rust-overlay.overlays.default
           # add other overlays
         ];
       };

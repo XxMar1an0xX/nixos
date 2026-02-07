@@ -3,12 +3,15 @@
   lib,
   pkgs,
   inputs,
+  rust-overlay,
   ...
 }: {
   # Simply install just the packages
   imports = [
     # ./../../modulos/nixconfig/Estetica/stylix.nix
   ];
+
+  # nixpkgs.config = {};
 
   environment.packages = with pkgs; [
     # User-facing stuff that you really really want to have
@@ -36,6 +39,7 @@
     #xz
     zip
     #unzip
+    # rust-bin.stable.latest.default
   ];
   terminal.font = "${pkgs.nerd-fonts.sauce-code-pro}/share/fonts/truetype/NerdFonts/SauceCodePro/SauceCodeProNerdFont-Regular.ttf";
 
@@ -65,9 +69,11 @@
   home-manager = {
     config = ./home.nix;
     backupFileExtension = "hm-bak";
-    useGlobalPkgs = true;
+    # useGlobalPkgs = true;
+    useGlobalPkgs = false;
     extraSpecialArgs = {
       # inherit pkgs;
+      inherit rust-overlay;
       # inherit lib;
       inherit inputs;
       # inherit nvf;

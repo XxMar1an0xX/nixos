@@ -1,15 +1,20 @@
 {
   pkgs,
   inputs,
+  rust-overlay,
   # nvf,
   ...
 }: {
+  nixpkgs.overlays = [
+    rust-overlay.overlays.default
+  ];
   # Read the changelog before changing this value
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     nerd-fonts.symbols-only
     mp3gain
     unzip
+    rust-bin.stable.latest.default
   ];
 
   imports = [
