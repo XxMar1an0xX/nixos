@@ -43,14 +43,14 @@
     ".." = "cd ..";
     x = "exit";
   };
-  systemd.user.services.fastfetch = {
-    Unit = {
-      description = "fastfetch al inicio";
+  systemd.services.fastfetch = {
+    wantedBy = ["multi-user.target"];
+    # path = [ pkgs.coreutils ];
+    enable = true;
+    serviceConfig = {
+      User = "nix-on-droid";
+      # Group = "root";
     };
-    Service = {
-      serviceConfig.PassEnvironment = "DISPLAY";
-      script = ''fastfetch'';
-      wantedBy = ["multi-user.target"]; # starts after login
-    };
+    script = ''echo "power" | tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference'';
   };
 }
