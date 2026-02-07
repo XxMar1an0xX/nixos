@@ -43,14 +43,22 @@
     ".." = "cd ..";
     x = "exit";
   };
-  systemd.services.fastfetch = {
-    wantedBy = ["multi-user.target"];
-    # path = [ pkgs.coreutils ];
-    enable = true;
-    serviceConfig = {
-      User = "nix-on-droid";
-      # Group = "root";
+  systemd.user.services.auto-mount = {
+    Unit = {
+      Description = "systemd service for automatic mounting";
+      after = ["network.target.service"];
     };
-    script = ''fastfetch'';
+    Install = {
+      WantedBy = ["default.target"];
+    };
+    Service = {
+      Type = "simple";
+      User = "root";
+      Group = "root";
+      PermissionsStartOnly = true;
+      ExecStart = "${pkgs.writeShellScript "auto-mount" ''
+        /run/wrappers/bin/mount -o bind --source /home/dob/nextcloud/syncDir --target /home/dob/syncDir
+      ''}";
+    };
   };
 }
