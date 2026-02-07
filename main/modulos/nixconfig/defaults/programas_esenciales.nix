@@ -26,7 +26,9 @@
       arduino-ide
       # btop
       # yazi
-      discord-screenaudio
+      # discord-screenaudio #NOTE:obsoleto?
+      vesktop
+      android-tools
 
       wl-clipboard
       # keepassxc
@@ -40,7 +42,8 @@
       nomacs
       # whatsie #NOTE: no anda ns porque
 
-      whatsapp-for-linux
+      # whatsapp-for-linux
+      wasistlos
       # cava
       gparted
       # neofetch
@@ -133,10 +136,10 @@
   #NOTE: nix-helper
   programs.nh = {
     enable = true;
-    flake = "/home/ruiz/Documentos/nixos/main";
+    flake = "/home/ruiz/nixos/main";
   };
   #NOTE: ADB, android debug bridge
-  programs.adb = {
-    enable = true;
-  };
+  # programs.adb = {
+  #   enable = true;
+  # };
 }

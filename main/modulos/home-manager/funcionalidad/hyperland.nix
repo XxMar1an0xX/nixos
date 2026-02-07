@@ -164,7 +164,7 @@
       };
 
       gestures = {
-        workspace_swipe = "false";
+        # workspace_swipe = "false";
       };
 
       device = {
@@ -268,12 +268,12 @@
       # ];
 
       windowrule = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+        "suppress_event on , maximize on, match:class *"
+        "no_focus on ,match:class ^$,match:title ^$,match:xwayland 1,match:float 1,match:fullscreen 0,match:pin 0"
 
-        "float, class:(clipse)"
-        "size 622 652, class:(clipse)"
-        "stayfocused, class:(clipse)"
+        "float on, match:class clipse"
+        "size 622 652, match:class clipse"
+        "stay_focused on, match:class clipse"
       ];
 
       monitor =
@@ -290,7 +290,7 @@
       };
 
       experimental = {
-        xx_color_management_v4 = "true";
+        # xx_color_management_v4 = "true";
       };
     };
   };

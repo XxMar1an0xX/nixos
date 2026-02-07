@@ -11,7 +11,7 @@
   nix.gc = {
     automatic = true;
     dates = "monthly";
-    options = "--delete-older-than 20d";
+    options = "-d";
   };
   nix.settings.auto-optimise-store = true;
 }

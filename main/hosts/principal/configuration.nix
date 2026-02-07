@@ -31,6 +31,7 @@
     ./../../modulos/nixconfig/funcionalidad/invidious.nix
     ./../../modulos/nixconfig/funcionalidad/VMs.nix
     ./../../modulos/nixconfig/funcionalidad/juegos.nix
+    ./../../modulos/nixconfig/funcionalidad/hardware.nix
     #NOTE: default
     ./../../modulos/nixconfig/defaults/programas_esenciales.nix
     ./../../modulos/nixconfig/defaults/limpieza_y_actualizacion.nix
@@ -123,8 +124,8 @@
       };
     hosts = {
       "0.0.0.0" = [
-        # "youtube.com"
-        # "www.youtube.com"
+        "youtube.com"
+        "www.youtube.com"
         # "inv.nadeko.net"
       ];
     };
