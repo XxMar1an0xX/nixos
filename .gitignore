@@ -1,3 +1,4 @@
 
 main/result
-main/hardware-configuration.nix
+# main/hardware-configuration.nix
+*/hardware-config
