@@ -114,7 +114,7 @@
 
           ({pkgs, ...}: {
             nixpkgs.overlays = [
-              # rust-overlay.overlays.default
+              rust-overlay.overlays.default
             ];
             environment.systemPackages = [
               CustomNVF.neovim
