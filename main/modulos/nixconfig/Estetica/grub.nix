@@ -14,7 +14,7 @@
     # systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
     grub = {
-      enable = lib.mkDefault true; #NOTE: si falla algo en boot bien que es aqui
+      enable = true; #NOTE: si falla algo en boot bien que es aqui
       efiSupport = true;
       device = "nodev";
       timeoutStyle = "menu";
