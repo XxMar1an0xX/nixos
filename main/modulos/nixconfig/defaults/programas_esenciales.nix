@@ -62,6 +62,8 @@
       #NOTE: para el web scrape
       chromedriver
       geckodriver
+
+      nautilus
     ]
     ++ CondicionalPortable [] [jamesdsp];
 
@@ -73,7 +75,7 @@
 
   #administrador de archivos
   programs.thunar = {
-    enable = true;
+    # enable = true;
     plugins = with pkgs.xfce; [
       thunar-archive-plugin
       thunar-media-tags-plugin

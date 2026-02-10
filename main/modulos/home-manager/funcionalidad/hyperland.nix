@@ -20,7 +20,7 @@
     settings = {
       # Keywords hyprland
       "$terminal" = "kitty";
-      "$fileManager" = "thunar";
+      "$fileManager" = "nautilus";
       "$menu" = "rofi -show drun";
       "$browser" = "firefox";
 
@@ -233,7 +233,7 @@
 
         #NOTE: keybinds de programas <==
 
-        "$mainMod, N, exec, $terminal -c cd $NH_FLAKE&&git pull --no-edit&&nvim ."
+        "$mainMod, N, exec, $terminal -e bash -c 'cd $NH_FLAKE&&git pull --no-edit&&nvim .'"
         "$mainMod, M, exec, $menu"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, Q, exec, $terminal -e bash -c 'fastfetch; exec bash'"
