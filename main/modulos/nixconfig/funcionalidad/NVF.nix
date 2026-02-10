@@ -3,11 +3,16 @@
   lib,
   ...
 }: let
-  # arduino-nvim = pkgs.vimUtils.buildVimPlugin {
-  #   name = "Arduino-Nvim";
-  #   version = "2025-09-05";
-  #   src = ./../../../recursos/Arduino-Nvim;
-  # };
+  arduino-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "Arduino-Nvim";
+    version = "2025-09-05";
+    src = pkgs.fetchFromGitHub {
+      owner = "yuukiflow";
+      repo = "Arduino-Nvim";
+      rev = "60e7ed08ca2bcf0cd357efb0aa74ae3dd528a83a";
+      hash = "sha256-pQk5bks0oBywnzZcMaime4J3mjpOaG/OUTBv0gVd/gU=";
+    };
+  };
   #NOTE: funciona empaquetar nightfox
   # nightfox-nvim = pkgs.vimUtils.buildVimPlugin {
   #   pname = "nightfox.nvim";
@@ -33,13 +38,38 @@
       nerd-fonts.symbols-only
       # git
       # gh
-      # arduino-cli
-      # arduino-language-server
-      # clang
+      arduino-cli
+      arduino-language-server
+
+      libclang
     ];
     viAlias = true;
     vimAlias = true;
+    luaConfigRC.arduino =
+      /*
+      lua
+      */
+      ''
+         -- return {
+          -- dir = vim.fn.stdpath("config") .. "${arduino-nvim}",
+          -- dependencies = {
+            -- "nvim-telescope/telescope.nvim",
+            -- "neovim/nvim-lspconfig",
+          -- },
+          -- config = function()
+            -- vim.api.nvim_create_autocmd("FileType", {
+              -- pattern = "arduino",
+              -- callback = function()
+                -- require("Arduino-Nvim")
+              -- end,
+            -- })
+          -- end,
+        -- }
+      '';
     extraPlugins = {
+      # clangd = {
+      #   package = pkgs.vimPlugins.clangd_extensions-nvim;
+      # };
       nighfox = {
         package = pkgs.vimPlugins.nightfox-nvim;
         setup =
@@ -51,28 +81,25 @@
             vim.cmd("colorscheme nordfox")
           '';
       };
-      treesitter-arduino = {
-        package = pkgs.vimPlugins.nvim-treesitter-parsers.arduino;
-      };
       #TODO: hacer que funcione programar arduino desde neovim
-      # arduino = {
-      #   package = arduino-nvim;
-      #   setup =
-      #     /*
-      #     lua
-      #     */
-      #     ''
-      #       -- Load LSP configuration first
-      #       -- require('arduino').setup {}
-      #       -- Set up Arduino file type detection
-      #       vim.api.nvim_create_autocmd("FileType", {
-      #           pattern = "arduino",
-      #           callback = function()
-      #               require("arduino")
-      #           end
-      #       })
-      #     '';
-      # };
+      arduino = {
+        package = arduino-nvim;
+        setup =
+          /*
+          lua
+          */
+          ''
+
+            -- config = function()
+            --     vim.api.nvim_create_autocmd("FileType", {
+                  -- pattern = "arduino",
+                  -- callback = function()
+                  --   require("Arduino-Nvim")
+                  -- end,
+              --   })
+              -- end
+          '';
+      };
     };
     # useSystemClipboard = true;
     # additionalRuntimePaths = [
@@ -203,24 +230,43 @@
     };
 
     lsp = {
-      servers.nixd.init_options = {
-        # filetypes = [ #NOTE: esta lacra hacia fallar el autoformateo
-        #   "nix"
-        # ];
-        # formatting.command = ["alejandra"];
-        nixpkgs.expr = "import <nixpkgs> { }";
-        nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
-        home-manager.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-        # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
-        lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
+      servers = {
+        "arduino" = {
+          enable = true;
+          capabilities = lib.generators.mkLuaInline "capabilities";
+          cmd = [
+            "${pkgs.arduino-language-server}/bin/arduino-language-server"
+            "-cli-config"
+            "/home/ruiz/.arduino15/arduino-cli.yaml"
+            "-cli"
+            "${pkgs.arduino-cli}/bin/sh"
+            "-clangd"
+            "${pkgs.libclang}/bin/sh"
+            "-fqbn"
+            "arduino:avr:uno"
+          ];
+          filetypes = ["arduino"];
+        };
 
-        #   # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-        #   #
-        #   # nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
-        #   # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
-        #   # # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
-        #   #
-        #   # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
+        nixd.init_options = {
+          # filetypes = [ #NOTE: esta lacra hacia fallar el autoformateo
+          #   "nix"
+          # ];
+          # formatting.command = ["alejandra"];
+          nixpkgs.expr = "import <nixpkgs> { }";
+          nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
+          # home-manager.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
+          # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
+          lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
+
+          #   # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
+          #   #
+          #   # nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
+          #   # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
+          #   # # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
+          #   #
+          #   # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
+        };
       };
       enable = true; #NOTE: lacra de mrd como 2 horas boludeando para q sea esto
       formatOnSave = true;
@@ -257,11 +303,11 @@
         extraDiagnostics.enable = true;
         format = {
           enable = true;
-          type = "alejandra";
+          type = ["alejandra"];
         };
         lsp = {
           enable = true;
-          server = "nixd";
+          servers = ["nixd"];
           # options = {
           #   # filetypes = [ #NOTE: esta lacra hacia fallar el autoformateo
           #   #   "nix"
@@ -282,7 +328,9 @@
           #   #   # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
           # };
         };
-        treesitter.enable = true;
+        treesitter = {
+          enable = true;
+        };
       };
       rust = {
         enable = true;
@@ -378,8 +426,14 @@
 
     snippets.luasnip.enable = true;
 
-    treesitter.context.enable = true;
+    treesitter = {
+      context.enable = true;
 
+      grammars = with pkgs.vimPlugins.nvim-treesitter.parsers; [
+        arduino
+        asm
+      ];
+    };
     binds = {
       whichKey.enable = true;
       cheatsheet.enable = true;
