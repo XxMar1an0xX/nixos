@@ -165,7 +165,7 @@
 
         {
           type = "terminalfont";
-          key = "└ └ Font";
+          key = "│ ├ Font";
           keyColor = "blue";
           format = "{name}";
         }
@@ -176,12 +176,12 @@
           keyColor = "blue";
         }
 
-        # {
-        #   type = "custom";
-        #   key = "└ └ Theme";
-        #   keyColor = "blue";
-        #   format = "NordFox";
-        # }
+        {
+          type = "custom";
+          key = "└ └ Theme";
+          keyColor = "blue";
+          format = "NordFox";
+        }
 
         {
           type = "custom";

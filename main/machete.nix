@@ -1,6 +1,9 @@
 {
   #NOTE: Esto es un machete/recordatorio para ciertos patrones de codigo en nixos
 
+  #NOTE: obtener hash ser como:
+  #   #nix hash to-sri --type sha256 $(nix-prefetch-url https://dl.dafont.com/dl/?f=hashtag)
+
   #NOTE: Fetchear, leer y convertir un archivo desde TMOL a Nix
   settings = lib.mkForce (builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub {
       owner = "fredericrous";
