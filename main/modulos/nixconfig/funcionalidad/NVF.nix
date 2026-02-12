@@ -45,6 +45,33 @@
     ];
     viAlias = true;
     vimAlias = true;
+    lazy.plugins = {
+      vimplugin-Arduino-Nvim = {
+        enabled = true;
+        package = arduino-nvim;
+        before =
+          /*
+          lua
+          */
+          ''
+            return {
+              dir = vim.fn.stdpath("config") .. "/lua/Arduino-Nvim",
+              dependencies = {
+                "nvim-telescope/telescope.nvim",
+                "neovim/nvim-lspconfig",
+              },
+              config = function()
+                vim.api.nvim_create_autocmd("FileType", {
+                  pattern = "arduino",
+                  callback = function()
+                    require("Arduino-Nvim")
+                  end,
+                })
+              end,
+            }
+          '';
+      };
+    };
     luaConfigRC.arduino =
       /*
       lua
@@ -82,24 +109,24 @@
           '';
       };
       #TODO: hacer que funcione programar arduino desde neovim
-      arduino = {
-        package = arduino-nvim;
-        setup =
-          /*
-          lua
-          */
-          ''
-
-            -- config = function()
-            --     vim.api.nvim_create_autocmd("FileType", {
-                  -- pattern = "arduino",
-                  -- callback = function()
-                  --   require("Arduino-Nvim")
-                  -- end,
-              --   })
-              -- end
-          '';
-      };
+      # arduino = {
+      #   package = arduino-nvim;
+      #   setup =
+      #     /*
+      #     lua
+      #     */
+      #     ''
+      #
+      #       -- config = function()
+      #       --     vim.api.nvim_create_autocmd("FileType", {
+      #             -- pattern = "arduino",
+      #             -- callback = function()
+      #             --   require("Arduino-Nvim")
+      #             -- end,
+      #         --   })
+      #         -- end
+      #     '';
+      # };
     };
     # useSystemClipboard = true;
     # additionalRuntimePaths = [
@@ -231,22 +258,22 @@
 
     lsp = {
       servers = {
-        "arduino" = {
-          enable = true;
-          capabilities = lib.generators.mkLuaInline "capabilities";
-          cmd = [
-            "${pkgs.arduino-language-server}/bin/arduino-language-server"
-            "-cli-config"
-            "/home/ruiz/.arduino15/arduino-cli.yaml"
-            "-cli"
-            "${pkgs.arduino-cli}/bin/sh"
-            "-clangd"
-            "${pkgs.libclang}/bin/sh"
-            "-fqbn"
-            "arduino:avr:uno"
-          ];
-          filetypes = ["arduino"];
-        };
+        # "arduino" = {
+        #   enable = true;
+        #   capabilities = lib.generators.mkLuaInline "capabilities";
+        #   cmd = [
+        #     "${pkgs.arduino-language-server}/bin/arduino-language-server"
+        #     "-cli-config"
+        #     "/home/ruiz/.arduino15/arduino-cli.yaml"
+        #     "-cli"
+        #     "${pkgs.arduino-cli}/bin/sh"
+        #     "-clangd"
+        #     "${pkgs.libclang}/bin/sh"
+        #     "-fqbn"
+        #     "arduino:avr:uno"
+        #   ];
+        #   filetypes = ["arduino"];
+        # };
 
         nixd.init_options = {
           # filetypes = [ #NOTE: esta lacra hacia fallar el autoformateo

@@ -235,6 +235,7 @@
 
         "$mainMod, N, exec, $terminal -e bash -c 'cd $NH_FLAKE&&git pull --no-edit&&nvim .'"
         "$mainMod, M, exec, $menu"
+        "$mainMod, W, exec, wasistlos"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, Q, exec, $terminal -e bash -c 'fastfetch; exec bash'"
         "$mainMod, B, exec, $browser"

@@ -470,12 +470,12 @@
                 url = "http://127.0.0.1:8384/";
                 keyword = "sync";
               }
+              {
+                name = "impresoras";
+                url = "http://localhost:631/printers/";
+                keyword = "cups";
+              }
             ];
-          }
-          {
-            name = "CUPS-Impresora";
-            url = "http://localhost:631/printers/epsonL4150";
-            keyword = "impr";
           }
           {
             name = "Recursos Utiles";
