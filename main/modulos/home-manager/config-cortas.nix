@@ -71,7 +71,7 @@
   services = {
     clipse = {
       # enable = true;
-      imageDisplay.type = "kitty";
+      # imageDisplay.type = "kitty";
     };
   };
 

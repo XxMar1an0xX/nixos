@@ -19,7 +19,6 @@
 
   imports = [
     ./../../modulos/home-manager/fastfetch.nix
-    # ./test.nix
     ./../../modulos/home-manager/github.nix
 
     ./../../modulos/home-manager/config-cortas.nix
