@@ -40,37 +40,37 @@
       # gh
       arduino-cli
       arduino-language-server
-
-      libclang
+      llvmPackages_22.clang-tools
+      # clang-tools
     ];
     viAlias = true;
     vimAlias = true;
     lazy.plugins = {
-      vimplugin-Arduino-Nvim = {
-        enabled = true;
-        package = arduino-nvim;
-        before =
-          /*
-          lua
-          */
-          ''
-            return {
-              dir = vim.fn.stdpath("config") .. "/lua/Arduino-Nvim",
-              dependencies = {
-                "nvim-telescope/telescope.nvim",
-                "neovim/nvim-lspconfig",
-              },
-              config = function()
-                vim.api.nvim_create_autocmd("FileType", {
-                  pattern = "arduino",
-                  callback = function()
-                    require("Arduino-Nvim")
-                  end,
-                })
-              end,
-            }
-          '';
-      };
+      # vimplugin-Arduino-Nvim = {
+      #   enabled = true;
+      #   package = arduino-nvim;
+      #   before =
+      #     /*
+      #     lua
+      #     */
+      #     ''
+      #       return {
+      #         dir = vim.fn.stdpath("config") .. "/lua/Arduino-Nvim",
+      #         dependencies = {
+      #           "nvim-telescope/telescope.nvim",
+      #           "neovim/nvim-lspconfig",
+      #         },
+      #         config = function()
+      #           vim.api.nvim_create_autocmd("FileType", {
+      #             pattern = "arduino",
+      #             callback = function()
+      #               require("Arduino-Nvim")
+      #             end,
+      #           })
+      #         end,
+      #       }
+      #     '';
+      # };
     };
     luaConfigRC.arduino =
       /*
@@ -258,22 +258,47 @@
 
     lsp = {
       servers = {
-        # "arduino" = {
-        #   enable = true;
-        #   capabilities = lib.generators.mkLuaInline "capabilities";
-        #   cmd = [
-        #     "${pkgs.arduino-language-server}/bin/arduino-language-server"
-        #     "-cli-config"
-        #     "/home/ruiz/.arduino15/arduino-cli.yaml"
-        #     "-cli"
-        #     "${pkgs.arduino-cli}/bin/sh"
-        #     "-clangd"
-        #     "${pkgs.libclang}/bin/sh"
-        #     "-fqbn"
-        #     "arduino:avr:uno"
-        #   ];
-        #   filetypes = ["arduino"];
-        # };
+        arduino = {
+          #NOTE: si hay error verificar que el board este installado con:
+          # arduino-cli core install
+          enable = true;
+          capabilities =
+            lib.generators.mkLuaInline
+            /*
+            lua
+            */
+            ''              {
+                          textDocument = {
+                              semanticTokens = vim.NIL,
+                          },
+                          workspace = {
+                              semanticTokens = vim.NIL,
+                          },
+                      }'';
+          cmd = [
+            "${pkgs.arduino-language-server}/bin/arduino-language-server"
+            # "arduino-language-server"
+            "-clangd"
+            "clangd"
+            "-cli-config"
+            "/home/ruiz/.arduino15/arduino-cli.yaml"
+            "-cli"
+            # "arduino-cli"
+            "${pkgs.arduino-cli}/bin/arduino-cli"
+            # "${pkgs.clang-tools}/bin/clangd"
+            "-fqbn"
+            "arduino:avr:uno"
+          ];
+          filetypes = ["arduino"];
+          root_dir =
+            lib.generators.mkLuaInline
+            /*
+            lua
+            */
+            ''              function(bufnr, on_dir)
+                          on_dir(vim.fn.expand "%:p:h")
+                      end'';
+        };
 
         nixd.init_options = {
           # filetypes = [ #NOTE: esta lacra hacia fallar el autoformateo

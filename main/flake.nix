@@ -75,6 +75,15 @@
       modules = [configModule];
       inherit pkgs;
     }; #NOTE: esto de arriba en de Neovim NVF
+
+    # lib = pkgs.lib;
+    libPath = with pkgs;
+      lib.makeLibraryPath [
+        wayland-protocols
+        wayland
+        libxkbcommon
+        libGL
+      ];
   in {
     packages.${system}.default = CustomNVF.neovim;
 
@@ -85,6 +94,33 @@
       }).neovim;
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
+
+    devShells.default = pkgs.mkShell {
+      name = "rust-dev-shell";
+
+      buildInputs = with pkgs;
+        lib.flatten [
+          rust-bin.stable.latest.default
+
+          # nushell
+
+          # u-config
+          wayland
+          wayland-protocols
+        ];
+
+      shellHook = ''
+        echo "Using Rust toolchain: $(rustc --version)"
+
+        # export CARGO_HOME="$HOME/.cargo"
+        # export RUSTUP_HOME="$HOME/.rustup"
+        # export LD_LIBRARY_PATH="${libPath}"
+        # mkdir -p "$CARGO_HOME" "$RUSTUP_HOME"
+
+        # Launch nushell as login shell
+        # exec nu --login
+      '';
+    };
 
     nixosModules.default = {lib, ...}: {
       options = {
