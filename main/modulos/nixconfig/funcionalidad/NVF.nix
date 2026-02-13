@@ -259,22 +259,29 @@
     lsp = {
       servers = {
         arduino = {
+          #NOTE: si hay error verificar que el board este installado con:
+          # arduino-cli core install
           enable = true;
-          capabilities = lib.generators.mkLuaInline ''            {
-                        textDocument = {
-                            semanticTokens = vim.NIL,
-                        },
-                        workspace = {
-                            semanticTokens = vim.NIL,
-                        },
-                    }'';
+          capabilities =
+            lib.generators.mkLuaInline
+            /*
+            lua
+            */
+            ''              {
+                          textDocument = {
+                              semanticTokens = vim.NIL,
+                          },
+                          workspace = {
+                              semanticTokens = vim.NIL,
+                          },
+                      }'';
           cmd = [
             "${pkgs.arduino-language-server}/bin/arduino-language-server"
             # "arduino-language-server"
-            "-cli-config"
-            "/home/ruiz/.arduino15/arduino-cli.yaml"
             "-clangd"
             "clangd"
+            "-cli-config"
+            "/home/ruiz/.arduino15/arduino-cli.yaml"
             "-cli"
             # "arduino-cli"
             "${pkgs.arduino-cli}/bin/arduino-cli"
@@ -283,9 +290,14 @@
             "arduino:avr:uno"
           ];
           filetypes = ["arduino"];
-          root_dir = lib.generators.mkLuaInline ''            function(bufnr, on_dir)
-                        on_dir(vim.fn.expand "%:p:h")
-                    end,'';
+          root_dir =
+            lib.generators.mkLuaInline
+            /*
+            lua
+            */
+            ''              function(bufnr, on_dir)
+                          on_dir(vim.fn.expand "%:p:h")
+                      end'';
         };
 
         nixd.init_options = {
