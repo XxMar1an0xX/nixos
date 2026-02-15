@@ -134,12 +134,18 @@
 
         "break"
 
+        # {
+        #   type = "de";
+        #   key = "DE";
+        #   keyColor = "blue";
+        #   # outputColor = "blue";
+        #   # format = " DE -> default";
+        #   format = "{1}";
+        # }
         {
           type = "de";
-          key = "DE";
+          key = " DE";
           keyColor = "blue";
-          # outputColor = "blue";
-          # format = " DE -> default";
           format = "{1}";
         }
 
