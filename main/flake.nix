@@ -46,7 +46,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    arduino-cli.url = ./flakes/arduino-cli.nix;
+    arduino-cli.url = ./flakes;
   };
 
   outputs = {
