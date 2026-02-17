@@ -8,11 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim = {
+    #   url = "github:nix-community/nixvim";
+    #   # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
 
@@ -34,12 +34,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    flake-utils.url = "github:numtide/flake-utils";
-    arduino-nix.url = "github:bouk/arduino-nix";
-    arduino-index = {
-      url = "github:bouk/arduino-indexes";
-      flake = false;
-    };
+    # flake-utils.url = "github:numtide/flake-utils";
 
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
@@ -50,10 +45,12 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    arduino-cli.url = ./flakes/arduino-cli.nix;
   };
 
   outputs = {
-    nixai,
+    # nixai,
     nixpkgs,
     stylix,
     nix-on-droid,
@@ -142,7 +139,6 @@
           ./hosts/principal/configuration.nix
           inputs.home-manager.nixosModules.default
           stylix.nixosModules.stylix
-          nixai.nixosModules.default
           inputs.minegrub-world-sel-theme.nixosModules.default
           inputs.minegrub-theme.nixosModules.default
           inputs.silentSDDM.nixosModules.default
