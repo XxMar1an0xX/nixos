@@ -37,6 +37,8 @@ in {
     ./../../modulos/home-manager/terminal.nix
     ./../../modulos/home-manager/config-cortas.nix
     ./../../modulos/home-manager/fastfetch.nix
+
+    ./../../modulos/home-manager/arduino-cli.nix
   ];
   home.username = "ruiz";
   home.homeDirectory = "/home/ruiz";

@@ -36,11 +36,11 @@
     "arduino-index": {
       "flake": false,
       "locked": {
-        "lastModified": 1770422603,
-        "narHash": "sha256-YsM6UkcGzOM3IrpMbae3TnRqsEN7zw/lhL80LoM5Lt0=",
+        "lastModified": 1771373067,
+        "narHash": "sha256-eUkVKU+ae6KZDL/bYzGN74SBbrbfzrspMYdCFbSLSyk=",
         "owner": "bouk",
         "repo": "arduino-indexes",
-        "rev": "ea0c729273681fc43d4937fa387536abfb2667d4",
+        "rev": "1bd64d17ea0dde02750ce8c8d333873ce79c914d",
         "type": "github"
       },
       "original": {

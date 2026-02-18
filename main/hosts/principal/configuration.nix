@@ -65,6 +65,7 @@
     in {
       inherit inputs;
       inherit EsPortable;
+      inherit self;
     };
     users = {
       "ruiz" = import ./home.nix;

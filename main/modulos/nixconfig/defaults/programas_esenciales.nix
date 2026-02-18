@@ -22,7 +22,7 @@
     [
       vlc
       arduino
-      arduino-cli
+      # arduino-cli
       arduino-ide
       # btop
       # yazi

@@ -46,7 +46,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    arduino-cli.url = ./flakes;
+    arduino-nix.url = "github:bouk/arduino-nix";
+    arduino-index = {
+      url = "github:bouk/arduino-indexes";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -60,12 +64,32 @@
     nixos-hardware,
     rust-overlay,
     # flake-utils,
-    # arduino-nix,
-    # arduino-index,
+    arduino-nix,
+    arduino-index,
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs = nixpkgs.legacyPackages.${system};
+
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      overlays = [
+        (arduino-nix.overlay)
+        (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_index.json"))
+        (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_rp2040_index.json"))
+        (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_esp32_index.json"))
+        (arduino-nix.mkArduinoLibraryOverlay (arduino-index + "/index/library_index.json"))
+
+        #TODO: fetchear la libreria arbitraria de aguero
+        # (arduino-nix.mkArduinoLibraryOverlay (pkgs.fetchFromGitHub {
+        #     owner = "dzindra";
+        #     repo = "LCDKeypad";
+        #     rev = "eccfe1181ced82a0b4a8f543cc0211857c48ecf6";
+        #     hash = "sha256-hy4dtzvABdVLpkexFbk1n9jey3X3c20DH/aB/bqOHoA=";
+        #   }
+        #   + "/library.json"))
+      ];
+    };
 
     configModule = import ./modulos/nixconfig/funcionalidad/NVF.nix;
     CustomNVF = nvf.lib.neovimConfiguration {
@@ -89,6 +113,27 @@
         modules = [configModule];
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
       }).neovim;
+
+    packages.arduino-cli = pkgs.wrapArduinoCLI {
+      #TODO: arduinolsp no detecta estas lirerias, solo las que estan en la carpeta normal
+      libraries = with pkgs.arduinoLibraries; [
+        (arduino-nix.latestVersion TMCStepper)
+        (arduino-nix.latestVersion LiquidCrystal)
+        (arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit PWM Servo Driver Library")
+        (arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit NeoPixel")
+        (arduino-nix.latestVersion NimBLE-Arduino)
+        # (arduino-nix.latestVersion LiquidCrystal)
+        # (arduino-nix.latestVersion LiquidCrystal)
+        # (arduino-nix.latestVersion LiquidCrystal)
+      ];
+
+      packages = with pkgs.arduinoPackages; [
+        #NOTE: es platforms.${packages_name}.${architecture}.${version}
+        platforms.arduino.avr."1.8.7"
+        platforms.rp2040.rp2040."2.3.3"
+        platforms.esp32.esp32."3.3.7"
+      ];
+    };
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
 
@@ -151,6 +196,7 @@
             environment.systemPackages = [
               CustomNVF.neovim
               pkgs.rust-bin.stable.latest.default
+              self.packages.arduino-cli
             ];
           })
         ];

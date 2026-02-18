@@ -38,7 +38,7 @@
       nerd-fonts.symbols-only
       # git
       # gh
-      arduino-cli
+      # arduino-cli
       arduino-language-server
       llvmPackages_22.clang-tools
       # clang-tools
