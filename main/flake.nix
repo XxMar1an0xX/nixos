@@ -126,14 +126,27 @@
       (nvf.lib.neovimConfiguration {
         modules = [
           {
-            _module.args = {
+            _module.args = let
+              hola = "${self.packages.aarch64-linux.arduino-cli}";
+            in {
               inherit hola;
               # inherit self;
             };
           }
           configModule
         ];
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+          overlays = [
+            (arduino-nix.overlay)
+            (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_index.json"))
+            (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_rp2040_index.json"))
+            (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_esp32_index.json"))
+            (arduino-nix.mkArduinoLibraryOverlay (arduino-index + "/index/library_index.json"))
+
+            rust-overlay.overlays.default
+          ];
+        };
       }).neovim;
 
     packages.arduino-cli = pkgs.wrapArduinoCLI {
@@ -156,6 +169,40 @@
         platforms.esp32.esp32."3.3.7"
       ];
     };
+
+    packages.aarch64-linux.arduino-cli = let
+      pkgs = import nixpkgs {
+        system = "aarch64-linux";
+        overlays = [
+          (arduino-nix.overlay)
+          (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_index.json"))
+          (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_rp2040_index.json"))
+          (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_esp32_index.json"))
+          (arduino-nix.mkArduinoLibraryOverlay (arduino-index + "/index/library_index.json"))
+
+          rust-overlay.overlays.default
+        ];
+      };
+    in
+      pkgs.wrapArduinoCLI {
+        libraries = with pkgs.arduinoLibraries; [
+          (arduino-nix.latestVersion TMCStepper)
+          (arduino-nix.latestVersion LiquidCrystal)
+          (arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit PWM Servo Driver Library")
+          (arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit NeoPixel")
+          (arduino-nix.latestVersion NimBLE-Arduino)
+          # (arduino-nix.latestVersion LiquidCrystal)
+          # (arduino-nix.latestVersion LiquidCrystal)
+          # (arduino-nix.latestVersion LiquidCrystal)
+        ];
+
+        packages = with pkgs.arduinoPackages; [
+          #NOTE: es platforms.${packages_name}.${architecture}.${version}
+          platforms.arduino.avr."1.8.7"
+          # platforms.rp2040.rp2040."2.3.3"
+          platforms.esp32.esp32."3.3.7"
+        ];
+      };
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
 
@@ -259,6 +306,7 @@
             # ];
             environment.packages = [
               self.packages.${pkgs.stdenv.system}.default
+              self.packages.aarch64-linux.arduino-cli
               # pkgs.rust-bin.stable.latest.default
             ];
           }
