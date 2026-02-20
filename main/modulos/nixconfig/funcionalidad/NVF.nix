@@ -1,6 +1,8 @@
 {
   pkgs,
   lib,
+  hola,
+  self,
   ...
 }: let
   arduino-nvim = pkgs.vimUtils.buildVimPlugin {
@@ -284,7 +286,7 @@
             "/home/ruiz/.arduino15/arduino-cli.yaml"
             "-cli"
             # "arduino-cli"
-            "${pkgs.arduino-cli}/bin/arduino-cli"
+            "${hola}/bin/arduino-cli"
             # "${pkgs.clang-tools}/bin/clangd"
             "-fqbn"
             "arduino:avr:uno"
@@ -300,24 +302,14 @@
                       end'';
         };
 
-        nixd.init_options = {
-          # filetypes = [ #NOTE: esta lacra hacia fallar el autoformateo
-          #   "nix"
-          # ];
-          # formatting.command = ["alejandra"];
-          nixpkgs.expr = "import <nixpkgs> { }";
-          nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
-          # home-manager.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-          # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
-          lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
-
-          #   # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-          #   #
-          #   # nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
-          #   # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
-          #   # # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
-          #   #
-          #   # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
+        nixd.settings.nixd.options = let
+          flake = "(builtins.getFlake \"/home/ruiz/nixos/main\")";
+        in {
+          # nixpkgs.expr = "import <nixpkgs> { }";
+          nixos.expr = flake + ".nixosConfigurations.nixos.options";
+          home-manager.expr = flake + ".nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
+          nix-on-droid.expr = flake + ".nixOnDroidConfigurations.default.options";
+          # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
         };
       };
       enable = true; #NOTE: lacra de mrd como 2 horas boludeando para q sea esto
@@ -346,7 +338,6 @@
     };
 
     languages = {
-      # enableLSP = true;
       enableFormat = true;
       enableTreesitter = true;
       enableExtraDiagnostics = true;
@@ -360,25 +351,6 @@
         lsp = {
           enable = true;
           servers = ["nixd"];
-          # options = {
-          #   # filetypes = [ #NOTE: esta lacra hacia fallar el autoformateo
-          #   #   "nix"
-          #   # ];
-          #   # formatting.command = ["alejandra"];
-          #   nixpkgs.expr = "import <nixpkgs> { }";
-          #   nixos.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options";
-          #   home-manager.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-          #   # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
-          #   lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
-          #
-          #   #   # "home-manager".expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-          #   #   #
-          #   #   # nixos.expr = "(builtins.getFlake \"/home/ruiz/Documentos/nixos/main\").nixosConfigurations.nixos.options";
-          #   #   # nixvim.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.config.home-manager.users.ruiz.programs.nixvim";
-          #   #   # # nix-on-droid.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixOnDroidConfigurations.default.options";
-          #   #   #
-          #   #   # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
-          # };
         };
         treesitter = {
           enable = true;
