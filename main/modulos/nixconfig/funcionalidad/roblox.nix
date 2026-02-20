@@ -7,7 +7,8 @@
       "org.vinegarhq.Sober"
     ];
     update = {
-      onActivation = true;
+      #NOTE: en caso de querer actualizar flatpak en cada rebuild
+      # onActivation = true;
       auto = {
         enable = true;
         onCalendar = "weekly"; # Default value
