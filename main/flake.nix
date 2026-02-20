@@ -54,6 +54,9 @@
 
     #NOTE:para roblox
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    #NOTE: driod fix
+    nixpkgs-unstable-droid.url = "github:NixOS/nixpkgs/88d3861";
   };
 
   outputs = {
@@ -70,6 +73,7 @@
     arduino-nix,
     arduino-index,
     nix-flatpak,
+    nixpkgs-unstable-droid,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -272,7 +276,7 @@
             #   rust-overlay.overlays.default
             # ];
             environment.packages = [
-              self.packages.${pkgs.stdenv.system}.default
+              self.packages.aarch64-linux.default
               self.packages.aarch64-linux.arduino-cli
               # pkgs.rust-bin.stable.latest.default
             ];
@@ -297,7 +301,7 @@
       };
 
       # set nixpkgs instance, it is recommended to apply `nix-on-droid.overlays.default`
-      pkgs = import nixpkgs {
+      pkgs = import nixpkgs-unstable-droid {
         system = "aarch64-linux";
 
         overlays = [
