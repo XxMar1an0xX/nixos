@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  imports = [./roblox.nix];
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
@@ -35,13 +36,4 @@
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ruiz/.steam/steam/compatibilitytools.d/LegacyRuntime/compatibilitytool.vdf";
   };
-
-  #NOTE: roblox
-
-  # services.flatpak.enable = true;
-  # systemd.services.flatpak-repo = {
-  #   wantedBy = ["multi-user.target"];
-  #   path = [pkgs.flatpak];
-  #   script = ''flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo     '';
-  # };
 }
