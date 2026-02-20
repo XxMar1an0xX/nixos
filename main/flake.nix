@@ -80,6 +80,7 @@
         (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_esp32_index.json"))
         (arduino-nix.mkArduinoLibraryOverlay (arduino-index + "/index/library_index.json"))
 
+        rust-overlay.overlays.default
         #TODO: fetchear la libreria arbitraria de aguero
         # (arduino-nix.mkArduinoLibraryOverlay (pkgs.fetchFromGitHub {
         #     owner = "dzindra";
@@ -91,9 +92,22 @@
       ];
     };
 
-    configModule = import ./modulos/nixconfig/funcionalidad/NVF.nix;
+    hola = "${
+      self.packages.arduino-cli
+    }";
+    configModule =
+      import ./modulos/nixconfig/funcionalidad/NVF.nix;
     CustomNVF = nvf.lib.neovimConfiguration {
-      modules = [configModule];
+      modules = [
+        {
+          _module.args = {
+            inherit hola;
+            # inherit self;
+          };
+        }
+        configModule
+      ];
+      # inherit hola;
       inherit pkgs;
     }; #NOTE: esto de arriba en de Neovim NVF
 
@@ -110,7 +124,15 @@
 
     packages.aarch64-linux.default =
       (nvf.lib.neovimConfiguration {
-        modules = [configModule];
+        modules = [
+          {
+            _module.args = {
+              inherit hola;
+              # inherit self;
+            };
+          }
+          configModule
+        ];
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
       }).neovim;
 
@@ -130,7 +152,7 @@
       packages = with pkgs.arduinoPackages; [
         #NOTE: es platforms.${packages_name}.${architecture}.${version}
         platforms.arduino.avr."1.8.7"
-        platforms.rp2040.rp2040."2.3.3"
+        # platforms.rp2040.rp2040."2.3.3"
         platforms.esp32.esp32."3.3.7"
       ];
     };
