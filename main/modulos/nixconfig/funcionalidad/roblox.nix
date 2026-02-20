@@ -1,13 +1,17 @@
 {pkgs, ...}: {
   #NOTE: roblox
 
-  services.flatpak.enable = true;
-  services.flatpak.packages = [
-    "org.vinegarhq.Sober"
-  ];
-  # systemd.services.flatpak-repo = {
-  #   wantedBy = ["multi-user.target"];
-  #   path = [pkgs.flatpak];
-  #   script = ''flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo     '';
-  # };
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "org.vinegarhq.Sober"
+    ];
+    update = {
+      onActivation = true;
+      auto = {
+        enable = true;
+        onCalendar = "weekly"; # Default value
+      };
+    };
+  };
 }
