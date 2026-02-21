@@ -16,9 +16,11 @@
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
 
+    #NOTE: driod fix
+    nixpkgs-unstable-droid.url = "github:NixOS/nixpkgs/88d3861";
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable-droid";
       inputs.home-manager.follows = "home-manager";
     };
     nixai.url = "github:olafkfreund/nix-ai-help";
@@ -54,9 +56,6 @@
 
     #NOTE:para roblox
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-
-    #NOTE: driod fix
-    nixpkgs-unstable-droid.url = "github:NixOS/nixpkgs/88d3861";
   };
 
   outputs = {
