@@ -320,7 +320,13 @@
       lspsaga.enable = false;
       trouble.enable = true;
       # lspSignature.enable = true;
-      otter-nvim.enable = true;
+      otter-nvim = {
+        enable = true;
+        setupOpts = {
+          lsp.handle_leading_whitespace = true;
+          strip_wrapping_quote_characters = ["'" "\"" "`"];
+        };
+      };
       # lsplines.enable = true;
       nvim-docs-view.enable = true;
 

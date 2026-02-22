@@ -101,7 +101,7 @@
       self.packages.arduino-cli
     }";
     configModule =
-      import ./modulos/nixconfig/funcionalidad/NVF.nix;
+      import ./modulos/flake nix/NVF.nix;
     CustomNVF = nvf.lib.neovimConfiguration {
       modules = [
         {
