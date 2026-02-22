@@ -339,6 +339,26 @@
         "type": "github"
       }
     },
+    "home-manager-droid": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable-droid"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771683283,
+        "narHash": "sha256-WxAEkAbo8dP7qiyPM6VN4ZGAxfuBVlNBNPkrqkrXVEc=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "c6ed3eab64d23520bcbb858aa53fe2b533725d4a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -773,11 +793,11 @@
     "nix-on-droid": {
       "inputs": {
         "home-manager": [
-          "home-manager"
+          "home-manager-droid"
         ],
         "nix-formatter-pack": "nix-formatter-pack",
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable-droid"
         ],
         "nixpkgs-docs": "nixpkgs-docs",
         "nixpkgs-for-bootstrap": "nixpkgs-for-bootstrap",
@@ -878,6 +898,22 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "49ee0e94463abada1de470c9c07bfc12b36dcf40",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable-droid": {
+      "locked": {
+        "lastModified": 1769018530,
+        "narHash": "sha256-MJ27Cy2NtBEV5tsK+YraYr2g851f3Fl1LpNHDzDX15c=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "88d3861acdd3d2f0e361767018218e51810df8a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "88d3861",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -1108,6 +1144,7 @@
         "arduino-nix": "arduino-nix",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
+        "home-manager-droid": "home-manager-droid",
         "hyprland": "hyprland",
         "minegrub-theme": "minegrub-theme",
         "minegrub-world-sel-theme": "minegrub-world-sel-theme",
@@ -1116,6 +1153,7 @@
         "nixai": "nixai",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-unstable-droid": "nixpkgs-unstable-droid",
         "nvf": "nvf",
         "rust-overlay": "rust-overlay",
         "silentSDDM": "silentSDDM",

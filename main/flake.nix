@@ -18,10 +18,14 @@
 
     #NOTE: driod fix
     nixpkgs-unstable-droid.url = "github:NixOS/nixpkgs/88d3861";
+    home-manager-droid = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable-droid";
+    };
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-unstable-droid";
-      inputs.home-manager.follows = "home-manager";
+      inputs.home-manager.follows = "home-manager-droid";
     };
     nixai.url = "github:olafkfreund/nix-ai-help";
 
@@ -171,7 +175,26 @@
         overlays = arduinoOverlay;
       };
     in
-      arduinoPackage;
+      pkgs.wrapArduinoCLI {
+        #TODO: arduinolsp no detecta estas lirerias, solo las que estan en la carpeta normal
+        libraries = with pkgs.arduinoLibraries; [
+          (arduino-nix.latestVersion TMCStepper)
+          (arduino-nix.latestVersion LiquidCrystal)
+          (arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit PWM Servo Driver Library")
+          (arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit NeoPixel")
+          (arduino-nix.latestVersion NimBLE-Arduino)
+          # (arduino-nix.latestVersion LiquidCrystal)
+          # (arduino-nix.latestVersion LiquidCrystal)
+          # (arduino-nix.latestVersion LiquidCrystal)
+        ];
+
+        packages = with pkgs.arduinoPackages; [
+          #NOTE: es platforms.${packages_name}.${architecture}.${version}
+          platforms.arduino.avr."1.8.7"
+          # platforms.rp2040.rp2040."2.3.3"
+          platforms.esp32.esp32."3.3.7"
+        ];
+      };
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
 
