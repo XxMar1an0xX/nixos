@@ -9,7 +9,6 @@
   home.packages = with pkgs; [
     hyprsysteminfo
     hyprpaper
-    clipse
     grimblast
   ];
   wayland.windowManager.hyprland = {
@@ -27,7 +26,7 @@
       # para cosas que arrancan al inicio
       exec-once =
         [
-          "[workspace 2 silent] $terminal -e nvim $NH_FLAKE"
+          "[workspace 2 silent] $terminal -e bash -c 'cd $NH_FLAKE&&git pull --no-edit&&nvim .'"
           "[workspace 1 silent] $browser"
           "[workspace 3 silent] $terminal -e btop"
           "systemctl --user start hyprpolkitagent"
