@@ -1,7 +1,8 @@
 {
   pkgs,
   lib,
-  hola,
+  # hola,
+  EcoMode ? false,
   self,
   ...
 }: let
@@ -48,57 +49,8 @@
     viAlias = true;
     vimAlias = true;
     lazy.plugins = {
-      # vimplugin-Arduino-Nvim = {
-      #   enabled = true;
-      #   package = arduino-nvim;
-      #   before =
-      #     /*
-      #     lua
-      #     */
-      #     ''
-      #       return {
-      #         dir = vim.fn.stdpath("config") .. "/lua/Arduino-Nvim",
-      #         dependencies = {
-      #           "nvim-telescope/telescope.nvim",
-      #           "neovim/nvim-lspconfig",
-      #         },
-      #         config = function()
-      #           vim.api.nvim_create_autocmd("FileType", {
-      #             pattern = "arduino",
-      #             callback = function()
-      #               require("Arduino-Nvim")
-      #             end,
-      #           })
-      #         end,
-      #       }
-      #     '';
-      # };
     };
-    luaConfigRC.arduino =
-      /*
-      lua
-      */
-      ''
-         -- return {
-          -- dir = vim.fn.stdpath("config") .. "${arduino-nvim}",
-          -- dependencies = {
-            -- "nvim-telescope/telescope.nvim",
-            -- "neovim/nvim-lspconfig",
-          -- },
-          -- config = function()
-            -- vim.api.nvim_create_autocmd("FileType", {
-              -- pattern = "arduino",
-              -- callback = function()
-                -- require("Arduino-Nvim")
-              -- end,
-            -- })
-          -- end,
-        -- }
-      '';
     extraPlugins = {
-      # clangd = {
-      #   package = pkgs.vimPlugins.clangd_extensions-nvim;
-      # };
       nighfox = {
         package = pkgs.vimPlugins.nightfox-nvim;
         setup =
@@ -110,25 +62,6 @@
             vim.cmd("colorscheme nordfox")
           '';
       };
-      #TODO: hacer que funcione programar arduino desde neovim
-      # arduino = {
-      #   package = arduino-nvim;
-      #   setup =
-      #     /*
-      #     lua
-      #     */
-      #     ''
-      #
-      #       -- config = function()
-      #       --     vim.api.nvim_create_autocmd("FileType", {
-      #             -- pattern = "arduino",
-      #             -- callback = function()
-      #             --   require("Arduino-Nvim")
-      #             -- end,
-      #         --   })
-      #         -- end
-      #     '';
-      # };
     };
     # useSystemClipboard = true;
     # additionalRuntimePaths = [
@@ -286,7 +219,7 @@
             "/home/ruiz/.arduino15/arduino-cli.yaml"
             "-cli"
             # "arduino-cli"
-            "${hola}/bin/arduino-cli"
+            "${self.packages.arduino-cli}/bin/arduino-cli"
             # "${pkgs.clang-tools}/bin/clangd"
             "-fqbn"
             "arduino:avr:uno"
