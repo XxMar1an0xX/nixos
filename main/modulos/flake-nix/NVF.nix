@@ -1,9 +1,8 @@
 {
   pkgs,
   lib,
-  # hola,
+  hola,
   EcoMode ? false,
-  self,
   ...
 }: let
   arduino-nvim = pkgs.vimUtils.buildVimPlugin {
@@ -219,7 +218,7 @@
             "/home/ruiz/.arduino15/arduino-cli.yaml"
             "-cli"
             # "arduino-cli"
-            "${self.packages.arduino-cli}/bin/arduino-cli"
+            "${hola}/bin/arduino-cli"
             # "${pkgs.clang-tools}/bin/clangd"
             "-fqbn"
             "arduino:avr:uno"

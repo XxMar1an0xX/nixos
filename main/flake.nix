@@ -18,14 +18,10 @@
 
     #NOTE: driod fix
     nixpkgs-unstable-droid.url = "github:NixOS/nixpkgs/88d3861";
-    home-manager-droid = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable-droid";
-    };
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-unstable-droid";
-      inputs.home-manager.follows = "home-manager-droid";
+      inputs.home-manager.follows = "home-manager";
     };
     nixai.url = "github:olafkfreund/nix-ai-help";
 
@@ -107,12 +103,10 @@
         {
           _module.args = {
             inherit hola;
-            # inherit self;
           };
         }
         configModule
       ];
-      # inherit hola;
       inherit pkgs;
     }; #NOTE: esto de arriba en de Neovim NVF
 
@@ -156,7 +150,6 @@
               hola = "${self.packages.aarch64-linux.arduino-cli}";
             in {
               inherit hola;
-              # inherit self;
             };
           }
           configModule

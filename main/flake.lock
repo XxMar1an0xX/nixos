@@ -339,26 +339,6 @@
         "type": "github"
       }
     },
-    "home-manager-droid": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable-droid"
-        ]
-      },
-      "locked": {
-        "lastModified": 1771683283,
-        "narHash": "sha256-WxAEkAbo8dP7qiyPM6VN4ZGAxfuBVlNBNPkrqkrXVEc=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "c6ed3eab64d23520bcbb858aa53fe2b533725d4a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -793,7 +773,7 @@
     "nix-on-droid": {
       "inputs": {
         "home-manager": [
-          "home-manager-droid"
+          "home-manager"
         ],
         "nix-formatter-pack": "nix-formatter-pack",
         "nixpkgs": [
@@ -1144,7 +1124,6 @@
         "arduino-nix": "arduino-nix",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
-        "home-manager-droid": "home-manager-droid",
         "hyprland": "hyprland",
         "minegrub-theme": "minegrub-theme",
         "minegrub-world-sel-theme": "minegrub-world-sel-theme",
