@@ -201,14 +201,16 @@
             /*
             lua
             */
-            ''              {
-                          textDocument = {
-                              semanticTokens = vim.NIL,
-                          },
-                          workspace = {
-                              semanticTokens = vim.NIL,
-                          },
-                      }'';
+            ''
+              {
+                  textDocument = {
+                                semanticTokens = vim.NIL,
+                            },
+                            workspace = {
+                                semanticTokens = vim.NIL,
+                            },
+                        }
+            '';
           cmd = [
             "${pkgs.arduino-language-server}/bin/arduino-language-server"
             # "arduino-language-server"
@@ -256,23 +258,15 @@
         enable = true;
         setupOpts = {
           lsp.handle_leading_whitespace = true;
-          strip_wrapping_quote_characters = ["'" "\"" "`"];
+          strip_wrapping_quote_characters = ["'" "\"" "`" "\'\'"];
         };
       };
-      # lsplines.enable = true;
       nvim-docs-view.enable = true;
 
       mappings.format = "<leader>ft";
     };
 
     formatter.conform-nvim = {
-      # enable = true;
-      #
-      # setupOpts.formaters_by_ft = {
-      #   nix = [
-      #     "alejandra"
-      #   ];
-      # };
     };
 
     languages = {
@@ -371,10 +365,6 @@
         friendly-snippets.enable = true;
         enable = true;
         sourcePlugins = {
-          # treesitter = {
-          #   package = "cmp-treesitter";
-          #   enable = true;
-          # };
           ripgrep.enable = true;
           spell.enable = true;
         };
