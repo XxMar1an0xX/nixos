@@ -20,7 +20,7 @@
     nixpkgs-unstable-droid.url = "github:NixOS/nixpkgs/88d3861";
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs-unstable-droid";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
     nixai.url = "github:olafkfreund/nix-ai-help";
