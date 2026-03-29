@@ -108,7 +108,7 @@
     hostName = "nixos";
     stevenblack = {
       enable = true;
-      # block = ["porn"];
+      block = ["porn"];
     };
 
     networkmanager =

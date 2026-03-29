@@ -8,16 +8,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixvim = {
-    #   url = "github:nix-community/nixvim";
-    #   # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
 
-    #NOTE: driod fix
-    nixpkgs-unstable-droid.url = "github:NixOS/nixpkgs/88d3861";
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,8 +28,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # flake-utils.url = "github:numtide/flake-utils";
 
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
@@ -56,6 +47,11 @@
 
     #NOTE:para roblox
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    #NOTE: flake-parts
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
   };
 
   outputs = {
