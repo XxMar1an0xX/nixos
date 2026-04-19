@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.homePrincipal = {
+  flake.nixosModules.homeconfigPrincipal = {
     pkgs,
     lib,
     stylix,
