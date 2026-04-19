@@ -5,8 +5,8 @@
 }: {
   flake.nixosModules.bootMenu = {
     imports = [
-      inputs.minegrub-theme.nixosModules.default
       self.nixosModules.grubConfig
+      inputs.minegrub-world-sel-theme.nixosModules.default
     ];
   };
 }
