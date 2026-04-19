@@ -5,8 +5,6 @@
 }: {
   flake.homeModules.homeDroid = {
     pkgs,
-    inputs,
-    rust-overlay,
     # nvf,
     ...
   }: {
@@ -18,7 +16,7 @@
     ];
 
     nixpkgs.overlays = [
-      rust-overlay.overlays.default
+      inputs.rust-overlay.overlays.default
     ];
     # Read the changelog before changing this value
     home.stateVersion = "24.05";

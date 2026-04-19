@@ -6,22 +6,24 @@
   flake.nixosModules.homeconfigPrincipal = {
     pkgs,
     lib,
-    stylix,
+    # stylix,
     config,
     EsPortable,
     ...
   }: let
-    CondicionalPortable = Si: No: (
-      if EsPortable
-      then Si
-      else No
-    );
+    # CondicionalPortable = Si: No: (
+    #   if EsPortable
+    #   then Si
+    #   else No
+    # );
     #TODO: hacer que no tenga q cambiar la opcion aca
   in {
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
 
     home-manager = {
+      backupFileExtension = "ahfwenciu";
+
       extraSpecialArgs = let
         EsPortable =
           if (config ? custom.HacerPortable)
@@ -29,11 +31,12 @@
           else false;
       in {
         inherit inputs;
-        inherit EsPortable;
+        # inherit EsPortable;
         inherit self;
       };
       users = {
         "ruiz" = {
+          imports = [./../../../modulos/home-manager/config-cortas.nix];
           home.username = "ruiz";
           home.homeDirectory = "/home/ruiz";
           nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
@@ -304,7 +307,6 @@
       #   }
       # ];
 
-      backupFileExtension = "ahfwenciu";
       #de-comentar si se rompe home-manager
       useGlobalPkgs = true;
     };

@@ -6,7 +6,6 @@
   flake.homeModules.firefox = {
     pkgs,
     inputs,
-    CondicionalPortable,
     ...
   }: let
     foxconfig = {
@@ -103,7 +102,7 @@
                 # "https://filters.adtidy.org/extension/ublock/filters/3.txt"
               ];
             };
-            "leechblockng@proginosko.com".settings = CondicionalPortable {} {
+            "leechblockng@proginosko.com".settings = {
               "setName1" = "Youtube Addiccion";
               "sites1" = "www.youtube.com";
               "times1" = "0000-2400";

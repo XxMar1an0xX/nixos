@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.fastfetch = {
+  flake.homeModules.config-cortas = {
     lib,
     pkgs,
     ...
