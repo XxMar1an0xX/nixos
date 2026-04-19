@@ -64,34 +64,6 @@
       "exfat"
     ];
 
-    home-manager = {
-      extraSpecialArgs = let
-        EsPortable =
-          if (config ? custom.HacerPortable)
-          then config.custom.HacerPortable
-          else false;
-      in {
-        inherit inputs;
-        inherit EsPortable;
-        inherit self;
-      };
-      users = {
-        "ruiz" = import ./home.nix;
-      };
-
-      # sharedModules = [
-
-      #   {
-      #     # stylix.targets.kitty.enable = false;
-      #     stylix.targets.neovim.enable = false;
-      #   }
-      # ];
-
-      backupFileExtension = "ahfwenciu";
-      #de-comentar si se rompe home-manager
-      useGlobalPkgs = true;
-    };
-
     qt.enable = true;
     hardware.graphics.enable = true;
 
@@ -345,22 +317,22 @@
     # };
 
     fonts.packages = with pkgs; [
-      (callPackage ./../../modulos/nixconfig/custompkgs/hashtag.nix {
-        inherit lib;
-        inherit pkgs;
-      })
-      (callPackage ./../../modulos/nixconfig/custompkgs/ammys.nix {
-        inherit lib;
-        inherit pkgs;
-      })
-      (callPackage ./../../modulos/nixconfig/custompkgs/journal.nix {
-        inherit lib;
-        inherit pkgs;
-      })
-      (callPackage ./../../modulos/nixconfig/custompkgs/jp-hand.nix {
-        inherit lib;
-        inherit pkgs;
-      })
+      # (callPackage ./../../modulos/nixconfig/custompkgs/hashtag.nix {
+      #   inherit lib;
+      #   inherit pkgs;
+      # })
+      # (callPackage ./../../modulos/nixconfig/custompkgs/ammys.nix {
+      #   inherit lib;
+      #   inherit pkgs;
+      # })
+      # (callPackage ./../../modulos/nixconfig/custompkgs/journal.nix {
+      #   inherit lib;
+      #   inherit pkgs;
+      # })
+      # (callPackage ./../../modulos/nixconfig/custompkgs/jp-hand.nix {
+      #   inherit lib;
+      #   inherit pkgs;
+      # })
       dejavu_fonts
       # nerd-fonts._0xproto
       # nerd-fonts._3270
