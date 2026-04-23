@@ -4,6 +4,9 @@
   ...
 }: {
   flake.nixosModules.juegos = {pkgs, ...}: {
+    imports = [
+      inputs.nix-flatpak.nixosModules.nix-flatpak
+    ];
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
@@ -40,20 +43,20 @@
     environment.sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ruiz/.steam/steam/compatibilitytools.d/LegacyRuntime/compatibilitytool.vdf";
     };
-  };
-  #NOTE: roblox
+    #NOTE: roblox
 
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "org.vinegarhq.Sober"
-    ];
-    update = {
-      #NOTE: en caso de querer actualizar flatpak en cada rebuild
-      # onActivation = true;
-      auto = {
-        enable = true;
-        onCalendar = "weekly"; # Default value
+    services.flatpak = {
+      enable = true;
+      packages = [
+        "org.vinegarhq.Sober"
+      ];
+      update = {
+        #NOTE: en caso de querer actualizar flatpak en cada rebuild
+        # onActivation = true;
+        auto = {
+          enable = true;
+          onCalendar = "weekly"; # Default value
+        };
       };
     };
   };

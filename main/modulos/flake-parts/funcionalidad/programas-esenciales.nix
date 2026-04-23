@@ -24,54 +24,53 @@
       };
 
     # paquetes que no estan como opciones de NixOS
-    environment.systemPackages = with pkgs;
-      [
-        vlc
-        arduino
-        # arduino-cli
-        arduino-ide
-        # btop
-        # yazi
-        # discord-screenaudio #NOTE:obsoleto?
-        vesktop
-        android-tools
+    environment.systemPackages = with pkgs; [
+      vlc
+      arduino
+      # arduino-cli
+      arduino-ide
+      # btop
+      # yazi
+      # discord-screenaudio #NOTE:obsoleto?
+      vesktop
+      android-tools
 
-        wl-clipboard
-        # keepassxc
-        cryptomator
-        libreoffice
-        kdiskmark
-        qalculate-qt
-        kicad
-        unzip
-        bc
-        nomacs
-        # whatsie #NOTE: no anda ns porque
+      wl-clipboard
+      # keepassxc
+      cryptomator
+      libreoffice
+      kdiskmark
+      qalculate-qt
+      kicad
+      unzip
+      bc
+      nomacs
+      # whatsie #NOTE: no anda ns porque
 
-        # whatsapp-for-linux
-        wasistlos
-        # cava
-        gparted
-        # neofetch
-        freecad-wayland
+      # whatsapp-for-linux
+      wasistlos
+      # cava
+      gparted
+      # neofetch
+      freecad-wayland
 
-        rustlings
-        #NOTE: para rustaceanvim
-        # cargo
-        # rustc
-        # rustup
-        # rust-analyzer
+      rustlings
+      #NOTE: para rustaceanvim
+      # cargo
+      # rustc
+      # rustup
+      # rust-analyzer
 
-        #NOTE: para arduino
-        python314
+      #NOTE: para arduino
+      python314
 
-        #NOTE: para el web scrape
-        chromedriver
-        geckodriver
+      #NOTE: para el web scrape
+      chromedriver
+      geckodriver
 
-        nautilus
-      ]
-      ++ CondicionalPortable [] [jamesdsp];
+      nautilus
+    ];
+    # ++ CondicionalPortable [] [jamesdsp];
 
     # localsend
     programs.localsend = {

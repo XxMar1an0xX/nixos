@@ -23,20 +23,14 @@
         allowUnfree = true;
       };
     };
-    # arduinoOverlay = [
-    #   (arduino-nix.overlay)
-    #   (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_index.json"))
-    #   (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_rp2040_index.json"))
-    #   (arduino-nix.mkArduinoPackageOverlay (arduino-index + "/index/package_esp32_index.json"))
-    #   (arduino-nix.mkArduinoLibraryOverlay (arduino-index + "/index/library_index.json"))
     packages.arduino = pkgs.wrapArduinoCLI {
       #TODO: arduinolsp no detecta estas lirerias, solo las que estan en la carpeta normal
       libraries = with pkgs.arduinoLibraries; [
-        (arduino-nix.latestVersion TMCStepper)
-        (arduino-nix.latestVersion LiquidCrystal)
-        (arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit PWM Servo Driver Library")
-        (arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit NeoPixel")
-        (arduino-nix.latestVersion NimBLE-Arduino)
+        (inputs.arduino-nix.latestVersion TMCStepper)
+        (inputs.arduino-nix.latestVersion LiquidCrystal)
+        (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit PWM Servo Driver Library")
+        (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit NeoPixel")
+        (inputs.arduino-nix.latestVersion NimBLE-Arduino)
         # (arduino-nix.latestVersion LiquidCrystal)
         # (arduino-nix.latestVersion LiquidCrystal)
         # (arduino-nix.latestVersion LiquidCrystal)

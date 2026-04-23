@@ -66,10 +66,6 @@
       bash = {
         enable = true;
         shellAliases = {
-          haziso = "nix run nixpkgs#nixos-generators -- --format iso --flake $NH_FLAKE#portable -o laptop";
-          rephm = "sudo nixos-rebuild switch --flake $NH_FLAKE";
-          ff = "fastfetch";
-          ns = "nix-shell -p ";
         };
       };
     };
@@ -84,7 +80,7 @@
       enable = true;
       iconTheme = {
         name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
+        # package = pkgs.papirus-icon-theme;
       };
     };
   };

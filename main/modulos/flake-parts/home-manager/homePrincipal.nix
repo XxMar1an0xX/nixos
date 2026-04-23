@@ -36,7 +36,7 @@
       };
       users = {
         "ruiz" = {
-          imports = [./../../../modulos/home-manager/config-cortas.nix];
+          imports = [self.homeModules.config-cortas];
           home.username = "ruiz";
           home.homeDirectory = "/home/ruiz";
           nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

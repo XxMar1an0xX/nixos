@@ -7,8 +7,8 @@
     config,
     lib,
     pkgs,
-    inputs,
-    rust-overlay,
+    # inputs,
+    # rust-overlay,
     ...
   }: {
     # Simply install just the packages
@@ -78,7 +78,7 @@
       useGlobalPkgs = false;
       extraSpecialArgs = {
         # inherit pkgs;
-        inherit rust-overlay;
+        # inherit rust-overlay;
         # inherit lib;
         inherit inputs;
         # inherit nvf;

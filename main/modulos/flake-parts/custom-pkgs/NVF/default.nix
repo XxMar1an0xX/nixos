@@ -7,6 +7,7 @@
     packages.NVF =
       (inputs.nvf.lib.neovimConfiguration {
         modules = [
+          {_class = "nvf";}
           self.modules.nvf.baseConfig
           # {
           #   _module.args = let

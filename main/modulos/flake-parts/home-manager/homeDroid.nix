@@ -11,12 +11,13 @@
     imports = [
       self.homeModules.fastfetch
       self.homeModules.github
-      self.homeModules.config-cortas
+      self.homeModules.aliases
+      # self.homeModules.config-cortas
       # ./../../modulos/home-manager/stylix-hm.nix
     ];
 
     nixpkgs.overlays = [
-      inputs.rust-overlay.overlays.default
+      # inputs.rust-overlay.overlays.default
     ];
     # Read the changelog before changing this value
     home.stateVersion = "24.05";
@@ -24,15 +25,15 @@
       nerd-fonts.symbols-only
       mp3gain
       unzip
-      rust-bin.stable.latest.default
+      # rust-bin.stable.latest.default
     ];
 
     fonts.fontconfig = {
-      enable = true;
+      # enable = true;
       # defaultFonts.emoji = pkgs.nerd-fonts.symbols-only;
     };
 
-    nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    # nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     programs.zsh = {
       enable = true;
     };
@@ -40,10 +41,6 @@
     programs.home-manager.enable = true;
     # insert home-manager config
     home.shellAliases = {
-      ds = "nix-on-droid switch --flake $HOME/nixos/main/";
-      nc = "cd $HOME/nixos/main/ && git pull --no-edit && vi .";
-      ".." = "cd ..";
-      x = "exit";
     };
     # systemd.user.services.fastfetch = {
     #   Unit = {

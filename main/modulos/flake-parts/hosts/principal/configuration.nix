@@ -13,6 +13,21 @@
     pkgs,
     ...
   }: {
+    environment.systemPackages = with pkgs; [
+      # (callPackage ./../../modulos/nixconfig/custompkgs/MiNixOsConfig.nix {
+      #   inherit lib;
+      #   inherit pkgs;
+      # })
+      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      #  wget
+
+      # pass-secret-service
+      # rust-analyzer
+      # rustc
+      # rustup
+      # cargo
+      hyprpolkitagent
+    ];
     # custom.HacerPortable = true; #NOTE: FUNCIONAAAAA
     imports = let
       EsPortable =
@@ -239,21 +254,6 @@
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    environment.systemPackages = with pkgs; [
-      # (callPackage ./../../modulos/nixconfig/custompkgs/MiNixOsConfig.nix {
-      #   inherit lib;
-      #   inherit pkgs;
-      # })
-      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      #  wget
-
-      # pass-secret-service
-      # rust-analyzer
-      # rustc
-      # rustup
-      # cargo
-      hyprpolkitagent
-    ];
 
     #NOTE: Hyprland
     programs.hyprland = {
@@ -423,9 +423,6 @@
       TERMINAL = "kitty";
     };
     environment.shellAliases = {
-      haziso = "nix run nixpkgs#nixos-generators -- --format iso --flake $NH_FLAKE#portable -o laptop";
-      rephm = "sudo nixos-rebuild switch --flake $NH_FLAKE";
-      rdev = "cd Documentos/Rust/Rust/";
     };
 
     # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;

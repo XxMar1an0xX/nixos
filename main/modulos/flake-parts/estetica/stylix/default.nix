@@ -3,15 +3,18 @@
   inputs,
   ...
 }: {
-  flake.nixosConfigurations.stylix = {
+  flake.nixosModules.stylix = {
     pkgs,
     lib,
     ...
   }: {
-    modules = [
+    imports = [
       inputs.stylix.nixosModules.stylix
+      # self.nixosModules.stylixConfig
     ];
-
+    home-manager.users."ruiz".imports = [
+      self.homeModules.stylix
+    ];
     stylix = {
       enable = true;
       autoEnable = true;
@@ -45,7 +48,7 @@
         package = pkgs.quintom-cursor-theme;
         name = "Quintom_Snow";
       };
-      image = ./../../../recursos/Wallpaper_Ultrakill.jpg;
+      image = ./../../../../recursos/Wallpaper_Ultrakill.jpg;
       imageScalingMode = "fill";
       polarity = "dark";
       targets = {
@@ -60,11 +63,11 @@
 
       fonts = {
         serif = {
-          package = pkgs.callPackage ./../custompkgs/hashtag.nix {
-            inherit pkgs;
-            inherit lib;
-          };
-          name = "hashtag";
+          # package = pkgs.callPackage ./../custompkgs/hashtag.nix {
+          #   inherit pkgs;
+          #   inherit lib;
+          # };
+          # name = "hashtag";
         };
       };
     };

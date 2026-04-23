@@ -15,10 +15,11 @@
       self.homeModules.github
       self.homeModules.hyprland
       self.homeModules.kitty
-      self.homeModules.rofi
+      # self.homeModules.rofi
       self.homeModules.syncthing
       self.homeModules.waybar
       self.homeModules.config-cortas
+      self.homeModules.aliases
 
       #TODO: parece que stylix no funciona con este tipo de config
       # self.homeModules.stylix

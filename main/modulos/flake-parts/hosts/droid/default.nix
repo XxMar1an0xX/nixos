@@ -38,7 +38,7 @@
     };
 
     # set nixpkgs instance, it is recommended to apply `nix-on-droid.overlays.default`
-    pkgs = import inputs.nixpkgs {
+    pkgs = import inputs.nixpkgs-droid {
       system = "aarch64-linux";
 
       overlays = [
