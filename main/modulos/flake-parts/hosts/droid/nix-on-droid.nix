@@ -62,6 +62,8 @@
     android-integration = {
       termux-open-url.enable = true;
       termux-open.enable = true;
+      termux-reload-settings.enable = true;
+      termux-setup-storage.enable = true;
     };
     user = {
       # userName = "Nix-Droid";
