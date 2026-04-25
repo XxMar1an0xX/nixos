@@ -48,7 +48,7 @@
         package = pkgs.quintom-cursor-theme;
         name = "Quintom_Snow";
       };
-      image = ./../../../../recursos/Wallpaper_Ultrakill.jpg;
+      image = ./../../../recursos/Wallpaper_Ultrakill.jpg;
       imageScalingMode = "fill";
       polarity = "dark";
       targets = {

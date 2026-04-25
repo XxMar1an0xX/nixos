@@ -13,6 +13,7 @@
       self.nixosModules.juegos
       self.nixosModules.hardwareTweaks
       self.nixosModules.esenciales
+      self.nixosModules.limpieza
       {
         environment.systemPackages = [
           self.packages."x86_64-linux".NVF
