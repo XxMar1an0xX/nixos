@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.nvf.baseConfig = {
+  flake.modules.nvf.funcionalidad = {
     pkgs,
     lib,
     ...
@@ -27,117 +27,6 @@
         llvmPackages_22.clang-tools
         # clang-tools
       ];
-      viAlias = true;
-      vimAlias = true;
-      lazy.plugins = {
-      };
-      extraPlugins = {
-        nighfox = {
-          package = pkgs.vimPlugins.nightfox-nvim;
-          setup =
-            /*
-            lua
-            */
-            ''
-              require('nightfox').setup {}
-              vim.cmd("colorscheme nordfox")
-            '';
-        };
-      };
-      # useSystemClipboard = true;
-      # additionalRuntimePaths = [
-      #   "$HOME/Documentos/nixos/main/"
-      # ];
-
-      theme = lib.mkForce {
-        enable = false;
-        extraConfig = ''
-        '';
-        # name = "nord";
-        # style = "dark";
-        # base16-colors = {
-        #   base00 = "2e3440";
-        #   base01 = "39404f";
-        #   base02 = "444c5e";
-        #   base03 = "465780";
-        #   base04 = "7e8188";
-        #   base05 = "cdcecf";
-        #   base06 = "abb1bb";
-        #   base07 = "e7ecf4";
-        #   base08 = "bf616a";
-        #   base09 = "c9826b";
-        #   base0A = "ebcb8b";
-        #   base0B = "a3be8c";
-        #   base0C = "88c0d0";
-        #   base0D = "81a1c1";
-        #   base0E = "b48ead";
-        #   base0F = "bf88bc";
-        # };
-      };
-      diagnostics = {
-        enable = true;
-        config = {
-          update_in_insert = true;
-          virtual_lines = true;
-        };
-      };
-
-      clipboard = {
-        enable = true;
-        providers = {
-          # wl-copy.enable = true;
-          # clipse.enable = true;
-        };
-        registers = "unnamedplus";
-      };
-
-      terminal = {
-        toggleterm = {
-          enable = true;
-          lazygit.enable = true;
-          mappings = {
-            open = "<leader>t";
-          };
-          setupOpts = {
-            insert_mappings = true;
-            terminal_mappings = true;
-            # start_in_insert = false;
-          };
-        };
-      };
-
-      telescope = {
-        enable = true;
-      };
-
-      notify = {
-        nvim-notify.enable = true;
-      };
-
-      dashboard = {
-        dashboard-nvim.enable = false;
-        alpha = {
-          enable = true;
-          theme = "startify";
-        };
-      };
-
-      projects = {
-        project-nvim.enable = true;
-      };
-
-      git = {
-        enable = true;
-        gitsigns = {
-          enable = true;
-          codeActions.enable = false;
-        };
-      };
-
-      spellcheck = {
-        enable = true;
-      };
-
       keymaps = [
         {
           key = "<leader>fs";
@@ -164,7 +53,58 @@
         #   action = "";
         # }
       ];
+      viAlias = true;
+      vimAlias = true;
+      #NOTE: notificaciones de eroores en la barra inferior
+      diagnostics = {
+        enable = true;
+        config = {
+          update_in_insert = true;
+          virtual_lines = true;
+        };
+      };
 
+      #NOTE: habilitar clipboard universal
+      clipboard = {
+        enable = true;
+        providers = {
+          # wl-copy.enable = true;
+          # clipse.enable = true;
+        };
+        registers = "unnamedplus";
+      };
+
+      #NOTE: creo que es mejor simplemente tener otra ventana de terminal abierta
+      terminal = {
+        toggleterm = {
+          enable = true;
+          lazygit.enable = true;
+          mappings = {
+            open = "<leader>t";
+          };
+          setupOpts = {
+            insert_mappings = true;
+            terminal_mappings = true;
+            # start_in_insert = false;
+          };
+        };
+      };
+
+      #NOTE: buscador por exelencia
+      telescope = {
+        enable = true;
+      };
+
+      #NOTE: innegociable git/lazygit
+      git = {
+        enable = true;
+        gitsigns = {
+          enable = true;
+          codeActions.enable = false;
+        };
+      };
+
+      #NOTE: servira mucho en rust
       debugger = {
         nvim-dap = {
           enable = true;
@@ -213,9 +153,10 @@
               /*
               lua
               */
-              ''                  function(bufnr, on_dir)
-                        on_dir(vim.fn.expand "%:p:h")
-                end'';
+              ''
+                function(bufnr, on_dir)
+                    on_dir(vim.fn.expand "%:p:h")
+                 end'';
           };
 
           nixd.settings.nixd.options = let
@@ -246,9 +187,6 @@
         nvim-docs-view.enable = true;
 
         mappings.format = "<leader>ft";
-      };
-
-      formatter.conform-nvim = {
       };
 
       languages = {
@@ -303,7 +241,7 @@
           format.enable = true;
         };
       };
-
+      #NOTE: super util barra lateral
       filetree.neo-tree = {
         enable = true;
         setupOpts = {
@@ -314,32 +252,8 @@
         };
       };
 
-      visuals = {
-        nvim-web-devicons.enable = true;
-        nvim-cursorline = {
-          enable = true;
-          setupOpts = {
-            cursorline = {
-              enable = true;
-              timeout = 0;
-            };
-          };
-        };
-        # cinnamon-nvim.enable = true;
-        fidget-nvim.enable = true;
-        nvim-scrollbar.enable = true;
-
-        highlight-undo = {
-          enable = true;
-          setupOpts = {
-            duration = 100;
-          };
-        };
-        indent-blankline.enable = true;
-      };
-
+      #NOTE: autocompletado
       autopairs.nvim-autopairs.enable = true;
-
       autocomplete = {
         enableSharedCmpSources = true;
         # nvim-cmp.enable = true;
@@ -360,20 +274,14 @@
 
       snippets.luasnip.enable = true;
 
-      treesitter = {
-        context.enable = true;
-
-        grammars = with pkgs.vimPlugins.nvim-treesitter.parsers; [
-          arduino
-          asm
-        ];
-      };
+      #NOTE: cheatsheet es util
       binds = {
         whichKey.enable = true;
         cheatsheet.enable = true;
         # hardtime-nvim.enable = isMaximal;
       };
 
+      #NOTE: aun nose bien que hace cada cosa
       utility = {
         ccc.enable = false;
         surround.enable = true;
@@ -395,52 +303,6 @@
             lang = "rust";
           };
         };
-      };
-
-      notes = {
-        todo-comments.enable = true;
-        mind-nvim.enable = true;
-      };
-      session = {
-        nvim-session-manager.enable = false;
-      };
-
-      statusline = {
-        lualine = {
-          enable = true;
-          theme = "nord";
-        };
-      };
-
-      comments = {
-        comment-nvim.enable = true;
-      };
-
-      presence = {
-        neocord.enable = true;
-      };
-
-      ui = {
-        borders.enable = true;
-        noice.enable = true;
-        colorizer.enable = true;
-        illuminate.enable = true;
-        fastaction.enable = true;
-        breadcrumbs = {
-          enable = true;
-          navbuddy.enable = true;
-        };
-        # smartcolumn = {
-        #   enable = true;
-        #   setupOpts.custom_colorcolumn = {
-        #     # this is a freeform module, it's `buftype = int;` for configuring column position
-        #     rust = "100";
-        #     nix = "110";
-        #     ruby = "120";
-        #     java = "130";
-        #     go = ["90" "130"];
-        #   };
-        # };
       };
     };
   };
