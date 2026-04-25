@@ -60,7 +60,7 @@
         #   }
         #   + "/private_dot_config/starship.toml")));
         # # + "/dotfiles/config/starship.toml")));
-        settings = lib.mkForce (builtins.fromTOML (builtins.readFile ./../../../../recursos/starship.toml));
+        settings = lib.mkForce (builtins.fromTOML (builtins.readFile ./../../../recursos/starship.toml));
       };
 
       bash = {
