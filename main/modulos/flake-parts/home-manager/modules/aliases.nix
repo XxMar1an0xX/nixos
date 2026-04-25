@@ -9,7 +9,7 @@
       rephm = "sudo nixos-rebuild switch --flake $NH_FLAKE";
       rdev = "cd Documentos/Rust/Rust/";
       ds = "nix-on-droid switch --flake $HOME/nixos/main/";
-      nc = "cd $HOME/nixos/main/ && git pull --no-edit && vi . &&cd ./../..";
+      nc = "cd $HOME/nixos/main/ && git pull --no-edit && vi . &&cd $HOME";
       ".." = "cd ..";
       x = "exit";
       ff = "fastfetch";
