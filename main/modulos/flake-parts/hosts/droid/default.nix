@@ -13,7 +13,7 @@
           #   rust-overlay.overlays.default
           # ];
           environment.packages = [
-            self.packages.aarch64-linux.ecoNVF
+            self.packages."aarch64-linux".ecoNVF
             # self.packages.aarch64-linux.arduino-cli
             # pkgs.rust-bin.stable.latest.default
           ];
