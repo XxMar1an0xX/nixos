@@ -22,7 +22,7 @@
       lsp.servers = {
         #NOTE: nixd config
         nixd.settings.nixd.options = let
-          flake = "(builtins.getFlake \"/home/ruiz/nixos/main\")";
+          flake = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\")";
         in {
           # nixpkgs.expr = "import <nixpkgs> { }";
           nixos.expr = flake + ".nixosConfigurations.nixos.options";

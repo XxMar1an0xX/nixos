@@ -9,9 +9,6 @@
     ...
   }: {
     config.vim = {
-      extraPackages = with pkgs; [
-        nerd-fonts.symbols-only
-      ];
       extraPlugins = {
         nighfox = {
           package = pkgs.vimPlugins.nightfox-nvim;
@@ -86,14 +83,6 @@
           };
         };
         indent-blankline.enable = true;
-      };
-      treesitter = {
-        context.enable = true;
-
-        grammars = with pkgs.vimPlugins.nvim-treesitter.parsers; [
-          arduino
-          asm
-        ];
       };
       statusline = {
         lualine = {

@@ -12,6 +12,7 @@
       extraPackages = with pkgs; [
         ripgrep
         # wl-clipboard
+        nerd-fonts.symbols-only
         gcc
         # cargo
         # rustc
@@ -156,6 +157,13 @@
             lang = "rust";
           };
         };
+      };
+      treesitter = {
+        context.enable = true;
+        grammars = with pkgs.vimPlugins.nvim-treesitter.parsers; [
+          arduino
+          asm
+        ];
       };
     };
   };

@@ -53,6 +53,9 @@
   #NOTE: asi se obtiene el path de las librerias arduino-cli
 
   path = "${builtins.getAttr "userPath" outputs.packages.x86_64-linux.arduino}";
+
+  #NOTE: repo de github
+  # github:XxMar1an0xX/nixos?dir=main
 }
 #NOTE
 
