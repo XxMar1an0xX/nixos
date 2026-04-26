@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  perSystem = {pkgs, ...}: {
-    packages.test = pkgs.vim;
+  perSystem = {
+    pkgs,
+    inputs',
+    ...
+  }: {
+    packages.test = inputs'.nixpkgs-droid.legacyPackages.neovim;
   };
 }
