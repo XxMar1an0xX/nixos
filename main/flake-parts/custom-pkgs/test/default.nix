@@ -4,6 +4,6 @@
   ...
 }: {
   perSystem = {pkgs, ...}: {
-    packages.test = pkgs.neovim;
+    packages.test = pkgs.vim;
   };
 }
