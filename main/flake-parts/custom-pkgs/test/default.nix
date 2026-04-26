@@ -4,6 +4,6 @@
   ...
 }: {
   perSystem = {pkgs, ...}: {
-    packages.test = pkgs.hello;
+    packages.test = pkgs.neovim;
   };
 }
