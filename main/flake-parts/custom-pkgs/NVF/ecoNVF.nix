@@ -27,7 +27,7 @@
           {
           }
         ];
-        pkgs = inputs'.nixpkgs-droid.legacyPackages.neovim;
+        pkgs = inputs'.nixpkgs-droid.legacyPackages;
       }).neovim;
   };
 }
