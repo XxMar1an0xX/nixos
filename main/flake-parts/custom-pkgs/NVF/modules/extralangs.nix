@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.nvf.funcionalidad = {
+  flake.modules.nvf.extraLangs = {
     pkgs,
     lib,
     ...
