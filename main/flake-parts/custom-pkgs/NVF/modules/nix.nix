@@ -3,25 +3,23 @@
   inputs,
   ...
 }: {
-  flake.modules.nvf.nix = {
-    pkgs,
-    lib,
-    ...
-  }: {
+  flake.modules.nvf.nix = {pkgs, ...}: {
     config.vim = {
       #NOTE: alejandra formatter
       extraPackages = with pkgs; [
         alejandra
       ];
 
-      #NOTE: LSP server nixd
-      lsp.servers = {
+      lsp = {
         #NOTE: nunca olvidar esta opcion
         enable = true;
         formatOnSave = true;
         lspconfig.enable = true;
         mappings.format = "<leader>ft";
+      };
 
+      #NOTE: LSP server nixd
+      lsp.servers = {
         #NOTE: nixd config
         nixd.settings.nixd.options = let
           flake = "(builtins.getFlake \"/home/ruiz/nixos/main\")";
@@ -32,26 +30,26 @@
           nix-on-droid.expr = flake + ".nixOnDroidConfigurations.default.options";
           # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
         };
+      };
 
-        #NOTE: formatter y tresitter (?)
-        languages = {
-          enableFormat = true;
-          enableTreesitter = true;
-          enableExtraDiagnostics = true;
-          nix = {
+      #NOTE: formatter y tresitter (?)
+      languages = {
+        enableFormat = true;
+        enableTreesitter = true;
+        enableExtraDiagnostics = true;
+        nix = {
+          enable = true;
+          extraDiagnostics.enable = true;
+          format = {
             enable = true;
-            extraDiagnostics.enable = true;
-            format = {
-              enable = true;
-              type = ["alejandra"];
-            };
-            lsp = {
-              enable = true;
-              servers = ["nixd"];
-            };
-            treesitter = {
-              enable = true;
-            };
+            type = ["alejandra"];
+          };
+          lsp = {
+            enable = true;
+            servers = ["nixd"];
+          };
+          treesitter = {
+            enable = true;
           };
         };
       };

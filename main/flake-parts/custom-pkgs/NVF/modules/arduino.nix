@@ -62,7 +62,11 @@
                  end'';
           };
         };
-        enable = true; #NOTE: lacra de mrd como 2 horas boludeando para q sea esto
+        #NOTE: nunca olvidar esta opcion
+        enable = true;
+        formatOnSave = true;
+        lspconfig.enable = true;
+        mappings.format = "<leader>ft";
       };
     };
   };
