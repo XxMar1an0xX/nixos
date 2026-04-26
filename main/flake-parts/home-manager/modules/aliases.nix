@@ -16,7 +16,6 @@
       ns = "nix-shell -p ";
     };
     home.packages = [
-      self.packages."aarch64-linux".ecoNVF
     ];
   };
 }

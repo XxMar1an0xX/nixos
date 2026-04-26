@@ -1,6 +1,7 @@
 {
   self,
   inputs,
+  self',
   ...
 }: {
   flake.homeModules.homeDroid = {
@@ -22,6 +23,9 @@
     ];
     # Read the changelog before changing this value
     home.stateVersion = "24.05";
+    # home.packages = [
+    #   self'.packages.ecoNVF
+    # ];
     home.packages = with pkgs; [
       nerd-fonts.symbols-only
       mp3gain
