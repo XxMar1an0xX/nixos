@@ -9,6 +9,9 @@
     ...
   }: {
     config.vim = {
+      extraPackages = with pkgs; [
+        nerd-fonts.symbols-only
+      ];
       extraPlugins = {
         nighfox = {
           package = pkgs.vimPlugins.nightfox-nvim;

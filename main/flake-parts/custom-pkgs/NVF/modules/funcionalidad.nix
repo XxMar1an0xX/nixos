@@ -15,16 +15,11 @@
         gcc
         # cargo
         # rustc
-        alejandra
         # clipse #TODO: compartir el clipboard entre sistema y editor
         lldb
         fzf
-        nerd-fonts.symbols-only
         # git
         # gh
-        arduino-cli
-        arduino-language-server
-        llvmPackages_22.clang-tools
         # clang-tools
       ];
       keymaps = [
@@ -112,135 +107,6 @@
         };
       };
 
-      lsp = {
-        servers = {
-          arduino = {
-            #NOTE: si hay error verificar que el board este installado con:
-            # arduino-cli core install
-            enable = true;
-            capabilities =
-              lib.generators.mkLuaInline
-              /*
-              lua
-              */
-              ''
-                {
-                        textDocument = {
-                                semanticTokens = vim.NIL,
-                        },
-                        workspace = {
-                                semanticTokens = vim.NIL,
-                        },
-                }
-              '';
-            cmd = [
-              "${pkgs.arduino-language-server}/bin/arduino-language-server"
-              # "arduino-language-server"
-              "-clangd"
-              "clangd"
-              "-cli-config"
-              "/home/ruiz/.arduino15/arduino-cli.yaml"
-              "-cli"
-              "arduino-cli"
-              # "${hola}/bin/arduino-cli"
-              # "${pkgs.clang-tools}/bin/clangd"
-              "-fqbn"
-              "arduino:avr:uno"
-            ];
-            filetypes = ["arduino"];
-            root_dir =
-              lib.generators.mkLuaInline
-              /*
-              lua
-              */
-              ''
-                function(bufnr, on_dir)
-                    on_dir(vim.fn.expand "%:p:h")
-                 end'';
-          };
-
-          nixd.settings.nixd.options = let
-            flake = "(builtins.getFlake \"/home/ruiz/nixos/main\")";
-          in {
-            # nixpkgs.expr = "import <nixpkgs> { }";
-            nixos.expr = flake + ".nixosConfigurations.nixos.options";
-            home-manager.expr = flake + ".nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-            nix-on-droid.expr = flake + ".nixOnDroidConfigurations.default.options";
-            # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
-          };
-        };
-        enable = true; #NOTE: lacra de mrd como 2 horas boludeando para q sea esto
-        formatOnSave = true;
-        lspconfig.enable = true;
-        lspkind.enable = false;
-        lightbulb.enable = true;
-        lspsaga.enable = false;
-        trouble.enable = true;
-        # lspSignature.enable = true;
-        otter-nvim = {
-          enable = true;
-          setupOpts = {
-            lsp.handle_leading_whitespace = true;
-            strip_wrapping_quote_characters = ["'" "\"" "`" "\'\'"];
-          };
-        };
-        nvim-docs-view.enable = true;
-
-        mappings.format = "<leader>ft";
-      };
-
-      languages = {
-        enableFormat = true;
-        enableTreesitter = true;
-        enableExtraDiagnostics = true;
-        nix = {
-          enable = true;
-          extraDiagnostics.enable = true;
-          format = {
-            enable = true;
-            type = ["alejandra"];
-          };
-          lsp = {
-            enable = true;
-            servers = ["nixd"];
-          };
-          treesitter = {
-            enable = true;
-          };
-        };
-        rust = {
-          enable = true;
-          extensions.crates-nvim = {
-            enable = true;
-            # codeActions = true;
-          };
-          dap.enable = true;
-          format.enable = true;
-          lsp = {
-            enable = true;
-            # opts = ''
-            #    ['rust-analyzer'] = {
-            #     cargo = {allFeature = true},
-            #     checkOnSave = true,
-            #     procMacro = {
-            #       enable = true,
-            #     },
-            #   },
-            # '';
-          };
-          treesitter.enable = true;
-        };
-
-        #NOTE: lenguajes extras
-        clang.enable = true;
-        lua.enable = true;
-        markdown.enable = true;
-        python.enable = true;
-        bash = {
-          enable = true;
-          format.enable = true;
-        };
-      };
       #NOTE: super util barra lateral
       filetree.neo-tree = {
         enable = true;
@@ -249,26 +115,6 @@
           enable_git_status = true;
           enable_modified_markers = true;
           enable_refresh_on_write = true;
-        };
-      };
-
-      #NOTE: autocompletado
-      autopairs.nvim-autopairs.enable = true;
-      autocomplete = {
-        enableSharedCmpSources = true;
-        # nvim-cmp.enable = true;
-        blink-cmp = {
-          friendly-snippets.enable = true;
-          enable = true;
-          sourcePlugins = {
-            ripgrep.enable = true;
-            spell.enable = true;
-          };
-          setupOpts = {
-            keymap.preset = "super-tab";
-            completion.documentation.auto_show = true;
-            fuzzy.implementation = "prefer_rust_with_warning";
-          };
         };
       };
 
@@ -284,18 +130,25 @@
       #NOTE: aun nose bien que hace cada cosa
       utility = {
         ccc.enable = false;
-        surround.enable = true;
+        # surround.enable = true;
+
         smart-splits.enable = true;
         # vim-wakatime.enable = true;
+        #NOTE: seleccionar iconos
         icon-picker.enable = true;
-        diffview-nvim.enable = true;
+        # diffview-nvim.enable = true;
+
         motion = {
-          hop.enable = true;
-          leap.enable = true;
+          #NOTE: hop tiene potencial per o aun no
+          # hop.enable = true;
+
+          #NOTE: muchisimo potencial pero se tiene que aprender
+          # leap.enable = true;
         };
         images = {
-          image-nvim.enable = false;
+          # image-nvim.enable = false;
         };
+        #TODO: hacer son sops/secrets autologin en leetcode
         leetcode-nvim = {
           enable = true;
           setupOpts = {
