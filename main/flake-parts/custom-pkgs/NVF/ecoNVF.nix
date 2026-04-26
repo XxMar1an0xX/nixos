@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    pkgs,
+    inputs',
+    ...
+  }: {
     packages.ecoNVF =
       (inputs.nvf.lib.neovimConfiguration {
         modules = [
@@ -23,7 +27,7 @@
           {
           }
         ];
-        inherit pkgs;
+        pkgs = inputs'.nixpkgs-droid.legacyPackages.neovim;
       }).neovim;
   };
 }
