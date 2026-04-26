@@ -22,7 +22,7 @@
         nerd-fonts.symbols-only
         # git
         # gh
-        # arduino-cli
+        arduino-cli
         arduino-language-server
         llvmPackages_22.clang-tools
         # clang-tools
@@ -141,9 +141,9 @@
               "-cli-config"
               "/home/ruiz/.arduino15/arduino-cli.yaml"
               "-cli"
-              # "arduino-cli"
+              "arduino-cli"
               # "${hola}/bin/arduino-cli"
-              "${pkgs.clang-tools}/bin/clangd"
+              # "${pkgs.clang-tools}/bin/clangd"
               "-fqbn"
               "arduino:avr:uno"
             ];

@@ -14,6 +14,7 @@
     ];
     home-manager.users."ruiz".imports = [
       self.homeModules.stylix
+      self.homeModules.rofi
     ];
     stylix = {
       enable = true;

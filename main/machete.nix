@@ -50,4 +50,9 @@
 
   #       #NOTE: prueba de login:
   #       # sddm-greeter-qt6 --test-mode --theme /run/current-system/sw/share/sddm/themes/sddm-astronaut-theme
+  #NOTE: asi se obtiene el path de las librerias arduino-cli
+
+  path = "${builtins.getAttr "userPath" outputs.packages.x86_64-linux.arduino}";
 }
+#NOTE
+
