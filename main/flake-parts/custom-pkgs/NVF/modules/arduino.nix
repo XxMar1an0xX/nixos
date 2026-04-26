@@ -13,7 +13,8 @@
       extraPackages = with pkgs; [
         arduino-cli
         arduino-language-server
-        llvmPackages_22.clang-tools
+        # llvmPackages_22.clang-tools
+        clang-tools
       ];
       lsp = {
         servers = {
