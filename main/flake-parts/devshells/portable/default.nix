@@ -5,7 +5,7 @@
   ...
 }: {
   perSystem = {pkgs, ...}: {
-    devshells.devConfig = pkgs.mkShell {
+    devShells.devConfig = pkgs.mkShell {
       packages = [
         pkgs.git
         pkgs.gh
