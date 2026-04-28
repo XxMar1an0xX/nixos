@@ -1,10 +1,14 @@
 {
   self,
   inputs,
-  self',
+  # self',
   ...
 }: {
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    pkgs,
+    self',
+    ...
+  }: {
     devShells.devConfig = pkgs.mkShell {
       packages = [
         pkgs.git
