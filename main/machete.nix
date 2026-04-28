@@ -56,6 +56,7 @@
 
   #NOTE: repo de github
   # github:XxMar1an0xX/nixos?dir=main
+  # https://github.com/XxMar1an0xX/nixos.git
 }
 #NOTE
 

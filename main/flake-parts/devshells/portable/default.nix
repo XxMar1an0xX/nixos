@@ -10,14 +10,16 @@
         pkgs.git
         pkgs.gh
         self'.packages.NVF
+        # self'.packages.arduino
       ];
       shellHook =
         /*
         bash
         */
         ''
-
-
+          if ! test -e $HOME/nixos; then
+            git clone https://github.com/XxMar1an0xX/nixos.git
+          fi
         '';
     };
   };
