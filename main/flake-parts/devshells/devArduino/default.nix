@@ -11,14 +11,18 @@
   }: {
     devShells.devArduino = pkgs.mkShell {
       packages = [
-        self'.packages.arduino
+        self'.packages.arduinoPatched
         self'.packages.NVF
       ];
-      shellHook =
+      shellHook = let
+        libraryPath = "${builtins.getAttr "userPath" self'.packages.arduinoPatched}";
+      in
         /*
         bash
         */
-        '''';
+        ''
+          cp -r --symbolic-link --update ${libraryPath}/libraries/* $HOME/Arduino/libraries
+        '';
     };
   };
 }

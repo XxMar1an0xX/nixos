@@ -6,15 +6,16 @@
   flake.modules.nvf.arduino = {
     pkgs,
     lib,
+    # self',
     ...
   }: {
     config.vim = {
       #NOTE: dependencias
       extraPackages = with pkgs; [
-        arduino-cli
+        # arduino-cli
         arduino-language-server
-        # llvmPackages_22.clang-tools
-        clang-tools
+        llvmPackages_19.clang-tools
+        # clang-tools
       ];
       lsp = {
         servers = {
@@ -45,7 +46,8 @@
               "-cli-config"
               "/home/ruiz/.arduino15/arduino-cli.yaml"
               "-cli"
-              "arduino-cli"
+              # "arduino-cli"
+              "${self.packages.x86_64-linux.arduinoPatched}/bin/arduino-cli"
               # "${hola}/bin/arduino-cli"
               # "${pkgs.clang-tools}/bin/clangd"
               "-fqbn"

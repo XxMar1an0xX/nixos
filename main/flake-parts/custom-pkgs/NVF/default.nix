@@ -3,11 +3,16 @@
   inputs,
   ...
 }: {
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    pkgs,
+    self',
+    ...
+  }: {
     packages.NVF =
       (inputs.nvf.lib.neovimConfiguration {
         modules = [
           {_class = "nvf";}
+          # {_module.args = {inherit self';};}
           self.modules.nvf.funcionalidad
           self.modules.nvf.theme
           self.modules.nvf.rust

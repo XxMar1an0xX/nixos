@@ -6,6 +6,7 @@
   perSystem = {
     pkgs,
     system,
+    self',
     ...
   }: {
     _module.args.pkgs = import inputs.nixpkgs {
@@ -23,25 +24,44 @@
         allowUnfree = true;
       };
     };
-    packages.arduino = pkgs.wrapArduinoCLI {
-      #TODO: arduinolsp no detecta estas lirerias, solo las que estan en la carpeta normal
-      libraries = with pkgs.arduinoLibraries; [
-        (inputs.arduino-nix.latestVersion TMCStepper)
-        (inputs.arduino-nix.latestVersion LiquidCrystal)
-        (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit PWM Servo Driver Library")
-        (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit NeoPixel")
-        (inputs.arduino-nix.latestVersion NimBLE-Arduino)
-        # (arduino-nix.latestVersion LiquidCrystal)
-        # (arduino-nix.latestVersion LiquidCrystal)
-        # (arduino-nix.latestVersion LiquidCrystal)
-      ];
+    packages.arduino =
+      pkgs.wrapArduinoCLI
+      {
+        #TODO: arduinolsp no detecta estas lirerias, solo las que estan en la carpeta normal
+        libraries = with pkgs.arduinoLibraries; [
+          (inputs.arduino-nix.latestVersion TMCStepper)
+          (inputs.arduino-nix.latestVersion LiquidCrystal)
+          (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit PWM Servo Driver Library")
+          (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit NeoPixel")
+          (inputs.arduino-nix.latestVersion NimBLE-Arduino)
+          # (arduino-nix.latestVersion LiquidCrystal)
+          # (arduino-nix.latestVersion LiquidCrystal)
+          # (arduino-nix.latestVersion LiquidCrystal)
+        ];
 
-      packages = with pkgs.arduinoPackages; [
-        #NOTE: es platforms.${packages_name}.${architecture}.${version}
-        platforms.arduino.avr."1.8.7"
-        # platforms.rp2040.rp2040."2.3.3"
-        platforms.esp32.esp32."3.3.7"
-      ];
-    };
+        packages = with pkgs.arduinoPackages; [
+          #NOTE: es platforms.${packages_name}.${architecture}.${version}
+          platforms.arduino.avr."1.8.7"
+          # platforms.rp2040.rp2040."2.3.3"
+          platforms.esp32.esp32."3.3.7"
+        ];
+        #NOTE: aqui se hace un override para habilitar librerias arbitrarias
+      };
+    # .overrideAttrs (old: {
+    #   buildCommand = ''
+    #     mkdir $HOME/.arduino15/libraries
+    #     cp --symbolic-link ${old.passthru.userPath}/libraries/* $HOME/.arduino15/libraries
+    #     makeWrapper ${pkgs.arduino-cli}/bin/arduino-cli $out/bin/arduino-cli --set ARDUINO_UPDATER_ENABLE_NOTIFICATION false --set ARDUINO_DIRECTORIES_DATA ${old.passthru.dataPath} --set ARDUINO_DIRECTORIES_USER $HOME/.arduino15/libraries
+    #     echo "override succesful"
+    # '';
+    # });
+
+    packages.arduinoPatched =
+      self'.packages.arduino
+    .overrideAttrs (old: {
+        buildCommand = ''
+          makeWrapper ${pkgs.arduino-cli}/bin/arduino-cli $out/bin/arduino-cli --set ARDUINO_UPDATER_ENABLE_NOTIFICATION false --set ARDUINO_DIRECTORIES_DATA ${old.passthru.dataPath}
+        '';
+      });
   };
 }
