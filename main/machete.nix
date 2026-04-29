@@ -57,6 +57,9 @@
   #NOTE: repo de github
   # github:XxMar1an0xX/nixos?dir=main
   # https://github.com/XxMar1an0xX/nixos.git
+
+  #NOTE: symlink from store
+  # "niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/niri/config.kdl"; significa "hacer un symlink de ~/.config/niri/config.kdl a /etc/nixos/dotfiles/niri/config.kdl"
 }
 #NOTE
 
