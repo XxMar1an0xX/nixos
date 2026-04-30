@@ -17,5 +17,13 @@
     };
     home.packages = [
     ];
+
+    home.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      EDITOR = "nvim";
+      TERMINAL = "kitty";
+      CONFIG = "$HOME/nixos/main";
+      REPO = "github:XxMar1an0xX/nixos?dir=main/";
+    };
   };
 }
