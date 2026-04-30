@@ -47,7 +47,7 @@
               "/home/ruiz/.arduino15/arduino-cli.yaml"
               "-cli"
               # "arduino-cli"
-              "${self.packages.x86_64-linux.arduinoPatched}/bin/arduino-cli"
+              "${self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched}/bin/arduino-cli"
               # "${hola}/bin/arduino-cli"
               # "${pkgs.clang-tools}/bin/clangd"
               "-fqbn"
