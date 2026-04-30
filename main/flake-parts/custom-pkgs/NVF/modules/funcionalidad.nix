@@ -131,7 +131,8 @@
       #NOTE: aun nose bien que hace cada cosa
       utility = {
         ccc.enable = false;
-        # surround.enable = true;
+        #NOTE: esto era responsable de autorodear cosas
+        surround.enable = true;
 
         smart-splits.enable = true;
         # vim-wakatime.enable = true;
