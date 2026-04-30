@@ -21,6 +21,7 @@
         bash
         */
         ''
+          mkdir -p $HOME/Arduino/libraries
           cp -r --symbolic-link --update ${libraryPath}/libraries/* $HOME/Arduino/libraries
         '';
     };
