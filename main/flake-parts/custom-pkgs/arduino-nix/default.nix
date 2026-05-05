@@ -59,9 +59,14 @@
     packages.arduinoPatched =
       self'.packages.arduino
     .overrideAttrs (old: {
-        buildCommand = ''
-          makeWrapper ${pkgs.arduino-cli}/bin/arduino-cli $out/bin/arduino-cli --set ARDUINO_UPDATER_ENABLE_NOTIFICATION false --set ARDUINO_DIRECTORIES_DATA ${old.passthru.dataPath}
-        '';
+        buildCommand =
+          /*
+          bash
+          */
+          ''
+            makeWrapper ${pkgs.arduino-cli}/bin/arduino-cli $out/bin/arduino-cli --set ARDUINO_UPDATER_ENABLE_NOTIFICATION false --set ARDUINO_DIRECTORIES_DATA ${old.passthru.dataPath}
+          '';
+        # --set ARDUINO_DIRECTORIES_DATA ${old.passthru.dataPath}
       });
     #TODO: Verificar si en arduino data directory se puede hacer andar el lsp con libs
   };
