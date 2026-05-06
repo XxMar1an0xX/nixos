@@ -68,6 +68,5 @@
           '';
         # --set ARDUINO_DIRECTORIES_DATA ${old.passthru.dataPath}
       });
-    #TODO: Verificar si en arduino data directory se puede hacer andar el lsp con libs
   };
 }
