@@ -188,7 +188,7 @@
         else No
       );
     in {
-      ensurePrinters = CondicionalPortable [] [
+      ensurePrinters = [
         {
           name = "Impresora_Nueva_L3250";
           model = "epson-inkjet-printer-escpr/Epson-L3250_Series-epson-escpr-en.ppd";
