@@ -45,7 +45,6 @@
           # platforms.rp2040.rp2040."2.3.3"
           platforms.esp32.esp32."3.3.7"
         ];
-        #NOTE: aqui se hace un override para habilitar librerias arbitrarias
       };
     # .overrideAttrs (old: {
     #   buildCommand = ''
@@ -64,7 +63,7 @@
           bash
           */
           ''
-            makeWrapper ${pkgs.arduino-cli}/bin/arduino-cli $out/bin/arduino-cli --set ARDUINO_UPDATER_ENABLE_NOTIFICATION false --set ARDUINO_DIRECTORIES_DATA ${old.passthru.dataPath}
+            makeWrapper ${pkgs.arduino-cli}/bin/arduino-cli $out/bin/arduino-cli --set ARDUINO_UPDATER_ENABLE_NOTIFICATION false
           '';
         # --set ARDUINO_DIRECTORIES_DATA ${old.passthru.dataPath}
       });

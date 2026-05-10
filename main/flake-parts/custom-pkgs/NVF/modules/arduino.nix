@@ -15,7 +15,7 @@
         # arduino-cli
         arduino-language-server
         llvmPackages_19.clang-tools
-        # clang-tools
+        self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched
       ];
 
       extraPlugins = {
@@ -82,9 +82,8 @@
               "-cli-config"
               "/home/ruiz/.arduino15/arduino-cli.yaml"
               "-cli"
-              # "arduino-cli"
-              "${self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched}/bin/arduino-cli"
-              # "${hola}/bin/arduino-cli"
+              "arduino-cli"
+              # "${self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched}/bin/arduino-cli"
               # "${pkgs.clang-tools}/bin/clangd"
               "-fqbn"
               "arduino:avr:uno"
