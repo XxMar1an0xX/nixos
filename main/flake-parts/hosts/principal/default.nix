@@ -19,6 +19,7 @@
           self.packages."x86_64-linux".NVF
           # self.packages."x86_64-linux".arduino
         ];
+        fonts.packages = [self.packages.x86_64-linux.hashtag];
       }
     ];
   };
