@@ -122,7 +122,9 @@
         "0.0.0.0" = [
           "youtube.com"
           "www.youtube.com"
-          # "inv.nadeko.net"
+          "inv.nadeko.net"
+          "www.reddit.com"
+          "olympusbiblioteca.com"
         ];
       };
     };
@@ -405,6 +407,7 @@
       # nerd-fonts.victor-mono
       # nerd-fonts.zed-mono
     ];
+    fonts.fontDir.enable = true;
     # services.xserver.displayManager.gdm.enable = true;
     # services.xserver.desktopManager.gnome.enable = true;
     xdg.portal = {
