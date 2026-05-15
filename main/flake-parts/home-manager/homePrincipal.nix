@@ -75,13 +75,15 @@
           # environment = {
           #   "FLAKE" = "/etc/nixos";
           # };
-          home.packages = with pkgs; [
+          home.packages = [
             # # Adds the 'hello' command to your environment. It prints a friendly
             # # "Hello, world!" when run.
             # pkgs.hellotarship
             # starship
 
-            nerd-fonts.symbols-only
+            self.packages.x86_64-linux.hashtag
+            self.packages.x86_64-linux.jphand
+            pkgs.nerd-fonts.symbols-only
             # # It is sometimes useful to fine-tune packages, for example, by applying
             # # overrides. You can do that directly here, just don't forget the
             # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -118,24 +120,30 @@
             #   # };
             #   recursive = true;
             # };
-            "Nixos Repo" = {
-              target = "ReadOnly/NixosConfig";
-              source = "${pkgs.fetchFromGitHub {
-                owner = "XxMar1an0xX";
-                repo = "nixos";
-                rev = "75a63be6eeedeb844e54d31d1fc5075e4e6b2c9c";
-                hash = "sha256-Hjr17i5c+DM2YO6W6heBZy/VCVjWYdeSVNLUKoMUWKE=";
-              }}";
-            };
-            "Rust Repo" = {
-              target = "ReadOnly/Rust";
-              source = "${pkgs.fetchFromGitHub {
-                owner = "XxMar1an0xX";
-                repo = "Rust";
-                rev = "27a7a045b1b0b20da34b6e75d818013713227e8b";
-                hash = "sha256-vp9DNUe45dqG82s0A2zrV8b/xvtVi4XQE9l+aaDDdCE=";
-              }}";
-            };
+
+            # "Hashtag" = {
+            #   target = ".nix-profile/share/fonts/truetype/Hashtag.ttf";
+            #   source = self.packages.x86_64-linux.hashtag;
+            # };
+
+            # "Nixos Repo" = {
+            #   target = "ReadOnly/NixosConfig";
+            #   source = "${pkgs.fetchFromGitHub {
+            #     owner = "XxMar1an0xX";
+            #     repo = "nixos";
+            #     rev = "75a63be6eeedeb844e54d31d1fc5075e4e6b2c9c";
+            #     hash = "sha256-Hjr17i5c+DM2YO6W6heBZy/VCVjWYdeSVNLUKoMUWKE=";
+            #   }}";
+            # };
+            # "Rust Repo" = {
+            #   target = "ReadOnly/Rust";
+            #   source = "${pkgs.fetchFromGitHub {
+            #     owner = "XxMar1an0xX";
+            #     repo = "Rust";
+            #     rev = "27a7a045b1b0b20da34b6e75d818013713227e8b";
+            #     hash = "sha256-vp9DNUe45dqG82s0A2zrV8b/xvtVi4XQE9l+aaDDdCE=";
+            #   }}";
+            # };
 
             ".local/share/PrismLauncher/accounts.json".text =
               /*
