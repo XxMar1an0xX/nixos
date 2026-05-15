@@ -4,9 +4,9 @@
   ...
 }: {
   perSystem = {pkgs, ...}: {
-    packages.hashtag = pkgs.stdenv.mkDerivation rec {
+    packages.jphand = pkgs.stdenv.mkDerivation rec {
       #NOTE: add to home manager packages
-      pname = "Hashtag-Font";
+      pname = "JPHand-Font";
       version = "1.0";
       dontConfigure = true;
       nativeBuildInputs = with pkgs; [
@@ -15,8 +15,8 @@
       buildInputs = [pkgs.unzip];
       dontUnpack = false;
       src = pkgs.fetchurl {
-        url = "https://dl.dafont.com/dl/?f=hashtag";
-        sha256 = "sha256-7TjaqvYpn4N4zF7lVwc7dKCUZHLeAU7pGqGu1d47xHM=";
+        url = "https://dl.dafont.com/dl/?f=jp_hand_slanted";
+        sha256 = "sha256-zVoHrgD3WaHzjTKEG5kImDn1RZC1L+78cYR0orUSfZI=";
       };
       sourceRoot = ".";
       buildFlags = ["full-ttf"];
