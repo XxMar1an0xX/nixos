@@ -32,7 +32,7 @@
           # install -m444 -Dt $out/share/fonts/truetype *.ttf
           mkdir -p $out/share/fonts/truetype
           # cp -p *.ttf $out/share/fonts/truetype/ #ttf para hastag/ammys TTF para journal/jp-hand
-          mv *.ttf $out/share/fonts/truetype/
+          mv *.TTF $out/share/fonts/truetype/
         '';
     };
   };
