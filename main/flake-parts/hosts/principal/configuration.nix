@@ -27,7 +27,9 @@
       # rustup
       # cargo
       hyprpolkitagent
+      alejandra
     ];
+
     # custom.HacerPortable = true; #NOTE: FUNCIONAAAAA
     imports = let
       EsPortable =
@@ -285,21 +287,21 @@
         */
         ''          #NOTE: generar repo de git y tmbn reemplazar hardware-configuration
 
-                        hyprland
-                        if ! test -e /home/ruiz/Documentos; then
-                                mkdir ./Descargas
-                                mkdir ./Documentos
-                        fi
+          hyprland
+          if ! test -e /home/ruiz/Documentos; then
+                  mkdir ./Descargas
+                  mkdir ./Documentos
+          fi
 
-                        if ! test -e /home/ruiz/Documentos/nixos; then
-                                cd /home/ruiz/Documentos || return
-                                git clone https://github.com/XxMar1an0xX/nixos.git
-                                if [[ ! $TERMINAL = kitty ]]; then
-                                        echo "reemplazando hardware config con el necesario"
-                                        rm -f /home/ruiz/Documentos/nixos/main/hardware-configuration.nix
-                                        nixos-generate-config --show-hardware-config >>/home/ruiz/Documentos/nixos/main/hardware-configuration.nix
-                                fi
-                        fi
+          if ! test -e /home/ruiz/Documentos/nixos; then
+                  cd /home/ruiz/Documentos || return
+                  git clone https://github.com/XxMar1an0xX/nixos.git
+                  if [[ ! $TERMINAL = kitty ]]; then
+                          echo "reemplazando hardware config con el necesario"
+                          rm -f /home/ruiz/Documentos/nixos/main/hardware-configuration.nix
+                          nixos-generate-config --show-hardware-config >>/home/ruiz/Documentos/nixos/main/hardware-configuration.nix
+                  fi
+          fi
         ''
         /*
         bash

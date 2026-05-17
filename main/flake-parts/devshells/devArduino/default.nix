@@ -11,6 +11,7 @@
   }: {
     devShells.devArduino = pkgs.mkShell {
       packages = [
+        # pkgs.arduino-cli
         self'.packages.arduinoPatched
         self'.packages.NVF
       ];

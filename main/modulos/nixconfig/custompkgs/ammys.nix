@@ -54,15 +54,15 @@ pkgs.stdenvNoCC.mkDerivation rec {
   sourceRoot = ".";
 
   unpackPhase = ''
-                unzip $src
-                # cd src
+    unzip $src
+    # cd src
     # unzip *.zip
     # unzip monika/*.zip
     # unzip $src3
     # unzip $src4
   '';
   buildPhase = ''
-                # cd sayori
+    # cd sayori
     # mkdir -p ./bufferfont
     # mv *.ttf bufferfont/
   '';

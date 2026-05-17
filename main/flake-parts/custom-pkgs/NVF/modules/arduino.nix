@@ -34,22 +34,12 @@
             lua
             */
             ''
-              -- return {
-              --   "yuukiflow/Arduino-Nvim",
-              --   dependencies = {
-              --     "nvim-telescope/telescope.nvim",
-              --     "neovim/nvim-lspconfig",
-              --   },
-              --   config = function()
-                  -- Load Arduino plugin for .ino files
-                  vim.api.nvim_create_autocmd("FileType", {
-                    pattern = "arduino",
-                    callback = function()
-                      require("Arduino-Nvim")
-                    end,
-                  })
-              --   end,
-              -- }
+              vim.api.nvim_create_autocmd("FileType", {
+              	pattern = "arduino",
+              	callback = function()
+              		require("Arduino-Nvim")
+              	end,
+              })
             '';
         };
       };
@@ -65,9 +55,10 @@
               lua
               */
               ''
+
                 {
-                        textDocument = {
-                                semanticTokens = vim.NIL,
+                      textDocument = {
+                              semanticTokens = vim.NIL,
                         },
                         workspace = {
                                 semanticTokens = vim.NIL,
@@ -80,7 +71,7 @@
               "-clangd"
               "clangd"
               "-cli-config"
-              "/home/ruiz/.arduino15/arduino-cli.yaml"
+              "$HOME/.arduino15/arduino-cli.yaml"
               "-cli"
               "arduino-cli"
               # "${self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched}/bin/arduino-cli"
@@ -95,9 +86,10 @@
               lua
               */
               ''
-                function(bufnr, on_dir)
-                    on_dir(vim.fn.expand "%:p:h")
-                 end'';
+                 function(bufnr, on_dir)
+                   on_dir(vim.fn.expand "%:p:h")
+                end
+              '';
           };
         };
         #NOTE: nunca olvidar esta opcion

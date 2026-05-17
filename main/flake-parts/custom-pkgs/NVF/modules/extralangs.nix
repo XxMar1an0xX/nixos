@@ -18,6 +18,7 @@
         bash = {
           enable = true;
           format.enable = true;
+          treesitter.enable = true;
         };
       };
     };
