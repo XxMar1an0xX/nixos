@@ -22,7 +22,7 @@
     # manage.
 
     home-manager = {
-      backupFileExtension = "ahfwenciu";
+      backupFileExtension = "ahfdsawenciu";
 
       extraSpecialArgs = let
         EsPortable =

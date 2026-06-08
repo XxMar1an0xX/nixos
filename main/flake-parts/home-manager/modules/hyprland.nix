@@ -131,7 +131,7 @@
           ];
         };
         dwindle = {
-          pseudotile = "true";
+          # pseudotile = "true";
           preserve_split = "true";
         };
 
@@ -181,7 +181,7 @@
           "$mainMod, Escape, exit"
           "$mainMod, V, togglefloating"
           # "$mainMod, P, pseudo"
-          "$mainMod, T, togglesplit"
+          # "$mainMod, T, togglesplit"
 
           # "$mainMod, left, movefocus, l"
           "$mainMod, H, movefocus, l"

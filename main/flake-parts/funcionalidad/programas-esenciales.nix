@@ -48,7 +48,8 @@
       # whatsie #NOTE: no anda ns porque
 
       # whatsapp-for-linux
-      wasistlos
+      karere
+
       # cava
       gparted
       # neofetch
