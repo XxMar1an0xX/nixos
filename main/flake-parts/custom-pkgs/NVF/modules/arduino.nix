@@ -14,7 +14,8 @@
       extraPackages = with pkgs; [
         # arduino-cli
         arduino-language-server
-        llvmPackages_19.clang-tools
+        # llvmPackages_19.clang-tools
+        libclang
         self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched
       ];
 
@@ -22,6 +23,12 @@
         arduino-nvim = {
           package = pkgs.vimUtils.buildVimPlugin {
             name = "Arduino-Nvim";
+            # src = pkgs.fetchFromGitHub {
+            #   owner = "XxMar1an0xX";
+            #   repo = "Arduino-Nvim";
+            #   rev = "08bae0ba025998fd60e214146e85400e297a892a";
+            #   hash = "sha256-WiOdwEDKba4pqAgwGU/1EykReSXQiggnJGCGpBGS+8g=";
+            # };
             src = pkgs.fetchFromGitHub {
               owner = "yuukiflow";
               repo = "Arduino-Nvim";
@@ -73,11 +80,12 @@
               "-cli-config"
               "$HOME/.arduino15/arduino-cli.yaml"
               "-cli"
-              "arduino-cli"
-              # "${self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched}/bin/arduino-cli"
+              # "arduino-cli"
+              "${self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched}/bin/arduino-cli"
               # "${pkgs.clang-tools}/bin/clangd"
               "-fqbn"
-              "arduino:avr:uno"
+              # "arduino:avr:uno"
+              "esp32:esp32:esp32"
             ];
             filetypes = ["arduino"];
             root_dir =

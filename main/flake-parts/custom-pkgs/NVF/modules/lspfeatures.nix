@@ -18,16 +18,17 @@
         # lspSignature.enable = true;
 
         #NOTE: no anda embedded lang
-        otter-nvim = {
-          enable = true;
-          mappings.toggle = true;
-          setupOpts = {
-            handle_leading_whitespace = true;
-            strip_wrapping_quote_characters = ["'" "\"" "`" "\'\'"];
-          };
-        };
+        # otter-nvim = {
+        #   enable = true;
+        #   mappings.toggle = true;
+        #   setupOpts = {
+        #     handle_leading_whitespace = true;
+        #     strip_wrapping_quote_characters = ["'" "\"" "`" "\'\'"];
+        #   };
+        # };
         # nvim-docs-view.enable = true;
       };
+      #NOTE: formatting embedded lang anda
       formatter.conform-nvim = {
         enable = true;
         setupOpts = {
