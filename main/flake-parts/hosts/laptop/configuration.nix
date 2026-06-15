@@ -18,13 +18,14 @@
     ];
     qt.enable = true;
     hardware.graphics.enable = true;
-    networking = {};
-    firewall.allowedTCPPorts = [53317 8081 22000];
-    firewall.allowedUDPPorts = [53317 8081 22000];
-    hostName = "nixos";
-    stevenblack = {
-      enable = true;
-      block = ["porn"];
+    networking = {
+      firewall.allowedTCPPorts = [53317 8081 22000];
+      firewall.allowedUDPPorts = [53317 8081 22000];
+      hostName = "nixos";
+      stevenblack = {
+        enable = true;
+        block = ["porn"];
+      };
     };
 
     #NOTE: wifi
