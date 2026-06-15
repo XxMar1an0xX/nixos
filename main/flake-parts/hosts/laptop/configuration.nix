@@ -27,16 +27,16 @@
         block = ["porn"];
       };
 
+      wireless = {
+        enable = false;
+        userControlled.enable = true;
+        dbusControlled = true;
+      };
       #NOTE: wifi
       networkmanager = {
         enable = true;
         wifi.powersave = true;
         unmanaged = ["*-foo-bar"];
-        wireless = {
-          enable = false;
-          userControlled.enable = true;
-          dbusControlled = true;
-        };
       };
       hosts = {
         "0.0.0.0" = [
