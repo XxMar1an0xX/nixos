@@ -14,6 +14,7 @@
       self.nixosModules.hardwareTweaks
       self.nixosModules.esenciales
       self.nixosModules.limpieza
+      inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
     ];
   };
 }
