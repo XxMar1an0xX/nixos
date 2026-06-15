@@ -37,15 +37,15 @@
           userControlled.enable = true;
           dbusControlled = true;
         };
-        hosts = {
-          "0.0.0.0" = [
-            "youtube.com"
-            "www.youtube.com"
-            # "inv.nadeko.net"
-            "www.reddit.com"
-            "olympusbiblioteca.com"
-          ];
-        };
+      };
+      hosts = {
+        "0.0.0.0" = [
+          "youtube.com"
+          "www.youtube.com"
+          # "inv.nadeko.net"
+          "www.reddit.com"
+          "olympusbiblioteca.com"
+        ];
       };
     };
 
