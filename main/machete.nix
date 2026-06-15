@@ -60,6 +60,8 @@
 
   #NOTE: symlink from store
   # "niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/niri/config.kdl"; significa "hacer un symlink de ~/.config/niri/config.kdl a /etc/nixos/dotfiles/niri/config.kdl"
+
+  #NOTE: comando para instalas nixos es:
 }
 #NOTE
 

@@ -10,7 +10,7 @@
     ...
   }: {
     imports = [
-      # self.nixosModules.hardwarePrincipal
+      self.nixosModules.hardwareLaptop
     ];
     boot.supportedFilesystems = [
       "nfts"
