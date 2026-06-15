@@ -42,7 +42,7 @@
           nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
           # nixpkgs.config = {allowUnfree = true;};
 
-          qt.enable = true;
+          # qt.enable = true;
           # gtk.enable = true;
           # gtk.gtk3.extraConfig = {
           #   Settings = ''

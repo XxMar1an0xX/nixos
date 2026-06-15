@@ -41,14 +41,14 @@
       libreoffice
       kdiskmark
       qalculate-qt
-      kicad
+      # kicad-small
       unzip
       bc
       nomacs
       # whatsie #NOTE: no anda ns porque
 
       # whatsapp-for-linux
-      karere
+      whatsapp-electron
 
       # cava
       gparted

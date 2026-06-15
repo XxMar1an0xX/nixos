@@ -6,7 +6,6 @@
   flake.nixosModules.grubConfig = {
     config,
     lib,
-    CondicionalPortable,
     EsPortable,
     ...
   }: {
@@ -28,8 +27,8 @@
         # extraEntries = ''
         # '';
         useOSProber = true;
-        gfxmodeEfi = CondicionalPortable "" "1984x1020";
-        gfxmodeBios = CondicionalPortable "" "1984x1020";
+        gfxmodeEfi = "1984x1020";
+        gfxmodeBios = "1984x1020";
         minegrub-world-sel = {
           enable = true;
           customIcons = [{}];

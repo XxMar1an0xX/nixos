@@ -51,25 +51,7 @@
       }
       self.nixosModules.hardwarePrincipal
 
-      # self.nixosModules.default
-      # #NOTE: funcionalidad
-      # ./../../modulos/nixconfig/funcionalidad/invidious.nix
-      # ./../../modulos/nixconfig/funcionalidad/VMs.nix
-      # ./../../modulos/nixconfig/funcionalidad/juegos.nix
-      # ./../../modulos/nixconfig/funcionalidad/hardware.nix
-      # #NOTE: default
-      # ./../../modulos/nixconfig/defaults/programas_esenciales.nix
-      # ./../../modulos/nixconfig/defaults/limpieza_y_actualizacion.nix
-      # ./../../modulos/nixconfig/defaults/usuario-portable.nix
-      # #NOTE: Estetica
-      # ./../../modulos/nixconfig/Estetica/stylix.nix
-      # ./../../modulos/nixconfig/Estetica/SDDM-login.nix
-      # ./../../modulos/nixconfig/Estetica/grub.nix
-      # #NOTE: misceallaneo
-      # ./../../modulos/nixconfig/misc/nixai.nix
-      # ./../../modulos/nixconfig/misc/ollama.nix
       #
-      # ./../../hardware-configuration.nix #esto es necesario para q ande
     ];
 
     # ++ CondicionalPortable [
@@ -124,7 +106,7 @@
         "0.0.0.0" = [
           "youtube.com"
           "www.youtube.com"
-          "inv.nadeko.net"
+          # "inv.nadeko.net"
           "www.reddit.com"
           "olympusbiblioteca.com"
         ];
@@ -136,7 +118,6 @@
 
     # Select internationalisation properties.
     i18n.defaultLocale = "es_AR.UTF-8";
-
     i18n.extraLocaleSettings = {
       LC_ADDRESS = "es_AR.UTF-8";
       LC_IDENTIFICATION = "es_AR.UTF-8";
@@ -167,7 +148,7 @@
     in {
       layout = "latam";
       # variant = "";
-      model = CondicionalPortable "" "microsoftinet";
+      model = "microsoftinet";
     };
 
     # Configure console keymap
@@ -268,55 +249,47 @@
     programs.hyprlock.enable = true;
 
     #NOTE: script al inicio de login
-    systemd.user.services.autoinicio = let
-      CondicionalPortable = Si: No: (
-        if
-          if (config ? custom.HacerPortable)
-          then config.custom.HacerPortable
-          else false
-        then Si
-        else No
-      );
-    in {
-      description = "autoinicio al loguearse";
-      serviceConfig.PassEnvironment = "DISPLAY";
-      script =
-        CondicionalPortable
-        /*
-        bash
-        */
-        ''          #NOTE: generar repo de git y tmbn reemplazar hardware-configuration
-
-          hyprland
-          if ! test -e /home/ruiz/Documentos; then
-                  mkdir ./Descargas
-                  mkdir ./Documentos
-          fi
-
-          if ! test -e /home/ruiz/Documentos/nixos; then
-                  cd /home/ruiz/Documentos || return
-                  git clone https://github.com/XxMar1an0xX/nixos.git
-                  if [[ ! $TERMINAL = kitty ]]; then
-                          echo "reemplazando hardware config con el necesario"
-                          rm -f /home/ruiz/Documentos/nixos/main/hardware-configuration.nix
-                          nixos-generate-config --show-hardware-config >>/home/ruiz/Documentos/nixos/main/hardware-configuration.nix
-                  fi
-          fi
-        ''
-        /*
-        bash
-        */
-        ''
-          hyprland
-          # sudo umount /run/media/
-          mkdir /home/ruiz/Descargas
-          mkdir /home/ruiz/Documentos
-          git clone https://github.com/XxMar1an0xX/nixos.git ./Documentos
-          git clone https://github.com/XxMar1an0xX/Rust.git ./Documentos
-          sudo umount /run/media/sddm/Respaldo
-        '';
-      wantedBy = ["multi-user.target"]; # starts after login
-    };
+    # systemd.user.services.autoinicio = ;
+    # in {
+    #   description = "autoinicio al loguearse";
+    #   serviceConfig.PassEnvironment = "DISPLAY";
+    #   script =
+    #     CondicionalPortable
+    #     /*
+    #     bash
+    #     */
+    #     ''          #NOTE: generar repo de git y tmbn reemplazar hardware-configuration
+    #
+    #       hyprland
+    #       if ! test -e /home/ruiz/Documentos; then
+    #               mkdir ./Descargas
+    #               mkdir ./Documentos
+    #       fi
+    #
+    #       if ! test -e /home/ruiz/Documentos/nixos; then
+    #               cd /home/ruiz/Documentos || return
+    #               git clone https://github.com/XxMar1an0xX/nixos.git
+    #               if [[ ! $TERMINAL = kitty ]]; then
+    #                       echo "reemplazando hardware config con el necesario"
+    #                       rm -f /home/ruiz/Documentos/nixos/main/hardware-configuration.nix
+    #                       nixos-generate-config --show-hardware-config >>/home/ruiz/Documentos/nixos/main/hardware-configuration.nix
+    #               fi
+    #       fi
+    #     ''
+    #     /*
+    #     bash
+    #     */
+    #     ''
+    #       hyprland
+    #       # sudo umount /run/media/
+    #       mkdir /home/ruiz/Descargas
+    #       mkdir /home/ruiz/Documentos
+    #       git clone https://github.com/XxMar1an0xX/nixos.git ./Documentos
+    #       git clone https://github.com/XxMar1an0xX/Rust.git ./Documentos
+    #       sudo umount /run/media/sddm/Respaldo
+    #     '';
+    #   wantedBy = ["multi-user.target"]; # starts after login
+    # };
     # security.polkit = {
     #   enable = true;
     # };
