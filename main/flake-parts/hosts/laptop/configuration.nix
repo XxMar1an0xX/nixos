@@ -26,26 +26,26 @@
         enable = true;
         block = ["porn"];
       };
-    };
 
-    #NOTE: wifi
-    networkmanager = {
-      enable = true;
-      wifi.powersave = true;
-      unmanaged = ["*-foo-bar"];
-      wireless = {
-        enable = false;
-        userControlled.enable = true;
-        dbusControlled = true;
-      };
-      hosts = {
-        "0.0.0.0" = [
-          "youtube.com"
-          "www.youtube.com"
-          # "inv.nadeko.net"
-          "www.reddit.com"
-          "olympusbiblioteca.com"
-        ];
+      #NOTE: wifi
+      networkmanager = {
+        enable = true;
+        wifi.powersave = true;
+        unmanaged = ["*-foo-bar"];
+        wireless = {
+          enable = false;
+          userControlled.enable = true;
+          dbusControlled = true;
+        };
+        hosts = {
+          "0.0.0.0" = [
+            "youtube.com"
+            "www.youtube.com"
+            # "inv.nadeko.net"
+            "www.reddit.com"
+            "olympusbiblioteca.com"
+          ];
+        };
       };
     };
 
