@@ -30,6 +30,14 @@
       alejandra
     ];
 
+    #NOTE: Video driverspara gpu
+    services.xserver.videoDrivers = ["amdgpu"];
+    hardware.amdgpu = {
+      opencl.enable = true;
+      initrd.enable = true;
+      overdrive.enable = true;
+    };
+
     # custom.HacerPortable = true; #NOTE: FUNCIONAAAAA
     imports = let
       EsPortable =
