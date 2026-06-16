@@ -249,6 +249,11 @@
           "$mainMod, W, exec, whatsie"
           "$mainMod, I, exec, $terminal --class clipse -e clipse"
           ", Print, exec, grimblast copysave area && mv *.png $HOME/Imagenes/Screenshots/"
+          ", xf86audioraisevolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+          ", xf86audiolowervolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+          ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+          ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+          ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
           "SHIFT, Print, exec, grimblast copysave screen && mv *.png $HOME/Imagenes/Screenshots/"
           "$mainMod SHIFT, M, exec, vlc /home/ruiz/Musica/* -Z -L --audio --volume= 0.2"
         ];

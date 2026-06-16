@@ -30,6 +30,21 @@
       alejandra
     ];
 
+    #NOTE: anti modo suspender
+    systemd.targets =
+      # CondicionalPortable {
+      #   sleep.enable = true;
+      #   suspend.enable = true;
+      #   hibernate.enable = true;
+      #   hybrid-sleep.enable = true;
+      # } {
+      {
+        sleep.enable = false;
+        suspend.enable = false;
+        hibernate.enable = false;
+        hybrid-sleep.enable = false;
+      };
+
     #NOTE: Video driverspara gpu
     services.xserver.videoDrivers = ["amdgpu"];
     hardware.amdgpu = {

@@ -12,6 +12,11 @@
     imports = [
       self.nixosModules.hardwareLaptop
     ];
+    environment.systemPackages = [
+      self.packages.${pkgs.stdenv.hostPlatform.system}.NVF
+      pkgs.pulseaudio
+      pkgs.brightnessctl
+    ];
     boot.supportedFilesystems = [
       "nfts"
       "exfat"
@@ -24,7 +29,7 @@
       hostName = "nixos";
       stevenblack = {
         enable = true;
-        block = ["porn"];
+        # block = ["porn"];
       };
 
       wireless = {
@@ -40,11 +45,11 @@
       };
       hosts = {
         "0.0.0.0" = [
-          "youtube.com"
-          "www.youtube.com"
-          # "inv.nadeko.net"
-          "www.reddit.com"
-          "olympusbiblioteca.com"
+          # "youtube.com"
+          # "www.youtube.com"
+          # # "inv.nadeko.net"
+          # "www.reddit.com"
+          # "olympusbiblioteca.com"
         ];
       };
     };
@@ -67,6 +72,7 @@
     services.xserver.enable = true;
     services.xserver.xkb = {
       layout = "latam";
+      model = "pc104";
     };
     console.keyMap = "la-latin1";
 
