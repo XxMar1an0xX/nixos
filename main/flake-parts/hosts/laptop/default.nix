@@ -10,7 +10,7 @@
       self.nixosModules.homeManager
       self.nixosModules.SDDM
       self.nixosModules.stylix
-      self.nixosModules.juegos
+      # self.nixosModules.juegos
       self.nixosModules.hardwareTweaks
       self.nixosModules.esenciales
       self.nixosModules.limpieza
