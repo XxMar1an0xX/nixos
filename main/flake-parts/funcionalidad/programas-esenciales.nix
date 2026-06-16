@@ -11,6 +11,9 @@
     # paquetes que no estan como opciones de NixOS
     environment.systemPackages = with pkgs; [
       vlc
+      pulseaudio
+      brightnessctl
+
       # arduino
       # arduino-cli
       # arduino-ide

@@ -81,9 +81,9 @@
             # pkgs.hellotarship
             # starship
 
-            self.packages.x86_64-linux.hashtag
-            self.packages.x86_64-linux.journal
-            self.packages.x86_64-linux.jphand
+            self.packages.${pkgs.stdenv.hostPlatform.system}.hashtag
+            self.packages.${pkgs.stdenv.hostPlatform.system}.journal
+            self.packages.${pkgs.stdenv.hostPlatform.system}.jphand
             pkgs.nerd-fonts.symbols-only
             # # It is sometimes useful to fine-tune packages, for example, by applying
             # # overrides. You can do that directly here, just don't forget the

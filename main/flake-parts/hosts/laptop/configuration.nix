@@ -14,8 +14,6 @@
     ];
     environment.systemPackages = [
       self.packages.${pkgs.stdenv.hostPlatform.system}.NVF
-      pkgs.pulseaudio
-      pkgs.brightnessctl
     ];
     boot.supportedFilesystems = [
       "nfts"

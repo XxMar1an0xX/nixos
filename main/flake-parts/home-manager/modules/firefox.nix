@@ -54,7 +54,7 @@
           default = "Startpage";
         };
         extensions = {
-          packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+          packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
             sponsorblock
             darkreader
             vimium
