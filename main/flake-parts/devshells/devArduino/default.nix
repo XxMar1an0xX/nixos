@@ -27,9 +27,10 @@
           cp -r --symbolic-link --update ${libraryPath}/libraries/* $HOME/Arduino/libraries
           mkdir -p $HOME/.arduino15/packages
           cp -r --symbolic-link --update ${dataPath}/packages/* $HOME/.arduino15/packages
-
-          # cp -f /nix/store/n1y7qz80bwv21hg84wl98mw1wykp7rfk-arduino-data/arduino-cli.yaml $HOME/.arduino15/arduino-cli.yaml
+          export ARDUINO="$HOME/Documentos/Arduino/"
         '';
+      #TODO: se necesita agregar '--board-options FlashMode=dio' para que ande
+      #TODO: el baudrate en editor no se actualiza a otro valor aparte de 9600
     };
   };
 }

@@ -19,8 +19,8 @@
         self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched
       ];
 
-      extraPlugins = {
-        arduino-nvim = {
+      lazy.plugins = {
+        Arduino-Nvim = {
           package = pkgs.vimUtils.buildVimPlugin {
             name = "Arduino-Nvim";
             # src = pkgs.fetchFromGitHub {
@@ -32,21 +32,53 @@
             src = pkgs.fetchFromGitHub {
               owner = "yuukiflow";
               repo = "Arduino-Nvim";
-              rev = "60e7ed08ca2bcf0cd357efb0aa74ae3dd528a83a";
-              hash = "sha256-pQk5bks0oBywnzZcMaime4J3mjpOaG/OUTBv0gVd/gU=";
+              rev = "c9983b5ead3b2ce574d9bcb9708febad0f8ddbd7";
+              hash = "sha256-6Fj4Dy5NdaBecG+lb0XBKL/KFPevJw+Q9Z0wkhByJzY=";
             };
           };
-          setup =
+          # setup =
+          #   /*
+          #   lua
+          #   */
+          #   ''
+          #     -- vim.api.nvim_create_autocmd("FileType", {
+          #     -- 	pattern = "arduino",
+          #     -- 	callback = function()
+          #     -- 		require("Arduino-Nvim")
+          #     -- 	end,
+          #     -- })
+          #     	dir = vim.fn.stdpath("config") .. "/lua/Arduino-Nvim",
+          #     	ft = "arduino",
+          #     	opts = {},
+          #     	dependencies = {
+          #     		"nvim-telescope/telescope.nvim",
+          #     		"neovim/nvim-lspconfig",
+          #     	},
+          #   '';
+          load =
             /*
             lua
             */
             ''
-              vim.api.nvim_create_autocmd("FileType", {
-              	pattern = "arduino",
-              	callback = function()
-              		require("Arduino-Nvim")
-              	end,
-              })
+              return {
+              	dir = vim.fn.stdpath("config") .. "/lua/Arduino-Nvim",
+              	ft = "arduino",
+              	-- opts default values
+              	opts = {
+              		config_file = ".arduino_config.lua", -- filename used to persist the config
+              		board = "arduino:avr:uno", -- target board
+              		port = "/dev/ttyUSB0", -- target port
+              		baudrate = 115200, -- target baudrate
+              		use_default_keymaps = true, -- load default keymaps
+              		use_default_commands = true, -- load default commands
+              		keymaps = {}, -- custom keymaps
+              		picker_backend = "telescope", -- backend to use for user input commands
+              	},
+              	dependencies = {
+              		"nvim-telescope/telescope.nvim",
+              		"neovim/nvim-lspconfig",
+              	},
+              }
             '';
         };
       };
