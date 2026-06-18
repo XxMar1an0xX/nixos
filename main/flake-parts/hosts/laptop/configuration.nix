@@ -24,7 +24,7 @@
     networking = {
       firewall.allowedTCPPorts = [53317 8081 22000];
       firewall.allowedUDPPorts = [53317 8081 22000];
-      hostName = "nixos";
+      hostName = "laptop";
       stevenblack = {
         enable = true;
         # block = ["porn"];
