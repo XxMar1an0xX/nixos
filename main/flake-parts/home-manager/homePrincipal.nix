@@ -82,6 +82,7 @@
             # starship
 
             self.packages.${pkgs.stdenv.hostPlatform.system}.hashtag
+            self.packages.${pkgs.stdenv.hostPlatform.system}.ammys
             self.packages.${pkgs.stdenv.hostPlatform.system}.journal
             self.packages.${pkgs.stdenv.hostPlatform.system}.jphand
             pkgs.nerd-fonts.symbols-only
