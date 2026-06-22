@@ -599,7 +599,7 @@
     };
 
     programs.librewolf = {
-      enable = true;
+      # enable = true;
       languagePacks = ["es-AR"];
 
       policies = {
