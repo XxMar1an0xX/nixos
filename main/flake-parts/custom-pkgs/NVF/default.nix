@@ -19,7 +19,7 @@
           self.modules.nvf.nix
           self.modules.nvf.lspFeatures
           self.modules.nvf.extraLangs
-          self.modules.nvf.arduino
+          # self.modules.nvf.arduino
 
           # {
           #   _module.args = let

@@ -16,6 +16,10 @@
         formatOnSave = true;
         lspconfig.enable = true;
         mappings.format = "<leader>ft";
+        presets = {
+          nixd.enable = true;
+          # harper.enable = true;
+        };
       };
 
       #NOTE: LSP server nixd
@@ -27,7 +31,7 @@
           # nixpkgs.expr = "import <nixpkgs> { }";
           nixos.expr = flake + ".nixosConfigurations.nixos.options";
           home-manager.expr = flake + ".nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
-          nix-on-droid.expr = flake + ".nixOnDroidConfigurations.default.options";
+          # nix-on-droid.expr = flake + ".nixOnDroidConfigurations.default.options";
           # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
         };
       };
@@ -40,10 +44,6 @@
         nix = {
           enable = true;
           extraDiagnostics.enable = true;
-          format = {
-            enable = true;
-            type = ["alejandra"];
-          };
           lsp = {
             enable = true;
             servers = ["nixd"];
@@ -53,6 +53,7 @@
           };
         };
       };
+      diagnostics.presets.deadnix.enable = true;
     };
   };
 }
