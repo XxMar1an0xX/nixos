@@ -107,5 +107,11 @@
       };
       wantedBy = ["multi-user.target"];
     };
+    # system.activationScripts = {
+    #   winapps.text = "firefox --new-window http://127.0.0.1:8006/";
+    # };
+    environment.systemPackages = [
+      inputs.winapps.packages.${pkgs.stdenv.hostPlatform.system}.winapps
+    ];
   };
 }

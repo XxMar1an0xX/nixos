@@ -15,6 +15,7 @@
       self.homeModules.github
       self.homeModules.hyprland
       self.homeModules.kitty
+      self.homeModules.winapps
       # self.homeModules.rofi
       self.homeModules.syncthing
       self.homeModules.waybar
