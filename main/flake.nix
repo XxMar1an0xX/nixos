@@ -61,11 +61,13 @@
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
 
     #NOTE: Sercets nix
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+    inputs = {
+      agenix.url = "github:ryantm/agenix";
+      # optional, not necessary for the module
+      agenix.inputs.nixpkgs.follows = "nixpkgs";
+      # optionally choose not to download darwin deps (saves some resources on Linux)
+      agenix.inputs.darwin.follows = "";
     };
-
     #NOTE: winapps
     winapps = {
       url = "github:winapps-org/winapps";

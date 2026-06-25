@@ -15,6 +15,7 @@
       self.nixosModules.esenciales
       self.nixosModules.limpieza
       self.nixosModules.docker
+      self.nixosModules.agenix
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
     ];
   };
