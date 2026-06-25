@@ -14,6 +14,10 @@
       x = "exit";
       ff = "fastfetch";
       ns = "nix-shell -p ";
+      winoff = "docker compose --file ~/.config/winapps/compose.yaml stop";
+      winon = "docker compose --file ~/.config/winapps/compose.yaml start";
+      winpause = "docker compose --file ~/.config/winapps/compose.yaml pause";
+      winunpause = "docker compose --file ~/.config/winapps/compose.yaml unpause";
     };
     home.packages = [
     ];
