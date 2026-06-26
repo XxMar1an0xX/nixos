@@ -5,7 +5,7 @@
 }: {
   flake.nixosModules.agenix = {pkgs, ...}: {
     imports = [inputs.agenix.nixosModules.default];
-    environment.systemPackages = [inputs.packages.${pkgs.stdenv.hostPlatform.system}.default];
+    environment.systemPackages = [inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default];
 
     #NOTE: openssh keygen
     services.openssh = {
