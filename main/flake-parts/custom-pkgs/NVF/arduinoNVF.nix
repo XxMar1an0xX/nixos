@@ -15,8 +15,8 @@
           # {_module.args = {inherit self';};}
           self.modules.nvf.funcionalidad
           self.modules.nvf.theme
-          # self.modules.nvf.rust
-          # self.modules.nvf.nix
+          self.modules.nvf.rust
+          self.modules.nvf.nix
           self.modules.nvf.lspFeatures
           self.modules.nvf.extraLangs
           self.modules.nvf.arduino

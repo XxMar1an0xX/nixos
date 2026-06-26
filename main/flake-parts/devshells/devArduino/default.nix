@@ -13,7 +13,7 @@
       packages = [
         # pkgs.arduino-cli
         self'.packages.arduinoPatched
-        self'.packages.NVF
+        self'.packages.arduinoNVF
       ];
       shellHook = let
         libraryPath = "${builtins.getAttr "userPath" self'.packages.arduinoPatched}";
