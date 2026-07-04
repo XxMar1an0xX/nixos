@@ -14,8 +14,10 @@
       x = "exit";
       ff = "fastfetch";
       ns = "nix-shell -p ";
-      winoff = "docker compose --file ~/.config/winapps/compose.yaml stop";
-      winon = "docker compose --file ~/.config/winapps/compose.yaml start";
+      # winoff = "docker compose --file ~/.config/winapps/compose.yaml stop";
+      winoff = "sudo systemctl stop docker-compose-winapps-root.target";
+      # winon = "docker compose --file ~/.config/winapps/compose.yaml start";
+      winon = "sudo systemctl start docker-compose-winapps-root.target";
       winpause = "docker compose --file ~/.config/winapps/compose.yaml pause";
       winunpause = "docker compose --file ~/.config/winapps/compose.yaml unpause";
       ww = "winapps windows";
