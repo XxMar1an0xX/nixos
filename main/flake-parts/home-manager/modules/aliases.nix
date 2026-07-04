@@ -18,6 +18,7 @@
       winon = "docker compose --file ~/.config/winapps/compose.yaml start";
       winpause = "docker compose --file ~/.config/winapps/compose.yaml pause";
       winunpause = "docker compose --file ~/.config/winapps/compose.yaml unpause";
+      ww = "winapps windows";
     };
     home.packages = [
     ];
