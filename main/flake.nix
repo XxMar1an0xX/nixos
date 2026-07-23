@@ -60,19 +60,14 @@
     import-tree.url = "github:vic/import-tree";
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
 
-    #NOTE: Sercets nix
-    agenix = {
-      url = "github:ryantm/agenix";
-      # optional, not necessary for the module
-      inputs.nixpkgs.follows = "nixpkgs";
-      # optionally choose not to download darwin deps (saves some resources on Linux)
-      inputs.darwin.follows = "";
-    };
     #NOTE: winapps
     winapps = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #NOTE: sops-nix
+    inputs.sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {...} @ inputs:
