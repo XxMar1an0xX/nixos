@@ -67,7 +67,7 @@
     };
 
     #NOTE: sops-nix
-    inputs.sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {...} @ inputs:
