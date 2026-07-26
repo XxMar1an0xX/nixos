@@ -3,19 +3,25 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.sops = {pkgs, ...}: {
+  flake.nixosModules.sops = {...}: {
     imports = [inputs.sops-nix.nixosModules.sops];
-    environment.systemPackages = [inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default];
+
+    sops = {
+      defaultSopsFile = ./../../../recursos/secrets/secrets.yaml;
+      defaultSopsFormat = "yaml";
+      age.keyFile = "/home/ruiz/.config/sops/age/keys.txt";
+      secrets.example-key = {};
+    };
 
     #NOTE: openssh keygen
-    services.openssh = {
-      enable = true;
-      hostKeys = [
-        {
-          type = "ed25519";
-          path = "/etc/ssh/ssh_host_ed25519_key";
-        }
-      ];
-    };
+    # services.openssh = {
+    #   enable = true;
+    #   hostKeys = [
+    #     {
+    #       type = "ed25519";
+    #       path = "/etc/ssh/ssh_host_ed25519_key";
+    #     }
+    #   ];
+    # };
   };
 }
