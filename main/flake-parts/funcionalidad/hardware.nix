@@ -5,6 +5,7 @@
 }: {
   flake.nixosModules.hardwareTweaks = {config, ...}: {
     boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "sd_mod"];
+    boot.kernelModules = ["iwlwifi"];
 
     #TODO: este pkg esta roto
     # boot.extraModulePackages = [config.boot.kernelPackages.rtl8192eu]; #NOTE: esto deberia hacer andar el adaptador tplink
