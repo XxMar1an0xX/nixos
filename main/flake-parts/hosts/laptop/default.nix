@@ -16,6 +16,7 @@
       self.nixosModules.limpieza
       self.nixosModules.docker
       self.nixosModules.sops
+      self.nixosModules.commonconfig
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
     ];
   };

@@ -16,6 +16,8 @@
       self.nixosModules.limpieza
       self.nixosModules.docker
       self.nixosModules.sops
+      self.nixosModules.commonconfig
+
       {
         environment.systemPackages = [
           self.packages."x86_64-linux".NVF
