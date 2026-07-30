@@ -10,7 +10,9 @@
       defaultSopsFile = ./../../../recursos/secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
       age.keyFile = "/home/ruiz/.config/sops/age/keys.txt";
-      secrets.github_token = {};
+      secrets.github_token = {
+        owner = "ruiz";
+      };
     };
 
     environment.sessionVariables = {
