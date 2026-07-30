@@ -16,7 +16,7 @@
     };
 
     environment.sessionVariables = {
-      GH_TOKEN = "$(<${config.sops.secrets.github-token.path})";
+      GH_TOKEN = "$(<${config.sops.secrets.github_token.path})";
     };
 
     #NOTE: openssh keygen
