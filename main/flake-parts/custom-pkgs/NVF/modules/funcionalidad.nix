@@ -75,9 +75,9 @@
         toggleterm = {
           enable = true;
           lazygit.enable = true;
-          mappings = {
-            open = "<leader>t";
-          };
+          # mappings = {
+          #   open = "<leader>t";
+          # };
           setupOpts = {
             insert_mappings = true;
             terminal_mappings = true;
