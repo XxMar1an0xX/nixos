@@ -51,7 +51,7 @@
       };
       starship = {
         enable = true;
-        enableBashIntegration = true;
+        # enableBashIntegration = true;
         # settings = lib.mkForce (builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub {
         #     owner = "fredericrous";
         #     repo = "dotfiles";

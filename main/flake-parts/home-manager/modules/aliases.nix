@@ -3,12 +3,12 @@
   inputs,
   ...
 }: {
-  flake.homeModules.aliases = {
+  flake.homeModules.aliases = {config, ...}: {
     home.shellAliases = {
       haziso = "nix run nixpkgs#nixos-generators -- --format iso --flake $NH_FLAKE#portable -o laptop";
       rephm = "sudo nixos-rebuild switch --flake $NH_FLAKE";
       rdev = "cd Documentos/Rust/Rust/";
-      ds = "nix-on-droid switch --flake $HOME/nixos/main/";
+      ds = "nix-on-droid switch --flake $CONFIG";
       nc = "cd $HOME/nixos/main/ && git pull --no-edit && vi . && cd $HOME";
       ".." = "cd ..";
       x = "exit";
@@ -21,6 +21,8 @@
       winpause = "docker compose --file ~/.config/winapps/compose.yaml pause";
       winunpause = "docker compose --file ~/.config/winapps/compose.yaml unpause";
       ww = "winapps windows";
+
+      nh = "nh os switch --hostname $HOST";
     };
     home.packages = [
     ];

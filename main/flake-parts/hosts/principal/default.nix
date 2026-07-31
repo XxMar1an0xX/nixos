@@ -7,7 +7,6 @@
     modules = [
       self.nixosModules.configPrincipal
       self.nixosModules.bootMenu
-      self.nixosModules.homeManager
       self.nixosModules.SDDM
       self.nixosModules.stylix
       self.nixosModules.juegos

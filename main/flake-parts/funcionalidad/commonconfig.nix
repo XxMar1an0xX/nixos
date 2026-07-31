@@ -13,36 +13,37 @@
       alejandra
     ];
 
+    #TODO: deberia investigar que hacen estas opciones...
     services.xserver.enable = true;
     qt.enable = true;
     hardware.graphics.enable = true;
 
-    # Enable networking
+    #NOTE: networking
     networking = {
       firewall.allowedTCPPorts = [53317 8081 22000];
       firewall.allowedUDPPorts = [53317 8081 22000];
-      hostName = "laptop";
       stevenblack = {
         enable = true;
         block = ["porn"];
       };
       networkmanager = {
         enable = true;
+        wifi.macAddress = "random";
       };
       hosts = {
         "0.0.0.0" = [
-          "youtube.com"
-          "www.youtube.com"
-          "inv.nadeko.net"
+          # "youtube.com"
+          # "www.youtube.com"
+          # "inv.nadeko.net"
           "www.reddit.com"
           "olympusbiblioteca.com"
         ];
       };
     };
 
+    #NOTE: defaults de hora, lugar y teclado
     # Set your time zone.
     time.timeZone = "America/Argentina/Tucuman";
-
     # Select internationalisation properties.
     i18n.defaultLocale = "es_AR.UTF-8";
     i18n.extraLocaleSettings = {
@@ -56,7 +57,6 @@
       LC_TELEPHONE = "es_AR.UTF-8";
       LC_TIME = "es_AR.UTF-8";
     };
-
     console.keyMap = "la-latin1";
 
     #NOTE: impresoras
@@ -83,6 +83,7 @@
       ];
     };
 
+    #NOTE: no me acuerdo que hacia avahi...
     services.avahi = {
       enable = true;
       nssmdns4 = true;
@@ -119,8 +120,26 @@
       #NOTE: nunca olvidar password
     };
 
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
+    #NOTE: home-manager config
+    imports = [
+      inputs.home-manager.nixosModules.default
+      # self.nixosModules.homeconfigPrincipal
+    ];
+    home-manager = {
+      backupFileExtension = "ahfdsawenciu";
+      extraSpecialArgs = {
+        inherit inputs;
+        inherit self;
+        inherit config;
+        users = {
+          "ruiz" = {
+            imports = [self.homeModules.homeModules];
+          };
+        };
+
+        useGlobalPkgs = true;
+      };
+    };
 
     #NOTE: Hyprland
     programs.hyprland = {
@@ -147,5 +166,7 @@
 
     #NOTE: habilitar flakes
     nix.settings.experimental-features = ["nix-command" "flakes"];
+    # Allow unfree packages
+    nixpkgs.config.allowUnfree = true;
   };
 }
