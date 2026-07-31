@@ -3,14 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixOndroidModules.configprincipal = {
-    config,
-    lib,
-    pkgs,
-    # inputs,
-    # rust-overlay,
-    ...
-  }: {
+  flake.nixOndroidModules.configprincipal = {pkgs, ...}: {
     # Simply install just the packages
     imports = [
       # ./../../modulos/nixconfig/Estetica/stylix.nix
