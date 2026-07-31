@@ -30,12 +30,12 @@
           silent = true;
           action = ":Neotree toggle<CR>";
         }
-        {
-          key = "<leader>t";
-          mode = "t";
-          silent = true;
-          action = "exit \n";
-        }
+        # {
+        #   key = "<leader>t";
+        #   mode = "t";
+        #   silent = true;
+        #   action = "exit \n";
+        # }
         # {
         #   key = "<Esc>";
         #   mode = "t";
