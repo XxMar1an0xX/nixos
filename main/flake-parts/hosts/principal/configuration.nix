@@ -39,6 +39,8 @@
       overdrive.enable = true;
     };
 
+    networking.hostName = config.system.nixos.distroId;
+
     system.stateVersion = "24.11"; # Did you read the comment?
   };
 }

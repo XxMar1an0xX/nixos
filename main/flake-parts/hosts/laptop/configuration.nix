@@ -22,6 +22,7 @@
     };
 
     networking = {
+      hostName = "laptop";
       networkmanager = {
         wifi.powersave = true;
         unmanaged = ["*-foo-bar"];
