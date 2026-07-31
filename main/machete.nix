@@ -36,17 +36,11 @@
     }
     + "/dotfiles/config/starship.toml");
 
-  #NOTE: fetch un directorio entero
-  # fetchTree #NOTE: puede ser util
-  # {
-  #   type = "github";
-  #   owner = "akshat46";
-  #   repo = "FlyingFox";
-  #   # dir = "chrome";
-  #   rev = "4a6ba46cafc189ad628ee13bb8d3eef3e69fbced";
-  # };
-  # recursive = true;
-  # };
+  #NOTE: Asi se lee y fetch un archivo remoto
+  # ".config/starship.toml".text = builtins.readFile (pkgs.fetchFromGitLab {
+  #     owner = "pinage404";
+  #     repo = "dotfiles";
+  #     rev = "3b767b3ac29cf33221a8f25642c3c433bfc95b84";
 
   #       #NOTE: prueba de login:
   #       # sddm-greeter-qt6 --test-mode --theme /run/current-system/sw/share/sddm/themes/sddm-astronaut-theme
@@ -64,6 +58,18 @@
   #NOTE: comando para instalas nixos es:
   # sudo nixos-rebuild switch --flake github:XxMar1an0xX/nixos?dir=main --extra-experimental-features 'nix-command flakes'
   #NOTE: para hacer que fetche lo mas nuevo es: --option tarball-ttl 0
+
+  #NOTE: puede ser util para fetchear directorios
+  # fetchTree
+  # {
+  #   type = "github";
+  #   owner = "akshat46";
+  #   repo = "FlyingFox";
+  #   # dir = "chrome";
+  #   rev = "4a6ba46cafc189ad628ee13bb8d3eef3e69fbced";
+  # };
+  #   recursive = true;
+  # };
 }
 #NOTE
 
