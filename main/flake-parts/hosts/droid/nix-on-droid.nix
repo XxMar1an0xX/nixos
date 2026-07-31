@@ -67,7 +67,10 @@
 
     # Configure home-manager
     home-manager = {
-      config = self.homeModules.homeDroid;
+      # config = self.homeModules.homeDroid;
+      config = {
+        home.stateVersion = "24.05";
+      };
       backupFileExtension = "hm-bak";
       # useGlobalPkgs = true;
       useGlobalPkgs = false;

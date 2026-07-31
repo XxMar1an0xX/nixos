@@ -43,7 +43,7 @@
       #  enable = true;
     };
     programs.bash = {
-      # enable = true;
+      enable = true;
       initExtra = "fastfetch";
     };
 
