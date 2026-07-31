@@ -54,7 +54,7 @@
         };
         wifi-security = {
           key-mgmt = "wpa-psk";
-          psk = "$(cat ${config.sops.secrets."wifi/armor".path})";
+          psk = "$(<${config.sops.secrets."wifi/armor".path})";
         };
 
         ipv4.method = "auto";
