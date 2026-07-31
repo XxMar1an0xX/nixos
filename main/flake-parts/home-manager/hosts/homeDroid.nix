@@ -11,9 +11,9 @@
     ...
   }: {
     imports = [
-      self.homeModules.fastfetch
-      self.homeModules.github
-      self.homeModules.aliases
+      # self.homeModules.fastfetch
+      # self.homeModules.github
+      # self.homeModules.aliases
       # self.homeModules.config-cortas
       # ./../../modulos/home-manager/stylix-hm.nix
     ];
