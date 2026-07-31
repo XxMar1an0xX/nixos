@@ -77,12 +77,12 @@
       };
       backupFileExtension = "hm-bak";
       # useGlobalPkgs = true;
-      useGlobalPkgs = false;
+      # useGlobalPkgs = false;
       extraSpecialArgs = {
         # inherit pkgs;
         # inherit rust-overlay;
-        inherit lib;
-        inherit inputs;
+        # inherit lib;
+        # inherit inputs;
         # inherit nvf;
       };
     };
