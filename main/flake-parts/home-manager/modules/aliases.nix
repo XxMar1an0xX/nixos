@@ -22,7 +22,7 @@
       winunpause = "docker compose --file ~/.config/winapps/compose.yaml unpause";
       ww = "winapps windows";
 
-      nh = "nh os switch --hostname $HOST";
+      nha = "nh os switch --hostname $HOST";
     };
     home.packages = [
     ];

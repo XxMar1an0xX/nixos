@@ -18,7 +18,6 @@
     ];
     fonts.fontconfig.enable = true;
     home.sessionVariables = {
-      # EDITOR = "emacs";
       EDITOR = "nvim";
       BROWSER = "librewolf";
       TERMINAL = "kitty";

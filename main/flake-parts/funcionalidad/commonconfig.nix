@@ -123,22 +123,19 @@
     #NOTE: home-manager config
     imports = [
       inputs.home-manager.nixosModules.default
-      # self.nixosModules.homeconfigPrincipal
     ];
     home-manager = {
       backupFileExtension = "ahfdsawenciu";
       extraSpecialArgs = {
         inherit inputs;
-        inherit self;
-        inherit config;
-        users = {
-          "ruiz" = {
-            imports = [self.homeModules.homeModules];
-          };
-        };
-
-        useGlobalPkgs = true;
+        #NOTE: inherit config; DOES NOT WORK
       };
+      users = {
+        ruiz = {
+          imports = [self.homeModules.homeManager];
+        };
+      };
+      useGlobalPkgs = true;
     };
 
     #NOTE: Hyprland
