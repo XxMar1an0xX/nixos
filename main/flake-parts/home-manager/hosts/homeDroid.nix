@@ -7,7 +7,7 @@
   flake.homeModules.homeDroid = {
     pkgs,
     # nvf,
-    lib,
+    # lib,
     ...
   }: {
     imports = [
@@ -63,7 +63,7 @@
       #   }
       #   + "/private_dot_config/starship.toml")));
       # # + "/dotfiles/config/starship.toml")));
-      settings = lib.mkForce (builtins.fromTOML (builtins.readFile ./../../recursos/starship.toml));
+      settings = pkgs.lib.mkForce (builtins.fromTOML (builtins.readFile ./../../recursos/starship.toml));
     };
     # systemd.user.services.fastfetch = {
     #   Unit = {
