@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  flake.nixOndroidModules.configprincipal = {pkgs, ...}: {
+  flake.nixOndroidModules.configprincipal = {
+    pkgs,
+    lib,
+    ...
+  }: {
     # Simply install just the packages
     imports = [
       # ./../../modulos/nixconfig/Estetica/stylix.nix
@@ -77,7 +81,7 @@
       extraSpecialArgs = {
         # inherit pkgs;
         # inherit rust-overlay;
-        # inherit lib;
+        inherit lib;
         inherit inputs;
         # inherit nvf;
       };
