@@ -98,6 +98,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
     };
 
     #NOTE: secret(?)
@@ -157,9 +158,25 @@
       enable = true;
       wlr.enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
+        # xdg-desktop-portal-wlr
+        # xdg-desktop-portal-luminous
+        xdg-desktop-portal-hyprland
       ];
+      xdgOpenUsePortal = true;
+      # config = {};
     };
+    environment.etc."xdg-desktop-portal/portals.conf".text = ''
+      [preferred]
+      default=hyprland;gtk
+      org.freedesktop.impl.portal.ScreenCast=hyprland
+      org.freedesktop.impl.portal.Screenshot=hyprland
+    '';
+
+    #NOTE: rustdesk
+    # services.rustdesk-server = {
+    #   enable = true;
+    #   openFirewall = true;
+    # };
 
     #NOTE: habilitar flakes
     nix.settings.experimental-features = ["nix-command" "flakes"];

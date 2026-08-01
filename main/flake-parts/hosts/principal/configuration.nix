@@ -40,7 +40,7 @@
     };
 
     environment.sessionVariables = {
-      HOST = "nixos";
+      HOLA = "nixos";
     };
 
     networking.hostName = "nixos";
