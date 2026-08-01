@@ -5,7 +5,7 @@
 }: {
   flake.nixOndroidModules.configprincipal = {
     pkgs,
-    lib,
+    # lib,
     ...
   }: {
     # Simply install just the packages
@@ -81,7 +81,7 @@
       extraSpecialArgs = {
         # inherit pkgs;
         # inherit rust-overlay;
-        inherit lib;
+        # inherit lib;
         inherit inputs;
         # inherit nvf;
       };
