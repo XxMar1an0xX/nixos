@@ -21,9 +21,11 @@
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-droid";
-      inputs.home-manager.follows = "home-manager";
+      inputs.home-manager = {
+        url = "home-manager";
+        inputs.nixpkgs.follows = "nixpkgs-droid";
+      };
     };
-    nixai.url = "github:olafkfreund/nix-ai-help";
 
     minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
