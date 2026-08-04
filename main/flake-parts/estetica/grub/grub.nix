@@ -27,8 +27,8 @@
         # extraEntries = ''
         # '';
         useOSProber = true;
-        gfxmodeEfi = "1984x1020";
-        gfxmodeBios = "1984x1020";
+        # gfxmodeEfi = "1984x1020";
+        # gfxmodeBios = "1984x1020";
         minegrub-world-sel = {
           enable = true;
           customIcons = [{}];

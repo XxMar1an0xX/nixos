@@ -289,8 +289,10 @@
           # "HDMI-A-1, modeline 168.28 1984 2104 2320 2656 1020 1021 1024 1056 -HSync +Vsync, 0x0, 1"
           # "HDMI-A-1, 1920x1080@60, 0x0, 1"
           [
-            #NOTE: este es el caso de escritorio (normal)
-            "HDMI-A-1, 1984x1020@60, 0x0, 1, cm, srgb"
+            # #NOTE: este es el caso de escritorio (normal)
+            # "HDMI-A-1, 1984x1020@60, 0x0, 1, cm, srgb"
+            # "HDMI-A-1, 1984x1020@60, 0x0, 1, cm, srgb"
+            "DP-1, highres@180, 0x0, 1"
           ];
         render = {
           cm_enabled = "true";

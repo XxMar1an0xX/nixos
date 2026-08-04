@@ -145,6 +145,9 @@
       xwayland.enable = true;
     };
     programs.hyprlock.enable = true;
+    hardware.display.edid = {
+      enable = true;
+    };
 
     #NOTE: fuentes
     fonts.packages = with pkgs; [
