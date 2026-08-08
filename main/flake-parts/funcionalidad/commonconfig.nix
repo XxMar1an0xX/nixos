@@ -21,7 +21,7 @@
     #NOTE: networking
     networking = {
       firewall.allowedTCPPorts = [53317 8081 22000];
-      firewall.allowedUDPPorts = [53317 8081 22000];
+      firewall.allowedUDPPorts = [53 67 53317 8081 22000];
       stevenblack = {
         enable = true;
         block = ["porn"];
@@ -40,6 +40,7 @@
         ];
       };
     };
+    networking.firewall.checkReversePath = "loose";
 
     #NOTE: defaults de hora, lugar y teclado
     # Set your time zone.
