@@ -24,11 +24,10 @@
       volumes = [
         "invidious_companioncache:/var/tmp/youtubei.js:rw"
       ];
+      log-driver = "journald";
       autoStart = false;
       extraOptions = [
         "--cap-drop=ALL"
-        # "--log-opt=max-file=4"
-        # "--log-opt=max-size=1G"
         "--network-alias=companion"
         "--network=invidious_default"
         "--security-opt=no-new-privileges:true"
@@ -81,14 +80,13 @@
       dependsOn = [
         "invidious-invidious-db"
       ];
+      log-driver = "journald";
       autoStart = false;
       extraOptions = [
         "--health-cmd=wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/stats || exit 1"
         "--health-interval=30s"
         "--health-retries=2"
         "--health-timeout=5s"
-        "--log-opt=max-file=4"
-        "--log-opt=max-size=1G"
         "--network-alias=invidious"
         "--network=invidious_default"
       ];
