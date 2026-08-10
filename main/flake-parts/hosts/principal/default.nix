@@ -13,7 +13,7 @@
       self.nixosModules.hardwareTweaks
       self.nixosModules.esenciales
       self.nixosModules.limpieza
-      self.nixosModules.docker
+      self.nixosModules.winapps
       self.nixosModules.sops
       self.nixosModules.commonconfig
 
