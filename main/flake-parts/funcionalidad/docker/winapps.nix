@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.docker = {
+  flake.nixosModules.winapps = {
     pkgs,
     lib,
     ...
