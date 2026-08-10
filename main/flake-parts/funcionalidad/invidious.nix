@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.invidious = {config, ...}: {
+  flake.nixosModules.ainvidious = {config, ...}: {
     #TODO: NO FUNCIONA INVIDIOUSU
     # services.invidious = CondicionalPortable {} {
     #   # enable = false;
@@ -34,8 +34,9 @@
     # };
 
     services.invidious = {
-      enable = true;
-      port = 8001;
+      # enable = true;
+      # # port = 3080;
+      # domain = "invidious.ruiz.ar";
       # sig-helper = {
       #   enable = true;
       #   listenAddress = "8001";
@@ -43,7 +44,7 @@
       # nginx.enable = true;
       # http3-ytproxy.enable = true;
     };
-    networking.firewall.allowedTCPPorts = [config.services.invidious.port 2999];
+    networking.firewall.allowedTCPPorts = [config.services.invidious.port];
     networking.firewall.allowedUDPPorts = [config.services.invidious.port];
   };
 }

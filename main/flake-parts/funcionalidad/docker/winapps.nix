@@ -12,6 +12,7 @@
     virtualisation.docker = {
       enable = true;
       autoPrune.enable = true;
+      daemon.settings = {"log-driver" = "journald";};
     };
     virtualisation.oci-containers.backend = "docker";
     users.users.ruiz.extraGroups = ["docker"];
