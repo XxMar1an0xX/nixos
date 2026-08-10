@@ -26,7 +26,7 @@
                   cd $HOME/Rust
                   git pull --no-edit
           fi
-          cd $HOME/nixos/main/
+          cd $HOME/Rust
         '';
     };
   };
