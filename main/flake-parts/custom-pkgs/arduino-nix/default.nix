@@ -42,8 +42,10 @@
         packages = with pkgs.arduinoPackages; [
           #NOTE: es platforms.${packages_name}.${architecture}.${version}
           platforms.arduino.avr."1.8.7"
+          # platforms.arduino.avr."1.8.8"
           # platforms.rp2040.rp2040."2.3.3"
           platforms.esp32.esp32."3.3.7"
+          # platforms.esp32.esp32."3.3.11"
         ];
       };
     # .overrideAttrs (old: {
