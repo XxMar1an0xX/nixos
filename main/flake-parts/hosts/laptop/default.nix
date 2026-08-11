@@ -16,7 +16,7 @@
       self.nixosModules.winapps
       self.nixosModules.sops
       self.nixosModules.commonconfig
-      self.nixosModules.invidious
+      # self.nixosModules.invidious
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
     ];
   };

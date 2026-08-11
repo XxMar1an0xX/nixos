@@ -16,6 +16,7 @@
       self.nixosModules.winapps
       self.nixosModules.sops
       self.nixosModules.commonconfig
+      self.nixosModules.invidious
 
       {
         environment.systemPackages = [
