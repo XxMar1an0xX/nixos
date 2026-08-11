@@ -40,6 +40,7 @@
         "127.0.0.1:3389:3389/udp"
       ];
       log-driver = "journald";
+      autoStart = false;
       extraOptions = [
         "--cap-add=NET_ADMIN"
         "--device=/dev/kvm:/dev/kvm:rwm"
