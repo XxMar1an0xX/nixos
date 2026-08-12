@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.diskoConfigurations.diskolaptop = {...}: {
+  flake.diskoConfigurations.laptop = {...}: {
     # imports = [inputs.disko.nixosModules.disko];
     disko.devices.disk.main = {
       type = "disk";

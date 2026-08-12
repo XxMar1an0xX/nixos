@@ -17,7 +17,7 @@
       self.nixosModules.sops
       self.nixosModules.commonconfig
       self.nixosModules.invidious
-      self.diskoConfigurations.diskolaptop
+      # self.diskoConfigurations.laptop
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
     ];
   };
