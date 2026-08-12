@@ -4,7 +4,7 @@
   ...
 }: {
   flake.nixosModules.configLaptop = {
-    modulesPath,
+    lib,
     config,
     pkgs,
     ...
@@ -46,6 +46,18 @@
       };
     };
     services.blueman.enable = true;
+
+    #NOTE: reemplazo de hardware nix
+    boot = {
+      initrd.availableKernelModules = ["xhci_pci" "ahci" "sd_mod" "sdhci_pci"];
+      initrd.kernelModules = [];
+      kernelModules = ["kvm-intel"];
+      extraModulePackages = [];
+    };
+    networking.useDHCP = lib.mkDefault true;
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+    hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    swapDevices = [];
 
     environment.sessionVariables = {
       HOST = "laptop";

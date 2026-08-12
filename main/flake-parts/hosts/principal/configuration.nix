@@ -40,8 +40,14 @@
     };
 
     environment.sessionVariables = {
-      HOLA = "nixos";
+      HOST = "nixos";
     };
+
+    #NOTE: hardware.nix replacement
+    boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "uas" "sd_mod"];
+    boot.initrd.kernelModules = [];
+    boot.kernelModules = ["kvm-intel"];
+    boot.extraModulePackages = [];
 
     networking.hostName = "nixos";
 

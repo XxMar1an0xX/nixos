@@ -70,6 +70,10 @@
 
     #NOTE: sops-nix
     sops-nix.url = "github:Mic92/sops-nix";
+
+    #NOTE: disko, patiticones declarativas
+    inputs.disko.url = "github:nix-community/disko/latest";
+    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {...} @ inputs:
