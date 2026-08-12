@@ -10,7 +10,7 @@
     ...
   }: {
     imports = [
-      self.nixosModules.hardwareLaptop
+      # self.nixosModules.hardwareLaptop
     ];
     environment.systemPackages = [
       self.packages.${pkgs.stdenv.hostPlatform.system}.NVF
