@@ -25,6 +25,12 @@
           user = "invidious";
         };
 
+        default_user_preferences = {
+          "quality" = "dash";
+          "quality_dash" = "1080p";
+          "locale" = "es";
+        };
+
         check_tables = true;
 
         invidious_companion = [

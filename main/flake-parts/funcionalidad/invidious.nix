@@ -44,7 +44,7 @@
       # nginx.enable = true;
       # http3-ytproxy.enable = true;
     };
-    networking.firewall.allowedTCPPorts = [config.services.invidious.port];
-    networking.firewall.allowedUDPPorts = [config.services.invidious.port];
+    # networking.firewall.allowedTCPPorts = [config.services.invidious.port];
+    # networking.firewall.allowedUDPPorts = [config.services.invidious.port];
   };
 }
