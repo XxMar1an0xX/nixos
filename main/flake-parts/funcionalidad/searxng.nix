@@ -4,6 +4,8 @@
   ...
 }: {
   flake.nixosModules.searxng = {pkgs, ...}: {
+    #NOTE: searxng estara disponible en:
+    # http://127.0.0.1:5050/
     environment.systemPackages = with pkgs; [
       searxng
     ];
