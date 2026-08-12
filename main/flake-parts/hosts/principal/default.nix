@@ -17,6 +17,7 @@
       self.nixosModules.sops
       self.nixosModules.commonconfig
       self.nixosModules.invidious
+      self.nixosModules.searxng
 
       {
         environment.systemPackages = [
