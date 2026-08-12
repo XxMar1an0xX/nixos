@@ -80,14 +80,20 @@
               "Home-Manager" = {
                 urls = [
                   {
-                    template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-25.05";
+                    template = "https://home-manager-options.extranix.com/?query={searchTerms}";
                   }
                 ];
                 icon = "https://avatars.githubusercontent.com/u/33221035?s=48&v=4";
                 definedAliases = ["@hm"];
               };
+              "Searxng" = {
+                urls = [
+                  {template = "http://127.0.0.1:5050/search?q={searchTerms}";}
+                ];
+                definedAliases = ["@sx"];
+              };
             };
-            default = "Startpage";
+            default = "Searxng";
           };
           extensions = {
             packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
@@ -397,6 +403,11 @@
                 name = "Nix Config Repo";
                 url = "https://github.com/XxMar1an0xX/nixos";
                 keyword = "repo";
+              }
+              {
+                name = "invidious instance";
+                url = "http://127.0.0.1:3000";
+                keyword = "inv";
               }
               {
                 name = "Nix Leaning";
