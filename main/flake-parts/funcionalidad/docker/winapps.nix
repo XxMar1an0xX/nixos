@@ -8,6 +8,9 @@
     lib,
     ...
   }: {
+    #NOTE: en la primera activacion abrir en navegador: http://127.0.0.1:8006/
+    #para instalar windows
+
     # Runtime
     virtualisation.docker = {
       enable = true;
@@ -110,8 +113,6 @@
       };
       wantedBy = [];
     };
-    #NOTE: en la primera activacion abrir en navegador: http://127.0.0.1:8006/
-    #para instalar windows
     environment.systemPackages = [
       inputs.winapps.packages.${pkgs.stdenv.hostPlatform.system}.winapps
       inputs.winapps.packages.${pkgs.stdenv.hostPlatform.system}.winapps-launcher
