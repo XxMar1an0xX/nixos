@@ -14,7 +14,7 @@
         type = "gpt";
 
         partitions = {
-          boot = {
+          ESP = {
             size = "1G";
             type = "EF00";
 
