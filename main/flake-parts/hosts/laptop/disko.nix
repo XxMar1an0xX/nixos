@@ -4,7 +4,7 @@
   ...
 }: {
   flake.diskoConfigurations.laptop = {...}: {
-    # imports = [inputs.disko.nixosModules.disko];
+    imports = [inputs.disko.nixosModules.disko];
     disko.devices.disk.main = {
       type = "disk";
       #NOTE: esto es MUY sensitivo a cualquier cambio en el disco, cambiar con cuidado
