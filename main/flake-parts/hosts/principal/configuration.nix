@@ -17,6 +17,10 @@
       self.nixosModules.hardwarePrincipal
     ];
 
+    environment.systemPackages = [
+      self.packages."${pkgs.stdenv.hostPlatform.system}".NVF
+    ];
+
     #NOTE: Video driverspara gpu
     services.xserver.videoDrivers = ["amdgpu"];
     services.xserver.xkb = {

@@ -18,14 +18,6 @@
       self.nixosModules.commonconfig
       self.nixosModules.invidious
       self.nixosModules.searxng
-
-      {
-        environment.systemPackages = [
-          self.packages."x86_64-linux".NVF
-          # self.packages."x86_64-linux".arduino
-        ];
-        fonts.packages = [];
-      }
     ];
   };
 }
