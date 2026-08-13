@@ -72,7 +72,7 @@
   # };
 
   #NOTE: comando para deploy laptop desde entorno de instalacion:
-  #  sudo nix --extra-experimental-features 'nix-command flakes' run 'github:nix-community/disko/latest#disko-install' -- --write-efi-boot-entries --flake 'github:XxMar1an0xX/nixos?dir=main#nixos' --disk main /dev/sda
+  #  sudo nix --extra-experimental-features 'nix-command flakes' run 'github:nix-community/disko/latest#disko-install' -- --write-efi-boot-entries --flake 'github:XxMar1an0xX/nixos?dir=main#laptop' --disk main /dev/sda
 
   #NOTE: testeo del flake:
   # nix flake check --print-build-logs --all-systems $CONFIG
