@@ -76,6 +76,9 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #NOTE: devenv
+    devenv.url = "github:cachix/devenv";
   };
 
   outputs = {...} @ inputs:
