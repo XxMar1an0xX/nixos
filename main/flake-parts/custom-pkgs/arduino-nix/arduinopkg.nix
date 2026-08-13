@@ -17,8 +17,7 @@
         (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_rp2040_index.json"))
         (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_esp32_index.json"))
         (inputs.arduino-nix.mkArduinoLibraryOverlay (inputs.arduino-index + "/index/library_index.json"))
-
-        inputs.rust-overlay.overlays.default
+        # inputs.rust-overlay.overlays.default
       ];
       config = {
         allowUnfree = true;

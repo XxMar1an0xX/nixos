@@ -3,12 +3,12 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.grubConfig = {
-    config,
-    lib,
-    EsPortable,
-    ...
-  }: {
+  flake.nixosModules.bootMenu = {lib, ...}: {
+    imports = [
+      # self.nixosModules.grubConfig
+      inputs.minegrub-world-sel-theme.nixosModules.default
+    ];
+
     boot.kernelParams = [
       "modules_blacklist=ntfs3"
     ];
