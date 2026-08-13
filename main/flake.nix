@@ -87,6 +87,7 @@
         inputs.flake-parts.flakeModules.modules
         inputs.home-manager.flakeModules.home-manager
         inputs.disko.flakeModules.default
+        inputs.devenv.flakeModule
         (inputs.import-tree ./flake-parts)
       ];
       systems = ["x86_64-linux" "aarch64-linux"];

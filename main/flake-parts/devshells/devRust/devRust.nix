@@ -9,12 +9,15 @@
     ...
   }: {
     #TODO: este es dependiente del overlay definido en arduino-nix
-    devShells.devRust = pkgs.mkShell {
-      buildInputs = [
-        pkgs.rust-bin.stable.latest.default
+    devenv.shells.devRust = pkgs.mkShell {
+      packages = [
+        # pkgs.rust-bin.stable.latest.default
         self'.packages.NVF
       ];
-      shellHook =
+      languages.rust = {
+        enable = true;
+      };
+      enterShell =
         /*
         bash
         */
