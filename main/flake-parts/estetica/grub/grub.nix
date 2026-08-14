@@ -54,7 +54,7 @@ in {
             if [theme != $prefix/themes/minegrub/theme.txt] && [hola == 0]; then
             set hola=1
             export hola
-            configfile($drive1)//grub/mainmenu.cfg
+            configfile ($drive1)//grub/mainmenu.cfg
             fi
 
             set theme=($drive1)//grub/themes/minegrub-world-selection/theme.txt
