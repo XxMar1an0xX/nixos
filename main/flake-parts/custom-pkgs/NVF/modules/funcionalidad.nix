@@ -30,12 +30,18 @@
           silent = true;
           action = ":Neotree toggle<CR>";
         }
-        # {
-        #   key = "<leader>t";
-        #   mode = "t";
-        #   silent = true;
-        #   action = "exit \n";
-        # }
+        {
+          key = "<leader>ha";
+          mode = "n";
+          silent = true;
+          action = ":HopAnywhere<CR>";
+        }
+        {
+          key = "<leader>hl";
+          mode = "n";
+          silent = true;
+          action = ":HopLineStart<CR>";
+        }
         # {
         #   key = "<Esc>";
         #   mode = "t";
@@ -142,7 +148,7 @@
 
         motion = {
           #NOTE: hop tiene potencial per o aun no
-          # hop.enable = true;
+          hop.enable = true;
 
           #NOTE: muchisimo potencial pero se tiene que aprender
           # leap.enable = true;

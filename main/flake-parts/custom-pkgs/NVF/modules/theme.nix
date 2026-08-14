@@ -17,7 +17,7 @@
             lua
             */
             ''
-              require('nightfox').setup {}
+              require("nightfox").setup({})
               vim.cmd("colorscheme nordfox")
             '';
         };
@@ -100,7 +100,6 @@
         colorizer.enable = true;
         # illuminate.enable = true;
         # fastaction.enable = true;
-        #TODO: aprender a usar navbuddy
         # breadcrumbs = {
         #   enable = true;
         #   navbuddy.enable = true;
