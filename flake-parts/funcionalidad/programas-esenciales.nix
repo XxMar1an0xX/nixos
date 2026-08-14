@@ -132,7 +132,7 @@
     #NOTE: nix-helper
     programs.nh = {
       enable = true;
-      flake = "/home/ruiz/nixos/main";
+      flake = "/home/ruiz/nixos";
     };
     #NOTE: ADB, android debug bridge
     # programs.adb = {

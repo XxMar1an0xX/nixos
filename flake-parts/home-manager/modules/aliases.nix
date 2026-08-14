@@ -9,7 +9,7 @@
       rephm = "sudo nixos-rebuild switch --flake $NH_FLAKE#$HOST";
       rdev = "cd Documentos/Rust/Rust/";
       ds = "nix-on-droid switch --flake $CONFIG";
-      nc = "cd $HOME/nixos/main/ && git pull --no-edit && vi . && cd $HOME";
+      nc = "cd $HOME/nixos && git pull --no-edit && vi . && cd $HOME";
       ".." = "cd ..";
       x = "exit";
       ff = "fastfetch";
@@ -30,8 +30,8 @@
       NIXOS_OZONE_WL = "1";
       EDITOR = "nvim";
       TERMINAL = "kitty";
-      CONFIG = "$HOME/nixos/main";
-      REPO = "github:XxMar1an0xX/nixos?dir=main/";
+      CONFIG = "$HOME/nixos";
+      REPO = "github:XxMar1an0xX/nixos";
     };
   };
 }

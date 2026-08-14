@@ -26,13 +26,13 @@
       lsp.servers = {
         #NOTE: nixd config
         nixd.settings.nixd.options = let
-          flake = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\")";
+          flake = "(builtins.getFlake \"github:XxMar1an0xX/nixos\")";
         in {
           # nixpkgs.expr = "import <nixpkgs> { }";
           nixos.expr = flake + ".nixosConfigurations.nixos.options";
           home-manager.expr = flake + ".nixosConfigurations.nixos.options.home-manager.users.value.ruiz";
           # nix-on-droid.expr = flake + ".nixOnDroidConfigurations.default.options";
-          # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos?dir=main\").nixosConfigurations.nixos.lib";
+          # lib-macros.expr = "(builtins.getFlake \"github:XxMar1an0xX/nixos\").nixosConfigurations.nixos.lib";
         };
       };
 

@@ -24,10 +24,10 @@
           if ! test -e $HOME/nixos; then
                   git clone https://github.com/XxMar1an0xX/nixos.git
           else
-                  cd $HOME/nixos/main
+                  cd $HOME/nixos
                   git pull --no-edit
           fi
-          cd $HOME/nixos/main/
+          cd $HOME/nixos
         '';
     };
   };

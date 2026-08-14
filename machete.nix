@@ -17,7 +17,7 @@
   terminal.font = "${pkgs.nerd-fonts.sauce-code-pro}/share/fonts/truetype/NerdFonts/SauceCodePro/SauceCodeProNerdFont-Regular.ttf";
 
   #NOTE: comando para hacer ISO:
-  # nix run nixpkgs#nixos-generators -- --format iso --flake /home/ruiz/Documentos/GitHub/nixos/main#portable -o result
+  # nix run nixpkgs#nixos-generators -- --format iso --flake /home/ruiz/Documentos/GitHub/nixosmain#portable -o result
 
   #NOTE: fetchear custom pkg nixos
   fonts.packages = with pkgs; [
@@ -49,14 +49,14 @@
   path = "${builtins.getAttr "userPath" outputs.packages.x86_64-linux.arduino}";
 
   #NOTE: repo de github
-  # github:XxMar1an0xX/nixos?dir=main
+  # github:XxMar1an0xX/nixos
   # https://github.com/XxMar1an0xX/nixos.git
 
   #NOTE: symlink from store
-  # "niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/dotfiles/niri/config.kdl"; significa "hacer un symlink de ~/.config/niri/config.kdl a /etc/nixos/dotfiles/niri/config.kdl"
+  # "niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixosdotfiles/niri/config.kdl"; significa "hacer un symlink de ~/.config/niri/config.kdl a /etc/nixosdotfiles/niri/config.kdl"
 
   #NOTE: comando para instalas nixos es:
-  # sudo nixos-rebuild switch --flake github:XxMar1an0xX/nixos?dir=main --extra-experimental-features 'nix-command flakes'
+  # sudo nixos-rebuild switch --flake github:XxMar1an0xX/nixos --extra-experimental-features 'nix-command flakes'
   #NOTE: para hacer que fetche lo mas nuevo es: --option tarball-ttl 0
 
   #NOTE: puede ser util para fetchear directorios
@@ -72,7 +72,7 @@
   # };
 
   #NOTE: comando para deploy laptop desde entorno de instalacion:
-  #  sudo nix --extra-experimental-features 'nix-command flakes' run 'github:nix-community/disko/latest#disko-install' -- --write-efi-boot-entries --flake 'github:XxMar1an0xX/nixos?dir=main#laptop' --disk main /dev/sda
+  #  sudo nix --extra-experimental-features 'nix-command flakes' run 'github:nix-community/disko/latest#disko-install' -- --write-efi-boot-entries --flake 'github:XxMar1an0xX/nixos#laptop' --disk main /dev/sda
 
   #NOTE: testeo del flake:
   # nix flake check --print-build-logs --all-systems $CONFIG
