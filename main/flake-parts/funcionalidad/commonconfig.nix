@@ -24,7 +24,7 @@
       firewall.allowedUDPPorts = [53 67 53317 8081 22000];
       stevenblack = {
         enable = true;
-        block = ["porn"];
+        # block = ["porn"];
       };
       networkmanager = {
         enable = true;

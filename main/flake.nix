@@ -27,8 +27,26 @@
       };
     };
 
-    minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
-    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+    #NOTE: GRUB theme
+    # minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
+    # minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+    minegrub-theme = {
+      url = "github:Lxtharia/minegrub-theme";
+      flake = false;
+    };
+
+    minegrub-world = {
+      url = "github:Lxtharia/minegrub-world-sel-theme";
+      flake = false;
+    };
+
+    double-minegrub = {
+      url = "github:Lxtharia/double-minegrub-menu";
+      flake = false;
+    };
+    #               ${pkgs.grub2}/bin/grub-editenv \
+    # /boot/grub/grubenv \
+    # set config_file=mainmenu.cfg
 
     nvf.url = "github:notashelf/nvf";
 

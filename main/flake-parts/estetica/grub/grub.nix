@@ -2,11 +2,28 @@
   self,
   inputs,
   ...
-}: {
-  flake.nixosModules.bootMenu = {lib, ...}: {
+}: let
+  minegrub = inputs.minegrub-theme;
+  minegrubWorld = inputs.minegrub-world;
+  doubleMinegrub = inputs.double-minegrub;
+in {
+  flake.nixosModules.bootMenu = {
+    lib,
+    pkgs,
+    ...
+  }: let
+    # embeddedConfig = pkgs.writeText "grub-embedded.cfg" ''
+    #   search --file --set=root /grub/mainmenu.cfg
+    #   source ($drive1)//grub/mainmenu.cfg
+    # '';
+    # grub-mkimage-embedded = pkgs.writeShellScriptBin "grub-mkimage" ''
+    #   exec${pkgs.grub2}/bin/grub-mkimage \
+    #     --config=${embeddedConfig} "$@"
+    # '';
+  in {
     imports = [
       # self.nixosModules.grubConfig
-      inputs.minegrub-world-sel-theme.nixosModules.default
+      # inputs.minegrub-world-sel-theme.nixosModules.default
     ];
 
     boot.kernelParams = [
@@ -20,36 +37,52 @@
       grub = {
         enable = true; #NOTE: si falla algo en boot bien que es aqui
         efiSupport = true;
+        useOSProber = true;
         device = "nodev";
         timeoutStyle = "menu";
-        extraConfig = ''
-        '';
-        # extraEntries = ''
-        # '';
-        useOSProber = true;
-        # gfxmodeEfi = "1984x1020";
-        # gfxmodeBios = "1984x1020";
-        minegrub-world-sel = {
-          enable = true;
-          customIcons = [{}];
-        };
-        # extraFiles = {
-        #   "/grub/theme/" = "${
-        #     (pkgs.fetchFromGitHub {
-        #       owner = "Lxtharia";
-        #       repo = "minegrub-theme";
-        #       rev = "b1caebbd5ab96f6afbfcd735b58fab9b9d8cf54b";
-        #       hash = "sha256-OLFbGacrRFqSoqUc+pf66eb1xd0aU/crKfpiWSpJ0fw=";
-        #     })
-        #   }/minegrub";
-        #   "/grub/mainmenu.cfg" = "${
-        #     (pkgs.fetchFromGitHub {
-        #       owner = "Lxtharia";
-        #       repo = "double-minegrub-menu";
-        #       rev = "05502d67cac0921caaf0aeb145dddacd8726d68b";
-        #       hash = "sha256-9wQvU2jwAGDzVfHn7qEAuEId8YsWpCTJbRJkbAto1Js=";
-        #     })
-        #   }/mainmenu.cfg";
+        # configFile = "/boot/grub/mainmenu.cfg";
+        # theme = "/boot/grub/themes/minegrub-world-selection";
+        #TODO: hacer que ande double minegrub
+        extraConfig =
+          /*
+          bash
+          */
+          ''
+            #NOTE: recursion infinita
+            if [theme != $prefix/themes/minegrub/theme.txt] && [hola == 0]; then
+            set hola=1
+            export hola
+            configfile($drive1)//grub/mainmenu.cfg
+            fi
+
+            set theme=($drive1)//grub/themes/minegrub-world-selection/theme.txt
+          '';
+        extraGrubInstallArgs = [
+          # "--grub-mkimage=${grub-mkimage-embedded}/bin/grub-mkimage"
+        ];
+        extraInstallCommands =
+          /*
+          bash
+          */
+          ''
+            # configfile ($drive1)//grub/mainmenu.cfg
+            sudo rm -rf /boot/grub/themes
+            sudo mkdir -p /boot/grub/themes
+            sudo cp -ruv ${minegrubWorld}/minegrub-world-selection /boot/grub/themes/
+            sudo cp -ruv ${minegrub}/minegrub /boot/grub/themes/
+            sudo cp -uv ${doubleMinegrub}/mainmenu.cfg /boot/grub/
+            sudo mkdir -p /etc/grub.d
+            sudo cp -uv ${doubleMinegrub}/05_twomenus /etc/grub.d/
+            chmod +x /etc/grub.d/05_twomenus
+            export hola=0
+            #NOTE: esta mrd casi me lockea de la pc
+            # sudo ${pkgs.grub2}/bin/grub-mkconfig -o /home/ruiz/grub2.cfg
+            # sudo ${pkgs.grub2}/bin/grub-editenv - set config_file=mainmenu.cfg
+            # rm -f /boot/EFI/NixOS-boot/grubx64.efi
+          '';
+        # minegrub-world-sel = {
+        #   enable = true;
+        #   customIcons = [{}];
         # };
       };
       timeout = lib.mkForce 15;
