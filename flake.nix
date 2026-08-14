@@ -2,7 +2,7 @@
   description = "Flake principal de configuracion Nix general";
 
   inputs = {
-    nixpkgs.url = "github:nixosnixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,7 +16,7 @@
       # Issue: "getting pseudoterminal attributes: Permission denied" with nixpkgs after 2026-01-24
       # pin to last working commit instead
       # https://github.com/nix-community/nix-on-droid/issues/495
-      url = "github:nixosnixpkgs/88d3861";
+      url = "github:nixos/nixpkgs/88d3861";
     };
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
