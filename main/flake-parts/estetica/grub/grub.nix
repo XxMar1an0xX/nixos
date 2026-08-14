@@ -43,6 +43,8 @@ in {
         # configFile = "/boot/grub/mainmenu.cfg";
         # theme = "/boot/grub/themes/minegrub-world-selection";
         #TODO: hacer que ande double minegrub
+        # hasta donde veo reemplazar el grubx64.efi regenerandolo no va a funcionar
+        # asique como alternativa se puede modificar el propio archivo de minegrub (mainmenu.cfg) para referenciar otro archivo y reemplazar grub.cfg con uno como el embedded
         extraConfig =
           /*
           bash
