@@ -51,11 +51,11 @@ in {
           */
           ''
             #NOTE: recursion infinita
-            if [theme != $prefix/themes/minegrub/theme.txt] && [hola == 0]; then
-            set hola=1
-            export hola
-            configfile ($drive1)//grub/mainmenu.cfg
-            fi
+            # if [theme != $prefix/themes/minegrub/theme.txt] && [hola == 0]; then
+            # set hola=1
+            # export hola
+            # configfile ($drive1)//grub/mainmenu.cfg
+            # fi
 
             set theme=($drive1)//grub/themes/minegrub-world-selection/theme.txt
           '';
@@ -76,7 +76,6 @@ in {
             sudo mkdir -p /etc/grub.d
             sudo cp -uv ${doubleMinegrub}/05_twomenus /etc/grub.d/
             chmod +x /etc/grub.d/05_twomenus
-            export hola=0
             #NOTE: esta mrd casi me lockea de la pc
             # sudo ${pkgs.grub2}/bin/grub-mkconfig -o /home/ruiz/grub2.cfg
             # sudo ${pkgs.grub2}/bin/grub-editenv - set config_file=mainmenu.cfg
