@@ -14,14 +14,28 @@
         github_token = {
           # owner = "ruiz";
         };
-        "wifi/casa" = {};
-        "wifi/armor" = {};
+        "wifi/casa" = {
+          key = "wifi/casa";
+        };
+        "wifi/armor" = {
+          key = "wifi/armor";
+        };
       };
     };
 
-    environment.sessionVariables = {
-      # GH_TOKEN = "$(<${config.sops.secrets.github_token.path})";
-    };
+    programs.bash.interactiveShellInit =
+      /*
+      bash
+      */
+      ''
+        if [ -f "${config.sops.secrets.github_token.path}" ]; then
+          export GH_TOKEN="$(cat "${config.sops.secrets.github_token.path}")"
+        fi
+      '';
+    networking.networkmanager.ensureProfiles.environmentFiles = [
+      config.sops.secrets."wifi/casa".path
+      config.sops.secrets."wifi/armor".path
+    ];
 
     networking.networkmanager.ensureProfiles.profiles = {
       casa = {
@@ -36,7 +50,7 @@
         };
         wifi-security = {
           key-mgmt = "wpa-psk";
-          psk = "$FILE{/run/secrets/wifi/casa}";
+          psk = "$CASA_PWD";
         };
 
         ipv4.method = "auto";
@@ -54,7 +68,7 @@
         };
         wifi-security = {
           key-mgmt = "wpa-psk";
-          psk = "$(<${config.sops.secrets."wifi/armor".path})";
+          psk = "$ARMOR_PWD";
         };
 
         ipv4.method = "auto";
