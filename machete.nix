@@ -76,6 +76,10 @@
 
   #NOTE: testeo del flake:
   # nix flake check --print-build-logs --all-systems $CONFIG
+
+  #NOTE: instalacion desde USB ISO comandos:
+  # sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko --flake github:XxMar1an0xX/nixos#laptopNoSops
+  # sudo nixos-install --no-root-passwd --flake github:XxMar1an0xX/nixos#laptopNoSops --option max-jobs 1
 }
 #NOTE
 

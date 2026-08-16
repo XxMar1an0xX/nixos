@@ -57,7 +57,7 @@ in {
             # configfile ($drive1)//grub/mainmenu.cfg
             # fi
 
-            set theme=($drive1)//grub/themes/minegrub-world-selection/theme.txt
+            set theme=($drive1)/grub/themes/minegrub-world-selection/theme.txt
           '';
         extraGrubInstallArgs = [
           # "--grub-mkimage=${grub-mkimage-embedded}/bin/grub-mkimage"
