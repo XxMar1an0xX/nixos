@@ -24,6 +24,7 @@
     networking = {
       hostName = "laptop";
       networkmanager = {
+        enable = true;
         wifi.powersave = true;
         unmanaged = ["*-foo-bar"];
       };
@@ -34,6 +35,7 @@
         dbusControlled = true;
       };
     };
+    hardware.enableRedistributableFirmware = true;
 
     #NOTE: bluetooth
     hardware.bluetooth = {
