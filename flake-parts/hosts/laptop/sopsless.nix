@@ -8,8 +8,8 @@
       self.nixosModules.configLaptop
       self.nixosModules.bootMenu
       self.nixosModules.SDDM
-      # self.nixosModules.stylix
-      # self.nixosModules.juegos
+      self.nixosModules.stylix
+      self.nixosModules.juegos
       self.nixosModules.hardwareTweaks
       self.nixosModules.esenciales
       self.nixosModules.limpieza
