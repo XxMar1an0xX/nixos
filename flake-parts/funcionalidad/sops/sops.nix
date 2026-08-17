@@ -29,7 +29,7 @@
       */
       ''
         if [ -f "${config.sops.secrets.github_token.path}" ]; then
-          export GH_TOKEN="$(cat "${config.sops.secrets.github_token.path}")"
+          # export GH_TOKEN="$(cat "${config.sops.secrets.github_token.path}")"
         fi
       '';
     networking.networkmanager.ensureProfiles.environmentFiles = [
