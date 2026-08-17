@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.firefox.ublock = {
+  flake.modules.homeManager.ublock = {
     pkgs,
     lib,
     ...

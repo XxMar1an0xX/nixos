@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.firefox.engines = {
+  flake.modules.homeManager.engines = {
     pkgs,
     lib,
     ...

@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.firefox.bookmarks = {
+  flake.modules.homeManager.bookmarks = {
     pkgs,
     lib,
     ...

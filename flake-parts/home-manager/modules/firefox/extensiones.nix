@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.firefox.extenciones = {pkgs, ...}: {
+  flake.modules.homeManager.extenciones = {pkgs, ...}: {
     programs.firefox = {
       policies.ExtensionSettings = {
         "*".installation_mode = "blocked";
@@ -43,12 +43,15 @@
           keepassxc-browser
           libredirect
         ];
+
         settings = {
-          settings = {
-            "sponsorBlocker@ajay.app".settings = {
-              enables = true;
-              invidiousInstances = ["127.0.0.1"];
-            };
+          "sponsorBlocker@ajay.app".settings = {
+            enables = true;
+            invidiousInstances = [
+              "127.0.0.1"
+              "inv.nadeko.net"
+            ];
+            supportInvidious = true;
           };
         };
       };

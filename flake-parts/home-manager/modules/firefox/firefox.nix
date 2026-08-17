@@ -8,13 +8,12 @@
     inputs,
     ...
   }: {
-    modules = [
-      {_class = "firefox";}
-      self.modules.firefox.bookmarks
-      self.modules.firefox.engines
-      self.modules.firefox.extenciones
-      self.modules.firefox.leechblock
-      self.modules.firefox.ublock
+    imports = [
+      self.modules.homeManager.bookmarks
+      self.modules.homeManager.engines
+      self.modules.homeManager.extenciones
+      self.modules.homeManager.leechblock
+      self.modules.homeManager.ublock
     ];
     programs.firefox = {
       enable = true;

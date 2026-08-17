@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.firefox.leechblock = {
+  flake.modules.homeManager.leechblock = {
     pkgs,
     lib,
     ...
