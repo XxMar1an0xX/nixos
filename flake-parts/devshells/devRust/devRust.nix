@@ -37,11 +37,35 @@
     #     }
     #   ];
     # };
-    devenv.shells.devRust = {...}: {
+    devenv.shells.devRust = {...}: let
+      #NOTE: para egui
+      libPath = with pkgs;
+        lib.makeLibraryPath [
+          wayland-protocols
+          wayland
+          libxkbcommon
+          libGL
+        ];
+    in {
       languages.rust = {
         enable = true;
         channel = "nixpkgs";
       };
+      enterShell =
+        /*
+        bash
+        */
+        ''
+          export LD_LIBRARY_PATH=${libPath}
+          cd $HOME
+          if ! test -e $HOME/Rust; then
+                  git clone https://github.com/XxMar1an0xX/Rust.git
+          else
+                  cd $HOME/Rust
+                  git pull --no-edit
+          fi
+          cd $HOME/Rust
+        '';
     };
   };
 }
