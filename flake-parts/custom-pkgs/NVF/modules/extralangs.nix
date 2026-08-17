@@ -23,6 +23,7 @@
           treesitter.enable = true;
         };
         yaml.enable = true;
+        json.enable = true;
       };
     };
   };
