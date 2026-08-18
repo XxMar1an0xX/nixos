@@ -35,7 +35,7 @@
             "[workspace 3 silent] $terminal -e btop"
             "systemctl --user start hyprpolkitagent"
             "hyprpaper"
-            "waybar"
+            "noctalia-shell"
 
             # "clipse -listen"
           ]
