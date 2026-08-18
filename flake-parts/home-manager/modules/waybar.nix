@@ -5,7 +5,7 @@
 }: {
   flake.homeModules.waybar = {pkgs, ...}: {
     programs.waybar = {
-      enable = true;
+      # enable = true;
       package = self.packages."${pkgs.stdenv.hostPlatform.system}".waybar;
 
       # settings = {

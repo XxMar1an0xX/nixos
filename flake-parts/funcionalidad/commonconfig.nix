@@ -182,6 +182,11 @@
     #   openFirewall = true;
     # };
 
+    programs.noctalia = {
+      enable = true;
+      package = self.packages."${pkgs.stdenv.hostPlatform.system}".noctalia;
+    };
+
     #NOTE: habilitar flakes
     nix.settings.experimental-features = ["nix-command" "flakes"];
     # Allow unfree packages
