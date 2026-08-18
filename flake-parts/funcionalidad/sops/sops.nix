@@ -20,6 +20,7 @@
         "wifi/armor" = {
           key = "wifi/armor";
         };
+        "wifi/box" = {};
       };
     };
 
@@ -35,6 +36,7 @@
     networking.networkmanager.ensureProfiles.environmentFiles = [
       config.sops.secrets."wifi/casa".path
       config.sops.secrets."wifi/armor".path
+      config.sops.secrets."wifi/box".path
     ];
 
     networking.networkmanager.ensureProfiles.profiles = {
@@ -69,6 +71,24 @@
         wifi-security = {
           key-mgmt = "wpa-psk";
           psk = "$ARMOR_PWD";
+        };
+
+        ipv4.method = "auto";
+        ipv6.method = "auto";
+      };
+      box = {
+        connection = {
+          id = "box";
+          type = "wifi";
+          autoconnect = true;
+        };
+        wifi = {
+          mode = "infrastructure";
+          ssid = "BOX5";
+        };
+        wifi-security = {
+          key-mgmt = "wpa-psk";
+          psk = "$BOX_PWD";
         };
 
         ipv4.method = "auto";
