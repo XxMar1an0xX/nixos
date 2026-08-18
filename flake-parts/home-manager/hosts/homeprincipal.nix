@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.homeManager = {
+  flake.homeModules.homeprincipal = {
     imports = [
       self.homeModules.fastfetch
       self.homeModules.firefox

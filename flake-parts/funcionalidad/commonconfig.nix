@@ -134,7 +134,7 @@
       };
       users = {
         ruiz = {
-          imports = [self.homeModules.homeManager];
+          imports = [self.homeModules.homeprincipal];
         };
       };
       useGlobalPkgs = true;
