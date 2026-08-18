@@ -17,6 +17,6 @@
     imports = [
       inputs.home-manager.nixosModules.default
     ];
-    home-manager.users.ruiz = self.homeModules.homelaptop;
+    home-manager.users.ruiz = lib.mkForce self.homeModules.homelaptop;
   };
 }
