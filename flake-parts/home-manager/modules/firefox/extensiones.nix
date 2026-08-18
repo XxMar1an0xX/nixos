@@ -54,6 +54,7 @@
             supportInvidious = true;
           };
         };
+        force = true;
       };
       nativeMessagingHosts = [pkgs.keepassxc];
     };

@@ -55,7 +55,7 @@
           definedAliases = ["@sx"];
         };
       };
-      default = "Searxng";
+      default = lib.mkDefault "Searxng";
     };
   };
 }

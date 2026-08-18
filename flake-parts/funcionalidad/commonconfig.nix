@@ -133,9 +133,7 @@
         #NOTE: inherit config; DOES NOT WORK
       };
       users = {
-        ruiz = {
-          imports = [self.homeModules.homeprincipal];
-        };
+        ruiz = self.homeModules.homeprincipal;
       };
       useGlobalPkgs = true;
     };
@@ -182,9 +180,14 @@
     #   openFirewall = true;
     # };
 
+    #NOTE: noctalia-shell
     programs.noctalia = {
       enable = true;
       package = self.packages."${pkgs.stdenv.hostPlatform.system}".noctalia;
+      # systemd = {
+      #   enable = true;
+      #   target = "graphical.target";
+      # };
     };
 
     #NOTE: habilitar flakes
