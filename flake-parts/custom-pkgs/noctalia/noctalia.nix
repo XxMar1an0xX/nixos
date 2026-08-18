@@ -3,14 +3,10 @@
   inputs,
   ...
 }: {
-  perSystem = {
-    pkgs,
-    lib,
-    ...
-  }: {
+  perSystem = {pkgs, ...}: {
     packages.noctalia = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
       inherit pkgs;
-      settings = (lib.builtins.fromJSON (lib.builtins.readFile ./../../../recursos/noctalia.json)).settings;
+      settings = (builtins.fromJSON (builtins.readFile ./../../../recursos/noctalia.json)).settings;
     };
   };
 }
