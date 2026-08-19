@@ -11,6 +11,8 @@
     # paquetes que no estan como opciones de NixOS
     environment.systemPackages = with pkgs; [
       vlc
+      playerctl
+
       pulseaudio
       brightnessctl
 
