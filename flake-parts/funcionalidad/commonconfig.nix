@@ -148,6 +148,11 @@
       enable = true;
     };
 
+    programs.niri = {
+      enable = true;
+      package = self.packages."${pkgs.stdenv.hostPlatform.system}".niri;
+    };
+
     #NOTE: fuentes
     fonts.packages = with pkgs; [
       dejavu_fonts
