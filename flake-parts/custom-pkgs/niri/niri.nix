@@ -91,14 +91,15 @@
           "Mod+Alt+J".focus-workspace-down = {};
 
           "Mod+N".spawn-sh = "kitty bash -c 'cd $NH_FLAKE&&git pull --no-edit&&nvim .'";
-          "Mod+M".spawn = "rofi";
+          # "Mod+M".spawn-sh = "rofi";
           "Mod+W".spawn = "whatsapp-electron";
-          "Mod+E".spawn = "yazi";
+          "Mod+E".spawn-sh = "yazi";
           "Mod+B".spawn = "firefox";
           "XF86Calculator".spawn = "qalculate-qt";
           "Mod+A".spawn = "localsend";
           "Mod+P".spawn = "keepassxc";
           "Mod+D".spawn = "kicad";
+          "Mod+O".spawn-sh = "btop";
           "XF86MonBrightnessUp".spawn-sh = "brightnessctl set +10%";
           "XF86MonBrightnessDown".spawn-sh = "brightnessctl set -10%";
 
