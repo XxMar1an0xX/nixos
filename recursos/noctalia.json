@@ -85,24 +85,6 @@
               "showProfile": true
             },
             "id": "plugin:battery-and-power-management"
-          },
-          {
-            "defaultSettings": {
-              "autoPaste": false,
-              "autoPasteDelay": 300,
-              "autoPasteOnRightClick": false,
-              "cardColors": {},
-              "customColors": {},
-              "enableTodoIntegration": false,
-              "fullscreenMode": false,
-              "hidePanelBackground": false,
-              "notecardsEnabled": true,
-              "panelHeight": 0,
-              "panelWidth": 1450,
-              "pincardsEnabled": true,
-              "showCloseButton": true
-            },
-            "id": "plugin:clipper"
           }
         ],
         "center": [
@@ -129,7 +111,7 @@
             "blacklist": [],
             "chevronColor": "none",
             "colorizeIcons": false,
-            "drawerEnabled": true,
+            "drawerEnabled": false,
             "hidePassive": false,
             "id": "Tray",
             "pinned": []
@@ -693,16 +675,16 @@
           "widgets": [
             {
               "colorName": "primary",
-              "height": 70,
+              "height": 95,
               "hideWhenIdle": false,
               "id": "AudioVisualizer",
               "roundedCorners": true,
-              "scale": 1.0273639329467796,
+              "scale": 0.979356272528706,
               "showBackground": false,
               "visualizerType": "linear",
-              "width": 1250,
+              "width": 1570,
               "x": 0,
-              "y": 640
+              "y": 768
             }
           ]
         }
@@ -721,16 +703,16 @@
     "desktopWidgetsEditMode": false,
     "display": {
       "eDP-1": {
-        "name": "eDP-1",
-        "scale": 1.5,
-        "width": 1920,
-        "height": 1080,
-        "refresh_rate": 60.031,
-        "x": 0,
-        "y": 0,
         "active_workspace": 2,
+        "focused": true,
+        "height": 1080,
+        "name": "eDP-1",
+        "refresh_rate": 60.031,
+        "scale": 1.5,
         "vrr": false,
-        "focused": true
+        "width": 1920,
+        "x": 0,
+        "y": 0
       }
     },
     "notificationsState": {
