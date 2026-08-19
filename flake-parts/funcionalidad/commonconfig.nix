@@ -195,6 +195,9 @@
       # };
     };
 
+    #NOTE: comando al inicio de terminal
+    programs.bash.interactiveShellInit = "fastfetch";
+
     #NOTE: habilitar flakes
     nix.settings.experimental-features = ["nix-command" "flakes"];
     # Allow unfree packages
