@@ -39,61 +39,29 @@
       config.sops.secrets."wifi/box".path
     ];
 
-    networking.networkmanager.ensureProfiles.profiles = {
-      casa = {
+    networking.networkmanager.ensureProfiles.profiles = let
+      plantilla-redes = name: ssid: pwd: {
         connection = {
-          id = "casa";
+          id = name;
           type = "wifi";
           autoconnect = true;
         };
         wifi = {
           mode = "infrastructure";
-          ssid = "Personal-422";
+          ssid = ssid;
         };
         wifi-security = {
           key-mgmt = "wpa-psk";
-          psk = "$CASA_PWD";
+          psk = pwd;
         };
 
         ipv4.method = "auto";
         ipv6.method = "auto";
       };
-      zona-wifi = {
-        connection = {
-          id = "zona-wifi";
-          type = "wifi";
-          autoconnect = true;
-        };
-        wifi = {
-          mode = "infrastructure";
-          ssid = "Armor 24";
-        };
-        wifi-security = {
-          key-mgmt = "wpa-psk";
-          psk = "$ARMOR_PWD";
-        };
-
-        ipv4.method = "auto";
-        ipv6.method = "auto";
-      };
-      box = {
-        connection = {
-          id = "box";
-          type = "wifi";
-          autoconnect = true;
-        };
-        wifi = {
-          mode = "infrastructure";
-          ssid = "BOX5";
-        };
-        wifi-security = {
-          key-mgmt = "wpa-psk";
-          psk = "$BOX_PWD";
-        };
-
-        ipv4.method = "auto";
-        ipv6.method = "auto";
-      };
+    in {
+      casa = plantilla-redes "casa" "Personal-422" "$CASA_PWD";
+      zona-wifi = plantilla-redes "armor24" "Armor 24" "$ARMOR_PWD";
+      box = plantilla-redes "box" "BOX5" "$BOX_PWD";
     };
 
     #NOTE: openssh keygen
