@@ -15,10 +15,10 @@
           # owner = "ruiz";
         };
         "wifi/casa" = {
-          key = "wifi/casa";
+          # key = "wifi/casa";
         };
         "wifi/armor" = {
-          key = "wifi/armor";
+          # key = "wifi/armor";
         };
         "wifi/box" = {};
       };
