@@ -80,12 +80,13 @@
           "Mod+KP_Subtract".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
 
           "Mod+Ctrl+H".set-column-width = "-5%";
-          "Mod+Ctrl+L".set-column-width = "-5%";
-          "Mod+Ctrl+J".set-window-height = "+5%";
+          "Mod+Ctrl+L".set-column-width = "+5%";
+          "Mod+Ctrl+J".set-window-height = "-5%";
           "Mod+Ctrl+K".set-window-height = "+5%";
 
           "Mod+Shift+X".spawn-sh = "shutdown -h now";
           "Mod+Shift+R".spawn-sh = "reboot";
+          # "Mod+Shift+N".spawn-sh = "nhs";
 
           "Mod+Alt+K".focus-workspace-up = {};
           "Mod+Alt+J".focus-workspace-down = {};
