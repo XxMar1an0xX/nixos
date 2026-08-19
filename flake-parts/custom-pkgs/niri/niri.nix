@@ -93,15 +93,15 @@
           "Mod+N".spawn-sh = "kitty bash -c 'cd $NH_FLAKE&&git pull --no-edit&&nvim .'";
           # "Mod+M".spawn-sh = "rofi";
           "Mod+W".spawn = "whatsapp-electron";
-          "Mod+E".spawn-sh = "yazi";
+          "Mod+E".spawn-sh = "kitty bash -c yazi";
           "Mod+B".spawn = "firefox";
           "XF86Calculator".spawn = "qalculate-qt";
-          "Mod+A".spawn = "localsend";
+          "Mod+A".spawn = "localsend_app";
           "Mod+P".spawn = "keepassxc";
           "Mod+D".spawn = "kicad";
-          "Mod+O".spawn-sh = "btop";
+          "Mod+O".spawn-sh = "kitty bash -c btop";
           "XF86MonBrightnessUp".spawn-sh = "brightnessctl set +10%";
-          "XF86MonBrightnessDown".spawn-sh = "brightnessctl set -10%";
+          "XF86MonBrightnessDown".spawn-sh = "brightnessctl set 10-%";
 
           #TODO: configurar captura de pantalla
         };
