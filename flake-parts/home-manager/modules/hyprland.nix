@@ -242,7 +242,7 @@
           "$mainMod, E, exec, $fileManager"
           "$mainMod, Q, exec, $terminal -e bash -c 'fastfetch; exec bash'"
           "$mainMod, B, exec, $browser"
-          " , code:148, exec, qalculate-qt"
+          # " , code:148, exec, qalculate-qt"
           "$mainMod, A, exec, localsend_app"
           "$mainMod, P, exec, keepassxc"
           "$mainMod, D, exec, kicad"

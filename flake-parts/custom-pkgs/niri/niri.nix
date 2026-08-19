@@ -19,7 +19,12 @@
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
-        input.keyboard.xkb.layout = "latam";
+        input.keyboard = {
+          xkb.layout = "latam";
+          numlock = {};
+        };
+
+        outputs = {"DP-1".mode = "2560x1440@164.958";};
 
         layout.gaps = 5;
 
@@ -38,13 +43,12 @@
           "Mod+Up".focus-window-up = {};
           "Mod+Down".focus-window-down = {};
 
-          "Mod+Shift+H".move-column-left = {};
-          "Mod+Shift+L".move-column-right = {};
+          "Mod+Shift+H".consume-or-expel-window-left = {};
+          "Mod+Shift+L".consume-or-expel-window-right = {};
           "Mod+Shift+K".move-window-up = {};
           "Mod+Shift+J".move-window-down = {};
 
           # "Mod+Super+K".sw
-
           "Mod+1".focus-workspace = "w0";
           "Mod+2".focus-workspace = "w1";
           "Mod+3".focus-workspace = "w2";
@@ -82,6 +86,38 @@
 
           "Mod+Shift+X".spawn-sh = "shutdown -h now";
           "Mod+Shift+R".spawn-sh = "reboot";
+
+          "Mod+Alt+K".focus-workspace-up = {};
+          "Mod+Alt+J".focus-workspace-down = {};
+
+          "Mod+N".spawn-sh = "kitty bash -c 'cd $NH_FLAKE&&git pull --no-edit&&nvim .'";
+          "Mod+M".spawn = "rofi";
+          "Mod+W".spawn = "whatsapp-electron";
+          "Mod+E".spawn = "yazi";
+          "Mod+B".spawn = "firefox";
+          "XF86Calculator".spawn = "qalculate-qt";
+          "Mod+A".spawn = "localsend";
+          "Mod+P".spawn = "keepassxc";
+          "Mod+D".spawn = "kicad";
+          "XF86MonBrightnessUp".spawn-sh = "brightnessctl set +10%";
+          "XF86MonBrightnessDown".spawn-sh = "brightnessctl set -10%";
+
+          #TODO: configurar captura de pantalla
+        };
+
+        workspaces = let
+          settings = {layout.gaps = 5;};
+        in {
+          "w0" = settings;
+          "w1" = settings;
+          "w2" = settings;
+          "w3" = settings;
+          "w4" = settings;
+          "w5" = settings;
+          "w6" = settings;
+          "w7" = settings;
+          "w8" = settings;
+          "w9" = settings;
         };
       };
     };
