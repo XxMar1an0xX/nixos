@@ -80,8 +80,8 @@
           "Mod+KP_Subtract".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
 
           "Mod+Ctrl+H".set-column-width = "-5%";
-          "Mod+Ctrl+L".set-column-width = "+5%";
-          "Mod+Ctrl+J".set-window-height = "-5%";
+          "Mod+Ctrl+L".set-column-width = "-5%";
+          "Mod+Ctrl+J".set-window-height = "+5%";
           "Mod+Ctrl+K".set-window-height = "+5%";
 
           "Mod+Shift+X".spawn-sh = "shutdown -h now";
@@ -102,6 +102,10 @@
           "Mod+O".spawn-sh = "kitty bash -c btop";
           "XF86MonBrightnessUp".spawn-sh = "brightnessctl set +10%";
           "XF86MonBrightnessDown".spawn-sh = "brightnessctl set 10-%";
+
+          "Mod+Next".spawn-sh = "playerctl next";
+          "Mod+Prior".spawn-sh = "playerctl previous";
+          "Mod+Space".spawn-sh = "playerctl play-pause";
 
           #TODO: configurar captura de pantalla
         };
