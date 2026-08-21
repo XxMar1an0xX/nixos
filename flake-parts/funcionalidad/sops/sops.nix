@@ -21,6 +21,7 @@
           # key = "wifi/armor";
         };
         "wifi/box" = {};
+        "wifi/eliseo" = {};
       };
     };
 
@@ -37,6 +38,7 @@
       config.sops.secrets."wifi/casa".path
       config.sops.secrets."wifi/armor".path
       config.sops.secrets."wifi/box".path
+      config.sops.secrets."wifi/eliseo".path
     ];
 
     networking.networkmanager.ensureProfiles.profiles = let
@@ -62,6 +64,7 @@
       casa = plantilla-redes "casa" "Personal-422" "$CASA_PWD";
       zona-wifi = plantilla-redes "armor24" "Armor 24" "$ARMOR_PWD";
       box = plantilla-redes "box" "BOX5" "$BOX_PWD";
+      casa-eliseo = plantilla-redes "eliseo" "Pelao-5GHz" "$ELISEO_PWD";
     };
 
     #NOTE: openssh keygen
