@@ -5,6 +5,9 @@
 }: {
   flake.nixosModules.caddy = {pkgs, ...}: {
     networking.firewall.allowedTCPPorts = [80 433];
+    security.acme = {
+      acceptTerms = true;
+    };
     services.nginx = {
       enable = true;
 
@@ -12,6 +15,8 @@
       # recommendedProxySettings = true;
 
       virtualHosts."invidious.local" = {
+        enableACME = true;
+        forceSSL = true;
         listen = [
           {
             addr = "0.0.0.0";
