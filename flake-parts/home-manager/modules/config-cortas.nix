@@ -30,6 +30,7 @@
           truecolor = true;
           theme_background = true;
           base_10_sizes = true;
+          proc_sorting = "memory";
         };
       };
       keepassxc = {
