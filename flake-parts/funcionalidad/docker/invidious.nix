@@ -17,9 +17,13 @@
       # Use "0.0.0.0" if you want port 3000 directly accessible.
       address = "127.0.0.1";
 
+      domain = "invidiousruiz.duckdns.org";
+
       database.createLocally = true;
 
       settings = {
+        # https_only = true;
+        external_port = 443;
         db = {
           dbname = "invidious";
           user = "invidious";
