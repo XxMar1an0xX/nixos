@@ -12,13 +12,18 @@
       yazi = {
         enable = true;
         shellWrapperName = "y";
-        settings.yazi = {
+        settings = {
           manager = {
             sort_by = "mtime";
             show_hidden = true;
             sort_dir_first = true;
             scrolloff = 4;
             linemode = "mtime";
+          };
+          mgr = {
+            sort_by = "mtime";
+            sort_reverse = true;
+            sort_dir_first = true;
           };
         };
       };
