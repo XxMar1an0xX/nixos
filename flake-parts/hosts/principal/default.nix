@@ -18,6 +18,7 @@
       self.nixosModules.commonconfig
       self.nixosModules.invidious
       self.nixosModules.searxng
+      self.nixosModules.nginx
     ];
   };
 }

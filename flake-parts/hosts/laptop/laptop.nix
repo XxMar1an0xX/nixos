@@ -18,7 +18,7 @@
       self.nixosModules.commonconfig
       self.nixosModules.invidious
       self.nixosModules.searxng
-      self.nixosModules.caddy
+      self.nixosModules.nginx
       self.diskoConfigurations.laptop
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
     ];
