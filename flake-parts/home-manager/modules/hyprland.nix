@@ -20,6 +20,9 @@
       xwayland.enable = true;
       systemd.enable = false;
       # systemd.variables = ["--all"];
+
+      #NOTE: eventualmente dejara de andar
+      configType = "hyprlang";
       settings = {
         # Keywords hyprland
         "$terminal" = "kitty";

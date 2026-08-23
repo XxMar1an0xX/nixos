@@ -11,6 +11,7 @@
     programs = {
       yazi = {
         enable = true;
+        shellWrapperName = "y";
         settings.yazi = {
           manager = {
             sort_by = "mtime";
