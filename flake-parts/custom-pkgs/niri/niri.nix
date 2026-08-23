@@ -26,7 +26,16 @@
 
         outputs = {"DP-1".mode = "2560x1440@164.958";};
 
-        layout.gaps = 5;
+        layout = {
+          gaps = 5;
+          focus-ring = {
+            width = 1;
+          };
+        };
+        window-rule = {
+          geometry-corner-radius = 14;
+          clip-to-geometry = true;
+        };
 
         binds = {
           "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
