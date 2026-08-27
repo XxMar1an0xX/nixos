@@ -14,10 +14,15 @@
       self.modules.homeManager.extenciones
       self.modules.homeManager.leechblock
       self.modules.homeManager.ublock
+      inputs.zen-browser.homeModules.beta
     ];
+
+    programs.zen-browser = {
+      enable = true;
+    };
     programs.firefox = {
       enable = true;
-      configPath = "${config.xdg.configHome}/mozilla/firefox";
+      # configPath = "${config.xdg.configHome}/mozilla/firefox";
       profiles = {
         ruiz = {
           extensions.force = true;
