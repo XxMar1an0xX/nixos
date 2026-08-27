@@ -9,8 +9,9 @@
     ...
   }: {
     environment.systemPackages = with pkgs; [
-      hyprpolkitagent
+      # hyprpolkitagent
       alejandra
+      polkit_gnome
     ];
 
     #TODO: deberia investigar que hacen estas opciones...
@@ -148,10 +149,13 @@
       enable = true;
     };
 
+    #NOTE: niri config
     programs.niri = {
       enable = true;
       package = self.packages."${pkgs.stdenv.hostPlatform.system}".niri;
     };
+    services.gnome.gnome-keyring.enable = true;
+    security.polkit.enable = true;
 
     #NOTE: fuentes
     fonts.packages = with pkgs; [

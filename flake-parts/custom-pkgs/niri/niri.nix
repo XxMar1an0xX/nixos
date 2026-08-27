@@ -15,6 +15,7 @@
         prefer-no-csd = true;
         spawn-at-startup = [
           (lib.getExe self'.packages.noctalia)
+          "polkit-gnome-authentication-agent-1"
         ];
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
