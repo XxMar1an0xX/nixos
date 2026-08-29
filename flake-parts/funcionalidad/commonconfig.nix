@@ -141,8 +141,8 @@
 
     #NOTE: Hyprland
     programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
+      # enable = true;
+      # xwayland.enable = true;
     };
     programs.hyprlock.enable = true;
     hardware.display.edid = {
