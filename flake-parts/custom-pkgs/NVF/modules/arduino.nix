@@ -47,7 +47,10 @@
               -- 		require("Arduino-Nvim")
               -- 	end,
               -- })
-              require("Arduino-Nvim").setup({})
+              require("Arduino-Nvim").setup({
+                      clangd = "${pkgs.libclang}/bin/clangd",
+                      -- root_dir = ""
+              })
               -- dir = vim.fn.stdpath("config") .. "/lua/Arduino-Nvim",
               -- ft = "arduino",
               -- opts = {},
