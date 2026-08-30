@@ -35,6 +35,8 @@
       hybrid-sleep.enable = false;
     };
 
+    hardware.enableRedistributableFirmware = true;
+
     hardware.amdgpu = {
       opencl.enable = true;
       initrd.enable = true;
