@@ -19,6 +19,21 @@
     qt.enable = true;
     hardware.graphics.enable = true;
 
+    system.activationScripts = {
+      nixRepo = {
+        deps = ["specialfs"];
+        text =
+          /*
+          bash
+          */
+          ''
+            if ! test -e $HOME/nixos; then
+                    git clone https://github.com/XxMar1an0xX/nixos.git $HOME
+            fi
+          '';
+      };
+    };
+
     #NOTE: networking
     networking = {
       firewall.allowedTCPPorts = [53317 8081 22000];
