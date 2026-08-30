@@ -12,7 +12,7 @@
     ...
   }: {
     imports = [
-      self.nixosModules.hardwarePrincipal
+      # self.nixosModules.hardwarePrincipal
     ];
 
     environment.systemPackages = [
