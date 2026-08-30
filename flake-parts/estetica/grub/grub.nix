@@ -33,13 +33,16 @@ in {
     boot.loader = {
       #NOTE: si no aparece en el booteo descomentar
       # systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+      efi = {
+        canTouchEfiVariables = true;
+      };
       grub = {
         enable = true; #NOTE: si falla algo en boot bien que es aqui
         efiSupport = true;
         useOSProber = true;
         device = "nodev";
         timeoutStyle = "menu";
+        # efiInstallAsRemovable = true;
         # configFile = "/boot/grub/mainmenu.cfg";
         # theme = "/boot/grub/themes/minegrub-world-selection";
         #TODO: hacer que ande double minegrub
