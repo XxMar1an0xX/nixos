@@ -19,6 +19,7 @@
       self.nixosModules.invidious
       self.nixosModules.searxng
       self.nixosModules.nginx
+      self.diskoConfigurations.nixos
     ];
   };
 }

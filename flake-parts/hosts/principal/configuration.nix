@@ -6,11 +6,9 @@
   ...
 }: {
   flake.nixosModules.configPrincipal = {
-    modulesPath,
-    # inputs,
-    # self,
     config,
     pkgs,
+    lib,
     ...
   }: {
     imports = [
@@ -52,6 +50,9 @@
     boot.initrd.kernelModules = [];
     boot.kernelModules = ["kvm-intel"];
     boot.extraModulePackages = [];
+    swapDevices = [];
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+    hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     networking.hostName = "nixos";
 
