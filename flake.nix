@@ -107,6 +107,12 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    #NOTE: minecraft declarativo
+    nixcraft = {
+      url = "github:loystonpais/nixcraft";
+      inputs.nixpkgs.follows = "nixpkgs"; # Set correct nixpkgs name
+    };
   };
 
   outputs = {...} @ inputs:
