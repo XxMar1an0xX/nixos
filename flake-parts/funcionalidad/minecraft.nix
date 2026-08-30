@@ -43,7 +43,7 @@
           #   __GL_THREADED_OPTIMIZATIONS = "0";
           # };
 
-          # binEntry.enable = true;
+          binEntry.enable = true;
         };
         instances = {
           minecraft = {
@@ -62,6 +62,26 @@
               };
               "options.txt" = {
                 source = ./../../recursos/options.txt;
+              };
+              "shaderpacks/SolasShader.zip".source = pkgs.fetchurl {
+                url = "https://cdn.modrinth.com/data/EpQFjzrQ/versions/KcfQaN5J/Solas%20Shader%20V3.7b.zip?mr_download_reason=standalone";
+                hash = "sha256-t9/kxzU9Z3qSzEyGuHvAYz8QFDBdknympILDA0J7+CU=";
+              };
+              "shaderpacks/FantasyShader.zip".source = pkgs.fetchurl {
+                url = "https://cdn.modrinth.com/data/l6di6hYz/versions/kqFlgfIA/Fantasy%20Shaders%20Reimagined%20v1.1.zip?mr_download_reason=standalone";
+                hash = "sha256-i2RyzAnct4ItLGuMfrylBIdI4fURIlEfhpWQiN6IxnE=";
+              };
+              "resourcepacks/Fresh-Animations.zip".source = pkgs.fetchurl {
+                url = "https://cdn.modrinth.com/data/50dA9Sha/versions/xN57JJts/FreshAnimations_v1.10.4.zip?mr_download_reason=standalone";
+                hash = "sha256-jkSylWDS59lSwKT3fwRR5tywSPgnGJv/xxK0Rr6N5/I=";
+              };
+              "resourcepacks/Dark-mode.zip".source = pkgs.fetchurl {
+                url = "https://cdn.modrinth.com/data/6SLU7tS5/versions/sPDc9hXF/Default-Dark-Mode-1.21.11-2026.4.0.zip?mr_download_reason=standalone";
+                hash = "sha256-0xAQDKHGgaEg9Yv0WOJbE10fk6P19qtY/N1rO2kAbtU=";
+              };
+              "resourcepacks/enchant-icons-1.21.11-v1.3.zip".source = pkgs.fetchurl {
+                url = "https://cdn.modrinth.com/data/6vhHOIKw/versions/vInzMXvx/enchant-icons-1.21.11-v1.3.zip?mr_download_reason=standalone";
+                hash = "sha256-GN5HHTXVKrYWZUOjiHLf/t4AiLiO2HA3lJUadPpxrpk=";
               };
             };
             # waywall can be enabled
