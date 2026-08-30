@@ -17,6 +17,7 @@
       self.homeModules.config-cortas
       self.homeModules.aliases
       self.homeModules.commonHome
+      self.homeModules.minecraft
 
       #TODO: parece que stylix no funciona con este tipo de config
       # self.homeModules.stylix
