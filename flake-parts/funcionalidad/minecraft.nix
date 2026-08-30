@@ -58,7 +58,7 @@
             files = {
               "mods/DistantHorizons-3.2.0-b.jar".source = pkgs.fetchurl {
                 url = "https://cdn.modrinth.com/data/uCdwusMi/versions/bCTilxSz/DistantHorizons-3.2.0-b-1.21.11-fabric-neoforge.jar?mr_download_reason=standalone";
-                hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+                hash = "sha256-kJqiKCZoxbkF8gmd9iEAWFMzNVsm6+gFPVmi1QVNu7U=";
               };
               "options.txt" = {
                 source = ./../../recursos/options.txt;
