@@ -27,7 +27,7 @@ mipmapLevels:2
 narrator:0
 particles:0
 reducedDebugInfo:false
-renderClouds:"true"
+renderClouds:"false"
 cloudRange:32
 renderDistance:10
 simulationDistance:8
@@ -63,7 +63,7 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["vanilla","file/Mod Menu Helper.zip","continuity:glass_pane_culling_fix","continuity:default"]
+resourcePacks:["vanilla","file/Mod Menu Helper.zip","continuity:glass_pane_culling_fix","continuity:default","file/better-enchants.zip","file/Icons.zip","file/faithful32.zip","file/low-fire.zip","file/Fresh-Animations.zip","file/Dark-mode.zip","file/player-eyes-animation.zip","file/cubic-moon-sun.zip"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:es_ar
