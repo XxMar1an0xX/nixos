@@ -5,7 +5,7 @@
 }: {
   flake.homeModules.rofi = {config, ...}: {
     programs.rofi = {
-      enable = true;
+      # enable = true;
       cycle = true;
       extraConfig = {
         modi = ["drun" "window" "run"];
