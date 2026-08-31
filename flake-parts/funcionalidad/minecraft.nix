@@ -207,6 +207,11 @@
                   hash = "sha256-M0g64+YUmqo1PA1HKvx8j9wyMsDnFGZuJGue+3pDqsU=";
                 };
               };
+
+              "quickskin/uploads/skins/XChara.png" = {source = ./../../recursos/my_skin.png;};
+              "quickskin/uploads/capes/Epic!.png".source = ./../../recursos/cape.png;
+              "config/skinlayers.json".source = ./../../recursos/skinlayers.json;
+              "config/waveycapes.json".source = ./../../recursos/waveycapes.json;
             };
             # waywall can be enabled
             # waywall.enable = true;
