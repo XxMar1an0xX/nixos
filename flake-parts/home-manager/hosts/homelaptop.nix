@@ -18,6 +18,7 @@
       self.homeModules.config-cortas
       self.homeModules.aliases
       self.homeModules.commonHome
+      self.homeModules.minecraft
       {
         programs.firefox.profiles.ruiz.search.default = lib.mkForce "Startpage";
       }
