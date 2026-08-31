@@ -31,7 +31,7 @@
       #NOTE: wifi
       wireless = {
         enable = true;
-        userControlled.enable = true;
+        userControlled = true;
         dbusControlled = true;
       };
     };

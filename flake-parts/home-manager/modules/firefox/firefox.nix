@@ -3,11 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.firefox = {
-    pkgs,
-    config,
-    ...
-  }: {
+  flake.homeModules.firefox = {pkgs, ...}: {
     imports = [
       self.modules.homeManager.bookmarks
       self.modules.homeManager.engines
@@ -22,7 +18,7 @@
     };
     programs.firefox = {
       enable = true;
-      # configPath = "${config.xdg.configHome}/mozilla/firefox";
+      configPath = ".mozilla/firefox";
       profiles = {
         ruiz = {
           extensions.force = true;
