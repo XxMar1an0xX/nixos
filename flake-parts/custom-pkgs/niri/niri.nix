@@ -104,6 +104,8 @@
           "Mod+Shift+F".fullscreen-window = {};
           "Mod+Shift+V".toggle-window-floating = {};
           "Mod+Shift+M".maximize-column = {};
+          "Mod+apostrophe".show-hotkey-overlay = {};
+          "Mod+Home".toggle-overview = {};
           # "Mod+Shift+Home".load-config-file = {};
 
           "Mod+N".spawn-sh = "kitty bash -c 'cd $NH_FLAKE&&git pull --no-edit&&nvim .'";
