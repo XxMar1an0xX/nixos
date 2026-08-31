@@ -31,7 +31,7 @@
       libreoffice
       kdiskmark
       qalculate-qt
-      # kicad-small
+      kicad
       unzip
       bc
       nomacs
@@ -45,7 +45,7 @@
       # neofetch
       freecad-wayland
 
-      rustlings
+      # rustlings
       #NOTE: para rustaceanvim
       # cargo
       # rustc
