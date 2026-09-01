@@ -39,6 +39,17 @@
             reverse_proxy 127.0.0.1:5050
           '';
         };
+        "taskyruiz.duckdns.org" = {
+          extraConfig = ''
+            reverse_proxy 127.0.0.1:3456
+          '';
+        };
+        #NOTE: esto es exclusivo de laptop
+        "148.222.222.148" = {
+          extraConfig = ''
+            reverse_proxy 127.0.0.1:3456
+          '';
+        };
       };
     };
     # services.nginx = {
