@@ -12,7 +12,7 @@
       enable = true;
       frontendScheme = "http";
       port = 3456;
-      frontendHostname = "holabb";
+      frontendHostname = "localhost";
     };
   };
 }
