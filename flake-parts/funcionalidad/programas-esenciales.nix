@@ -31,7 +31,7 @@
       libreoffice
       kdiskmark
       qalculate-qt
-      # kicad
+      kicad
       unzip
       bc
       nomacs
