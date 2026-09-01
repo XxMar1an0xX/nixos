@@ -122,6 +122,22 @@
           enable_git_status = true;
           enable_modified_markers = true;
           enable_refresh_on_write = true;
+          git_status_async = true;
+          filesystem = {
+            filtered_items = {
+              visible = false;
+              hide_gitignored = true;
+              hide_dotfiles = false;
+              hide_by_name = [
+                ".github"
+                # ".gitignore"
+                "package-lock.json"
+                ".changeset"
+                ".prettierrc.json"
+              ];
+              never_show = [".git"];
+            };
+          };
         };
       };
 
