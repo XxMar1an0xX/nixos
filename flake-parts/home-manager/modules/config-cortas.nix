@@ -13,17 +13,21 @@
         enable = true;
         shellWrapperName = "y";
         settings = {
-          manager = {
-            sort_by = "mtime";
-            show_hidden = true;
-            sort_dir_first = true;
+          mgr = {
             scrolloff = 4;
             linemode = "mtime";
-          };
-          mgr = {
             sort_by = "mtime";
             sort_reverse = true;
             sort_dir_first = true;
+            show_hidden = true;
+          };
+          keymap.mgr = {
+            prepend_keymap = {
+              on = "!";
+              for = "unix";
+              run = ''shell "$SHELL" --block'';
+              desc = "Open $SHELL here";
+            };
           };
         };
       };
