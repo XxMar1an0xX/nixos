@@ -96,6 +96,8 @@
 
           "Mod+Shift+X".spawn-sh = "shutdown -h now";
           "Mod+Shift+R".spawn-sh = "reboot";
+          "Mod+Print".screenshot = {};
+          "Mod+Print".screenshot-window = {};
           # "Mod+Shift+N".spawn-sh = "nhs";
 
           "Mod+Alt+K".focus-workspace-up = {};
