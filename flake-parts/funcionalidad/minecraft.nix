@@ -61,22 +61,22 @@
                 url = "https://cdn.modrinth.com/data/uCdwusMi/versions/bCTilxSz/DistantHorizons-3.2.0-b-1.21.11-fabric-neoforge.jar?mr_download_reason=standalone";
                 hash = "sha256-kJqiKCZoxbkF8gmd9iEAWFMzNVsm6+gFPVmi1QVNu7U=";
               };
-              "mods/entity_texture_features.jar" = {
-                # method = "copy";
-                # force = true;
-                source = pkgs.fetchurl {
-                  url = "https://cdn.modrinth.com/data/BVzZfTc1/versions/rAQimlSn/entity_texture_features_1.21.11-fabric-7.1.jar?mr_download_reason=standalone";
-                  hash = "sha256-fBpwdmsxI462NqVJe58MnCYNXtlMCTTEz9EbmmhUra8=";
-                };
-              };
-              "mods/entity_model_features.jar" = {
-                # method = "copy";
-                # force = true;
-                source = pkgs.fetchurl {
-                  url = "https://cdn.modrinth.com/data/4I1XuqiY/versions/CWZPvNbk/entity_model_features-3.2.4-1.21.11-fabric.jar?mr_download_reason=standalone&mr_game_version=1.21.11";
-                  hash = "sha256-+/YbJjbi/91iIg/u4jH1r4gctwgP3VGAkk+ceDwFhK4=";
-                };
-              };
+              # "mods/entity_texture_features.jar" = {
+              #   # method = "copy";
+              #   # force = true;
+              #   source = pkgs.fetchurl {
+              #     url = "https://cdn.modrinth.com/data/BVzZfTc1/versions/rAQimlSn/entity_texture_features_1.21.11-fabric-7.1.jar?mr_download_reason=standalone";
+              #     hash = "sha256-fBpwdmsxI462NqVJe58MnCYNXtlMCTTEz9EbmmhUra8=";
+              #   };
+              # };
+              # "mods/entity_model_features.jar" = {
+              #   # method = "copy";
+              #   # force = true;
+              #   source = pkgs.fetchurl {
+              #     url = "https://cdn.modrinth.com/data/4I1XuqiY/versions/CWZPvNbk/entity_model_features-3.2.4-1.21.11-fabric.jar?mr_download_reason=standalone&mr_game_version=1.21.11";
+              #     hash = "sha256-+/YbJjbi/91iIg/u4jH1r4gctwgP3VGAkk+ceDwFhK4=";
+              #   };
+              # };
               "mods/3d-player-skin.jar" = {
                 # method = "copy";
                 # force = true;
@@ -107,6 +107,14 @@
                 source = pkgs.fetchurl {
                   url = "https://cdn.modrinth.com/data/lhGA9TYQ/versions/uNdfrcQ8/architectury-19.0.1-fabric.jar?mr_download_reason=standalone&mr_game_version=1.21.11";
                   hash = "sha256-ZhOV1vC+8NOnlOLbdN9WAMc4e6b7lGsXIxWXcgGmZ8c=";
+                };
+              };
+              "mods/Veinminer.jar" = {
+                method = "copy";
+                # force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/OhduvhIc/versions/7c3RO0Qs/veinminer-fabric-2.11.2%2B1.21.11.jar?mr_download_reason=standalone";
+                  hash = "sha256-ubLLSS+/VtNcg99EUmjTE0eAywtR4P/LQIWgqRqp1Wk=";
                 };
               };
 
@@ -208,10 +216,23 @@
                 };
               };
 
-              "quickskin/uploads/skins/XChara.png" = {source = ./../../recursos/my_skin.png;};
-              "quickskin/uploads/capes/Epic!.png".source = ./../../recursos/cape.png;
-              "config/skinlayers.json".source = ./../../recursos/skinlayers.json;
-              "config/waveycapes.json".source = ./../../recursos/waveycapes.json;
+              "quickskin/uploads/skins/XChara.png" = {
+                # method = "copy";
+                source = ./../../recursos/my_skin.png;
+              };
+
+              "quickskin/uploads/capes/Epic!.png" = {
+                # method = "copy";
+                source = ./../../recursos/cape.png;
+              };
+              "config/skinlayers.json" = {
+                method = "copy";
+                source = ./../../recursos/skinlayers.json;
+              };
+              "config/waveycapes.json" = {
+                method = "copy";
+                source = ./../../recursos/waveycapes.json;
+              };
             };
             # waywall can be enabled
             # waywall.enable = true;
