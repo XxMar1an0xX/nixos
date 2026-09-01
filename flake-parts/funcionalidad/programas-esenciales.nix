@@ -16,17 +16,10 @@
       pulseaudio
       brightnessctl
 
-      # arduino
-      # arduino-cli
-      # arduino-ide
-      # btop
-      # yazi
-      # discord-screenaudio #NOTE:obsoleto?
       vesktop
       android-tools
 
       wl-clipboard
-      # keepassxc
       cryptomator
       libreoffice
       kdiskmark
@@ -35,22 +28,11 @@
       unzip
       bc
       nomacs
-      # whatsie #NOTE: no anda ns porque
 
-      # whatsapp-for-linux
       whatsapp-electron
 
-      # cava
       gparted
-      # neofetch
       freecad-wayland
-
-      # rustlings
-      #NOTE: para rustaceanvim
-      # cargo
-      # rustc
-      # rustup
-      # rust-analyzer
 
       #NOTE: para arduino
       python314
