@@ -13,11 +13,12 @@
       frontendScheme = "http";
       port = 3456;
       frontendHostname = "localhost";
+      database.type = "mysql";
 
       settings = {
         service = {
           service = {
-            publicurl = "https://taskyruiz.duckdns.org";
+            publicurl = "taskyruiz.duckdns.org";
             enablecaldav = true;
           };
         };
