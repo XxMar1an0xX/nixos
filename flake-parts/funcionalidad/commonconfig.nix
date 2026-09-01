@@ -50,9 +50,9 @@
         "0.0.0.0" = [
           # "youtube.com"
           # "www.youtube.com"
-          # "inv.nadeko.net"
+          "inv.nadeko.net"
           # "www.reddit.com"
-          "olympusbiblioteca.com"
+          # "olympusbiblioteca.com"
         ];
       };
     };

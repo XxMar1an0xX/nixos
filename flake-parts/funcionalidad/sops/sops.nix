@@ -18,7 +18,7 @@
           # key = "wifi/casa";
         };
         "wifi/armor" = {
-          # key = "wifi/armor";
+          key = "wifi/armor";
         };
         "wifi/box" = {};
         "wifi/eliseo" = {};

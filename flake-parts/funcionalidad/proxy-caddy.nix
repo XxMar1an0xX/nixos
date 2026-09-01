@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.nginx = {pkgs, ...}: {
+  flake.nixosModules.caddy = {pkgs, ...}: {
     #NOTE: porfavor revisa bien las regras de "port forwarding" o equivalente en el router
     # perdi 2 dias de mi vida porque puse 433 en vez de 443
     networking.firewall = {

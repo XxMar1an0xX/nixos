@@ -13,6 +13,15 @@
       frontendScheme = "http";
       port = 3456;
       frontendHostname = "localhost";
+
+      settings = {
+        service = {
+          service = {
+            publicurl = "https://taskyruiz.duckdns.org";
+            enablecaldav = true;
+          };
+        };
+      };
     };
   };
 }
