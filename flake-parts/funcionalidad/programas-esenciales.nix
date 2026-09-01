@@ -122,7 +122,7 @@
     ];
 
     #eliminar xterm
-    # services.xserver.excludePackages = [pkgs.xterm];
+    services.xserver.excludePackages = [pkgs.xterm];
 
     #nix ld
     # programs.nix-ld.enable = true;

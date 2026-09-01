@@ -214,6 +214,10 @@
       # };
     };
 
+    environment.sessionVariables = {
+      TERMINAL = "kitty";
+    };
+
     #NOTE: comando al inicio de terminal
     programs.bash.interactiveShellInit = "fastfetch";
 
