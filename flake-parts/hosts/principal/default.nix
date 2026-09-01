@@ -18,7 +18,7 @@
       self.nixosModules.commonconfig
       self.nixosModules.invidious
       self.nixosModules.searxng
-      self.nixosModules.nginx
+      self.nixosModules.caddy
       self.nixosModules.vikunja
       self.diskoConfigurations.nixos
     ];
