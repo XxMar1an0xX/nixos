@@ -234,6 +234,11 @@
                 source = ./../../recursos/waveycapes.json;
               };
             };
+            java = {
+              extraArguments = [
+                "-XX:+UseZGC"
+              ];
+            };
             # waywall can be enabled
             # waywall.enable = true;
 
