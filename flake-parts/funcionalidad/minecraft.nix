@@ -117,6 +117,58 @@
                   hash = "sha256-ubLLSS+/VtNcg99EUmjTE0eAywtR4P/LQIWgqRqp1Wk=";
                 };
               };
+              "mods/Clientcommands.jar" = {
+                method = "copy";
+                # force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/7Coz83fv/versions/eKkGy7fT/clientcommands-2.13.2.jar?mr_download_reason=standalone";
+                  hash = "sha256-EjW87wbOxpSHs3pk+vIEJ7+HvmT6J8Bf+nHL+bJWvyI=";
+                };
+              };
+
+              "mods/Enchantment-cracker.jar" = {
+                method = "copy";
+                # force = true;
+                source =
+                  pkgs.fetchzip {
+                    url = "https://github.com/Earthcomputer/EnchantmentCracker/releases/download/v1.9/enchcracker-1.9.zip";
+                    hash = "sha256-34ff9OAsLA14YYHt9udovoDP/mTD82OB4ChtW6xKgMM=";
+                  }
+                  + "/lib/enchcracker-1.9.jar";
+              };
+
+              "mods/Litematica.jar" = {
+                method = "copy";
+                # force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/bEpr0Arc/versions/K0yRfp9V/litematica-fabric-1.21.11-0.26.14.jar?mr_download_reason=standalone";
+                  hash = "sha256-JCkxjpf27nCNUOWFxZIxvqdSHAnbdfL7MgtCr0gMzTM=";
+                };
+              };
+              "mods/REI.jar" = {
+                method = "copy";
+                # force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/nfn13YXA/versions/QEiKPzyl/RoughlyEnoughItems-21.11.816-fabric.jar?mr_download_reason=standalone";
+                  hash = "sha256-yUCjxhDe6xsGPWvMMnCf3t83FInVBLKe8FD+c4il+Ow=";
+                };
+              };
+              "mods/Xaeros.jar" = {
+                method = "copy";
+                # force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/1bokaNcj/versions/8MdqDp18/xaerominimap-fabric-1.21.11-26.4.2.jar?mr_download_reason=standalone";
+                  hash = "sha256-HTJw6ErBDeEB8LuAc3GXK7yOzOqR+5v966zR7J82pGc=";
+                };
+              };
+              "mods/Malilib.jar" = {
+                method = "copy";
+                # force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/GcWjdA9I/versions/lSZtYs2h/malilib-fabric-1.21.11-0.27.19.jar?mr_download_reason=standalone";
+                  hash = "sha256-KHGfG9KW7DP2yjqfIveSPSwYbBoxkaChTxiJNI1C118=";
+                };
+              };
 
               #NOTE: opciones de minecraft
               "options.txt" = {
@@ -215,6 +267,30 @@
                   hash = "sha256-M0g64+YUmqo1PA1HKvx8j9wyMsDnFGZuJGue+3pDqsU=";
                 };
               };
+              "resourcepacks/Glowing-armor.zip" = {
+                method = "copy";
+                force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/WkLr6o3M/versions/cw5mvQiP/Glowing%203D%20Armor.zip?mr_download_reason=standalone";
+                  hash = "sha256-0tr8IU5fg1XT57E8UfMsmOGkDBH6IP3RdwV1pdJP0Gk=";
+                };
+              };
+              "resourcepacks/3d-blocks.zip" = {
+                method = "copy";
+                force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/5048Qu03/versions/IKDr9x0v/%C2%A7f%C2%A7lActually%20%C2%A76%C2%A7l3D%20%C2%A7fBlocks%20%26%20Items%21%C2%A77.zip?mr_download_reason=standalone";
+                  hash = "sha256-DfIvmE5i9MnSUTLlIQPiAZcaW6XCru0JGk2w2LDDDYg=";
+                };
+              };
+              "resourcepacks/Roman-numerals.zip" = {
+                method = "copy";
+                force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/tlu98af9/versions/KS5PxfEn/Roman%20Numerals%20for%20Enchant%20Icons%20%28gray%29.zip?mr_download_reason=standalone";
+                  hash = "sha256-9yk4iwlE0z/6hdagJfUxi3TSJ9XF5iPvmkXBUxcrfFo=";
+                };
+              };
 
               "quickskin/uploads/skins/XChara.png" = {
                 # method = "copy";
@@ -236,8 +312,11 @@
             };
             java = {
               extraArguments = [
-                "-XX:+UseZGC"
+                "-XX:+UseShenandoahGC"
+                "-XX:+AlwaysPreTouch"
               ];
+              maxMemory = 4000;
+              minMemory = 4000;
             };
             # waywall can be enabled
             # waywall.enable = true;
