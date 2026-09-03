@@ -59,7 +59,7 @@
         #   enable = true;
         #   hyprpaper.enable = true;
         # };
-        font-packages.enable = true;
+        font-packages = {enable = true;};
       };
 
       fonts = {

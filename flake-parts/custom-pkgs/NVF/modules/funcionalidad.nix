@@ -42,6 +42,34 @@
           silent = true;
           action = ":HopLineStart<CR>";
         }
+        {
+          key = "<leader>mo";
+          mode = "n";
+          lua = true;
+          action =
+            /*
+            lua
+            */
+            ''
+              function()
+                local line = vim.api.nvim_get_current_line()
+                local a, rest = line:match("^%s*([%w_-]+)%.(.+)")
+                if not a then return end
+
+                local path, value = rest:match("(.+)%s*=%s*(.-);%s*$")
+                if not path then return end
+
+                local indent = line:match("^%s*")
+
+                vim.api.nvim_set_current_line(indent .. a .. " = {")
+                vim.api.nvim_buf_set_lines(0, vim.fn.line("."), vim.fn.line("."), false, {
+                  indent .. "  " .. path .. " = " .. value .. ";",
+                  indent .. "};",
+                })
+              end
+            '';
+          desc = "Nest Nix attribute";
+        }
         # {
         #   key = "<Esc>";
         #   mode = "t";
