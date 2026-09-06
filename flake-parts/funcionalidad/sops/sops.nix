@@ -22,7 +22,19 @@
         };
         "wifi/box" = {};
         "wifi/eliseo" = {};
+        "principal/syncthing/key" = {
+          path = "/var/lib/syncthing/key.pem";
+          owner = "ruiz";
+        };
+        "principal/syncthing/cert" = {
+          path = "/var/lib/syncthing/cert.pem";
+          owner = "ruiz";
+        };
       };
+    };
+    home-manager.users.ruiz.services.syncthing = {
+      cert = "/var/lib/syncthing/cert.pem";
+      key = "/var/lib/syncthing/key.pem";
     };
 
     programs.bash.interactiveShellInit =
@@ -66,16 +78,5 @@
       box = plantilla-redes "box" "BOX5" "$BOX_PWD";
       casa-eliseo = plantilla-redes "eliseo" "Pelao-5GHz" "$ELISEO_PWD";
     };
-
-    #NOTE: openssh keygen
-    # services.openssh = {
-    #   enable = true;
-    #   hostKeys = [
-    #     {
-    #       type = "ed25519";
-    #       path = "/etc/ssh/ssh_host_ed25519_key";
-    #     }
-    #   ];
-    # };
   };
 }

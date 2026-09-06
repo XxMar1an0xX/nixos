@@ -7,6 +7,7 @@
     services.syncthing = {
       enable = true;
       tray.enable = true;
+
       # openDefaultPorts = true;
       settings = {
         devices = {
