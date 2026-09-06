@@ -174,6 +174,28 @@
               "options.txt" = {
                 source = ./../../recursos/options.txt;
                 method = "copy";
+                force = true;
+              };
+              "quickskin/uploads/skins/XChara.png" = {
+                # method = "copy";
+                source = ./../../recursos/my_skin.png;
+                force = true;
+              };
+
+              "quickskin/uploads/capes/Epic!.png" = {
+                # method = "copy";
+                source = ./../../recursos/cape.png;
+                force = true;
+              };
+              "config/skinlayers.json" = {
+                method = "copy";
+                source = ./../../recursos/skinlayers.json;
+                force = true;
+              };
+              "config/waveycapes.json" = {
+                method = "copy";
+                source = ./../../recursos/waveycapes.json;
+                force = true;
               };
 
               #NOTE: shaders
@@ -283,31 +305,21 @@
                   hash = "sha256-DfIvmE5i9MnSUTLlIQPiAZcaW6XCru0JGk2w2LDDDYg=";
                 };
               };
-              "resourcepacks/Roman-numerals.zip" = {
+              "resourcepacks/Fabolous3D-Tools.zip" = {
                 method = "copy";
                 force = true;
                 source = pkgs.fetchurl {
-                  url = "https://cdn.modrinth.com/data/tlu98af9/versions/KS5PxfEn/Roman%20Numerals%20for%20Enchant%20Icons%20%28gray%29.zip?mr_download_reason=standalone";
-                  hash = "sha256-9yk4iwlE0z/6hdagJfUxi3TSJ9XF5iPvmkXBUxcrfFo=";
+                  url = "https://cdn.modrinth.com/data/Yr3ZcqyB/versions/7AWjQDPi/Fabulous%20Enchanetd%203D%20%28compat%29.zip?mr_download_reason=standalone";
+                  hash = "sha256-NVK53NSleQJRThj8Y6mf6V8Ou51asTfnDpTuGmJODSA=";
                 };
               };
-
-              "quickskin/uploads/skins/XChara.png" = {
-                # method = "copy";
-                source = ./../../recursos/my_skin.png;
-              };
-
-              "quickskin/uploads/capes/Epic!.png" = {
-                # method = "copy";
-                source = ./../../recursos/cape.png;
-              };
-              "config/skinlayers.json" = {
+              "resourcepacks/3D-Trident.zip" = {
                 method = "copy";
-                source = ./../../recursos/skinlayers.json;
-              };
-              "config/waveycapes.json" = {
-                method = "copy";
-                source = ./../../recursos/waveycapes.json;
+                force = true;
+                source = pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/r6fvlh3S/versions/t9d1ITw8/rainbow%60s%20Trident.zip?mr_download_reason=standalone";
+                  hash = "sha256-3qhI+lQN1uWBNx4uivTm+MVV8AVPy/TD6KxCJPYTssU=";
+                };
               };
             };
             java = {
