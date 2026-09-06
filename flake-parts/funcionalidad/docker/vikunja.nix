@@ -9,7 +9,7 @@
     ...
   }: {
     services.vikunja = {
-      enable = true;
+      # enable = true;
       frontendScheme = "http";
       port = 3456;
       frontendHostname = "localhost";
