@@ -8,16 +8,16 @@
         devices =
           if isLaptop
           then {
-            "Celular" = {
-              id = "UGTUHXQ-4SWDD2D-FTKWYN5-WFDGFPX-CWKPP74-W5RY7MP-CXRNGA6-6ASH6QK";
+            "Armor 24" = {
+              id = "D67WJL4-YRDZZL2-IONQJ6F-AO36USF-FCRY2QK-PH5E7LC-YA7WWK4-S2Z7ZQC";
             };
             "nixos" = {
               id = "G2HS2PO-L2ZVSWA-JFWX5CG-JILDBS2-SX3CD5J-DVT3YP4-4WLGW2Y-XK6WLA3";
             };
           }
           else {
-            "Celular" = {
-              id = "UGTUHXQ-4SWDD2D-FTKWYN5-WFDGFPX-CWKPP74-W5RY7MP-CXRNGA6-6ASH6QK";
+            "Armor 24" = {
+              id = "D67WJL4-YRDZZL2-IONQJ6F-AO36USF-FCRY2QK-PH5E7LC-YA7WWK4-S2Z7ZQC";
             };
             "laptop" = {
               id = "VM7KRWT-B7Q22XH-7L6CY7U-SW6XLLO-XQBTBQS-OHRSFAK-OLZZTPO-CF4TTAV";
