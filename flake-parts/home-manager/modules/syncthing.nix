@@ -27,7 +27,7 @@
           "Syncron" = {
             path = "/home/ruiz/Documentos/Syncron";
             devices =
-              ["Celular"]
+              ["Armor 24"]
               ++ (
                 if isLaptop
                 then ["nixos"]
@@ -37,7 +37,7 @@
           "Musica" = {
             path = "/home/ruiz/Musica/";
             devices =
-              ["Celular"]
+              ["Armor 24"]
               ++ (
                 if isLaptop
                 then ["nixos"]
@@ -47,7 +47,7 @@
           "Phone Backup" = {
             path = "/home/ruiz/DataBackup/";
             devices =
-              ["Celular"]
+              ["Armor 24"]
               ++ (
                 if isLaptop
                 then ["nixos"]
