@@ -20,7 +20,7 @@
       self.nixosModules.invidious
       self.nixosModules.searxng
       self.nixosModules.caddy
-      self.nixosModules.vikunja
+      # self.nixosModules.vikunja
       self.diskoConfigurations.laptop
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
     ];

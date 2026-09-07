@@ -34,7 +34,7 @@
       btop = {
         enable = true;
         settings = {
-          color_theme = "nord";
+          color_theme = lib.mkForce "nord";
           update_ms = 500;
           graph_symbol = "braille";
           truecolor = true;
