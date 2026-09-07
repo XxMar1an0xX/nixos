@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.sops = {config, ...}: {
+  flake.nixosModules.sops = {
+    config,
+    isLaptop ? false,
+    ...
+  }: {
     imports = [inputs.sops-nix.nixosModules.sops];
 
     sops = {
@@ -32,10 +36,13 @@
         };
       };
     };
-    home-manager.users.ruiz.services.syncthing = {
-      cert = "/var/lib/syncthing/cert.pem";
-      key = "/var/lib/syncthing/key.pem";
-    };
+    home-manager.users.ruiz.services.syncthing =
+      if isLaptop
+      then {}
+      else {
+        cert = "/var/lib/syncthing/cert.pem";
+        key = "/var/lib/syncthing/key.pem";
+      };
 
     programs.bash.interactiveShellInit =
       /*
