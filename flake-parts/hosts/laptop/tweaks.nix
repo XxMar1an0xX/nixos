@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.laptopTweaks = {lib, ...}: {
+  flake.nixosModules.laptopTweaks = {
+    lib,
+    isLaptop ? false,
+    ...
+  }: {
     boot.loader.grub = {
       gfxmodeEfi = lib.mkForce "1920x1080";
       gfxmodeBios = lib.mkForce "1980x1020";
@@ -12,6 +16,12 @@
     imports = [
       inputs.home-manager.nixosModules.default
     ];
-    home-manager.users.ruiz = lib.mkForce self.homeModules.homelaptop;
+    home-manager = {
+      users.ruiz = lib.mkForce self.homeModules.homelaptop;
+
+      extraSpecialArgs = {
+        inherit isLaptop;
+      };
+    };
   };
 }
