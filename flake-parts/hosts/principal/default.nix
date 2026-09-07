@@ -22,5 +22,8 @@
       self.nixosModules.vikunja
       self.diskoConfigurations.nixos
     ];
+    specialArgs = {
+      isLaptop = false;
+    };
   };
 }

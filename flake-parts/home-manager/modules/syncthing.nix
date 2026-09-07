@@ -1,14 +1,9 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+{...}: {
   flake.homeModules.syncthing = {isLaptop ? false, ...}: {
     services.syncthing = {
       enable = true;
       tray.enable = true;
 
-      # openDefaultPorts = true;
       settings = {
         devices =
           if isLaptop

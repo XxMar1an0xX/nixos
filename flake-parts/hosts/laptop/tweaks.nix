@@ -5,7 +5,7 @@
 }: {
   flake.nixosModules.laptopTweaks = {
     lib,
-    isLaptop ? false,
+    # isLaptop ? false,
     ...
   }: {
     boot.loader.grub = {
@@ -20,7 +20,7 @@
       users.ruiz = lib.mkForce self.homeModules.homelaptop;
 
       extraSpecialArgs = {
-        inherit isLaptop;
+        # inherit isLaptop;
       };
     };
   };

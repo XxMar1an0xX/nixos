@@ -14,12 +14,7 @@
       defaultSopsFile = ./../../../recursos/secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
       age.keyFile = "/home/ruiz/.config/sops/age/keys.txt";
-      secrets = let
-        host =
-          if isLaptop
-          then "laptop"
-          else "principal";
-      in {
+      secrets = {
         github_token = {
           # owner = "ruiz";
         };

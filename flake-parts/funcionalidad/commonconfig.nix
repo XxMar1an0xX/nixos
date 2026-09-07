@@ -6,6 +6,7 @@
   flake.nixosModules.commonconfig = {
     config,
     pkgs,
+    isLaptop ? false,
     ...
   }: {
     environment.systemPackages = with pkgs; [
@@ -146,6 +147,7 @@
       backupFileExtension = "ahfdsawenciu";
       extraSpecialArgs = {
         inherit inputs;
+        inherit isLaptop;
         #NOTE: inherit config; DOES NOT WORK
       };
       users = {

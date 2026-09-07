@@ -21,5 +21,8 @@
       self.nixosModules.caddy
       self.diskoConfigurations.nixos
     ];
+    specialArgs = {
+      isLaptop = false;
+    };
   };
 }
