@@ -14,7 +14,12 @@
       defaultSopsFile = ./../../../recursos/secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
       age.keyFile = "/home/ruiz/.config/sops/age/keys.txt";
-      secrets = {
+      secrets = let
+        host =
+          if isLaptop
+          then "laptop"
+          else "principal";
+      in {
         github_token = {
           # owner = "ruiz";
         };
@@ -27,21 +32,32 @@
         "wifi/box" = {};
         "wifi/eliseo" = {};
         "principal/syncthing/key" = {
-          path = "/var/lib/syncthing/key.pem";
+          path = "/var/lib/syncthing/principal/key.pem";
           owner = "ruiz";
         };
         "principal/syncthing/cert" = {
-          path = "/var/lib/syncthing/cert.pem";
+          path = "/var/lib/syncthing/principal/cert.pem";
+          owner = "ruiz";
+        };
+        "laptop/syncthing/key" = {
+          path = "/var/lib/syncthing/laptop/key.pem";
+          owner = "ruiz";
+        };
+        "laptop/syncthing/cert" = {
+          path = "/var/lib/syncthing/laptop/cert.pem";
           owner = "ruiz";
         };
       };
     };
     home-manager.users.ruiz.services.syncthing =
       if isLaptop
-      then {}
+      then {
+        cert = "/var/lib/syncthing/laptop/cert.pem";
+        key = "/var/lib/syncthing/laptop/key.pem";
+      }
       else {
-        cert = "/var/lib/syncthing/cert.pem";
-        key = "/var/lib/syncthing/key.pem";
+        cert = "/var/lib/syncthing/principal/cert.pem";
+        key = "/var/lib/syncthing/principal/key.pem";
       };
 
     programs.bash.interactiveShellInit =
