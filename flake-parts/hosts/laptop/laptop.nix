@@ -23,5 +23,8 @@
       self.diskoConfigurations.laptop
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
     ];
+    specialArgs = {
+      isLaptop = true;
+    };
   };
 }
