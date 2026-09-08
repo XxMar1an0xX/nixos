@@ -54,6 +54,13 @@
                 else ["laptop"]
               );
           };
+          "Minecraft" = {
+            path = "/home/ruiz/.local/share/nixcraft/client/instances/minecraft/saves/Nuevo Supervivencia";
+            devices =
+              if isLaptop
+              then ["nixos"]
+              else ["laptop"];
+          };
         };
         # options = {
         #   urAccepted = "-1";
