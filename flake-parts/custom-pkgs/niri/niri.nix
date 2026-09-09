@@ -98,7 +98,7 @@
           "Mod+Shift+R".spawn-sh = "reboot";
           "Mod+Print".screenshot-screen = {};
           "Mod+Shift+Print".screenshot-window = {};
-          "Mod+Ctrl+Print".screenshot = {};
+          "Print".screenshot = {};
           # "Mod+Shift+N".spawn-sh = "nhs";
 
           "Mod+Alt+K".focus-workspace-up = {};
@@ -124,6 +124,8 @@
           "XF86MonBrightnessUp".spawn-sh = "brightnessctl set +10%";
           "XF86MonBrightnessDown".spawn-sh = "brightnessctl set 10-%";
 
+          "Mod+Shift+P".spawn-sh = "cvlc -Z -L $HOME/Musica/*";
+          "Mod+Ctrl+minus".spawn-sh = "pkill .vlc-wrapped ";
           "Mod+Next".spawn-sh = "playerctl next";
           "Mod+Prior".spawn-sh = "playerctl previous";
           "Mod+Space".spawn-sh = "playerctl play-pause";
