@@ -8,17 +8,21 @@
     lib,
     ...
   }: {
+    services.mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
     services.vikunja = {
-      # enable = true;
-      frontendScheme = "http";
+      enable = true;
+      frontendScheme = "https";
       port = 3456;
-      frontendHostname = "localhost";
-      database.type = "mysql";
+      frontendHostname = "taskyruiz.duckdns.org";
+      database.type = "sqlite";
 
       settings = {
         service = {
           service = {
-            publicurl = "taskyruiz.duckdns.org";
+            publicurl = "https://taskyruiz.duckdns.org";
             enablecaldav = true;
           };
         };
