@@ -8,18 +8,18 @@
     lib,
     ...
   }: {
+    home.packages = [
+      pkgs.jq
+    ];
     programs.firefox = {
-      policies.ExtensionSettings = {
-        "*".installation_mode = "blocked";
-        "leechblockng@proginosko.com" = {
-          installation_mode = "force_installed";
+      policies = {
+        ExtensionSettings = {
+          "*".installation_mode = "blocked";
+          "leechblockng@proginosko.com" = {
+            installation_mode = "force_installed";
+          };
         };
-      };
-      profiles.ruiz.extensions = {
-        packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-          leechblock-ng
-        ];
-        settings."leechblockng@proginosko.com".settings = {
+        "3rdparty".Extensions."leechblockng@proginosko.com" = {
           "setName1" = "Youtube Addiccion";
           "sites1" = "www.youtube.com";
           "times1" = "0000-2400";
@@ -166,6 +166,14 @@
           "exportpasswords" = false;
           "autoexportsync" = true;
         };
+      };
+      profiles.ruiz.extensions = {
+        force = true;
+        packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+          leechblock-ng
+        ];
+        # settings."leechblockng@proginosko.com".settings = {
+        # };
       };
     };
   };
