@@ -55,15 +55,21 @@
         key = "/var/lib/syncthing/principal/key.pem";
       };
 
-    programs.bash.interactiveShellInit =
-      /*
-      bash
-      */
-      ''
-        # if [ -f "${config.sops.secrets.github_token.path}" ]; then
-        #   export GH_TOKEN="$(cat "${config.sops.secrets.github_token.path}")"
-        # fi
-      '';
+    systemd.user.services.login-github = {
+      description = "esto para autologin github";
+      wantedBy = ["graphical.target"];
+      after = ["graphical.target"];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart =
+          /*
+          bash
+          */
+          ''
+            export GH_TOKEN="$(sudo cat "${config.sops.secrets.github_token.path}")"
+          '';
+      };
+    };
     networking.networkmanager.ensureProfiles.environmentFiles = [
       config.sops.secrets."wifi/casa".path
       config.sops.secrets."wifi/armor".path
