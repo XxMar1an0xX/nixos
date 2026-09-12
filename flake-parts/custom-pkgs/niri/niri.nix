@@ -125,7 +125,7 @@
           "XF86MonBrightnessDown".spawn-sh = "brightnessctl set 10-%";
 
           "Mod+Shift+P".spawn-sh = "cvlc -Z -L --audio-replay-gain-mode=track $HOME/Musica/*";
-          "Mod+Ctrl+minus".spawn-sh = "pkill .vlc-wrapped ";
+          "Mod+Shift+minus".spawn-sh = "pkill .vlc-wrapped ";
           "Mod+Next".spawn-sh = "playerctl next";
           "Mod+Prior".spawn-sh = "playerctl previous";
           "Mod+Space".spawn-sh = "playerctl play-pause";
