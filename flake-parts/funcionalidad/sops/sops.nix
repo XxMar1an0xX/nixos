@@ -16,7 +16,7 @@
       age.keyFile = "/home/ruiz/.config/sops/age/keys.txt";
       secrets = {
         github_token = {
-          # owner = "ruiz";
+          owner = "ruiz";
         };
         "wifi/casa" = {
           # key = "wifi/casa";
@@ -44,6 +44,13 @@
         };
       };
     };
+    programs.bash.shellInit =
+      /*
+      bash
+      */
+      ''
+        export GH_TOKEN="$(cat "${config.sops.secrets.github_token.path}")"
+      '';
     home-manager.users.ruiz.services.syncthing =
       if isLaptop
       then {
@@ -55,21 +62,6 @@
         key = "/var/lib/syncthing/principal/key.pem";
       };
 
-    systemd.user.services.login-github = {
-      description = "esto para autologin github";
-      wantedBy = ["graphical.target"];
-      after = ["graphical.target"];
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart =
-          /*
-          bash
-          */
-          ''
-            export GH_TOKEN="$(sudo cat "${config.sops.secrets.github_token.path}")"
-          '';
-      };
-    };
     networking.networkmanager.ensureProfiles.environmentFiles = [
       config.sops.secrets."wifi/casa".path
       config.sops.secrets."wifi/armor".path
