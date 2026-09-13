@@ -113,6 +113,12 @@
             "svg.context-properties.content.enabled" = true;
 
             #NOTE: opciones de librewolf
+
+            #NOTE: opciones custom (?)
+            "browser.startup.homepage" = "https://taskyruiz.duckdns.org";
+            "browser.startup.page" = 1;
+            "signon.rememberSignons" = false;
+            "browser.translations.enable" = false;
           };
           # extraConfig = ''
           #   user_pref("extensions.autoDisableScopes", 0);
