@@ -114,6 +114,10 @@ stdenv.mkDerivation {
   dontBuild = true;
   # Preserve Flutter's prebuilt code and its executable/data/lib layout.
   dontStrip = true;
+  # libapp.so is a Dart AOT snapshot, not a normal system shared library.
+  # Never let either ELF fixup hook rewrite it. Patch the other files explicitly.
+  dontPatchELF = true;
+  dontAutoPatchelf = true;
   dontWrapGApps = true;
 
   installPhase = ''
@@ -142,11 +146,21 @@ stdenv.mkDerivation {
       --prefix GST_PLUGIN_SYSTEM_PATH_1_0 : "${lib.getLib pipewire}/lib/gstreamer-1.0"
   '';
 
+  postFixup = ''
+    mapfile -d "" nativeFiles < <(
+      find "$out/lib/rustdesk" -type f ! -name libapp.so -print0
+    )
+    autoPatchelf -- "''${nativeFiles[@]}"
+  '';
+
   doInstallCheck = true;
   installCheckPhase = ''
     runHook preInstallCheck
     export HOME="$TMPDIR/home"
     mkdir -p "$HOME"
+    # A version-only check never initializes Flutter's Dart VM. Preserve the
+    # upstream snapshot byte-for-byte, including its ELF layout and symbols.
+    cmp source/usr/share/rustdesk/lib/libapp.so "$out/lib/rustdesk/lib/libapp.so"
     # Exercise the wrapper, dynamic loader and Rust FFI without a display.
     actualVersion=$("$out/bin/rustdesk" --version)
     test "$actualVersion" = "${version}"
