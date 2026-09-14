@@ -33,7 +33,7 @@
         }
       ];
       boot.loader.grub = {
-        theme = self.packages."${pkgs.stdenv.hostPlatform.system}".minegrub {
+        theme = pkgs.callPackage ./../../recursos/package.nix {
           mainMenuTimeout =
             if cfg.mainMenuTimeout == null
             then -1
