@@ -3,13 +3,13 @@
   inputs,
   ...
 }: {
-  perSystem = {...}: {
-    packages.grub = {
+  perSystem = {pkgs, ...}: {
+    packages.double-minegrub = pkgs.callPackage ({
       lib,
       stdenvNoCC,
       fetchurl,
       grub2,
-      mainMenuTimeout ? 10,
+      mainMenuTimeout ? 15,
     }:
       stdenvNoCC.mkDerivation {
         pname = "double-minegrub-theme";
@@ -37,11 +37,11 @@
           cp minegrub/*.png minegrub/*.pf2 minegrub/theme.txt "$out/main/"
           # Three working buttons; remove the upstream example's hard-coded count.
           substituteInPlace "$out/main/theme.txt" \
-            --replace-fail 'top = 40%+314' 'top = 40%+242' \
-            --replace-fail '647 Packages Installed' 'NixOS'
-          cp ${./mainmenu.cfg} "$out/mainmenu.cfg"
+          --replace-fail 'top = 40%+314' 'top = 40%+242' \
+          --replace-fail '647 Packages Installed' 'NixOS'
+          cp ${./../../../../recursos/minegrub/mainmenu.cfg} "$out/mainmenu.cfg"
           substituteInPlace "$out/mainmenu.cfg" \
-            --replace-fail '@timeout@' '${toString mainMenuTimeout}'
+          --replace-fail '@timeout@' '${toString mainMenuTimeout}'
           mkdir -p "$out/licenses"
           cp LICENSE "$out/licenses/minegrub.txt"
           cp world/LICENSE "$out/licenses/world-selection.txt"
@@ -67,6 +67,6 @@
           license = lib.licenses.mit;
           platforms = lib.platforms.linux;
         };
-      };
+      }) {};
   };
 }

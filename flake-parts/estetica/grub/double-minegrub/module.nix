@@ -33,16 +33,19 @@
         }
       ];
       boot.loader.grub = {
-        theme = pkgs.callPackage ./../../recursos/package.nix {
-          mainMenuTimeout =
-            if cfg.mainMenuTimeout == null
-            then -1
-            else cfg.mainMenuTimeout;
-        };
+        theme =
+          self.packages.${pkgs.stdenv.hostPlatform.system}.double-minegrub;
+        # {
+        #   mainMenuTimeout =
+        #     if cfg.mainMenuTimeout == null
+        #     then -1
+        #     else cfg.mainMenuTimeout;
+        # };
+
         timeoutStyle = "menu";
         gfxmodeEfi = lib.mkDefault "auto";
         gfxmodeBios = lib.mkDefault "auto";
-        extraConfig = lib.mkAfter (builtins.readFile ./redirect.cfg);
+        extraConfig = lib.mkAfter (builtins.readFile ./../../../../recursos/minegrub/redirect.cfg);
       };
     };
   };
