@@ -10,7 +10,6 @@
     ...
   }: let
     cfg = config.boot.loader.grub.double-minegrub-theme;
-    path = ./../../../../recursos;
   in {
     #NOTE: no puedo creer que gpt-06 astra me gano en este T-T
     options.boot.loader.grub.double-minegrub-theme = {
