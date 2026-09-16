@@ -10,15 +10,17 @@
     ...
   }: let
     cfg = config.boot.loader.grub.double-minegrub-theme;
+    path = ./../../../../recursos;
   in {
+    #NOTE: no puedo creer que gpt-06 astra me gano en este T-T
     options.boot.loader.grub.double-minegrub-theme = {
       enable = lib.mkEnableOption "the double Minegrub menu";
-      mainMenuTimeout = lib.mkOption {
-        type = lib.types.nullOr lib.types.ints.unsigned;
-        default = 10;
-        example = null;
-        description = "Seconds before opening the OS menu; null waits indefinitely.";
-      };
+      # mainMenuTimeout = lib.mkOption {
+      #   type = lib.types.nullOr lib.types.ints.unsigned;
+      #   default = 10;
+      #   example = null;
+      #   description = "Seconds before opening the OS menu; null waits indefinitely.";
+      # };
     };
 
     config = lib.mkIf cfg.enable {
@@ -33,16 +35,19 @@
         }
       ];
       boot.loader.grub = {
-        theme = pkgs.callPackage ./../../recursos/package.nix {
-          mainMenuTimeout =
-            if cfg.mainMenuTimeout == null
-            then -1
-            else cfg.mainMenuTimeout;
-        };
+        theme =
+          self.packages.${pkgs.stdenv.hostPlatform.system}.double-minegrub;
+        # {
+        #   mainMenuTimeout =
+        #     if cfg.mainMenuTimeout == null
+        #     then -1
+        #     else cfg.mainMenuTimeout;
+        # };
+
         timeoutStyle = "menu";
         gfxmodeEfi = lib.mkDefault "auto";
         gfxmodeBios = lib.mkDefault "auto";
-        extraConfig = lib.mkAfter (builtins.readFile ./redirect.cfg);
+        extraConfig = lib.mkAfter (builtins.readFile ./../../../../recursos/minegrub/redirect.cfg);
       };
     };
   };

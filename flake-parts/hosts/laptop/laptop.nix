@@ -20,12 +20,6 @@
       self.nixosModules.invidious
       self.nixosModules.searxng
       self.nixosModules.caddy
-      self.nixosModules.minegrub
-      {
-        boot.loader.grub.double-minegrub-theme = {
-          enable = true;
-        };
-      }
       # self.nixosModules.vikunja
       self.diskoConfigurations.laptop
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
