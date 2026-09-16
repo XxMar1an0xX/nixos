@@ -16,7 +16,7 @@
 
       package = lib.mkOption {
         type = lib.types.package;
-        default = pkgs.callPackage ./package.nix {};
+        default = pkgs.callPackage ./../../recursos/package_rustdeska.nix {};
         defaultText = lib.literalExpression "pkgs.callPackage ./package.nix { }";
         description = "RustDesk client package to install and run.";
       };
