@@ -230,22 +230,6 @@
         "type": "github"
       }
     },
-    "double-minegrub": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1755347600,
-        "narHash": "sha256-JkTUy/j2H1Et8vvN2BCMX37DAPcQHqMTpQ667NbVpOk=",
-        "owner": "Lxtharia",
-        "repo": "double-minegrub-menu",
-        "rev": "c31a081f8e1b4d89ba96996a4a28ad155b501a96",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Lxtharia",
-        "repo": "double-minegrub-menu",
-        "type": "github"
-      }
-    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
@@ -894,38 +878,6 @@
         "type": "github"
       }
     },
-    "minegrub-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1786487950,
-        "narHash": "sha256-tCHT7ZL4Fen/Y8Nv3c6iRdPx+1ZceUbGwREWPcZlQ3w=",
-        "owner": "Lxtharia",
-        "repo": "minegrub-theme",
-        "rev": "3b718d508ba847615e64738aa2cf622f441475bf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Lxtharia",
-        "repo": "minegrub-theme",
-        "type": "github"
-      }
-    },
-    "minegrub-world": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1786660689,
-        "narHash": "sha256-Hlp081T6HUd4n6CaTf3aousZwBuBly6+0T+Y2d5y+SE=",
-        "owner": "Lxtharia",
-        "repo": "minegrub-world-sel-theme",
-        "rev": "29bfe180a086454e8cd7a690ed0a0d0ed10446c1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Lxtharia",
-        "repo": "minegrub-world-sel-theme",
-        "type": "github"
-      }
-    },
     "mnw": {
       "locked": {
         "lastModified": 1780772958,
@@ -1459,14 +1411,11 @@
         "arduino-nix": "arduino-nix",
         "devenv": "devenv",
         "disko": "disko",
-        "double-minegrub": "double-minegrub",
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "import-tree": "import-tree",
-        "minegrub-theme": "minegrub-theme",
-        "minegrub-world": "minegrub-world",
         "nix-flatpak": "nix-flatpak",
         "nix-on-droid": "nix-on-droid",
         "nixcraft": "nixcraft",
