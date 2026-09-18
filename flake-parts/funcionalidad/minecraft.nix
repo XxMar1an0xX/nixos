@@ -58,8 +58,8 @@
             files = {
               #NOTE: mods
               "mods/DistantHorizons-3.2.0-b.jar".source = pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/uCdwusMi/versions/bCTilxSz/DistantHorizons-3.2.0-b-1.21.11-fabric-neoforge.jar?mr_download_reason=standalone";
-                hash = "sha256-kJqiKCZoxbkF8gmd9iEAWFMzNVsm6+gFPVmi1QVNu7U=";
+                url = "https://cdn.modrinth.com/data/uCdwusMi/versions/HVuztu4n/DistantHorizons-3.3.1-1.21.11-fabric-neoforge.jar?mr_download_reason=standalone";
+                hash = "sha256-h903VFD+WudNRzTyOyQQQW9BxJ7AMFACEjOKdaQI/Vc=";
               };
               # "mods/entity_texture_features.jar" = {
               #   # method = "copy";
