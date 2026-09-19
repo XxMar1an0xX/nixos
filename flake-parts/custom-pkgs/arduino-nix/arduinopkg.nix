@@ -9,20 +9,25 @@
     self',
     ...
   }: {
-    _module.args.pkgs = import inputs.nixpkgs {
-      inherit system;
-      overlays = [
-        inputs.arduino-nix.overlay
-        (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_index.json"))
-        (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_rp2040_index.json"))
-        (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_esp32_index.json"))
-        (inputs.arduino-nix.mkArduinoLibraryOverlay (inputs.arduino-index + "/index/library_index.json"))
-        # inputs.rust-overlay.overlays.default
-      ];
-      config = {
-        allowUnfree = true;
+    _module.args.pkgs =
+      import (
+        if system == "aarch64-linux"
+        then inputs.nixpkgs-droid
+        else inputs.nixpkgs
+      ) {
+        inherit system;
+        overlays = [
+          inputs.arduino-nix.overlay
+          (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_index.json"))
+          (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_rp2040_index.json"))
+          (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_esp32_index.json"))
+          (inputs.arduino-nix.mkArduinoLibraryOverlay (inputs.arduino-index + "/index/library_index.json"))
+          # inputs.rust-overlay.overlays.default
+        ];
+        config = {
+          allowUnfree = true;
+        };
       };
-    };
     packages.arduino =
       pkgs.wrapArduinoCLI
       {

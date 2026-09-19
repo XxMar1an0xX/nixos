@@ -18,13 +18,14 @@
       # https://github.com/nix-community/nix-on-droid/issues/495
       url = "github:nixos/nixpkgs/88d3861";
     };
+    home-manager-droid = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs-droid";
+    };
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-droid";
-      inputs.home-manager = {
-        url = "home-manager";
-        inputs.nixpkgs.follows = "nixpkgs-droid";
-      };
+      inputs.home-manager.follows = "home-manager-droid";
     };
 
     nvf.url = "github:notashelf/nvf";
