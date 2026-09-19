@@ -153,7 +153,7 @@
           git_status_async = true;
           filesystem = {
             filtered_items = {
-              visible = false;
+              visible = true;
               hide_gitignored = true;
               hide_dotfiles = false;
               hide_by_name = [
