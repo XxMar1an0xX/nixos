@@ -6,15 +6,12 @@
   flake.modules.nvf.arduino = {
     pkgs,
     lib,
-    # self',
     ...
   }: {
     config.vim = {
       #NOTE: dependencias
       extraPackages = with pkgs; [
-        # arduino-cli
         arduino-language-server
-        # llvmPackages_19.clang-tools
         libclang
         self.packages.${pkgs.stdenv.hostPlatform.system}.arduinoPatched
       ];
