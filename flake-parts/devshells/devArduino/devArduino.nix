@@ -25,9 +25,9 @@
         */
         ''
           mkdir -p $HOME/Arduino/libraries
-          sudo cp -rf --symbolic-link --update ${libraryPath}/libraries/* $HOME/Arduino/libraries
+          sudo cp -rL --update ${libraryPath}/libraries/. $HOME/Arduino/libraries/
           mkdir -p $HOME/.arduino15/packages
-          sudo cp -rf --symbolic-link --update ${dataPath}/packages/* $HOME/.arduino15/packages
+          sudo cp -rL --update ${dataPath}/packages/. $HOME/.arduino15/packages/
           if ! test -e $HOME/Documentos/ProgramacionMassa2026; then
                   cd $HOME/Documentos
                   git clone https://github.com/XxMar1an0xX/ProgramacionMassa2026.git
