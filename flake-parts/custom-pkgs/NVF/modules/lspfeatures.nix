@@ -9,24 +9,26 @@
     ...
   }: {
     config.vim = {
-      lsp.servers = {
-        #NOTE: simbolos en el autocomp
-        # lspkind.enable = true;
-        # lightbulb.enable = true;
-        # lspsaga.enable = false;
-        # trouble.enable = true;
-        # lspSignature.enable = true;
-
+      lsp = {
         #NOTE: no anda embedded lang
-        # otter-nvim = {
-        #   enable = true;
-        #   mappings.toggle = true;
-        #   setupOpts = {
-        #     handle_leading_whitespace = true;
-        #     strip_wrapping_quote_characters = ["'" "\"" "`" "\'\'"];
-        #   };
-        # };
-        # nvim-docs-view.enable = true;
+        otter-nvim = {
+          enable = true;
+          # mappings.toggle = true;
+          setupOpts = {
+            handle_leading_whitespace = true;
+            strip_wrapping_quote_characters = ["'" "\"" "`" "\'\'"];
+          };
+        };
+        servers = {
+          #NOTE: simbolos en el autocomp
+          # lspkind.enable = true;
+          # lightbulb.enable = true;
+          # lspsaga.enable = false;
+          # trouble.enable = true;
+          # lspSignature.enable = true;
+
+          # nvim-docs-view.enable = true;
+        };
       };
       #NOTE: formatting embedded lang anda
       formatter.conform-nvim = {

@@ -24,6 +24,8 @@
         };
         yaml.enable = true;
         json.enable = true;
+        html.enable = true;
+        tex.enable = true;
       };
     };
   };
