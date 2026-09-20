@@ -13,7 +13,6 @@
         #NOTE: no anda embedded lang
         otter-nvim = {
           enable = true;
-          # mappings.toggle = true;
           setupOpts = {
             handle_leading_whitespace = true;
             strip_wrapping_quote_characters = ["'" "\"" "`" "\'\'"];
@@ -21,7 +20,7 @@
         };
         servers = {
           #NOTE: simbolos en el autocomp
-          # lspkind.enable = true;
+          lspkind.enable = true;
           # lightbulb.enable = true;
           # lspsaga.enable = false;
           # trouble.enable = true;

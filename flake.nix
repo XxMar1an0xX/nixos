@@ -95,7 +95,7 @@
     };
   };
 
-  outputs = {...} @ inputs:
+  outputs = inputs:
     inputs.flake-parts.lib.mkFlake {
       inherit inputs;
     }
@@ -109,33 +109,5 @@
         (inputs.import-tree ./flake-parts)
       ];
       systems = ["x86_64-linux" "aarch64-linux"];
-
-      # devShells.default = pkgs.mkShell {
-      #   name = "rust-dev-shell";
-      #
-      #   buildInputs = with pkgs;
-      #     lib.flatten [
-      #       rust-bin.stable.latest.default
-      #
-      #       # nushell
-      #
-      #       # u-config
-      #       wayland
-      #       wayland-protocols
-      #     ];
-      #
-      #   shellHook = ''
-      #     echo "Using Rust toolchain: $(rustc --version)"
-      #
-      #     # export CARGO_HOME="$HOME/.cargo"
-      #     # export RUSTUP_HOME="$HOME/.rustup"
-      #     # export LD_LIBRARY_PATH="${libPath}"
-      #     # mkdir -p "$CARGO_HOME" "$RUSTUP_HOME"
-      #
-      #     # Launch nushell as login shell
-      #     # exec nu --login
-      #   '';
-      # };
-      #
     });
 }
