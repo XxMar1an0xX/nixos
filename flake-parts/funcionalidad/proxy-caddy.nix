@@ -44,6 +44,11 @@
             reverse_proxy 127.0.0.1:3456
           '';
         };
+        "rustdeskruiz.duckdns.org" = {
+          extraConfig = ''
+            reverse_proxy 127.0.0.1:21117
+          '';
+        };
         #NOTE: esto es exclusivo de laptop
         # "148.222.222.148" = {
         #   extraConfig = ''

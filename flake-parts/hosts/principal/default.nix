@@ -20,6 +20,8 @@
       self.nixosModules.searxng
       self.nixosModules.caddy
       self.nixosModules.vikunja
+      self.nixosModules.rustdesk
+      self.nixosModules.rustdesk-server
       self.diskoConfigurations.nixos
     ];
     specialArgs = {

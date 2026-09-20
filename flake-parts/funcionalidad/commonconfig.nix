@@ -189,6 +189,7 @@
         # xdg-desktop-portal-wlr
         # xdg-desktop-portal-luminous
         xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gnome
       ];
       xdgOpenUsePortal = true;
       # config = {};

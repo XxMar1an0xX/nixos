@@ -12,9 +12,16 @@
     services.rustdesk-server = {
       enable = true;
       openFirewall = true;
-      signal.relayHosts = ["rustdeskruiz.duckdns.org:21117"];
+      signal.relayHosts = ["192.168.1.18:21117"];
       relay.enable = true;
     };
+
+    services.rustdesk-client = {
+      enable = true;
+      package = pkgs.rustdesk-flutter;
+      niri.enable = true;
+    };
+
     networking.firewall = {
       allowedTCPPorts = [
         21115
