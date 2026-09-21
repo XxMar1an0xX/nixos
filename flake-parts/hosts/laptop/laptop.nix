@@ -20,8 +20,8 @@
       self.nixosModules.invidious
       self.nixosModules.searxng
       self.nixosModules.caddy
-      self.nixosModules.minegrub
-      self.nixosModules.rustdesk
+      # self.nixosModules.minegrub
+      # self.nixosModules.rustdesk
       # (
       #   {pkgs, ...}: {
       #     boot.loader.grub.double-minegrub-theme = {
