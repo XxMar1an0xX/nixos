@@ -22,16 +22,16 @@
       self.nixosModules.caddy
       self.nixosModules.minegrub
       self.nixosModules.rustdesk
-      (
-        {pkgs, ...}: {
-          boot.loader.grub.double-minegrub-theme = {
-            enable = true;
-          };
-          services.rustdesk-client = {
-            enable = true;
-          };
-        }
-      )
+      # (
+      #   {pkgs, ...}: {
+      #     boot.loader.grub.double-minegrub-theme = {
+      #       enable = true;
+      #     };
+      #     services.rustdesk-client = {
+      #       enable = true;
+      #     };
+      #   }
+      # )
       # self.nixosModules.vikunja
       self.diskoConfigurations.laptop
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l480
