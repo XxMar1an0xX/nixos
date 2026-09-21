@@ -36,9 +36,10 @@
           (inputs.arduino-nix.latestVersion LiquidCrystal)
           (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit PWM Servo Driver Library")
           (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Adafruit NeoPixel")
-          (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."ESP Async Web Server")
+          (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."ESP Async WebServer")
           (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Async TCP")
-          (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."WebGUI")
+          (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."ESPUI")
+          (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."LittleFS_esp32")
           # (inputs.arduino-nix.latestVersion NimBLE-Arduino)
         ];
 
