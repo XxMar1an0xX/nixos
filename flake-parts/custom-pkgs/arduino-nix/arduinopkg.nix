@@ -40,6 +40,7 @@
           (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."Async TCP")
           (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."ESPUI")
           (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."LittleFS_esp32")
+          (inputs.arduino-nix.latestVersion pkgs.arduinoLibraries."ArduinoJson")
           # (inputs.arduino-nix.latestVersion NimBLE-Arduino)
         ];
 
