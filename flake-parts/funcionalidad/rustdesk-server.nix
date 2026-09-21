@@ -18,7 +18,7 @@
 
     services.rustdesk-client = {
       enable = true;
-      package = pkgs.rustdesk-flutter;
+      package = pkgs.rustdesk;
       niri.enable = true;
     };
 
