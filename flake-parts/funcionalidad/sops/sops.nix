@@ -6,6 +6,7 @@
   flake.nixosModules.sops = {
     config,
     isLaptop ? false,
+    lib,
     ...
   }: {
     imports = [inputs.sops-nix.nixosModules.sops];
@@ -54,8 +55,8 @@
     home-manager.users.ruiz.services.syncthing =
       if isLaptop
       then {
-        cert = "/var/lib/syncthing/laptop/cert.pem";
-        key = "/var/lib/syncthing/laptop/key.pem";
+        cert = lib.mkForce "/var/lib/syncthing/laptop/cert.pem";
+        key = lib.mkForce "/var/lib/syncthing/laptop/key.pem";
       }
       else {
         cert = "/var/lib/syncthing/principal/cert.pem";

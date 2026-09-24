@@ -21,6 +21,11 @@
       self.homeModules.minecraft
       {
         programs.firefox.profiles.ruiz.search.default = lib.mkForce "Startpage";
+
+        services.syncthing = {
+          cert = lib.mkForce "/var/lib/syncthing/laptop/cert.pem";
+          key = lib.mkForce "/var/lib/syncthing/laptop/key.pem";
+        };
       }
     ];
   };

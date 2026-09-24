@@ -5,6 +5,11 @@
 }: {
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
     modules = [
+      {
+        _module.args = {
+          isLaptop = true;
+        };
+      }
       self.nixosModules.configLaptop
       self.nixosModules.bootMenu
       self.nixosModules.SDDM
@@ -17,11 +22,9 @@
       self.nixosModules.winapps
       self.nixosModules.sops
       self.nixosModules.commonconfig
-      self.nixosModules.invidious
-      self.nixosModules.searxng
-      self.nixosModules.caddy
-      # self.nixosModules.minegrub
-      # self.nixosModules.rustdesk
+      # self.nixosModules.invidious
+      # self.nixosModules.searxng
+      # self.nixosModules.caddy
       # (
       #   {pkgs, ...}: {
       #     boot.loader.grub.double-minegrub-theme = {
