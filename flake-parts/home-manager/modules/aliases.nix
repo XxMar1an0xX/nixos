@@ -15,17 +15,15 @@
       ff = "fastfetch";
       ns = "nix-shell -p ";
       # winoff = "docker compose --file ~/.config/winapps/compose.yaml stop";
-      winoff = "sudo systemctl stop docker-compose-winapps-root.target";
+      woff = "sudo systemctl stop docker-compose-winapps-root.target";
       # winon = "docker compose --file ~/.config/winapps/compose.yaml start";
-      winon = "sudo systemctl start docker-compose-winapps-root.target";
-      winpause = "docker compose --file ~/.config/winapps/compose.yaml pause";
-      winunpause = "docker compose --file ~/.config/winapps/compose.yaml unpause";
+      won = "sudo systemctl start docker-compose-winapps-root.target";
+      wpause = "docker compose --file ~/.config/winapps/compose.yaml pause";
+      wunpause = "docker compose --file ~/.config/winapps/compose.yaml unpause";
       ww = "winapps windows";
       nhs = "nh os switch --hostname $HOST";
+      nr = "nh os repl --expr 'let flake = builtins.getFlake (toString ./nixos) ; in flake'";
     };
-    home.packages = [
-    ];
-
     home.sessionVariables = {
       NIXOS_OZONE_WL = "1";
       EDITOR = "nvim";
