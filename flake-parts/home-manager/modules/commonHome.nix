@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  flake.homeModules.commonHome = {pkgs, ...}: {
+  flake.homeModules.commonHome = {
+    lib,
+    pkgs,
+    ...
+  }: {
     home.username = "ruiz";
     home.homeDirectory = "/home/ruiz";
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

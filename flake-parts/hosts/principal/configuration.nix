@@ -55,7 +55,6 @@
     swapDevices = [];
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
     networking.hostName = "nixos";
 
     system.stateVersion = "24.11"; # Did you read the comment?
