@@ -13,6 +13,7 @@
       # hyprpolkitagent
       alejandra
       polkit_gnome
+      herdr
     ];
 
     #TODO: deberia investigar que hacen estas opciones...
@@ -189,7 +190,14 @@
         # xdg-desktop-portal-wlr
         # xdg-desktop-portal-luminous
         xdg-desktop-portal-hyprland
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
+      ];
+
+      config.common.default = [
+        "wlr"
+        "gtk"
       ];
       xdgOpenUsePortal = true;
       # config = {};
