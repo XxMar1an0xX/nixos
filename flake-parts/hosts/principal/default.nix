@@ -20,8 +20,11 @@
       self.nixosModules.searxng
       self.nixosModules.caddy
       self.nixosModules.vikunja
-      self.nixosModules.rustdesk
-      self.nixosModules.rustdesk-server
+      #NOTE: no estoy logrando hacer andar rustdesk en wayland
+      #Sway tampoco anda, hyprland no comprobado
+      # self.nixosModules.rustdesk
+      # self.nixosModules.rustdesk-server
+      self.nixosModules.waydroid
       self.diskoConfigurations.nixos
     ];
     specialArgs = {
