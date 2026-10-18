@@ -87,7 +87,7 @@
       statusline = {
         lualine = {
           enable = true;
-          theme = "nord";
+          setupOpts.options.theme = "nord";
         };
       };
       notes = {
