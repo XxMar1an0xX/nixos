@@ -28,6 +28,7 @@
       unzip
       bc
       nomacs
+      logseq
 
       whatsapp-electron
 
@@ -45,6 +46,9 @@
     ];
     # ++ CondicionalPortable [] [jamesdsp];
 
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-39.8.10"
+    ];
     # localsend
     programs.localsend = {
       enable = true;

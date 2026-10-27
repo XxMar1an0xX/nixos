@@ -14,6 +14,7 @@
       alejandra
       polkit_gnome
       herdr
+      parabolic
     ];
 
     #TODO: deberia investigar que hacen estas opciones...
