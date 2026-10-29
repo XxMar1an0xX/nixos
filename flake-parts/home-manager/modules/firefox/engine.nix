@@ -50,7 +50,7 @@
         };
         "Searxng" = {
           urls = [
-            {template = "http://127.0.0.1:5050/search?q={searchTerms}";}
+            {template = "http://searchruiz.duckdns.org/search?q={searchTerms}";}
           ];
           definedAliases = ["@sx"];
         };

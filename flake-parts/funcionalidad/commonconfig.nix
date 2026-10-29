@@ -163,7 +163,7 @@
       # enable = true;
       # xwayland.enable = true;
     };
-    programs.hyprlock.enable = true;
+    # programs.hyprlock.enable = true;
     hardware.display.edid = {
       enable = true;
     };
@@ -190,7 +190,7 @@
       extraPortals = with pkgs; [
         # xdg-desktop-portal-wlr
         # xdg-desktop-portal-luminous
-        xdg-desktop-portal-hyprland
+        # xdg-desktop-portal-hyprland
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
@@ -206,8 +206,8 @@
     environment.etc."xdg-desktop-portal/portals.conf".text = ''
       [preferred]
       default=hyprland;gtk
-      org.freedesktop.impl.portal.ScreenCast=hyprland
-      org.freedesktop.impl.portal.Screenshot=hyprland
+      # org.freedesktop.impl.portal.ScreenCast=hyprland
+      # org.freedesktop.impl.portal.Screenshot=hyprland
     '';
 
     #NOTE: rustdesk
