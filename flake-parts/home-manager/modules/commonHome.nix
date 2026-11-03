@@ -34,7 +34,7 @@
     programs.wofi = {
       enable = true;
       settings = {
-        # monitor=DP-1;
+        # monitor = "DP-1";
         show = "drun";
         columns = 2;
         width = "35%";
