@@ -41,8 +41,8 @@
         binds = {
           "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
           "Mod+Q".close-window = {};
-          "Mod+S".spawn-sh = "${lib.getExe self'.packages.noctalia} ipc call launcher toggle";
-
+          # "Mod+S".spawn-sh = "${lib.getExe self'.packages.noctalia} ipc call launcher toggle";
+          "Mod+S".spawn-sh = "wofi";
           "Mod+H".focus-column-left-or-last = {};
           "Mod+L".focus-column-right-or-first = {};
           "Mod+K".focus-window-up = {};
@@ -62,7 +62,7 @@
           "Mod+1".focus-workspace = "w0";
           "Mod+2".focus-workspace = "w1";
           "Mod+3".focus-workspace = "w2";
-          "Mod+4".focus-workspace = "w3";
+          # "Mod+4".focus-workspace = "w3";
           # "Mod+5".focus-workspace = "w4";
           # "Mod+6".focus-workspace = "w5";
           # "Mod+7".focus-workspace = "w6";
@@ -73,7 +73,7 @@
           "Mod+Shift+1".move-column-to-workspace = "w0";
           "Mod+Shift+2".move-column-to-workspace = "w1";
           "Mod+Shift+3".move-column-to-workspace = "w2";
-          "Mod+Shift+4".move-column-to-workspace = "w3";
+          # "Mod+Shift+4".move-column-to-workspace = "w3";
           # "Mod+Shift+5".move-column-to-workspace = "w4";
           # "Mod+Shift+6".move-column-to-workspace = "w5";
           # "Mod+Shift+7".move-column-to-workspace = "w6";
@@ -134,12 +134,12 @@
         };
 
         workspaces = let
-          settings = {layout.gaps = 5;};
+          settings = {layout.gaps = 3;};
         in {
           "w0" = settings;
           "w1" = settings;
           "w2" = settings;
-          "w3" = settings;
+          # "w3" = settings;
           # "w4" = settings;
           # "w5" = settings;
           # "w6" = settings;

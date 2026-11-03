@@ -34,19 +34,15 @@
     programs.wofi = {
       enable = true;
       settings = {
+        # monitor=DP-1;
         show = "drun";
-        matching = "fuzzy";
+        columns = 2;
+        width = "35%";
         no_actions = true;
-        width = 550;
-        height = 325;
-        always_parse_args = true;
-        show_all = true;
-        print_command = true;
-        layer = "overlay";
-        insensitive = true;
-        prompt = "Search...";
-        allow_markup = true;
         allow_images = true;
+        insensitive = true;
+        image_size = 40;
+        prompt = "   Search...";
       };
       style = builtins.readFile ./../../../recursos/wofi.css;
     };
