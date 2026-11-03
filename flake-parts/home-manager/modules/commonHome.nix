@@ -31,5 +31,24 @@
     home.file = {
       ".config/mimeapps.list".text = ''[ Default Applications ] inode/directory= thunar/desktop '';
     };
+    programs.wofi = {
+      enable = true;
+      settings = {
+        show = "drun";
+        matching = "fuzzy";
+        no_actions = true;
+        width = 550;
+        height = 325;
+        always_parse_args = true;
+        show_all = true;
+        print_command = true;
+        layer = "overlay";
+        insensitive = true;
+        prompt = "Search...";
+        allow_markup = true;
+        allow_images = true;
+      };
+      style = builtins.readFile ./../../../recursos/wofi.css;
+    };
   };
 }
