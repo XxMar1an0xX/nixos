@@ -28,7 +28,7 @@
       unzip
       bc
       nomacs
-      logseq
+      # logseq
 
       whatsapp-electron
 
