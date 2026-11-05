@@ -39,6 +39,8 @@
         };
 
         binds = {
+          #TODO: no funciona termflux con btop o nh
+          # "Mod+Return".spawn-sh = "${lib.getExe pkgs.kitty} -e termflux";
           "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
           "Mod+Q".close-window = {};
           # "Mod+S".spawn-sh = "${lib.getExe self'.packages.noctalia} ipc call launcher toggle";

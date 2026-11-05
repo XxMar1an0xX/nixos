@@ -41,6 +41,7 @@
           theme_background = true;
           base_10_sizes = true;
           proc_sorting = "memory";
+          # terminal_sync = false;
         };
       };
       keepassxc = {

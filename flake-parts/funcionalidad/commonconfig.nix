@@ -15,7 +15,6 @@
       polkit_gnome
       herdr
       parabolic
-      cmatrix
       usbutils
       picocom
       minicom

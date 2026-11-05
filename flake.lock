@@ -1239,6 +1239,22 @@
     },
     "nixpkgs_8": {
       "locked": {
+        "lastModified": 1793726008,
+        "narHash": "sha256-jQp1wKvbwWdLBASTXkSi/VYmDJ5AbBi1WvcMt9HWJC8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_9": {
+      "locked": {
         "lastModified": 1792506237,
         "narHash": "sha256-Q/8KLB6jNfpaUN1HAedE/u/Et9feE/zYSsutBLKrCFk=",
         "owner": "NixOS",
@@ -1397,6 +1413,7 @@
         "silentSDDM": "silentSDDM",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
+        "unimatrix": "unimatrix",
         "winapps": "winapps",
         "wrapper-modules": "wrapper-modules",
         "zen-browser": "zen-browser"
@@ -1677,6 +1694,24 @@
         "type": "github"
       }
     },
+    "unimatrix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_8"
+      },
+      "locked": {
+        "lastModified": 1779318933,
+        "narHash": "sha256-g5/Hrk/coq8d7pNwE5juMQhxYSZBXwlGbqikiI9eGvg=",
+        "owner": "will8211",
+        "repo": "unimatrix",
+        "rev": "dff519f972103f91384f360f270614184de8aa92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "will8211",
+        "repo": "unimatrix",
+        "type": "github"
+      }
+    },
     "winapps": {
       "inputs": {
         "flake-compat": "flake-compat_4",
@@ -1702,7 +1737,7 @@
     },
     "wrapper-modules": {
       "inputs": {
-        "nixpkgs": "nixpkgs_8"
+        "nixpkgs": "nixpkgs_9"
       },
       "locked": {
         "lastModified": 1793039441,

@@ -93,6 +93,9 @@
       url = "github:loystonpais/nixcraft";
       inputs.nixpkgs.follows = "nixpkgs"; # Set correct nixpkgs name
     };
+
+    #NOTE: efecto de fondo para terminal
+    unimatrix.url = "github:will8211/unimatrix";
   };
 
   outputs = inputs:
