@@ -11,6 +11,8 @@ services:
     image: ghcr.io/dockur/windows:latest
     container_name: WinApps # Created Docker VM Name.
     environment:
+      ARGUMENTS: "-device usb-host,vendorid=0x0403,productid=0x6015"
+
       # Version of Windows to configure. For valid options, visit:
       # https://github.com/dockur/windows?tab=readme-ov-file#how-do-i-select-the-windows-version
       # https://github.com/dockur/windows?tab=readme-ov-file#how-do-i-install-a-custom-image
@@ -32,7 +34,8 @@ services:
       # - 3389:3389/tcp
       # - 3389:3389/udp
     cap_add:
-      - NET_ADMIN  # Add network permission
+      - NET_ADMIN # Add network permission
+      # - NET_RAW
     stop_grace_period: 120s # Wait 120 seconds before sending SIGTERM when attempting to shut down the Windows VM.
     restart: on-failure # Restart the Windows VM if the exit code indicates an error.
     volumes:
@@ -44,6 +47,9 @@ services:
     devices:
       - /dev/kvm # Enable KVM.
       - /dev/net/tun # Enable tuntap
+      # - /dev/bus/usb
+      # - usb-FTDI_FT230X_Basic_UART_DK0CZPVH-if00-port0:/dev/ttyUSB0
+      - /dev/bus/usb:/dev/bus/usb
       # Uncomment to mount a disk directly within the Windows VM.
       # WARNING: /dev/sdX paths may change after reboot. Use persistent identifiers!
       # NOTE: 'disk1' will be mounted as the main drive. THIS DISK WILL BE FORMATTED BY DOCKER.

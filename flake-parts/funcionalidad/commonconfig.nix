@@ -15,7 +15,15 @@
       polkit_gnome
       herdr
       parabolic
+      cmatrix
+      usbutils
+      picocom
+      minicom
     ];
+
+    services.udev.extraRules = ''
+      SUBSYSTEM=="tty", KERNEL=="ttyUSB*", MODE="0660", GROUP="dialout"
+    '';
 
     #TODO: deberia investigar que hacen estas opciones...
     services.xserver.enable = true;
