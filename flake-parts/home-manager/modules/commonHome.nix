@@ -19,6 +19,7 @@
       self.packages.${pkgs.stdenv.hostPlatform.system}.journal
       self.packages.${pkgs.stdenv.hostPlatform.system}.jphand
       pkgs.nerd-fonts.symbols-only
+      pkgs.freerdp
     ];
     fonts.fontconfig.enable = true;
     home.sessionVariables = {

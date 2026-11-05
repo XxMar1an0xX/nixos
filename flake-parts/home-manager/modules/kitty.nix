@@ -24,6 +24,9 @@
         cursor_stop_blinking_after = 0;
         bell_on_tab = true;
         background_opacity = 0.85;
+        allow_remote_control = true;
+        dynamic_background_opacity = true;
+        # custom_shaders = "inside-the-matrix";
       };
       keybindings = {
         "ctrl+c" = "copy_or_interrupt";
