@@ -21,6 +21,10 @@
       model = "pc104";
     };
 
+    services.upower = {
+      enable = true;
+    };
+
     networking = {
       hostName = "laptop";
       networkmanager = {
