@@ -8,7 +8,7 @@
     lib,
     ...
   }: {
-    programs.firefox.profiles.ruiz.bookmarks = {
+    programs.librewolf.profiles.ruiz.bookmarks = {
       force = true;
       settings = [
         {

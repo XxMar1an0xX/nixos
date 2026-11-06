@@ -8,7 +8,7 @@
     lib,
     ...
   }: {
-    programs.firefox.profiles.ruiz.search = {
+    programs.librewolf.profiles.ruiz.search = {
       force = true;
       order = ["Startpage" "Nix Packages" "Home-Manager"];
       privateDefault = "Startpage";

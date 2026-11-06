@@ -16,7 +16,7 @@
     programs.zen-browser = {
       # enable = true;
     };
-    programs.firefox = {
+    programs.librewolf = {
       enable = true;
       configPath = ".mozilla/firefox";
       profiles = {

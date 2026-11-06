@@ -11,7 +11,7 @@
     home.packages = [
       pkgs.jq
     ];
-    programs.firefox = {
+    programs.librewolf = {
       policies = {
         ExtensionSettings = {
           "*".installation_mode = "blocked";

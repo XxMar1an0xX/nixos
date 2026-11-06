@@ -4,7 +4,7 @@
   ...
 }: {
   flake.modules.homeManager.extenciones = {pkgs, ...}: {
-    programs.firefox = {
+    programs.librewolf = {
       policies.ExtensionSettings = {
         "*".installation_mode = "blocked";
         #NOTE: este es untrap for youtube

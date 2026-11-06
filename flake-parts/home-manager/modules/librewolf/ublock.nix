@@ -8,7 +8,7 @@
     lib,
     ...
   }: {
-    programs.firefox = {
+    programs.librewolf = {
       policies.ExtensionSettings = {
         "*".installation_mode = "blocked";
         "uBlock0@raymondhill.net" = {
