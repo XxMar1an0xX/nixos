@@ -111,6 +111,7 @@
             "gfx.webrender.enabled" = true;
             "layout.css.backdrop-filter.enabled" = true;
             "svg.context-properties.content.enabled" = true;
+            "ui.systemUsesDarkTheme" = 1;
 
             #NOTE: opciones de librewolf
 

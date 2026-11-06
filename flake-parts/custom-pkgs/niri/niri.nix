@@ -117,7 +117,7 @@
           # "Mod+M".spawn-sh = "rofi";
           "Mod+W".spawn = "whatsapp-electron";
           "Mod+E".spawn-sh = "kitty bash -c yazi";
-          "Mod+B".spawn = "firefox";
+          "Mod+B".spawn = "librewolf";
           "XF86Calculator".spawn = "qalculate-qt";
           "Mod+A".spawn = "localsend_app";
           "Mod+P".spawn = "keepassxc";
