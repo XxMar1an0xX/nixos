@@ -23,68 +23,68 @@
         ruiz = {
           extensions.force = true;
           settings = {
-            "extensions.autoDisableScopes" = 0;
+            # "extensions.autoDisableScopes" = 0;
             "extensions.update.autoUpdateDefault" = false;
             "app.normandy.first_run" = false;
-            "browser.aboutConfig.showWarning" = false;
-            "browser.bookmarks.addedImportButton" = false;
-            "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper" = "lunar-eclipse";
-            "media.ffmpeg.vaapi.enabled" = true;
-            "widget.dmabuf.force-enabled" = true; # Required in recent Firefoxes
-            "privacy.webrtc.legacyGlobalIndicator" = false;
-            "browser.bookmarks.restore_default_bookmarks" = false;
-            "browser.contentblocking.category" = "strict";
-            "extensions.getAddons.showPane" = false;
-            "extensions.htmlaboutaddons.recommendations.enabled" = false;
-            "extensions.pocket.enabled" = false;
-            "DisableSystemAddonUpdate" = false;
-            "app.shield.optoutstudies.enabled" = false;
-            "extensions.update.enabled" = false;
-            "extensions.webcompat.enable_picture_in_picture_overrides" = true;
-            "extensions.webcompat.enable_shims" = true;
-            "extensions.webcompat.perform_injections" = true;
-            "extensions.webcompat.perform_ua_overrides" = true;
-            "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-            "services.sync.engine.passwords" = false;
-
-            "extensions.screenshots.disabled" = true;
-            "browser.topsites.contile.enabled" = false;
-            "browser.formfill.enable" = false;
-            "browser.search.suggest.enabled" = false;
-            "browser.search.suggest.enabled.private" = false;
-            "browser.urlbar.suggest.searches" = false;
-            "browser.urlbar.showSearchSuggestionsFirst" = false;
-            "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-            "browser.newtabpage.activity-stream.feeds.snippets" = false;
-            "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = false;
-            "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = false;
-            "browser.newtabpage.activity-stream.section.highlights.includeVisited" = false;
-            "browser.newtabpage.activity-stream.showSponsored" = false;
-            "browser.newtabpage.activity-stream.system.showSponsored" = false;
-            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-
-            "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-            "browser.newtabpage.activity-stream.telemetry" = false;
-            "browser.ping-centre.telemetry" = false;
-            "toolkit.telemetry.archive.enabled" = false;
-            "toolkit.telemetry.bhrPing.enabled" = false;
-            "toolkit.telemetry.enabled" = false;
-            "toolkit.telemetry.firstShutdownPing.enabled" = false;
-            "toolkit.telemetry.hybridContent.enabled" = false;
-            "toolkit.telemetry.newProfilePing.enabled" = false;
-            "toolkit.telemetry.reportingpolicy.firstRun" = false;
-            "toolkit.telemetry.shutdownPingSender.enabled" = false;
-            "toolkit.telemetry.unified" = false;
-            "toolkit.telemetry.updatePing.enabled" = false;
-            "privacy.donottrackheader.enabled" = true;
-            "privacy.trackingprotection.enabled" = true;
-            "privacy.trackingprotection.socialtracking.enabled" = true;
-            "privacy.partition.network_state.ocsp_cache" = true;
-            "experiments.activeExperiment" = false;
-            "experiments.enabled" = false;
-            "experiments.supported" = false;
-            "network.allow-experiments" = false;
-
+            # "browser.aboutConfig.showWarning" = false;
+            # "browser.bookmarks.addedImportButton" = false;
+            # "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper" = "lunar-eclipse";
+            # "media.ffmpeg.vaapi.enabled" = true;
+            # "widget.dmabuf.force-enabled" = true; # Required in recent Firefoxes
+            # "privacy.webrtc.legacyGlobalIndicator" = false;
+            # "browser.bookmarks.restore_default_bookmarks" = false;
+            # "browser.contentblocking.category" = "strict";
+            # "extensions.getAddons.showPane" = false;
+            # "extensions.htmlaboutaddons.recommendations.enabled" = false;
+            # "extensions.pocket.enabled" = false;
+            # "DisableSystemAddonUpdate" = false;
+            # "app.shield.optoutstudies.enabled" = false;
+            # "extensions.update.enabled" = false;
+            # "extensions.webcompat.enable_picture_in_picture_overrides" = true;
+            # "extensions.webcompat.enable_shims" = true;
+            # "extensions.webcompat.perform_injections" = true;
+            # "extensions.webcompat.perform_ua_overrides" = true;
+            # "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+            # "services.sync.engine.passwords" = false;
+            #
+            # "extensions.screenshots.disabled" = true;
+            # "browser.topsites.contile.enabled" = false;
+            # "browser.formfill.enable" = false;
+            # "browser.search.suggest.enabled" = false;
+            # "browser.search.suggest.enabled.private" = false;
+            # "browser.urlbar.suggest.searches" = false;
+            # "browser.urlbar.showSearchSuggestionsFirst" = false;
+            # "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+            # "browser.newtabpage.activity-stream.feeds.snippets" = false;
+            # "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = false;
+            # "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = false;
+            # "browser.newtabpage.activity-stream.section.highlights.includeVisited" = false;
+            # "browser.newtabpage.activity-stream.showSponsored" = false;
+            # "browser.newtabpage.activity-stream.system.showSponsored" = false;
+            # "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+            #
+            # "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+            # "browser.newtabpage.activity-stream.telemetry" = false;
+            # "browser.ping-centre.telemetry" = false;
+            # "toolkit.telemetry.archive.enabled" = false;
+            # "toolkit.telemetry.bhrPing.enabled" = false;
+            # "toolkit.telemetry.enabled" = false;
+            # "toolkit.telemetry.firstShutdownPing.enabled" = false;
+            # "toolkit.telemetry.hybridContent.enabled" = false;
+            # "toolkit.telemetry.newProfilePing.enabled" = false;
+            # "toolkit.telemetry.reportingpolicy.firstRun" = false;
+            # "toolkit.telemetry.shutdownPingSender.enabled" = false;
+            # "toolkit.telemetry.unified" = false;
+            # "toolkit.telemetry.updatePing.enabled" = false;
+            # "privacy.donottrackheader.enabled" = true;
+            # "privacy.trackingprotection.enabled" = true;
+            # "privacy.trackingprotection.socialtracking.enabled" = true;
+            # "privacy.partition.network_state.ocsp_cache" = true;
+            # "experiments.activeExperiment" = false;
+            # "experiments.enabled" = false;
+            # "experiments.supported" = false;
+            # "network.allow-experiments" = false;
+            #
             # Disable irritating first-run stuff
             "browser.translations.automaticallyPopup" = false;
             "browser.disableResetPrompt" = true;
@@ -114,7 +114,7 @@
             "ui.systemUsesDarkTheme" = 1;
 
             #NOTE: opciones de librewolf
-
+            "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
             #NOTE: opciones custom (?)
             "browser.startup.homepage" = "https://taskyruiz.duckdns.org";
             "browser.startup.page" = 1;

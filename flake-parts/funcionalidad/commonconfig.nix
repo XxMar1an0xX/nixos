@@ -224,14 +224,14 @@
     # };
 
     #NOTE: noctalia-shell
-    programs.noctalia = {
-      enable = true;
-      package = self.packages."${pkgs.stdenv.hostPlatform.system}".noctalia;
-      # systemd = {
-      #   enable = true;
-      #   target = "graphical.target";
-      # };
-    };
+    # programs.noctalia = {
+    #   enable = true;
+    #   package = self.packages."${pkgs.stdenv.hostPlatform.system}".noctalia;
+    #   # systemd = {
+    #   #   enable = true;
+    #   #   target = "graphical.target";
+    #   # };
+    # };
 
     environment.sessionVariables = {
       TERMINAL = "kitty";

@@ -22,6 +22,7 @@
       self.homeModules.aliases
       self.homeModules.commonHome
       self.homeModules.minecraft
+      self.homeModules.noctalia
 
       #TODO: parece que stylix no funciona con este tipo de config
       # self.homeModules.stylix

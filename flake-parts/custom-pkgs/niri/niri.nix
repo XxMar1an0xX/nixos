@@ -14,7 +14,7 @@
       settings = {
         prefer-no-csd = true;
         spawn-at-startup = [
-          (lib.getExe self'.packages.noctalia)
+          (lib.getExe pkgs.noctalia)
           "polkit-gnome-authentication-agent-1"
         ];
 
