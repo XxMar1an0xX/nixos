@@ -18,6 +18,7 @@
       usbutils
       picocom
       minicom
+      mpvpaper
     ];
 
     services.udev.extraRules = ''

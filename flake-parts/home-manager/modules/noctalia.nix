@@ -6,7 +6,7 @@
   flake.homeModules.noctalia = {lib, ...}: {
     programs.noctalia = {
       enable = true;
-      # settings = {};
+      settings = lib.mkForce (lib.fromTOML (builtins.readFile ./../../../recursos/noctalia-config.toml));
     };
   };
 }
