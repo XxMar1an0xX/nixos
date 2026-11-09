@@ -1,0 +1,174 @@
+[audio]
+enable_overdrive = true
+
+[bar.default]
+end = [ "clipboard", "notifications", "tray", "network", "cpu", "ram", "volume", "session" ]
+scale = 1.1000000089406967
+start = [ "workspaces", "media", "battery", "bluetooth" ]
+
+[control_center]
+sidebar = "full"
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "weather"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002" ]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 176.0
+    box_width = 2560.0
+    cx = 1280.0
+    cy = 1352.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
+        bands = 100
+        centered = false
+        color_1 = "shadow"
+        color_2 = "primary"
+        mirrored = false
+        reversed = false
+        show_when_idle = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 64.0
+    box_width = 272.0
+    cx = 1280.0
+    cy = 80.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = false
+        background_color = "surface"
+        background_opacity = 0.80000000000000004
+        background_padding = 10
+        background_radius = 12
+        center_text = true
+        circle = true
+        clock_style = "digital"
+        color = "on_surface"
+        font_family = ""
+        format = "{:%H:%M:%S}"
+        shadow = true
+        show_seconds = true
+        timezone = ""
+
+[dock]
+auto_hide = true
+background_opacity = 1.0
+
+[location]
+address = "San Miguel de Tucuman"
+auto_locate = true
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[notification]
+background_opacity = 1.0
+max_visible = 3
+
+[osd]
+background_opacity = 1.0
+
+[plugin_settings."noctalia/mpvpaper"]
+video_directory = "/home/ruiz/nixos/recursos/wallpaper"
+
+[plugins]
+enabled = [ "noctalia/wallpaper_depth" ]
+
+[shell]
+app_icon_color = "on_surface"
+avatar_path = "/home/ruiz/nixos/recursos/GoldenSlime.jpg"
+font_family = "DejaVu Sans"
+screen_time_enabled = true
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Nord Aurora"
+custom_palette = "stylix"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+[wallpaper]
+directory = "/home/ruiz/nixos/recursos/wallpaper"
+fill_mode = "fit"
+
+    [wallpaper.default]
+    path = "/home/ruiz/nixos/recursos/wallpaper/2u0w54h3ftfa1.png"
+
+    [wallpaper.last]
+    path = "/home/ruiz/nixos/recursos/wallpaper/2u0w54h3ftfa1.png"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/ruiz/nixos/recursos/wallpaper/2u0w54h3ftfa1.png"
+
+[widget.clock]
+format = "{:%H:%M:%S}"
+
+[widget.notifications]
+enabled = false
