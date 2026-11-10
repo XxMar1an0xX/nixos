@@ -33,10 +33,20 @@
             width = 1;
           };
         };
-        window-rule = {
-          geometry-corner-radius = 14;
-          clip-to-geometry = true;
-        };
+        window-rules = [
+          {
+            geometry-corner-radius = 14;
+            clip-to-geometry = true;
+            opacity = 0.9;
+            # matches = [{app-id = "^scratchpad-alacritty$";}];
+            excludes = [
+              {
+                # app-id = "librewolf";
+                title = ".*Invidious.*";
+              }
+            ];
+          }
+        ];
 
         binds = {
           #TODO: no funciona termflux con btop o nh
