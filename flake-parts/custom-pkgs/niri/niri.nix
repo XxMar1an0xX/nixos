@@ -37,8 +37,10 @@
           {
             geometry-corner-radius = 14;
             clip-to-geometry = true;
-            opacity = 0.9;
             # matches = [{app-id = "^scratchpad-alacritty$";}];
+          }
+          {
+            opacity = 0.9;
             excludes = [
               {
                 # app-id = "librewolf";
