@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  flake.homeModules.noctalia = {lib, ...}: {
+  flake.homeModules.noctalia = {
+    lib,
+    isLaptop,
+    ...
+  }: {
     programs.noctalia = {
       enable = true;
       # settings = lib.mkForce (lib.fromTOML (builtins.readFile ./../../../recursos/noctalia-config.toml));
@@ -40,68 +44,72 @@
           ];
           sidebar = "full";
         };
-        desktop_widgets = {
-          grid = {
-            cell_size = 16;
-            major_interval = 4;
-            visible = true;
-          };
-          schema_version = 2;
-          widget = {
-            desktop-widget-0000000000000001 = {
-              box_height = 176;
-              box_width = 2560;
-              cx = 1280;
-              cy = 1352;
-              output = "DP-1";
-              placement_height = 1440;
-              placement_width = 2560;
-              rotation = 0;
-              settings = {
-                background = false;
-                bands = 100;
-                centered = false;
-                color_1 = "shadow";
-                color_2 = "primary";
-                mirrored = false;
-                reversed = false;
-                show_when_idle = true;
-              };
-              type = "audio_visualizer";
+        desktop_widgets =
+          if !isLaptop
+          then {
+            grid = {
+              cell_size = 16;
+              major_interval = 4;
+              visible = true;
             };
-            desktop-widget-0000000000000002 = {
-              box_height = 64;
-              box_width = 272;
-              cx = 1280;
-              cy = 80;
-              output = "DP-1";
-              placement_height = 1440;
-              placement_width = 2560;
-              rotation = 0;
-              settings = {
-                background = false;
-                background_color = "surface";
-                background_opacity = 0.8;
-                background_padding = 10;
-                background_radius = 12;
-                center_text = true;
-                circle = true;
-                clock_style = "digital";
-                color = "on_surface";
-                font_family = "";
-                format = "{:%H:%M:%S}";
-                shadow = true;
-                show_seconds = true;
-                timezone = "";
+            schema_version = 2;
+            widget = {
+              desktop-widget-0000000000000001 = {
+                box_height = 176;
+                box_width = 2560;
+                cx = 1280;
+                cy = 1352;
+                output = "DP-1";
+                placement_height = 1440;
+                placement_width = 2560;
+                rotation = 0;
+                settings = {
+                  background = false;
+                  bands = 100;
+                  centered = false;
+                  color_1 = "shadow";
+                  color_2 = "primary";
+                  mirrored = false;
+                  reversed = false;
+                  show_when_idle = true;
+                };
+                type = "audio_visualizer";
               };
-              type = "clock";
+              desktop-widget-0000000000000002 = {
+                box_height = 64;
+                box_width = 272;
+                cx = 1280;
+                cy = 80;
+                output = "DP-1";
+                placement_height = 1440;
+                placement_width = 2560;
+                rotation = 0;
+                settings = {
+                  background = false;
+                  background_color = "surface";
+                  background_opacity = 0.8;
+                  background_padding = 10;
+                  background_radius = 12;
+                  center_text = true;
+                  circle = true;
+                  clock_style = "digital";
+                  color = "on_surface";
+                  font_family = "";
+                  format = "{:%H:%M:%S}";
+                  shadow = true;
+                  show_seconds = true;
+                  timezone = "";
+                };
+                type = "clock";
+              };
             };
-          };
-          widget_order = [
-            "desktop-widget-0000000000000001"
-            "desktop-widget-0000000000000002"
-          ];
-        };
+            widget_order = [
+              "desktop-widget-0000000000000001"
+              "desktop-widget-0000000000000002"
+            ];
+          }
+          else {};
+
         # dock = {
         #   auto_hide = true;
         #   background_opacity = 1.0;
@@ -159,7 +167,19 @@
           # "noctalia/mpvpaper" = {video_directory = "/home/ruiz/nixos/recursos/wallpaper";};
         };
         plugins = {
-          # enabled = ["noctalia/wallpaper_depth"];
+          enabled = [
+            "tordex/processes"
+            "omertahaoztop/vikunja"
+            "cleboost/hotspot"
+            "rylos/syncthing"
+            "knyrps/nix-search"
+            "mindnbytes/nix-status"
+            "dmopp/nixos-updates"
+            "andrewdems/printers"
+            "avivbintangaringga/nix-monitor"
+            "0rgl/localsend-plus"
+            "salemsayed/niri-active-workspace"
+          ];
         };
         shell = {
           app_icon_color = "on_surface";
