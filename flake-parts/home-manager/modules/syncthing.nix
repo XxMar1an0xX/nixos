@@ -2,7 +2,7 @@
   flake.homeModules.syncthing = {isLaptop ? false, ...}: {
     services.syncthing = {
       enable = true;
-      tray.enable = true;
+      tray.enable = false;
 
       settings = {
         devices =

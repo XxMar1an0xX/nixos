@@ -6,10 +6,12 @@
   flake.homeModules.noctalia = {
     lib,
     isLaptop,
+    pkgs,
     ...
   }: {
     programs.noctalia = {
       enable = true;
+      package = pkgs.noctalia;
       # settings = lib.mkForce (lib.fromTOML (builtins.readFile ./../../../recursos/noctalia-config.toml));
       settings = {
         audio = {enable_overdrive = true;};
@@ -168,7 +170,6 @@
         };
         plugins = {
           enabled = [
-            "tordex/processes"
             "omertahaoztop/vikunja"
             "cleboost/hotspot"
             "rylos/syncthing"
@@ -211,5 +212,20 @@
       };
       checkConfig = true;
     };
+    home.packages = with pkgs; [
+      # python3
+      # python3Packages.pillow
+      # python3Packages.numpy
+      # python3Packages.onnxruntime
+      # python3Packages.pip
+      # python3Packages.virtualenv
+      (pkgs.python3.withPackages (ps:
+        with ps; [
+          numpy
+          onnxruntime
+          pillow
+        ]))
+      iw
+    ];
   };
 }

@@ -51,7 +51,7 @@
         };
       };
     };
-    services.blueman.enable = true;
+    # services.blueman.enable = true;
 
     #NOTE: reemplazo de hardware nix
     boot = {
