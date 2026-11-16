@@ -114,7 +114,9 @@
             "ui.systemUsesDarkTheme" = 1;
 
             #NOTE: opciones de librewolf
-            "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+
+            # "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+            "privacy.clearOnShutdown.cookies" = false;
             #NOTE: opciones custom (?)
             "browser.startup.homepage" = "https://taskyruiz.duckdns.org";
             "browser.startup.page" = 1;
