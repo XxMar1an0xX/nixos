@@ -96,6 +96,12 @@
 
     #NOTE: efecto de fondo para terminal
     unimatrix.url = "github:will8211/unimatrix";
+
+    #NOTE: noctalia
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
+    };
   };
 
   outputs = inputs:

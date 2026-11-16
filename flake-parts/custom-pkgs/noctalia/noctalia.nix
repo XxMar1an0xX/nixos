@@ -6,12 +6,11 @@
   perSystem = {
     pkgs,
     lib,
-    isLaptop,
     ...
   }: {
     packages.noctalia = inputs.wrapper-modules.wrappers.noctalia.wrap {
       inherit pkgs;
-      package = pkgs.noctalia;
+      # package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
       settings = {
         audio = {enable_overdrive = true;};
         bar = {
