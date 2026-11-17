@@ -444,5 +444,9 @@
       localsend-controller
       zenity
     ];
+
+    home.sessionPath = [
+      "${localsend-controller}"
+    ];
   };
 }

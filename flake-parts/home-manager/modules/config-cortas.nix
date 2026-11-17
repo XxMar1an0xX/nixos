@@ -12,6 +12,11 @@
       yazi = {
         enable = true;
         shellWrapperName = "y";
+        plugins = {
+          mount = pkgs.yaziPlugins.mount;
+          jump-to-char = pkgs.yaziPlugins.jump-to-char;
+          bookmarks = pkgs.yaziPlugins.bookmarks;
+        };
         settings = {
           mgr = {
             scrolloff = 4;
@@ -21,21 +26,26 @@
             sort_dir_first = true;
             show_hidden = true;
           };
-          keymap.mgr = {
-            prepend_keymap = [
-              {
-                on = "!";
-                for = "unix";
-                run = ''shell "$SHELL" --block'';
-                desc = "Open $SHELL here";
-              }
-              {
-                on = ["c" "l"];
-                run = ''shell --block -- localsend %s || { printf "Press Enter to return to Yazi "; read -r _; }'';
-                desc = "Send with LocalSend Plus";
-              }
-            ];
-          };
+        };
+        keymap.mgr = {
+          prepend_keymap = [
+            {
+              on = "!";
+              for = "unix";
+              run = ''shell "$SHELL" --block'';
+              desc = "Open $SHELL here";
+            }
+            {
+              on = ["c" "l"];
+              run = ''shell --block -- localsend-controller send %s || { printf "Press Enter to return to Yazi "; read -r _; }'';
+              desc = "Send with LocalSend Plus";
+            }
+            {
+              on = ["M"];
+              run = "plugin mount";
+              desc = "Mount manager";
+            }
+          ];
         };
       };
       btop = {
