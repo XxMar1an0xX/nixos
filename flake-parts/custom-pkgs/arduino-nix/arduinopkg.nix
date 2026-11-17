@@ -19,7 +19,7 @@
         overlays = [
           inputs.arduino-nix.overlay
           (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_index.json"))
-          (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_rp2040_index.json"))
+          (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_stmicroelectronics_index.json"))
           (inputs.arduino-nix.mkArduinoPackageOverlay (inputs.arduino-index + "/index/package_esp32_index.json"))
           (inputs.arduino-nix.mkArduinoLibraryOverlay (inputs.arduino-index + "/index/library_index.json"))
           # inputs.rust-overlay.overlays.default
@@ -48,6 +48,7 @@
           #NOTE: es platforms.${packages_name}.${architecture}.${version}
           platforms.arduino.avr."1.8.8"
           platforms.esp32.esp32."3.3.11"
+          platforms.STMicroelectronics.stm32."3.1.0"
         ];
       };
 
