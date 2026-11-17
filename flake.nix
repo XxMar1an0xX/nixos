@@ -102,6 +102,15 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
     };
+    noctalia-official-plugins = {
+      url = "github:noctalia-dev/official-plugins";
+      flake = false;
+    };
+
+    noctalia-community-plugins = {
+      url = "github:noctalia-dev/community-plugins";
+      flake = false;
+    };
   };
 
   outputs = inputs:

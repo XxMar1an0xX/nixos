@@ -34,6 +34,7 @@
       })
       inputs.unimatrix.packages.${pkgs.stdenv.hostPlatform.system}.unimatrix
       pkgs.freerdp
+      # self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
     ];
     fonts.fontconfig.enable = true;
     home.sessionVariables = {
@@ -51,7 +52,7 @@
         */
         ''
           # Animation: starfield, matrix, fire, external, none
-                
+            
           animation = "external"
           external_command = "unimatrix -s 97 -a -o -i -l kgnnr -c cyan"
 
