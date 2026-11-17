@@ -8,7 +8,7 @@
       self.nixosModules.configPrincipal
       self.nixosModules.bootMenu
       self.nixosModules.SDDM
-      self.nixosModules.stylix
+      # self.nixosModules.stylix
       self.nixosModules.juegos
       self.nixosModules.hardwareTweaks
       self.nixosModules.esenciales

@@ -4,6 +4,7 @@
   ...
 }: {
   flake.homeModules.stylix = {config, ...}: {
+    imports = [inputs.stylix.homeModules.default];
     stylix.targets = {
       btop.enable = false;
       nixvim.enable = false;
