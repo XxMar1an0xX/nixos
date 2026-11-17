@@ -185,12 +185,30 @@
     security.polkit.enable = true;
 
     #NOTE: fuentes
-    fonts.packages = with pkgs; [
-      dejavu_fonts
-      nerd-fonts.symbols-only
-    ];
-    fonts.fontDir.enable = true;
+    fonts = {
+      packages = with pkgs; [
+        dejavu_fonts
+        nerd-fonts.symbols-only
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-color-emoji
 
+        liberation_ttf
+        dejavu_fonts
+        inter
+        jetbrains-mono
+      ];
+      fontDir.enable = true;
+      fontconfig = {
+        enable = true;
+        defaultFonts = {
+          serif = ["Noto Serif" "Liberation Serif"];
+          sansSerif = ["Inter" "Noto Sans"];
+          monospace = ["JetBrains Mono"];
+          emoji = ["Noto Color Emoji"];
+        };
+      };
+    };
     #NOTE: xdg portal
     xdg.portal = {
       enable = true;

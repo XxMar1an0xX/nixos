@@ -15,6 +15,15 @@
       gtk.enable = false;
       kitty = {
         enable = false;
+        colors = {
+          enable = false;
+          override = false;
+        };
+        # inputs = {
+        #   enable = false;
+        #   override = false;
+        # };
+        # opacity = {enable = false;};
         # variant256Colors = true;
       };
       cava = {

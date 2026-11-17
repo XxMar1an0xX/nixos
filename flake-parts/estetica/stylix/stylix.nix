@@ -17,8 +17,8 @@
       # self.homeModules.rofi
     ];
     stylix = {
-      enable = true;
-      autoEnable = true;
+      # enable = true;
+      # autoEnable = false;
 
       # package
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/sparky.yaml";
@@ -49,28 +49,29 @@
         package = pkgs.quintom-cursor-theme;
         name = "Quintom_Snow";
       };
-      image = ./../../../recursos/wallpaper/Wallpaper_Ultrakill.jpg;
-      imageScalingMode = "fill";
+      # image = ./../../../recursos/wallpaper/Wallpaper_Ultrakill.jpg;
+      # imageScalingMode = "fill";
       polarity = "dark";
       targets = {
         nixvim.enable = false;
         grub.enable = false;
+
         # hyprland = {
         #   enable = true;
         #   hyprpaper.enable = true;
         # };
-        font-packages = {enable = true;};
+        # font-packages = {enable = true;};
       };
 
-      fonts = {
-        serif = {
-          # package = pkgs.callPackage ./../custompkgs/hashtag.nix {
-          #   inherit pkgs;
-          #   inherit lib;
-          # };
-          # name = "hashtag";
-        };
-      };
+      # fonts = {
+      #   serif = {
+      #     # package = pkgs.callPackage ./../custompkgs/hashtag.nix {
+      #     #   inherit pkgs;
+      #     #   inherit lib;
+      #     # };
+      #     # name = "hashtag";
+      #   };
+      # };
     };
   };
 }

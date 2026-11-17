@@ -351,6 +351,22 @@
           mode = "dark";
           source = lib.mkForce "wallpaper";
           wallpaper_scheme = "m3-tonal-spot";
+          sync_color_scheme = true;
+          # terminal_colors = "palette";
+
+          templates = {
+            enable_builtin_templates = true;
+            enable_community_templates = true;
+
+            # Enable the templates you want.
+            builtin_ids = [
+              # "gtk"
+              # "qt6ct"
+              "kitty"
+            ];
+
+            community_ids = [];
+          };
         };
         wallpaper = lib.mkForce {
           default = {path = "/home/ruiz/nixos/recursos/wallpaper/2u0w54h3ftfa1.png";};
@@ -420,7 +436,11 @@
       in
         runCommand "python3-gtk-env" {
           nativeBuildInputs = [makeWrapper];
-        } ''
+        }
+        /*
+        bash
+        */
+        ''
           mkdir -p $out/bin
           makeWrapper ${myPython}/bin/python3 $out/bin/python3 \
               --prefix GI_TYPELIB_PATH : "${lib.makeSearchPath "lib/girepository-1.0" [
