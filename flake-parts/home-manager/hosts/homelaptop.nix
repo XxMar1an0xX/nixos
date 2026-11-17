@@ -28,36 +28,36 @@
           key = lib.mkForce "/var/lib/syncthing/laptop/key.pem";
         };
 
-        programs.noctalia.settings.desktop_widgets = lib.mkForce {
-          grid = {
-            cell_size = 16;
-            major_interval = 4;
-            visible = false;
-          };
-          schema_version = 2;
-          widget = {
-            desktop-widget-0000000000000001 = {
-              box_height = 169.328;
-              box_width = 1499.3;
-              cx = 769.136;
-              cy = 587.564;
-              output = "eDP-1";
-              placement_height = 864;
-              placement_width = 1536;
-              rotation = -0.039536;
-              settings = {
-                background = false;
-                bands = 32;
-                centered = false;
-                mirrored = true;
-                reversed = false;
-                show_when_idle = true;
-              };
-              type = "audio_visualizer";
-            };
-          };
-          widget_order = ["desktop-widget-0000000000000001"];
-        };
+        # programs.noctalia.settings.desktop_widgets = lib.mkForce {
+        #   grid = {
+        #     cell_size = 16;
+        #     major_interval = 4;
+        #     visible = false;
+        #   };
+        #   schema_version = 2;
+        #   widget = {
+        #     desktop-widget-0000000000000001 = {
+        #       box_height = 169.328;
+        #       box_width = 1499.3;
+        #       cx = 769.136;
+        #       cy = 587.564;
+        #       output = "eDP-1";
+        #       placement_height = 864;
+        #       placement_width = 1536;
+        #       rotation = -0.039536;
+        #       settings = {
+        #         background = false;
+        #         bands = 32;
+        #         centered = false;
+        #         mirrored = true;
+        #         reversed = false;
+        #         show_when_idle = true;
+        #       };
+        #       type = "audio_visualizer";
+        #     };
+        #   };
+        #   widget_order = ["desktop-widget-0000000000000001"];
+        # };
       }
     ];
   };

@@ -8,13 +8,39 @@
     isLaptop,
     pkgs,
     ...
-  }: {
+  }: let
+    localsend-controller = pkgs.rustPlatform.buildRustPackage {
+      pname = "localsend-controller";
+      version = "1.3.0";
+
+      src = "${inputs.noctalia-community-plugins}/localsend-plus/controller";
+
+      cargoLock = {
+        outputHashes = {
+          "localsend-0.1.0" = "sha256-Wyf90A+3p1OldQMgRV8BBjD/z56b+/i4YgzdTMdNf1c=";
+        };
+
+        lockFile = "${inputs.noctalia-community-plugins}/localsend-plus/controller/Cargo.lock";
+      };
+
+      nativeBuildInputs = with pkgs; [
+        pkg-config
+      ];
+
+      buildInputs = with pkgs; [
+        openssl
+      ];
+      cargoBuildFlags = ["--locked"];
+      doCheck = false;
+    };
+  in {
     imports = [
       inputs.noctalia.homeModules.default
     ];
     programs.noctalia = {
       enable = true;
       package = pkgs.noctalia;
+
       # package = self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia;
       # settings = lib.mkForce (lib.fromTOML (builtins.readFile ./../../../recursos/noctalia-config.toml));
       settings = {
@@ -62,26 +88,26 @@
             grid = {
               cell_size = 16;
               major_interval = 4;
-              visible = true;
+              visible = false;
             };
             schema_version = 2;
             widget = {
               desktop-widget-0000000000000001 = {
-                box_height = 176;
-                box_width = 2560;
-                cx = 1280;
-                cy = 1352;
-                output = "DP-1";
-                placement_height = 1440;
-                placement_width = 2560;
-                rotation = 0;
+                box_height = 169.328;
+                box_width = 1499.3;
+                cx = 768;
+                cy = 587.388;
+                output = "eDP-1";
+                placement_height = 864;
+                placement_width = 1536;
+                rotation = -0.039536;
                 settings = {
                   background = false;
-                  bands = 100;
+                  bands = 32;
                   centered = false;
-                  color_1 = "shadow";
-                  color_2 = "primary";
-                  mirrored = false;
+                  color_1 = "primary";
+                  color_2 = "shadow";
+                  mirrored = true;
                   reversed = false;
                   show_when_idle = true;
                 };
@@ -115,10 +141,7 @@
                 type = "clock";
               };
             };
-            widget_order = [
-              "desktop-widget-0000000000000001"
-              "desktop-widget-0000000000000002"
-            ];
+            widget_order = ["desktop-widget-0000000000000001"];
           }
           else {
             grid = {
@@ -280,6 +303,9 @@
             base_url = "https://taskyruiz.duckdns.org";
             manager_placement = "attached";
           };
+          "localsend-plus" = {
+            controller_path = "${localsend-controller}/bin/localsend-controller";
+          };
         };
         plugins = {
           enabled = [
@@ -415,6 +441,8 @@
             dejavu_fonts
           ]}"
         '')
+      localsend-controller
+      zenity
     ];
   };
 }
