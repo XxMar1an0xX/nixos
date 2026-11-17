@@ -14,6 +14,7 @@
     ];
     programs.noctalia = {
       enable = true;
+      package = pkgs.noctalia;
       # package = self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia;
       # settings = lib.mkForce (lib.fromTOML (builtins.readFile ./../../../recursos/noctalia-config.toml));
       settings = {
