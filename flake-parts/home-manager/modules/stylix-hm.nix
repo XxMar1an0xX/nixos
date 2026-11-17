@@ -12,8 +12,9 @@
       hyprland.enable = true;
       hyprland.hyprpaper.enable = true;
       rofi.enable = false;
+      gtk.enable = false;
       kitty = {
-        # enable = true;
+        enable = false;
         # variant256Colors = true;
       };
       cava = {

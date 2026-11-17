@@ -22,12 +22,19 @@
             show_hidden = true;
           };
           keymap.mgr = {
-            prepend_keymap = {
-              on = "!";
-              for = "unix";
-              run = ''shell "$SHELL" --block'';
-              desc = "Open $SHELL here";
-            };
+            prepend_keymap = [
+              {
+                on = "!";
+                for = "unix";
+                run = ''shell "$SHELL" --block'';
+                desc = "Open $SHELL here";
+              }
+              {
+                on = ["c" "l"];
+                run = ''shell --block -- localsend %s || { printf "Press Enter to return to Yazi "; read -r _; }'';
+                desc = "Send with LocalSend Plus";
+              }
+            ];
           };
         };
       };
