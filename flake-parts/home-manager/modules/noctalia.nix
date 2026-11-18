@@ -341,7 +341,7 @@
         shell = {
           app_icon_color = "on_surface";
           avatar_path = "/home/ruiz/nixos/recursos/GoldenSlime.jpg";
-          font_family = "DejaVu Sans";
+          font_family = "Noto Serif";
           screen_time_enabled = true;
         };
         theme = {
@@ -360,7 +360,7 @@
 
             # Enable the templates you want.
             builtin_ids = [
-              # "gtk"
+              "gtk"
               # "qt6ct"
               "kitty"
             ];
@@ -416,6 +416,7 @@
       # python3Packages.numpy
       # python3Packages.onnxruntime
       # python3Packages.pip
+      dejavu_fonts
       gtk3
       gobject-introspection
       adwaita-icon-theme

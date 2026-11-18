@@ -13,7 +13,7 @@
       self.nixosModules.configLaptop
       self.nixosModules.bootMenu
       self.nixosModules.SDDM
-      self.nixosModules.stylix
+      # self.nixosModules.stylix
       self.nixosModules.juegos
       self.nixosModules.laptopTweaks
       self.nixosModules.hardwareTweaks

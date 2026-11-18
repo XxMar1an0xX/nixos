@@ -186,15 +186,16 @@
 
     #NOTE: fuentes
     fonts = {
+      enableDefaultFonts = true;
       packages = with pkgs; [
         dejavu_fonts
         nerd-fonts.symbols-only
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-color-emoji
+        corefonts
 
         liberation_ttf
-        dejavu_fonts
         inter
         jetbrains-mono
       ];
