@@ -45,9 +45,6 @@
       cursor = {
         # name = "Nordzy-hyprcursors";
         # package = pkgs.nordzy-cursor-theme;
-        size = 25;
-        package = pkgs.quintom-cursor-theme;
-        name = "Quintom_Snow";
       };
       # image = ./../../../recursos/wallpaper/Wallpaper_Ultrakill.jpg;
       # imageScalingMode = "fill";

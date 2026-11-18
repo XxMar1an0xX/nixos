@@ -18,6 +18,11 @@
           "polkit-gnome-authentication-agent-1"
         ];
 
+        cursor = {
+          xcursor-theme = "Quintom_Snow";
+          xcursor-size = 24;
+        };
+
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
         input.keyboard = {

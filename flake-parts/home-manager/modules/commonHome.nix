@@ -52,7 +52,7 @@
         */
         ''
           # Animation: starfield, matrix, fire, external, none
-            
+              
           animation = "external"
           external_command = "unimatrix -s 97 -a -o -i -l kgnnr -c cyan"
 
@@ -84,6 +84,14 @@
         prompt = "   Search...";
       };
       style = builtins.readFile ./../../../recursos/wofi.css;
+    };
+    home.pointerCursor = {
+      enable = true;
+      size = 25;
+      package = pkgs.quintom-cursor-theme;
+      name = "Quintom_Snow";
+      gtk.enable = true;
+      x11.enable = true;
     };
   };
 }
