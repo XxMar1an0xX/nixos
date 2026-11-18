@@ -287,6 +287,9 @@
         osd = {background_opacity = 1.0;};
         plugin_settings = {
           "andrewdems/printers" = {show_when_idle = true;};
+          "dmopp/nixos-updates" = {
+            flake_dir = "/home/ruiz/nixos";
+          };
           "cleboost/hotspot" = {
             autostart = false;
             panel_position = "auto";
