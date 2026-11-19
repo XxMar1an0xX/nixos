@@ -13,7 +13,7 @@
       inherit pkgs; # THIS PART IS VERY IMPORTAINT, I FORGOT IT IN THE VIDEO!!!
       extraSettings = [
         # If `include optional=true "~/some/impure/path"` is not valid in your version of niri, you may want to use their flake!
-        {include = [{optional = true;} "~/.config/niri/config.kdl"];}
+        {include = [{optional = true;} "~/.config/niri/noctalia.kdl"];}
       ];
       settings = {
         prefer-no-csd = true;
