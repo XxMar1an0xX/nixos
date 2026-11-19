@@ -364,6 +364,7 @@
             # Enable the templates you want.
             builtin_ids = [
               "gtk"
+              "niri"
               # "qt6ct"
               "kitty"
             ];
