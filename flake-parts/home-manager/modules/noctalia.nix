@@ -307,14 +307,14 @@
             manager_placement = "attached";
           };
           "localsend-plus" = {
-            controller_path = "${localsend-controller}/bin/localsend-controller";
             alias =
-              "Nixos"
+              "Nixos "
               + (
                 if isLaptop
                 then "Laptop"
                 else "PC"
               );
+            controller_path = "${localsend-controller}/bin/localsend-controller";
           };
         };
         plugins = {
