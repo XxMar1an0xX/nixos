@@ -186,7 +186,6 @@
 
     #NOTE: fuentes
     fonts = {
-      enableDefaultFonts = true;
       packages = with pkgs; [
         dejavu_fonts
         nerd-fonts.symbols-only
