@@ -42,7 +42,7 @@
           cd $HOME/Documentos/ProgramacionMassa2026
           export ARDUINO="$HOME/Documentos/ProgramacionMassa2026"
         '';
-      #TODO: se necesita agregar '--board-options FlashMode=dio' o 'esp32:esp32:esp32:FlashMode=dio' para que ande
+      #NOTE: se necesita agregar '--board-options FlashMode=dio' o 'esp32:esp32:esp32:FlashMode=dio' para que ande
     };
   };
 }

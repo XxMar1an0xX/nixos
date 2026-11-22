@@ -62,7 +62,7 @@
           # "youtube.com"
           # "www.youtube.com"
           "inv.nadeko.net"
-          "www.reddit.com"
+          # "www.reddit.com"
           "olympusxyz.com"
         ];
       };

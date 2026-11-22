@@ -44,6 +44,7 @@
           # };
 
           binEntry.enable = true;
+          enableExternalAssets = true;
         };
         instances = {
           minecraft = {

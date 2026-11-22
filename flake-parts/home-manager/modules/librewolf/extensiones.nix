@@ -40,7 +40,6 @@
           vimium
           # untrap-for-youtube
           # dearrow
-          #TODO: configurar estos
           keepassxc-browser
           libredirect
         ];

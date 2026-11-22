@@ -152,8 +152,6 @@
           "Mod+Next".spawn-sh = "playerctl next";
           "Mod+Prior".spawn-sh = "playerctl previous";
           "Mod+Space".spawn-sh = "playerctl play-pause";
-
-          #TODO: configurar captura de pantalla
         };
 
         workspaces = let

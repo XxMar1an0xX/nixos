@@ -148,7 +148,6 @@
               "car" = "";
               "default" = ["" "" ""];
             };
-            # "on-click" = "pavucontrol"; #TODO: hacer herramienta parecida
           };
 
           "custom/wifi" = {

@@ -16,7 +16,6 @@
         gcc
         # cargo
         # rustc
-        # clipse #TODO: compartir el clipboard entre sistema y editor
         lldb
         fzf
         # git
