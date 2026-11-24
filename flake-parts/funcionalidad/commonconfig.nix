@@ -91,7 +91,32 @@
     # Enable CUPS to print documents.
     services.printing = {
       enable = true;
-      drivers = with pkgs; [epson-escpr epson-escpr2];
+      drivers = with pkgs; [
+        epson-escpr
+        epson-escpr2
+        foo2zjs
+        gutenprint
+        gutenprintBin
+        hplip
+        hplipWithPlugin
+        splix
+        brlaser
+        brgenml1lpr
+        brgenml1cupswrapper
+        postscript-lexmark
+        samsung-unified-linux-driver
+        cnijfilter2
+        cups-brother-hll2350dw
+        cups-brother-hll2375dw
+        cups-brother-hll3230cdw
+        cups-brother-mfcl2710dw
+        cups-brother-mfcl2750dw
+        cups-brother-mfcl2800dw
+        cups-dymo
+        cups-bjnp
+        cups-browsed
+        lexmark-aex
+      ];
       openFirewall = true;
       # extraConf = ''
       # '';
