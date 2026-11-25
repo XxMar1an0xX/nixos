@@ -106,6 +106,11 @@
             "keyColor" = "green";
           }
           {
+            "type" = "disk";
+            "key" = "│ ├󰋊";
+            "keyColor" = "green";
+          }
+          {
             "type" = "swap";
             "key" = "│ ├󰓡";
             "keyColor" = "green";
@@ -122,7 +127,7 @@
           }
           {
             "type" = "sound";
-            "key" = " AUDIO";
+            "key" = "󰋋 AUDIO";
             "format" = "{2}";
             "keyColor" = "magenta";
           }
