@@ -16,6 +16,7 @@
           mount = pkgs.yaziPlugins.mount;
           jump-to-char = pkgs.yaziPlugins.jump-to-char;
           bookmarks = pkgs.yaziPlugins.bookmarks;
+          motions = pkgs.yaziPlugins.relative-motions;
         };
         settings = {
           mgr = {
