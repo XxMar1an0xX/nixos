@@ -98,7 +98,6 @@
             "type" = "display";
             "key" = "│ ├󰍹";
             "keyColor" = "green";
-            "compactType" = "original-with-refresh-rate";
           }
           {
             "type" = "memory";
@@ -118,11 +117,6 @@
           {
             "type" = "uptime";
             "key" = "│ ├󰅐";
-            "keyColor" = "green";
-          }
-          {
-            "type" = "display";
-            "key" = "│ └󰍹";
             "keyColor" = "green";
           }
           {
