@@ -34,6 +34,8 @@
       })
       inputs.unimatrix.packages.${pkgs.stdenv.hostPlatform.system}.unimatrix
       pkgs.freerdp
+      # inputs.yazi-service.packages.${pkgs.stdenv.hostPlatform.system}.default
+
       # self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
     ];
     fonts.fontconfig.enable = true;
@@ -52,7 +54,7 @@
         */
         ''
           # Animation: starfield, matrix, fire, external, none
-                
+              
           animation = "external"
           external_command = "unimatrix -s 97 -a -o -i -l kgnnr -c cyan"
 
@@ -88,6 +90,11 @@
           env=TERMCMD=${pkgs.kitty}/bin/kitty
         '';
       };
+      # dataFile."dbus-1/services/org.freedesktop.FileManager1.service".text = ''
+      #   [D-BUS Service]
+      #   Name=org.freedesktop.FileManager1
+      #   Exec=${inputs.yazi-service.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/yazi-service
+      # '';
       mimeApps = {
         enable = true;
         defaultApplications = {

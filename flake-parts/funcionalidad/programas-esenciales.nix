@@ -41,8 +41,6 @@
       #NOTE: para el web scrape
       chromedriver
       geckodriver
-
-      nautilus
     ];
     # ++ CondicionalPortable [] [jamesdsp];
 

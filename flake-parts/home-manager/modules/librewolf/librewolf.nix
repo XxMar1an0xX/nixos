@@ -117,11 +117,13 @@
 
             # "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
             "privacy.clearOnShutdown.cookies" = false;
+
             #NOTE: opciones custom (?)
             "browser.startup.homepage" = "https://taskyruiz.duckdns.org";
             "browser.startup.page" = 1;
             "signon.rememberSignons" = false;
             "browser.translations.enable" = false;
+            "widget.use-xdg-desktop-portal.open-uri" = 0; #para yazi intergration
           };
           # extraConfig = ''
           #   user_pref("extensions.autoDisableScopes", 0);

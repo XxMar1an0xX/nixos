@@ -9,19 +9,24 @@
     isLaptop ? false,
     ...
   }: {
-    environment.systemPackages = with pkgs; [
-      # hyprpolkitagent
-      alejandra
-      xdg-desktop-portal-termfilechooser
-      polkit_gnome
-      herdr
-      parabolic
-      usbutils
-      picocom
-      minicom
-      mpvpaper
-      yazi
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        # hyprpolkitagent
+        alejandra
+        xdg-desktop-portal-termfilechooser
+        polkit_gnome
+        herdr
+        parabolic
+        usbutils
+        picocom
+        minicom
+        mpvpaper
+        yazi
+        xdg-terminal-exec
+      ]
+      ++ [
+        inputs.yazi-service.packages.${pkgs.stdenv.hostPlatform.system}.default
+      ];
 
     services.udev.extraRules = ''
       SUBSYSTEM=="tty", KERNEL=="ttyUSB*", MODE="0660", GROUP="dialout"
@@ -163,9 +168,13 @@
       enable = true;
       package = pkgs.pass-secret-service;
     };
-    services.dbus.packages = with pkgs; [
-      pass-secret-service
-    ];
+    services.dbus.packages = with pkgs;
+      [
+        pass-secret-service
+      ]
+      ++ [
+        # inputs.yazi-service.packages.${pkgs.stdenv.hostPlatform.system}.default
+      ];
 
     #NOTE: usuario
     users.users.ruiz = {

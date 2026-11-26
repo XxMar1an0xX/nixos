@@ -125,6 +125,7 @@
       url = "github:walldmtd/fs-usage.yazi";
       flake = false;
     };
+    yazi-service.url = "github:aouerf/yazi-service";
   };
 
   outputs = inputs:
