@@ -20,6 +20,7 @@
       picocom
       minicom
       mpvpaper
+      yazi
     ];
 
     services.udev.extraRules = ''
@@ -237,38 +238,38 @@
       };
     };
     #NOTE: xdg portal
-    xdg.portal = {
-      enable = true;
-      wlr.enable = true;
-      extraPortals = with pkgs; [
-        # xdg-desktop-portal-wlr
-        # xdg-desktop-portal-luminous
-        # xdg-desktop-portal-hyprland
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-termfilechooser
-      ];
+    xdg = {
+      portal = {
+        enable = true;
+        wlr.enable = true;
+        extraPortals = with pkgs; [
+          # xdg-desktop-portal-wlr
+          # xdg-desktop-portal-luminous
+          # xdg-desktop-portal-hyprland
+          xdg-desktop-portal-wlr
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-gnome
+          xdg-desktop-portal-termfilechooser
+        ];
 
-      config = {
-        niri = lib.mkForce {
-          default = [
-            # "kde"
-            # "gnome"
-            "gtk"
-          ];
-          "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
+        config = {
+          niri = {
+            # default = [
+            #   "gtk"
+            # ];
+            "org.freedesktop.impl.portal.FileChooser" = lib.mkForce ["termfilechooser"];
+          };
+          common = {
+            "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+            default = [
+              "wlr"
+              "gtk"
+            ];
+          };
         };
-        common = {
-          "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
-          default = [
-            "wlr"
-            "gtk"
-          ];
-        };
+        xdgOpenUsePortal = true;
+        # config = {};
       };
-      xdgOpenUsePortal = true;
-      # config = {};
     };
     environment.etc."xdg-desktop-portal/portals.conf".text = ''
       [preferred]

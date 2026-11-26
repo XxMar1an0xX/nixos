@@ -40,7 +40,6 @@
     home.sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "librewolf";
-      TERMCMD = "kitty --class=file_chooser";
       TERMINAL = "kitty";
     };
     programs.home-manager.enable = true;
@@ -53,7 +52,7 @@
         */
         ''
           # Animation: starfield, matrix, fire, external, none
-            
+                
           animation = "external"
           external_command = "unimatrix -s 97 -a -o -i -l kgnnr -c cyan"
 
@@ -83,13 +82,10 @@
       };
       configFile."xdg-desktop-portal-termfilechooser/config" = {
         enable = true;
-        # force = true;
         text = ''
           [filechooser]
           cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
-          default_dir=$HOME/Downloads
-          open_mode=suggested
-          save_mode=last
+          env=TERMCMD=${pkgs.kitty}/bin/kitty
         '';
       };
       mimeApps = {
@@ -97,9 +93,6 @@
         defaultApplications = {
           "inode/directory" = ["yazi.desktop"];
         };
-        # associations.added = {
-        #   "inode/directory" = ["yazi.desktop"];
-        # };
       };
     };
 
