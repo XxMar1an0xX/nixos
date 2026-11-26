@@ -411,6 +411,22 @@
         "type": "github"
       }
     },
+    "fs-usage": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787460906,
+        "narHash": "sha256-Y33Qi0jQjvNfvbP+6lqTP4f94Wzy8RQJjlMfCoHNM9Y=",
+        "owner": "walldmtd",
+        "repo": "fs-usage.yazi",
+        "rev": "1b420837c66499d5745fb2ea9d06b13e91f2ca3f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "walldmtd",
+        "repo": "fs-usage.yazi",
+        "type": "github"
+      }
+    },
     "ghostty": {
       "flake": false,
       "locked": {
@@ -856,6 +872,22 @@
       "original": {
         "owner": "denful",
         "repo": "import-tree",
+        "type": "github"
+      }
+    },
+    "lsblk-mount": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786716503,
+        "narHash": "sha256-HjIDBe2lG9w+tRalfdYIwOK2kRuVPFDPq37HqEdM7UQ=",
+        "owner": "PHONE1X",
+        "repo": "lsblk-mount.yazi",
+        "rev": "73e863ff4f0102e0ef6950f14163f0a4963f1cb4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PHONE1X",
+        "repo": "lsblk-mount.yazi",
         "type": "github"
       }
     },
@@ -1466,10 +1498,12 @@
         "disko": "disko",
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts_2",
+        "fs-usage": "fs-usage",
         "home-manager": "home-manager",
         "home-manager-droid": "home-manager-droid",
         "hyprland": "hyprland",
         "import-tree": "import-tree",
+        "lsblk-mount": "lsblk-mount",
         "nix-flatpak": "nix-flatpak",
         "nix-on-droid": "nix-on-droid",
         "nixcraft": "nixcraft",
@@ -1485,6 +1519,7 @@
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "unimatrix": "unimatrix",
+        "what-size": "what-size",
         "winapps": "winapps",
         "wrapper-modules": "wrapper-modules",
         "zen-browser": "zen-browser"
@@ -1780,6 +1815,22 @@
       "original": {
         "owner": "will8211",
         "repo": "unimatrix",
+        "type": "github"
+      }
+    },
+    "what-size": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788384853,
+        "narHash": "sha256-lhanC44L4haM7cgqCOhfxk0Rpi/FueBgIdXDiXuzevc=",
+        "owner": "pirafrank",
+        "repo": "what-size.yazi",
+        "rev": "1cb456f8c428a393a65708b45b8c56404d52f326",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pirafrank",
+        "repo": "what-size.yazi",
         "type": "github"
       }
     },

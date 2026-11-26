@@ -111,6 +111,20 @@
       url = "github:noctalia-dev/community-plugins";
       flake = false;
     };
+
+    #NOTE: yazi plugins
+    what-size = {
+      url = "github:pirafrank/what-size.yazi";
+      flake = false;
+    };
+    lsblk-mount = {
+      url = "github:PHONE1X/lsblk-mount.yazi";
+      flake = false;
+    };
+    fs-usage = {
+      url = "github:walldmtd/fs-usage.yazi";
+      flake = false;
+    };
   };
 
   outputs = inputs:

@@ -13,10 +13,13 @@
         enable = true;
         shellWrapperName = "y";
         plugins = {
-          mount = pkgs.yaziPlugins.mount;
+          # mount = pkgs.yaziPlugins.mount;
           jump-to-char = pkgs.yaziPlugins.jump-to-char;
-          bookmarks = pkgs.yaziPlugins.bookmarks;
-          motions = pkgs.yaziPlugins.relative-motions;
+          # bookmarks = pkgs.yaziPlugins.bookmarks;
+          # motions = pkgs.yaziPlugins.relative-motions;
+          what-size = inputs.what-size;
+          lsblk-mount = inputs.lsblk-mount;
+          fs-usage = inputs.fs-usage;
         };
         settings = {
           mgr = {
@@ -43,11 +46,37 @@
             }
             {
               on = ["M"];
-              run = "plugin mount";
+              run = "plugin lsblk-mount";
               desc = "Mount manager";
+            }
+            {
+              on = ["." "s"];
+              run = "plugin what-size";
+              desc = "Calculate size of selection or directory";
+            }
+            {
+              on = ["F"];
+              run = "plugin jump-to-char";
+              desc = "jump to character";
             }
           ];
         };
+        initLua =
+          /*
+          lua
+          */
+          ''
+            require("fs-usage"):setup({
+                    position = {
+                            parent = "Header",
+                            align = "RIGHT",
+                            order = 2000,
+                    },
+                    format = "both",
+                    bar = true,
+                    warning_threshold = -1,
+            })
+          '';
       };
       btop = {
         enable = true;
