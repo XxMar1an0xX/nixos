@@ -4,7 +4,7 @@
   ...
 }: {
   flake.nixosModules.commonconfig = {
-    config,
+    lib,
     pkgs,
     isLaptop ? false,
     ...
@@ -12,6 +12,7 @@
     environment.systemPackages = with pkgs; [
       # hyprpolkitagent
       alejandra
+      xdg-desktop-portal-termfilechooser
       polkit_gnome
       herdr
       parabolic
@@ -205,6 +206,7 @@
     programs.niri = {
       enable = true;
       package = self.packages."${pkgs.stdenv.hostPlatform.system}".niri;
+      useNautilus = false;
     };
     services.gnome.gnome-keyring.enable = true;
     security.polkit.enable = true;
@@ -245,12 +247,26 @@
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
+        xdg-desktop-portal-termfilechooser
       ];
 
-      config.common.default = [
-        "wlr"
-        "gtk"
-      ];
+      config = {
+        niri = lib.mkForce {
+          default = [
+            # "kde"
+            # "gnome"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
+        };
+        common = {
+          "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+          default = [
+            "wlr"
+            "gtk"
+          ];
+        };
+      };
       xdgOpenUsePortal = true;
       # config = {};
     };

@@ -40,19 +40,20 @@
     home.sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "librewolf";
+      TERMCMD = "kitty --class=file_chooser";
       TERMINAL = "kitty";
     };
     programs.home-manager.enable = true;
 
     home.file = {
-      ".config/mimeapps.list".text = ''[ Default Applications ] inode/directory= thunar/desktop '';
+      # ".config/mimeapps.list".text = ''[ Default Applications ] inode/directory= thunar/desktop '';
       ".config/termflux/config.toml".text =
         /*
         toml
         */
         ''
           # Animation: starfield, matrix, fire, external, none
-              
+            
           animation = "external"
           external_command = "unimatrix -s 97 -a -o -i -l kgnnr -c cyan"
 
@@ -70,6 +71,38 @@
           disable_animation_alt_screen = true
         '';
     };
+
+    xdg = {
+      terminal-exec = {
+        enable = true;
+        settings = {
+          default = [
+            "kitty.desktop"
+          ];
+        };
+      };
+      configFile."xdg-desktop-portal-termfilechooser/config" = {
+        enable = true;
+        # force = true;
+        text = ''
+          [filechooser]
+          cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+          default_dir=$HOME/Downloads
+          open_mode=suggested
+          save_mode=last
+        '';
+      };
+      mimeApps = {
+        enable = true;
+        defaultApplications = {
+          "inode/directory" = ["yazi.desktop"];
+        };
+        # associations.added = {
+        #   "inode/directory" = ["yazi.desktop"];
+        # };
+      };
+    };
+
     programs.wofi = {
       enable = true;
       settings = {
@@ -82,6 +115,7 @@
         insensitive = true;
         image_size = 40;
         prompt = "   Search...";
+        term = "kitty";
       };
       style = builtins.readFile ./../../../recursos/wofi.css;
     };
