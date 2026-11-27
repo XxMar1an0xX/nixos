@@ -17,7 +17,7 @@
 
       cargoLock = {
         outputHashes = {
-          "localsend-0.1.0" = "sha256-Wyf90A+3p1OldQMgRV8BBjD/z56b+/i4YgzdTMdNf1c=";
+          "localsend-0.1.0" = "sha256-jRTemsKKUpYMArK0tvdNk/qVZ0f/di0z+EPKRH0P36M=";
         };
 
         lockFile = "${inputs.noctalia-community-plugins}/localsend-plus/controller/Cargo.lock";
