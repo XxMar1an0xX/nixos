@@ -23,6 +23,7 @@
         mpvpaper
         yazi
         xdg-terminal-exec
+        exiftool
       ]
       ++ [
         inputs.yazi-service.packages.${pkgs.stdenv.hostPlatform.system}.default

@@ -20,6 +20,7 @@
           what-size = inputs.what-size;
           lsblk-mount = inputs.lsblk-mount;
           fs-usage = inputs.fs-usage;
+          # yazi-ssh = inputs.yazi-ssh;
         };
         settings = {
           mgr = {
@@ -58,6 +59,11 @@
               on = ["F"];
               run = "plugin jump-to-char";
               desc = "jump to character";
+            }
+            {
+              on = ["g" "r"];
+              run = "cd /";
+              desc = "go to root";
             }
           ];
         };
