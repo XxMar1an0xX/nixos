@@ -111,6 +111,11 @@
       url = "github:noctalia-dev/community-plugins";
       flake = false;
     };
+    #NOTE: termflux
+    termflux = {
+      url = "github:tndoan/termflux";
+      flake = false;
+    };
 
     #NOTE: yazi plugins
     what-size = {
@@ -125,6 +130,11 @@
       url = "github:walldmtd/fs-usage.yazi";
       flake = false;
     };
+    yazi-ssh = {
+      url = "github:affromero/yazi-ssh.yazi";
+      flake = false;
+    };
+
     yazi-service.url = "github:aouerf/yazi-service";
   };
 

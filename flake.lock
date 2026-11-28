@@ -1565,11 +1565,13 @@
         "silentSDDM": "silentSDDM",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
+        "termflux": "termflux",
         "unimatrix": "unimatrix",
         "what-size": "what-size",
         "winapps": "winapps",
         "wrapper-modules": "wrapper-modules",
         "yazi-service": "yazi-service",
+        "yazi-ssh": "yazi-ssh",
         "zen-browser": "zen-browser"
       }
     },
@@ -1759,6 +1761,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "termflux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772032081,
+        "narHash": "sha256-1X8o9icPOZRdEiBpDa342GG+s3dplvolM5lSybEcKY4=",
+        "owner": "tndoan",
+        "repo": "termflux",
+        "rev": "fe97b9f4907514bc622f27b749bbaedf988e3bb1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tndoan",
+        "repo": "termflux",
         "type": "github"
       }
     },
@@ -2014,6 +2032,22 @@
       "original": {
         "owner": "aouerf",
         "repo": "yazi-service",
+        "type": "github"
+      }
+    },
+    "yazi-ssh": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788963607,
+        "narHash": "sha256-s6uMXzSsFb3zMGGM/gD4gNpBExWVB7mPFzqt7S0H1O0=",
+        "owner": "affromero",
+        "repo": "yazi-ssh.yazi",
+        "rev": "63e150d12505df7d37f0928cd468c36ee6d53052",
+        "type": "github"
+      },
+      "original": {
+        "owner": "affromero",
+        "repo": "yazi-ssh.yazi",
         "type": "github"
       }
     },

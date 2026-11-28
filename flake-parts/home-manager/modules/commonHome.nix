@@ -23,14 +23,9 @@
         pname = "termflux";
         version = "0.2.0";
 
-        src = pkgs.fetchFromGitHub {
-          owner = "tndoan";
-          repo = "termflux";
-          rev = "v0.2.0";
-          hash = "sha256-2LLLLSpLfSatw2HzMutInlGFHU3K/WW644ss/+zlMvg=";
-        };
+        src = inputs.termflux;
 
-        cargoHash = "sha256-ASS47ZXMw4FMFbxcqS9VIXQ2Y4niEK/DRCmg1qWbgTY=";
+        cargoLock.lockFile = "${inputs.termflux}/Cargo.lock";
       })
       inputs.unimatrix.packages.${pkgs.stdenv.hostPlatform.system}.unimatrix
       pkgs.freerdp
@@ -54,7 +49,7 @@
         */
         ''
           # Animation: starfield, matrix, fire, external, none
-              
+            
           animation = "external"
           external_command = "unimatrix -s 97 -a -o -i -l kgnnr -c cyan"
 
