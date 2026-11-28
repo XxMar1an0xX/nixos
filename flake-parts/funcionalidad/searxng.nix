@@ -13,6 +13,7 @@
       enable = true;
       # redisCreateLocally = true;
       # openFirewall = true;
+
       settings = {
         server = {
           bind_address = "127.0.0.1";
@@ -35,6 +36,16 @@
           safe_search = 0;
           default_lang = "all";
         };
+        engines = [
+          {
+            name = "brave";
+            disabled = true;
+          }
+          {
+            name = "brave.news";
+            disabled = true;
+          }
+        ];
         plugins = {
           "searx.plugins.calculator.SXNGPlugin".active = true;
           "searx.plugins.infinite_scroll.SXNGPlugin".active = true;

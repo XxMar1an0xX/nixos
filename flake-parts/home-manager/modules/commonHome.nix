@@ -49,9 +49,9 @@
         */
         ''
           # Animation: starfield, matrix, fire, external, none
-            
+                
           animation = "external"
-          external_command = "unimatrix -s 97 -a -o -i -l kgnnr -c cyan"
+          external_command = "unimatrix -s 97 -a -o -i -l kgnnr -c red"
 
 
           # Animation opacity (0.0 - 1.0)
